@@ -1,38 +1,3 @@
 <h2>Sign Up</h2>
 
-<form class="form-horizontal" {{action "signUp" model on="submit"}}>
-  <div class="form-group">
-    <label for="email">Email</label>
-    {{input type="email"
-            class="form-control"
-            id="email"
-            placeholder="Email"
-            value=model.email}}
-  </div>
-
-  <div class="form-group">
-    <label for="password">Password</label>
-    {{input type="password"
-            class="form-control"
-            id="password"
-            placeholder="Password"
-            value=model.password}}
-  </div>
-
-  <div class="form-group">
-    <label for="password-confirmation">Password Confirmation</label>
-    {{input type="password"
-            class="form-control"
-            id="password-confirmation"
-            placeholder="Password Confirmation"
-            value=model.passwordConfirmation}}
-  </div>
-
-  <button type="submit" class="btn btn-primary">
-    Sign Up
-  </button>
-
-  <button class="btn btn-default" {{action "reset"}}>
-    Cancel
-  </button>
-</form>
+{{sign-up-form submit="signUp"}}

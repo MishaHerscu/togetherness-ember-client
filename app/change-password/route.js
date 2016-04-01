@@ -5,13 +5,16 @@ export default Ember.Route.extend({
   flashMessages: Ember.inject.service(),
 
   actions: {
-    signUp (credentials) {
-      this.get('auth').signUp(credentials)
-      .then(() => this.get('auth').signIn(credentials))
-      .then(() => this.transitionTo('application'))
+    changePassword (passwords) {
+      this.get('auth').changePassword(passwords)
+      .then(() => this.get('auth').signOut())
+      .then(() => this.transitionTo('sign-in'))
       .then(() => {
         this.get('flashMessages')
-        .success('Successfully signed-up! You have also been signed-in.');
+        .success('Successfully changed your password!');
+      })
+      .then(() => {
+        this.get('flashMessages').warning('You have been signed out.');
       })
       .catch(() => {
         this.get('flashMessages')

@@ -1,9 +1,8 @@
 import Ember from 'ember';
-import ActiveModelAdapter from 'active-model-adapter';
+import AjaxService from 'ember-ajax/services/ajax';
 
-export default ActiveModelAdapter.extend({
+export default AjaxService.extend({
   auth: Ember.inject.service(),
-
   headers: Ember.computed('auth.credentials.token', {
     get() {
       let headers = {};
