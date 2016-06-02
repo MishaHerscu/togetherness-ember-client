@@ -13,7 +13,7 @@ export default Ember.Service.extend({
           email: credentials.email,
           password: credentials.password,
           password_confirmation: credentials.passwordConfirmation,
-        }
+        },
       },
     });
   },
@@ -24,7 +24,7 @@ export default Ember.Service.extend({
         credentials: {
           email: credentials.email,
           password: credentials.password,
-        }
+        },
       },
     })
     .then((result) => {
@@ -40,7 +40,7 @@ export default Ember.Service.extend({
         passwords: {
           old: passwords.previous,
           new: passwords.next,
-        }
+        },
       },
     });
   },

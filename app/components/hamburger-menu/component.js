@@ -6,9 +6,9 @@ export default Ember.Component.extend({
   attributeBindings: [
     'toggle:data-toggle',
     'target:data-target',
-    'expanded:aria-expanded'
+    'expanded:aria-expanded',
   ],
-  toggle: "collapse",
-  target: "#navigation",
+  toggle: 'collapse',
+  target: '#navigation',
   expanded: false,
 });
