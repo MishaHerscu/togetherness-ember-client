@@ -1,20 +1,20 @@
 import Ember from 'ember';
-import TextFieldInitializer from 'ember-auth/initializers/text-field';
+import TextFieldInitializer from 'ga-wdi-boston.ember-auth/initializers/text-field';
 import { module, test } from 'qunit';
 
 let application;
 
 module('Unit | Initializer | text field', {
-  beforeEach() {
-    Ember.run(function() {
+  beforeEach () {
+    Ember.run(function () {
       application = Ember.Application.create();
       application.deferReadiness();
     });
-  }
+  },
 });
 
 // Replace this with your real tests.
-test('it works', function(assert) {
+test('it works', function (assert) {
   TextFieldInitializer.initialize(application);
 
   // you would normally confirm the results of the initializer here
