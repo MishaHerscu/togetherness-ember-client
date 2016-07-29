@@ -1,2 +1,15 @@
 @import 'bootstrap';
 @import 'bootstrap/theme';
+
+$text-grey: #888;
+$background-color: #fff;
+
+body {
+  background-color: $background-color;
+  color: $text-grey;
+}
+
+.welcome-banner {
+  color: $text-grey;
+  text-align: center;
+}
