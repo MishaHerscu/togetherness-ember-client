@@ -1,6 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  model () {
+    return this.get('store').findAll('attraction');
+  },
+});
+
   // eventsApi: Ember.inject.service(),
   // flashMessages: Ember.inject.service(),
 
@@ -32,7 +37,3 @@ export default Ember.Route.extend({
   //     });
   //   },
   // },
-  model () {
-    return this.get('store').findAll('attraction');
-  },
-});

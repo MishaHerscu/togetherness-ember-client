@@ -1,13 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  tagName: 'ul',
+  tagName: 'div',
 
   attractionEvents: {},
 
   actions: {
-    viewAttractions () {
-      this.sendAction('viewAttractions');
+    likeAttraction () {
+      this.sendAction('likeAttraction');
+    },
+    dislikeAttraction () {
+      this.sendAction('dislikeAttraction');
     },
   },
 });

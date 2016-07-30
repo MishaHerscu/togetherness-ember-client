@@ -1,9 +1,6 @@
 <h2>Set Interests</h2>
-
-<ul>
+<br>
+<br>
 {{#each model as |attraction|}}
-  <li>{{attraction.title}}</li>
+  {{attraction-event attraction=attraction}}
 {{/each}}
-</ul>
-
-<!-- {{attraction-event viewAttractions="index"}} -->

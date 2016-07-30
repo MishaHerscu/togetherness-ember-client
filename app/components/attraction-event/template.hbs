@@ -1,3 +1,31 @@
-{{#each model as |attraction|}}
-  <li>{{attraction.title}}</li>
-{{/each}}
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <td>Title</td>
+      <td>{{attraction.title}}</td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td>{{attraction.city_name}}</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>{{attraction.description}}</td>
+    </tr>
+    <tr>
+      <td>Start Time</td>
+      <td>{{attraction.start_time}}</td>
+    </tr>
+    <tr>
+      <td>Venue</td>
+      <td><a href={{attraction.venue_url}}>{{attraction.venue_name}}</a></td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td>{{attraction.venue_address}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+<br>
