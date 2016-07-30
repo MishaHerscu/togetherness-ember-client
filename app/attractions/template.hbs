@@ -3,6 +3,9 @@
 <br>
 {{#each model as |attraction|}}
   {{#if attraction.description}}
-    {{attraction-event attraction=attraction}}
+    {{attraction-event
+      attraction=attraction
+      likeAttraction="likeAttraction"
+      dislikeAttraction="dislikeAttraction"}}
   {{/if}}
 {{/each}}

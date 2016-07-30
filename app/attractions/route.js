@@ -4,6 +4,15 @@ export default Ember.Route.extend({
   model () {
     return this.get('store').findAll('attraction');
   },
+
+  actions: {
+    likeAttraction(attraction){
+      console.log('liked attraction', attraction);
+    },
+    dislikeAttraction(attraction) {
+      console.log('disliked attraction', attraction);
+    },
+  },
 });
 
   // eventsApi: Ember.inject.service(),

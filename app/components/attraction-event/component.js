@@ -6,11 +6,11 @@ export default Ember.Component.extend({
   attractionEvents: {},
 
   actions: {
-    likeAttraction () {
-      this.sendAction('likeAttraction');
+    likeAttraction (attraction) {
+      this.sendAction('likeAttraction', attraction);
     },
-    dislikeAttraction () {
-      this.sendAction('dislikeAttraction');
+    dislikeAttraction (attraction) {
+      this.sendAction('dislikeAttraction', attraction);
     },
   },
 });
