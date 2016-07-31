@@ -3,9 +3,11 @@
 <br>
 {{#each model as |attraction|}}
   {{#if attraction.description}}
-    {{attraction-event
-      attraction=attraction
-      likeAttraction="likeAttraction"
-      dislikeAttraction="dislikeAttraction"}}
+    {{#if attraction.medium_image_url}}
+      {{attraction-event
+        attraction=attraction
+        likeAttraction="likeAttraction"
+        dislikeAttraction="dislikeAttraction"}}
+    {{/if}}
   {{/if}}
 {{/each}}
