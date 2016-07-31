@@ -5,10 +5,7 @@ $text-grey: #888;
 $background-color: #edeeef;
 $event-card-background-color: #fff;
 $event-card-border-grey: #eee;
-$border-left-raised: #38678b;
-$border-top-raised: #38678b;
-$border-right-raised: #24435b;
-$border-bottom-raised: #24435b;
+$event-card-shadow-color: #888;
 
 body {
   background-color: $background-color;
@@ -22,11 +19,9 @@ body {
 
 .event-card {
   background-color: $event-card-background-color;
-  border-bottom: 1px solid $border-bottom-raised;
-  border-left: 1px solid $border-left-raised;
+  border: 1px solid $event-card-border-grey;
   border-radius: 15px;
-  border-right: 1px solid $border-right-raised;
-  border-top: 1px solid $border-top-raised;
+  box-shadow: 10px 10px 5px $event-card-shadow-color;
   margin: 15px;
   padding: 15px;
 }
