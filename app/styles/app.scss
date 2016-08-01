@@ -1,8 +1,9 @@
 @import 'bootstrap';
 @import 'bootstrap/theme';
 
+$white: #fff;
 $text-grey: #888;
-$background-color: #edeeef;
+$background-color: #f1f1f1;
 $event-card-background-color: #fff;
 $event-card-border-grey: #eee;
 $event-card-shadow-color: #888;
@@ -12,8 +13,21 @@ body {
   color: $text-grey;
 }
 
+.website-footer {
+  background-color: $white;
+  height: 36px;
+}
+
+.website-footer-text {
+  color: $text-grey;
+  font-weight: 300;
+  margin-top: 9px;
+  text-align: center;
+}
+
 .welcome-banner {
   color: $text-grey;
+  font-size: 3em;
   text-align: center;
 }
 
