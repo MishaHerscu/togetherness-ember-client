@@ -8,13 +8,15 @@ export default Ember.Component.extend({
   attractionEvents: {},
 
   actions: {
+    closeAttraction () {
+      this.toggleProperty('hiddenAttraction');
+    },
     likeAttraction () {
       this.sendAction('likeAttraction', this.get('attraction'));
+      this.toggleProperty('hiddenAttraction');
     },
     dislikeAttraction () {
       this.sendAction('dislikeAttraction', this.get('attraction'));
-    },
-    closeAttraction () {
       this.toggleProperty('hiddenAttraction');
     },
   },
