@@ -2,7 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model () {
-    return this.get('store').findAll('attraction');
+    let sampleResult = this.get('store').findAll('attraction')
+    .then((result) => {
+      return result.toArray().slice(0,20);
+    });
+    return sampleResult;
   },
 
   actions: {
