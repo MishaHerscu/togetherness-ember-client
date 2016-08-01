@@ -1,0 +1,11 @@
+<h2>Recommended Events</h2>
+
+<br>
+<br>
+{{#each model as |attraction|}}
+  {{attraction-suggestion
+    attraction=attraction}}
+{{/each}}
+
+
+<!-- {{attraction-event viewAttractions="index"}} -->

@@ -2,9 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model () {
-    return this.get('store').findAll('tag')
+    return this.get('store').findAll('attraction-suggestion')
     .then((result) => {
-      return result.toArray().slice(0,10);
+      return result.toArray().slice(0,40);
     });
   },
 });

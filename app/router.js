@@ -11,7 +11,7 @@ Router.map(function () {
   this.route('change-password');
   this.route('users');
   this.route('attractions');
-  this.route('travel-recommendations');
+  this.route('attraction-suggestions');
 });
 
 export default Router;
