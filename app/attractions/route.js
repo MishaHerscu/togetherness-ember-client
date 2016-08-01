@@ -2,11 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model () {
-    let sampleResult = this.get('store').findAll('attraction')
+    return this.get('store').findAll('attraction')
     .then((result) => {
-      return result.toArray().slice(0,20);
+      return result.toArray().sort(() => {
+        return 0.5 - Math.random();
+      }).slice(0,40);
     });
-    return sampleResult;
   },
 
   actions: {
