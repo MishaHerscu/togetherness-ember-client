@@ -1,6 +1,10 @@
 import Ember from 'ember';
+import { storageFor } from 'ember-local-storage';
 
 export default Ember.Route.extend({
+
+  credentials: storageFor('auth'),
+
   model () {
     return this.get('store').findAll('attraction')
     .then((result) => {
@@ -12,10 +16,22 @@ export default Ember.Route.extend({
 
   actions: {
     likeAttraction(attraction){
-      console.log('liked attraction', attraction);
+      let user_attraction = {
+        user_id: Number(this.get('credentials').get('id')),
+        attraction_id: Number(attraction.id),
+        like: true
+      };
+      let attraction_rating = this.get('store').createRecord('user_attraction', user_attraction);
+      attraction_rating.save();
     },
     dislikeAttraction(attraction) {
-      console.log('disliked attraction', attraction);
+      let user_attraction = {
+        user_id: Number(this.get('credentials').get('id')),
+        attraction_id: Number(attraction.id),
+        like: false
+      };
+      let attraction_rating = this.get('store').createRecord('user_attraction', user_attraction);
+      attraction_rating.save();
     },
   },
 });
