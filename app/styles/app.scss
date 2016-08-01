@@ -25,3 +25,19 @@ body {
   margin: 15px;
   padding: 15px;
 }
+
+.event-card-more {
+  span {
+    text-decoration: underline;
+  }
+
+  div {
+    display: none;
+  }
+}
+
+.event-card-more:hover {
+  div {
+    display: block;
+  }
+}
