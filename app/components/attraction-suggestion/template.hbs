@@ -1,1 +1,44 @@
-{{attraction}}
+<div class="event-card col-xs-5">
+  <div class="col-xs-12">
+    <button type="button"
+            class="close tile-close-button"
+            {{action "closeAttraction"}}>&times;
+    </button>
+    <h4 class="col-xs-8">{{attraction.title}}</h4>
+    <img class="col-xs-4" src={{attraction.medium_image_url}}>
+  </div>
+  <h6>Details</h6>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td width="25%">City</td>
+        <td width="75%">{{attraction.city_name}}</td>
+      </tr>
+      <tr>
+        <td width="25%">Date</td>
+        <td width="75%">{{attraction.event_date}}</td>
+      </tr>
+      <tr>
+        <td width="25%">Start Time</td>
+        <td width="75%">{{attraction.event_time}}</td>
+      </tr>
+      <tr>
+        <td width="25%">Venue</td>
+        <td width="75%"><a href={{attraction.venue_url}}>{{attraction.venue_name}}</a></td>
+      </tr>
+      <tr>
+        <td width="25%">Address</td>
+        <td width="75%">{{attraction.venue_address}}</td>
+      </tr>
+      <tr>
+        <td width="25%">Description</td>
+        <td width="75%"class="event-card-more">
+          <span>Details</span>
+          <div>
+            {{attraction.description}}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -5,7 +5,7 @@
 {{#each model as |attraction|}}
   {{#if attraction.description}}
     {{#if attraction.medium_image_url}}
-      {{attraction-event
+      {{attraction-suggestion
         attraction=attraction
         likeAttraction="likeAttraction"
         dislikeAttraction="dislikeAttraction"}}
