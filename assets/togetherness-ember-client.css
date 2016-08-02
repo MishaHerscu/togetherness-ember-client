@@ -6206,8 +6206,8 @@ nav {
 .event-card {
   background-color: #fff;
   border: 1px solid #eee;
-  border-radius: 15px;
-  box-shadow: 10px 10px 5px #888;
+  border-radius: 10px;
+  box-shadow: 7px 7px 2px #888;
   margin: 15px;
   padding: 15px; }
 
