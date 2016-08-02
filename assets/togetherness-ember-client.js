@@ -2176,7 +2176,7 @@ define("togetherness-ember-client/components/navbar-header/template", ["exports"
           dom.appendChild(el0, el1);
           var el1 = dom.createElement("img");
           dom.setAttribute(el1, "class", "website-logo");
-          dom.setAttribute(el1, "src", "https://i.imgsafe.org/0c202275be.png");
+          dom.setAttribute(el1, "src", "https://i.imgsafe.org/0e596ae7ac.png");
           dom.setAttribute(el1, "alt", "Logo");
           dom.appendChild(el0, el1);
           var el1 = dom.createTextNode("\n  ");
