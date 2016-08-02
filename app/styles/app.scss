@@ -13,6 +13,11 @@ body {
   color: $text-grey;
 }
 
+nav {
+  background-color: $white;
+  height: 40px;
+}
+
 .website-footer {
   background-color: $white;
   height: 36px;
@@ -62,4 +67,11 @@ body {
 
 .hidden {
   display: none;
+}
+
+.website-logo {
+  height: auto;
+  max-height: 30px;
+  overflow: hidden;
+  width: auto;
 }
