@@ -6184,6 +6184,10 @@ body {
   background-color: #f1f1f1;
   color: #888; }
 
+nav {
+  background-color: #fff;
+  height: 40px; }
+
 .website-footer {
   background-color: #fff;
   height: 36px; }
@@ -6221,3 +6225,9 @@ body {
 
 .hidden {
   display: none; }
+
+.website-logo {
+  height: auto;
+  max-height: 30px;
+  overflow: hidden;
+  width: auto; }
