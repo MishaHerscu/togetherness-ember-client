@@ -2091,10 +2091,7 @@ define("togetherness-ember-client/components/my-application/template", ["exports
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
-        var el1 = dom.createElement("h1");
-        dom.setAttribute(el1, "class", "welcome-banner");
-        var el2 = dom.createTextNode("Travel Together");
-        dom.appendChild(el1, el2);
+        var el1 = dom.createComment(" <h1 class=\"welcome-banner\">Travel Together</h1> ");
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
         dom.appendChild(el0, el1);
