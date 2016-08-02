@@ -10,7 +10,7 @@ export default Ember.Route.extend({
     .then((result) => {
       return result.toArray().sort(() => {
         return 0.5 - Math.random();
-      }).slice(0,40);
+      }).slice(0,50);
     });
   },
 
