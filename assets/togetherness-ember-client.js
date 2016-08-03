@@ -3291,10 +3291,10 @@ define('togetherness-ember-client/components/trip-planning/component', ['exports
 
     actions: {
       submit: function submit() {
-        console.log('submitting');
+        this.sendAction('submit', this.get('attraction'));
       },
       cancel: function cancel() {
-        console.log('cancelling');
+        this.sendAction('cancel');
       }
     }
   });
@@ -3912,6 +3912,16 @@ define('togetherness-ember-client/plan-trip/route', ['exports', 'ember'], functi
   exports['default'] = _ember['default'].Route.extend({
     model: function model(params) {
       return this.get('store').findRecord('attraction', params.attraction_id);
+    },
+
+    actions: {
+      submit: function submit() {
+        console.log('submitting');
+      },
+      cancel: function cancel() {
+        console.log('cancelling');
+        this.transitionTo('attraction-suggestions');
+      }
     }
   });
 });
@@ -3931,7 +3941,7 @@ define("togetherness-ember-client/plan-trip/template", ["exports"], function (ex
             "column": 0
           },
           "end": {
-            "line": 2,
+            "line": 5,
             "column": 0
           }
         },
@@ -3955,7 +3965,7 @@ define("togetherness-ember-client/plan-trip/template", ["exports"], function (ex
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["inline", "trip-planning", [], ["attraction", ["subexpr", "@mut", [["get", "model", ["loc", [null, [1, 27], [1, 32]]]]], [], []]], ["loc", [null, [1, 0], [1, 34]]]]],
+      statements: [["inline", "trip-planning", [], ["attraction", ["subexpr", "@mut", [["get", "model", ["loc", [null, [2, 13], [2, 18]]]]], [], []], "cancel", "cancel", "submit", "submit"], ["loc", [null, [1, 0], [4, 19]]]]],
       locals: [],
       templates: []
     };
