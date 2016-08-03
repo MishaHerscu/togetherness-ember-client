@@ -3105,6 +3105,9 @@ define("togetherness-ember-client/components/password-input/template", ["exports
     };
   })());
 });
+define('togetherness-ember-client/components/plan-trip/component', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Component.extend({});
+});
 define('togetherness-ember-client/components/sign-in-form/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
     tagName: 'form',
@@ -4248,7 +4251,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+c9055f68"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+5926593f"});
 }
 
 /* jshint ignore:end */
