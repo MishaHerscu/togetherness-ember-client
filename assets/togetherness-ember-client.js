@@ -354,6 +354,8 @@ define("togetherness-ember-client/attraction-suggestions/template", ["exports"],
 });
 define('togetherness-ember-client/attraction/model', ['exports', 'ember-data'], function (exports, _emberData) {
   exports['default'] = _emberData['default'].Model.extend({
+    eventful_id: _emberData['default'].attr('string'),
+    city_id: _emberData['default'].attr('string'),
     city_name: _emberData['default'].attr('string'),
     country_name: _emberData['default'].attr('string'),
     title: _emberData['default'].attr('string'),
@@ -374,9 +376,7 @@ define('togetherness-ember-client/attraction/model', ['exports', 'ember-data'], 
     latitude: _emberData['default'].attr('string'),
     longitude: _emberData['default'].attr('string'),
     image_information: _emberData['default'].attr('string'),
-    medium_image_url: _emberData['default'].attr('string'),
-    created_at: _emberData['default'].attr('string'),
-    updated_at: _emberData['default'].attr('string')
+    medium_image_url: _emberData['default'].attr('string')
   });
 });
 define('togetherness-ember-client/attractions/route', ['exports', 'ember', 'ember-local-storage'], function (exports, _ember, _emberLocalStorage) {
@@ -3269,7 +3269,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+b308ca50"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+c1595be4"});
 }
 
 /* jshint ignore:end */
