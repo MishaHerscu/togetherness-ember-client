@@ -1,0 +1,22 @@
+<h2>Available Cities</h2>
+
+<br>
+<br>
+
+{{#each model as |city|}}
+  {{#if city.name}}
+    <div class="col-xs-12">
+
+      {{city-destination
+        city=city}}
+
+      <br>
+
+      {{#each city.attractions as |attraction|}}
+        {{city-attraction
+          attraction=attraction}}
+      {{/each}}
+
+    </div>
+  {{/if}}
+{{/each}}
