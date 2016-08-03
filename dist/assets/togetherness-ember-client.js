@@ -291,6 +291,15 @@ define('togetherness-ember-client/attraction-suggestions/route', ['exports', 'em
           return kept_attractions;
         });
       });
+    },
+
+    actions: {
+      createTrip: function createTrip(attraction) {
+        console.log(attraction);
+        this.transitionTo('plan-trip').then(function (planTrip) {
+          planTrip.controller.set('attraction', attraction);
+        });
+      }
     }
   });
 });
@@ -310,7 +319,7 @@ define("togetherness-ember-client/attraction-suggestions/template", ["exports"],
                   "column": 4
                 },
                 "end": {
-                  "line": 12,
+                  "line": 11,
                   "column": 4
                 }
               },
@@ -335,7 +344,7 @@ define("togetherness-ember-client/attraction-suggestions/template", ["exports"],
               morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
               return morphs;
             },
-            statements: [["inline", "attraction-suggestion", [], ["attraction", ["subexpr", "@mut", [["get", "attraction", ["loc", [null, [9, 19], [9, 29]]]]], [], []], "likeAttraction", "likeAttraction", "dislikeAttraction", "dislikeAttraction"], ["loc", [null, [8, 6], [11, 47]]]]],
+            statements: [["inline", "attraction-suggestion", [], ["attraction", ["subexpr", "@mut", [["get", "attraction", ["loc", [null, [9, 19], [9, 29]]]]], [], []], "createTrip", "createTrip"], ["loc", [null, [8, 6], [10, 33]]]]],
             locals: [],
             templates: []
           };
@@ -351,7 +360,7 @@ define("togetherness-ember-client/attraction-suggestions/template", ["exports"],
                 "column": 2
               },
               "end": {
-                "line": 13,
+                "line": 12,
                 "column": 2
               }
             },
@@ -374,7 +383,7 @@ define("togetherness-ember-client/attraction-suggestions/template", ["exports"],
             dom.insertBoundary(fragment, null);
             return morphs;
           },
-          statements: [["block", "if", [["get", "attraction.medium_image_url", ["loc", [null, [7, 10], [7, 37]]]]], [], 0, null, ["loc", [null, [7, 4], [12, 11]]]]],
+          statements: [["block", "if", [["get", "attraction.medium_image_url", ["loc", [null, [7, 10], [7, 37]]]]], [], 0, null, ["loc", [null, [7, 4], [11, 11]]]]],
           locals: [],
           templates: [child0]
         };
@@ -390,7 +399,7 @@ define("togetherness-ember-client/attraction-suggestions/template", ["exports"],
               "column": 0
             },
             "end": {
-              "line": 14,
+              "line": 13,
               "column": 0
             }
           },
@@ -413,7 +422,7 @@ define("togetherness-ember-client/attraction-suggestions/template", ["exports"],
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "if", [["get", "attraction.description", ["loc", [null, [6, 8], [6, 30]]]]], [], 0, null, ["loc", [null, [6, 2], [13, 9]]]]],
+        statements: [["block", "if", [["get", "attraction.description", ["loc", [null, [6, 8], [6, 30]]]]], [], 0, null, ["loc", [null, [6, 2], [12, 9]]]]],
         locals: ["attraction"],
         templates: [child0]
       };
@@ -432,7 +441,7 @@ define("togetherness-ember-client/attraction-suggestions/template", ["exports"],
             "column": 0
           },
           "end": {
-            "line": 15,
+            "line": 14,
             "column": 0
           }
         },
@@ -468,7 +477,7 @@ define("togetherness-ember-client/attraction-suggestions/template", ["exports"],
         dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["block", "each", [["get", "model", ["loc", [null, [5, 8], [5, 13]]]]], [], 0, null, ["loc", [null, [5, 0], [14, 9]]]]],
+      statements: [["block", "each", [["get", "model", ["loc", [null, [5, 8], [5, 13]]]]], [], 0, null, ["loc", [null, [5, 0], [13, 9]]]]],
       locals: [],
       templates: [child0]
     };
@@ -1461,6 +1470,9 @@ define('togetherness-ember-client/components/attraction-suggestion/component', [
     actions: {
       closeAttraction: function closeAttraction() {
         this.toggleProperty('hiddenAttraction');
+      },
+      createTrip: function createTrip() {
+        this.sendAction('createTrip', this.get('attraction'));
       }
     }
   });
@@ -1480,7 +1492,7 @@ define("togetherness-ember-client/components/attraction-suggestion/template", ["
             "column": 0
           },
           "end": {
-            "line": 45,
+            "line": 52,
             "column": 0
           }
         },
@@ -1679,7 +1691,15 @@ define("togetherness-ember-client/components/attraction-suggestion/template", ["
         var el3 = dom.createTextNode("\n  ");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n");
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("button");
+        dom.setAttribute(el2, "class", "btn btn-lg btn-primary");
+        dom.setAttribute(el2, "style", "text-align: center; align: center;");
+        var el3 = dom.createTextNode("\n    Plan Trip\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
@@ -1693,7 +1713,8 @@ define("togetherness-ember-client/components/attraction-suggestion/template", ["
         var element3 = dom.childAt(element1, [5]);
         var element4 = dom.childAt(element0, [5, 1]);
         var element5 = dom.childAt(element4, [7, 3, 0]);
-        var morphs = new Array(10);
+        var element6 = dom.childAt(element0, [7]);
+        var morphs = new Array(11);
         morphs[0] = dom.createElementMorph(element2);
         morphs[1] = dom.createMorphAt(dom.childAt(element1, [3]), 0, 0);
         morphs[2] = dom.createAttrMorph(element3, 'src');
@@ -1704,9 +1725,10 @@ define("togetherness-ember-client/components/attraction-suggestion/template", ["
         morphs[7] = dom.createMorphAt(element5, 0, 0);
         morphs[8] = dom.createMorphAt(dom.childAt(element4, [9, 3]), 0, 0);
         morphs[9] = dom.createMorphAt(dom.childAt(element4, [11, 3, 3]), 1, 1);
+        morphs[10] = dom.createElementMorph(element6);
         return morphs;
       },
-      statements: [["element", "action", ["closeAttraction"], [], ["loc", [null, [5, 12], [5, 40]]]], ["content", "attraction.title", ["loc", [null, [7, 25], [7, 45]]]], ["attribute", "src", ["get", "attraction.medium_image_url", ["loc", [null, [8, 32], [8, 59]]]]], ["content", "attraction.city_name", ["loc", [null, [15, 24], [15, 48]]]], ["content", "attraction.event_date", ["loc", [null, [19, 24], [19, 49]]]], ["content", "attraction.event_time", ["loc", [null, [23, 24], [23, 49]]]], ["attribute", "href", ["get", "attraction.venue_url", ["loc", [null, [27, 34], [27, 54]]]]], ["content", "attraction.venue_name", ["loc", [null, [27, 57], [27, 82]]]], ["content", "attraction.venue_address", ["loc", [null, [31, 24], [31, 52]]]], ["content", "attraction.description", ["loc", [null, [38, 12], [38, 38]]]]],
+      statements: [["element", "action", ["closeAttraction"], [], ["loc", [null, [5, 12], [5, 40]]]], ["content", "attraction.title", ["loc", [null, [7, 25], [7, 45]]]], ["attribute", "src", ["get", "attraction.medium_image_url", ["loc", [null, [8, 32], [8, 59]]]]], ["content", "attraction.city_name", ["loc", [null, [15, 24], [15, 48]]]], ["content", "attraction.event_date", ["loc", [null, [19, 24], [19, 49]]]], ["content", "attraction.event_time", ["loc", [null, [23, 24], [23, 49]]]], ["attribute", "href", ["get", "attraction.venue_url", ["loc", [null, [27, 34], [27, 54]]]]], ["content", "attraction.venue_name", ["loc", [null, [27, 57], [27, 82]]]], ["content", "attraction.venue_address", ["loc", [null, [31, 24], [31, 52]]]], ["content", "attraction.description", ["loc", [null, [38, 12], [38, 38]]]], ["element", "action", ["createTrip"], [], ["loc", [null, [46, 10], [46, 33]]]]],
       locals: [],
       templates: []
     };
@@ -3864,6 +3886,55 @@ define("togetherness-ember-client/interests/template", ["exports"], function (ex
     };
   })());
 });
+define('togetherness-ember-client/plan-trip/route', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Route.extend({});
+});
+define("togetherness-ember-client/plan-trip/template", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type"]
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 0
+          }
+        },
+        "moduleName": "togetherness-ember-client/plan-trip/template.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        return morphs;
+      },
+      statements: [["content", "attraction", ["loc", [null, [1, 0], [1, 14]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
 define('togetherness-ember-client/resolver', ['exports', 'ember-resolver'], function (exports, _emberResolver) {
   exports['default'] = _emberResolver['default'];
 });
@@ -3883,6 +3954,7 @@ define('togetherness-ember-client/router', ['exports', 'ember', 'togetherness-em
     this.route('cities');
     this.route('trips');
     this.route('attendances');
+    this.route('plan-trip');
   });
 
   exports['default'] = Router;

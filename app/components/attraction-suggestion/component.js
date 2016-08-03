@@ -11,5 +11,8 @@ export default Ember.Component.extend({
     closeAttraction () {
       this.toggleProperty('hiddenAttraction');
     },
+    createTrip () {
+      this.sendAction('createTrip', this.get('attraction'));
+    }
   },
 });
