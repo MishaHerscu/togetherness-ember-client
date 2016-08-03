@@ -1,0 +1,30 @@
+<!-- Plan Trip -->
+<div class="modal fade" id="plan-trip-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Plan Adventure!</h4>
+      </div>
+      <div class="modal-body">
+        <form id="plan-trip" style="text-align:center;">
+          <fieldset class="form-group">
+          <label for="trip-name"><span style="color:#31708f" class="glyphicon glyphicon-folder-open"></span>&nbsp; Name Your Adventure</label>
+          <input type="text" class="form-control" name="trip[name]" id="trip-name" placeholder="Challenge Name" required>
+          <!-- <input type="hidden" name="challenge[ownerName]" id="challenge-owner-name"> -->
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="challenge[language]">Where are you going?</label>
+          <input type="text" class="form-control" name="trip[city_id]" id="trip-destination" placeholder={{attraction.city_name}} value={{attraction.city_name}} required>
+        </fieldset>
+        <fieldset class="form-group">
+            <input type="submit" name="submit" class="btn btn-md btn-default" value="Create Challenge">
+        </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
