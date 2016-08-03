@@ -4,10 +4,10 @@ export default Ember.Component.extend({
 
   actions: {
     submit () {
-      console.log('submitting');
+      this.sendAction('submit', this.get('attraction'));
     },
     cancel () {
-      console.log('cancelling');
+      this.sendAction('cancel');
     },
   },
 });
