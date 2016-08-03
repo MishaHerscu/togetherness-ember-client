@@ -3105,9 +3105,6 @@ define("togetherness-ember-client/components/password-input/template", ["exports
     };
   })());
 });
-define('togetherness-ember-client/components/plan-trip/component', ['exports', 'ember'], function (exports, _ember) {
-  exports['default'] = _ember['default'].Component.extend({});
-});
 define('togetherness-ember-client/components/sign-in-form/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
     tagName: 'form',
@@ -3290,7 +3287,17 @@ define("togetherness-ember-client/components/sign-up-form/template", ["exports"]
   })());
 });
 define('togetherness-ember-client/components/trip-planning/component', ['exports', 'ember'], function (exports, _ember) {
-  exports['default'] = _ember['default'].Component.extend({});
+  exports['default'] = _ember['default'].Component.extend({
+
+    actions: {
+      submit: function submit() {
+        console.log('submitting');
+      },
+      cancel: function cancel() {
+        console.log('cancelling');
+      }
+    }
+  });
 });
 define("togetherness-ember-client/components/trip-planning/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
@@ -3298,7 +3305,7 @@ define("togetherness-ember-client/components/trip-planning/template", ["exports"
       meta: {
         "fragmentReason": {
           "name": "missing-wrapper",
-          "problems": ["wrong-type"]
+          "problems": ["multiple-nodes"]
         },
         "revision": "Ember@2.5.1",
         "loc": {
@@ -3308,7 +3315,7 @@ define("togetherness-ember-client/components/trip-planning/template", ["exports"
             "column": 0
           },
           "end": {
-            "line": 2,
+            "line": 58,
             "column": 0
           }
         },
@@ -3320,19 +3327,155 @@ define("togetherness-ember-client/components/trip-planning/template", ["exports"
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createComment("");
+        var el1 = dom.createElement("h3");
+        var el2 = dom.createTextNode("Create Adventure!");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("br");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("br");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "white-background-div");
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h4");
+        var el3 = dom.createTextNode("New Adventure in ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("p");
+        var el3 = dom.createElement("ul");
+        var el4 = dom.createElement("li");
+        var el5 = dom.createTextNode("Remember to check out ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createComment("");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode(" on ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createComment("");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("hr");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("form");
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("label");
+        var el4 = dom.createTextNode("\n      Name Your Adventure!\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createComment("");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n      ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("label");
+        var el4 = dom.createTextNode("\n      Start date:\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createComment("");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("label");
+        var el4 = dom.createTextNode("\n      End date:\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createComment("");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("button");
+        dom.setAttribute(el3, "class", "btn btn-lg btn-primary");
+        var el4 = dom.createTextNode("\n      Create!\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("button");
+        dom.setAttribute(el3, "class", "btn btn-lg btn-danger");
+        var el4 = dom.createTextNode("\n      Cancel\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(1);
-        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
-        dom.insertBoundary(fragment, 0);
+        var element0 = dom.childAt(fragment, [6]);
+        var element1 = dom.childAt(element0, [3, 0, 0]);
+        var element2 = dom.childAt(element0, [7]);
+        var element3 = dom.childAt(element2, [19]);
+        var element4 = dom.childAt(element2, [21]);
+        var morphs = new Array(10);
+        morphs[0] = dom.createMorphAt(dom.childAt(element0, [1]), 1, 1);
+        morphs[1] = dom.createMorphAt(element1, 1, 1);
+        morphs[2] = dom.createMorphAt(element1, 3, 3);
+        morphs[3] = dom.createElementMorph(element2);
+        morphs[4] = dom.createMorphAt(dom.childAt(element2, [1]), 1, 1);
+        morphs[5] = dom.createMorphAt(element2, 5, 5);
+        morphs[6] = dom.createMorphAt(dom.childAt(element2, [9]), 1, 1);
+        morphs[7] = dom.createMorphAt(dom.childAt(element2, [14]), 1, 1);
+        morphs[8] = dom.createElementMorph(element3);
+        morphs[9] = dom.createElementMorph(element4);
         return morphs;
       },
-      statements: [["content", "attraction", ["loc", [null, [1, 0], [1, 14]]]]],
+      statements: [["content", "attraction.city_name", ["loc", [null, [8, 23], [8, 47]]]], ["content", "attraction.title", ["loc", [null, [9, 35], [9, 55]]]], ["content", "attraction.event_date", ["loc", [null, [9, 59], [9, 84]]]], ["element", "action", ["submit"], ["on", "submit"], ["loc", [null, [13, 8], [13, 39]]]], ["inline", "input", [], ["placeholder", "Best Adventure Ever!!!", "class", "input-group form-control", "value", ["subexpr", "@mut", [["get", "form.name", ["loc", [null, [19, 19], [19, 28]]]]], [], []]], ["loc", [null, [17, 6], [19, 30]]]], ["inline", "input", [], ["placeholder", "City", "class", "input-group form-control hidden", "value", ["subexpr", "@mut", [["get", "attraction.city_id", ["loc", [null, [26, 18], [26, 36]]]]], [], []]], ["loc", [null, [24, 6], [26, 38]]]], ["inline", "input", [], ["type", "date", "class", "input-group form-control", "value", ["subexpr", "@mut", [["get", "form.start_date", ["loc", [null, [33, 18], [33, 33]]]]], [], []]], ["loc", [null, [32, 6], [33, 35]]]], ["inline", "input", [], ["type", "date", "class", "input-group form-control", "value", ["subexpr", "@mut", [["get", "form.end_date", ["loc", [null, [41, 18], [41, 31]]]]], [], []]], ["loc", [null, [40, 6], [41, 33]]]], ["element", "action", ["submit"], [], ["loc", [null, [47, 12], [47, 31]]]], ["element", "action", ["cancel"], [], ["loc", [null, [51, 12], [51, 31]]]]],
       locals: [],
       templates: []
     };
@@ -4251,7 +4394,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+5926593f"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+c9055f68"});
 }
 
 /* jshint ignore:end */

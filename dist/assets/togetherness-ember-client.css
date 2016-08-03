@@ -6232,3 +6232,11 @@ nav {
   max-height: 30px;
   overflow: hidden;
   width: auto; }
+
+.white-background-div {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 7px 7px 2px #888;
+  margin: 15px;
+  padding: 15px; }
