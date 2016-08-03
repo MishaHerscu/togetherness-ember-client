@@ -268,6 +268,15 @@ define('togetherness-ember-client/tests/components/sign-up-form/component.jshint
     assert.ok(true, 'components/sign-up-form/component.js should pass jshint.');
   });
 });
+define('togetherness-ember-client/tests/components/trip-planning/component.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - components/trip-planning/component.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/trip-planning/component.js should pass jshint.');
+  });
+});
 define('togetherness-ember-client/tests/events-api/service.jshint', ['exports'], function (exports) {
   'use strict';
 

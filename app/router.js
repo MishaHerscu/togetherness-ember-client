@@ -15,7 +15,7 @@ Router.map(function () {
   this.route('cities');
   this.route('trips');
   this.route('attendances');
-  this.route('plan-trip');
+  this.route('plan-trip', { path:'/plan-trip/:attraction_id' } );
 });
 
 export default Router;
