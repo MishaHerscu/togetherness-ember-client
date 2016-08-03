@@ -43,6 +43,24 @@ define('togetherness-ember-client/tests/application/serializer.jshint', ['export
     assert.ok(true, 'application/serializer.js should pass jshint.');
   });
 });
+define('togetherness-ember-client/tests/attendance/model.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - attendance/model.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'attendance/model.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/attendances/route.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - attendances/route.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'attendances/route.js should pass jshint.');
+  });
+});
 define('togetherness-ember-client/tests/attraction-suggestion/model.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -2372,6 +2390,24 @@ define('togetherness-ember-client/tests/test-helper.jshint', ['exports'], functi
     assert.ok(true, 'test-helper.js should pass jshint.');
   });
 });
+define('togetherness-ember-client/tests/trip/model.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - trip/model.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'trip/model.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/trips/route.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - trips/route.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'trips/route.js should pass jshint.');
+  });
+});
 define('togetherness-ember-client/tests/unit/ajax/service-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
 
   (0, _emberQunit.moduleFor)('service:ajax', 'Unit | Service | ajax', {
@@ -2483,6 +2519,49 @@ define('togetherness-ember-client/tests/unit/application/serializer-test.jshint'
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/application/serializer-test.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/unit/attendance/model-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('attendance', 'Unit | Model | attendance', {
+    // Specify the other units that are required for this test.
+    needs: []
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var model = this.subject();
+    // let store = this.store();
+    assert.ok(!!model);
+  });
+});
+define('togetherness-ember-client/tests/unit/attendance/model-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/attendance/model-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/attendance/model-test.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/unit/attendances/route-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:attendances', 'Unit | Route | attendances', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('togetherness-ember-client/tests/unit/attendances/route-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/attendances/route-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/attendances/route-test.js should pass jshint.');
   });
 });
 define('togetherness-ember-client/tests/unit/attraction-suggestion/model-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
@@ -2798,6 +2877,49 @@ define('togetherness-ember-client/tests/unit/travel-recommendations/route-test.j
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/travel-recommendations/route-test.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/unit/trip/model-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('trip', 'Unit | Model | trip', {
+    // Specify the other units that are required for this test.
+    needs: []
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var model = this.subject();
+    // let store = this.store();
+    assert.ok(!!model);
+  });
+});
+define('togetherness-ember-client/tests/unit/trip/model-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/trip/model-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/trip/model-test.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/unit/trips/route-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:trips', 'Unit | Route | trips', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('togetherness-ember-client/tests/unit/trips/route-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/trips/route-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/trips/route-test.js should pass jshint.');
   });
 });
 define('togetherness-ember-client/tests/unit/user-attraction/model-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
