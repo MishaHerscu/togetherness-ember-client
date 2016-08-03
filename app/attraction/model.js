@@ -1,6 +1,8 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
+  eventful_id: DS.attr('string'),
+  city_id: DS.attr('string'),
   city_name: DS.attr('string'),
   country_name: DS.attr('string'),
   title: DS.attr('string'),
@@ -22,6 +24,4 @@ export default DS.Model.extend({
   longitude: DS.attr('string'),
   image_information: DS.attr('string'),
   medium_image_url: DS.attr('string'),
-  created_at: DS.attr('string'),
-  updated_at: DS.attr('string'),
 });
