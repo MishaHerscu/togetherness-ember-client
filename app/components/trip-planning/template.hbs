@@ -1,1 +1,66 @@
-{{attraction}}
+<h3>Create Adventure!</h3>
+
+<br>
+<br>
+
+<div class="white-background-div">
+  <div class="col-xs-12">
+    <div class="col-xs-11">
+      <h4>New Adventure in {{attraction.city_name}}</h4>
+      <p><ul><li>Remember to check out {{attraction.title}} on {{attraction.event_date}}</li></ul></p>
+    </div>
+    <div class="col-xs-1">
+      <button type="button"
+              class="close tile-close-button"
+              {{action "cancel"}}>&times;
+      </button>
+    </div>
+  </div>
+
+  <div class="col-xs-12">
+    <hr>
+  </div>
+
+  <form {{action "submit" on="submit"}}>
+
+    <label>
+      Name Your Adventure!
+    </label>
+      {{input placeholder="Best Adventure Ever!!!"
+             class="input-group form-control"
+             value=form.name}}
+
+      {{input placeholder="City"
+            class="input-group form-control hidden"
+            value=attraction.city_id}}
+
+    <br>
+
+    <label>
+      Start date:
+    </label>
+      {{input type="date" class="input-group form-control"
+            value=form.start_date}}
+
+    <br>
+
+    <label>
+      End date:
+    </label>
+      {{input type="date" class="input-group form-control"
+            value=form.end_date}}
+
+    <br>
+
+    <button class="btn btn-lg btn-primary"
+            {{action "submit"}}>
+      Create!
+    </button>
+    <button class="btn btn-lg btn-danger"
+            {{action "cancel"}}>
+      Cancel
+    </button>
+
+    <br>
+  </form>
+</div>
