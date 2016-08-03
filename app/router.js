@@ -13,6 +13,8 @@ Router.map(function () {
   this.route('attractions');
   this.route('attraction-suggestions');
   this.route('cities');
+  this.route('trips');
+  this.route('attendances');
 });
 
 export default Router;
