@@ -241,15 +241,6 @@ define('togetherness-ember-client/tests/components/password-input/component.jshi
     assert.ok(true, 'components/password-input/component.js should pass jshint.');
   });
 });
-define('togetherness-ember-client/tests/components/plan-trip/component.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - components/plan-trip/component.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'components/plan-trip/component.js should pass jshint.');
-  });
-});
 define('togetherness-ember-client/tests/components/sign-in-form/component.jshint', ['exports'], function (exports) {
   'use strict';
 
