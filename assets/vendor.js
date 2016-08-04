@@ -93962,6 +93962,402 @@ define("ember-data/version", ["exports"], function (exports) {
 
   exports["default"] = "2.7.0";
 });
+define('ember-disqus/components/disqus-comment-count', ['exports', 'ember', 'ember-disqus/templates/components/disqus-comment-count', 'ember-disqus/utils/load-disqus-api'], function (exports, _ember, _emberDisqusTemplatesComponentsDisqusCommentCount, _emberDisqusUtilsLoadDisqusApi) {
+  'use strict';
+
+  exports['default'] = _ember['default'].Component.extend({
+    attributeBindings: ['identifier:data-disqus-identifier'],
+    classNames: ['disqus-comment-count'],
+    layout: _emberDisqusTemplatesComponentsDisqusCommentCount['default'],
+    removeNoun: false,
+    tagName: 'span',
+
+    /* Options */
+
+    identifier: null,
+
+    disqusCallback: function disqusCallback() {
+      var disqusWidgets = window.DISQUSWIDGETS;
+
+      if (disqusWidgets) {
+        disqusWidgets.getCount(); // Required when transitioning between routes
+      }
+    },
+
+    /**
+    Assert that all required properties have been passed to this component and, if required, load the `count.js` script.
+     @method setup
+    */
+
+    setup: _ember['default'].on('didInsertElement', function () {
+      _ember['default'].assert('A Disqus identifier must be set on the {{disqus-comment-count}} component', this.get('identifier'));
+
+      if (this.get('removeNoun')) {
+        this.get('element').addEventListener('DOMSubtreeModified', function (event) {
+          var target = event.target;
+
+          /* Remove non-digit characters. For example '8 Comments' --> '8' */
+
+          target.textContent = target.textContent.replace(/[\D]/g, '');
+        });
+      }
+
+      (0, _emberDisqusUtilsLoadDisqusApi['default'])(this, 'count');
+    })
+  });
+});
+define('ember-disqus/components/disqus-comments', ['exports', 'ember', 'ember-disqus/utils/default-for', 'ember-disqus/templates/components/disqus-comments', 'ember-disqus/utils/load-disqus-api', 'ember-disqus/utils/observers/set-on-window'], function (exports, _ember, _emberDisqusUtilsDefaultFor, _emberDisqusTemplatesComponentsDisqusComments, _emberDisqusUtilsLoadDisqusApi, _emberDisqusUtilsObserversSetOnWindow) {
+  'use strict';
+
+  exports['default'] = _ember['default'].Component.extend({
+    elementId: 'disqus_thread',
+    classNames: ['disqus-comments'],
+
+    /**
+    Options that can be passed to identify the requested Disqus comment thread
+    */
+
+    categoryId: null,
+    identifier: null,
+    title: null,
+    layout: _emberDisqusTemplatesComponentsDisqusComments['default'],
+
+    /**
+    Assert that all required properties have been passed to this component and, if required, load the `embed.js` script.
+     The `#disqus_thread` element (this component) must be on the page before the `embed.js` script is loaded. Thus, we run this method on `didInsertElement`.
+     @method setup
+    */
+
+    setup: _ember['default'].on('didInsertElement', function () {
+      _ember['default'].assert('A Disqus identifier must be set on the {{disqus-comments}} component', this.get('identifier'));
+
+      if (!window.DISQUS) {
+        (0, _emberDisqusUtilsLoadDisqusApi['default'])(this, 'embed');
+      } else {
+        this.reset();
+      }
+    }),
+
+    /**
+    Adds ajax functionality to the comment thread. This method tells Disqus to load the comment thread with the given attributes.
+     Usually you don't need to manually call this method - `ember-disqus` calls it in private methods.
+     @method reset
+    @param [identifier] the Disqus identifier to request the thread with. If not passed, will default to the component's current `identifier` property
+    @param [title] the Disqus title to request the thread with. If not passed, will default to the component's current `title` property
+    */
+
+    reset: function reset(identifier, title) {
+      _ember['default'].run.debounce(this, function () {
+        identifier = (0, _emberDisqusUtilsDefaultFor['default'])(identifier, this.get('identifier'));
+        title = (0, _emberDisqusUtilsDefaultFor['default'])(title, this.get('title'));
+
+        /** @ref https://help.disqus.com/customer/portal/articles/472107-using-disqus-on-ajax-sites */
+
+        window.DISQUS.reset({
+          reload: true,
+          config: function config() {
+            this.page.identifier = identifier;
+            this.page.url = window.location.href;
+
+            if (title) {
+              this.page.title = title;
+            }
+          }
+        });
+      }, 100);
+    },
+
+    /**
+    Disqus requires that all it's properties be set on the window. These methods observe the Disqus attributes and set them as required when they change.
+    */
+
+    _setCategoryId: (0, _emberDisqusUtilsObserversSetOnWindow['default'])('categoryId', 'disqus_category_id'),
+    _setIdentifier: (0, _emberDisqusUtilsObserversSetOnWindow['default'])('identifier', 'disqus_identifier'),
+    _setTitle: (0, _emberDisqusUtilsObserversSetOnWindow['default'])('title', 'disqus_title'),
+
+    /**
+    Update the disqus comment thread when one of the thread attributes being passed to this component changes.
+     @method _updateDisqusComments
+    @private
+     @todo - need a better way of identifying if DISQUS is already loaded here
+    */
+
+    _updateDisqusComments: _ember['default'].observer('categoryId', 'identifier', 'shortname', 'title', function () {
+      if (window.DISQUS) {
+        _ember['default'].run.debounce(this, this.reset, 100);
+      }
+    })
+
+  });
+});
+define("ember-disqus/templates/components/disqus-comment-count", ["exports"], function (exports) {
+  "use strict";
+
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type"]
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 0
+          }
+        },
+        "moduleName": "modules/ember-disqus/templates/components/disqus-comment-count.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("0\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes() {
+        return [];
+      },
+      statements: [],
+      locals: [],
+      templates: []
+    };
+  })());
+});
+define("ember-disqus/templates/components/disqus-comments", ["exports"], function (exports) {
+  "use strict";
+
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "fragmentReason": {
+            "name": "missing-wrapper",
+            "problems": ["wrong-type"]
+          },
+          "revision": "Ember@2.5.1",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 1,
+              "column": 0
+            },
+            "end": {
+              "line": 3,
+              "column": 0
+            }
+          },
+          "moduleName": "modules/ember-disqus/templates/components/disqus-comments.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("  ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [["content", "yield", ["loc", [null, [2, 2], [2, 11]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child1 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.5.1",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 3,
+              "column": 0
+            },
+            "end": {
+              "line": 5,
+              "column": 0
+            }
+          },
+          "moduleName": "modules/ember-disqus/templates/components/disqus-comments.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("  Loading comments...\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes() {
+          return [];
+        },
+        statements: [],
+        locals: [],
+        templates: []
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type"]
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 6,
+            "column": 0
+          }
+        },
+        "moduleName": "modules/ember-disqus/templates/components/disqus-comments.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        dom.insertBoundary(fragment, null);
+        return morphs;
+      },
+      statements: [["block", "if", [["get", "hasBlock", ["loc", [null, [1, 6], [1, 14]]]]], [], 0, 1, ["loc", [null, [1, 0], [5, 7]]]]],
+      locals: [],
+      templates: [child0, child1]
+    };
+  })());
+});
+define('ember-disqus/utils/default-for', ['exports'], function (exports) {
+  'use strict';
+
+  exports['default'] = defaultFor;
+
+  function defaultFor(variable, defaultValue) {
+    if (typeof variable !== 'undefined' && variable !== null) {
+      return variable;
+    } else {
+      return defaultValue;
+    }
+  }
+});
+define("ember-disqus/utils/disqus-cache", ["exports"], function (exports) {
+  "use strict";
+
+  exports["default"] = {
+    isDisqusCache: true };
+
+  // Helper property
+});
+define('ember-disqus/utils/load-disqus-api', ['exports', 'ember-disqus/utils/disqus-cache', 'ember', 'ember-disqus/utils/default-for'], function (exports, _emberDisqusUtilsDisqusCache, _ember, _emberDisqusUtilsDefaultFor) {
+  'use strict';
+
+  exports['default'] = loadFilepickerApi;
+
+  function loadFilepickerApi(context, fileName) {
+    var ENV = context.container.lookupFactory('config:environment');
+
+    var documentIsReady = undefined,
+        filePath = undefined,
+        cachedValue = undefined,
+        shortname = undefined,
+        shouldLazyLoad = undefined;
+
+    function tryCallback(retrievedFromCache) {
+      if (_ember['default'].typeOf(context.disqusCallback) === 'function') {
+        context.disqusCallback(retrievedFromCache); // Ensure context
+      }
+    }
+
+    _ember['default'].assert('You must set a disqus.shortname option in your config/environment module', ENV.disqus && ENV.disqus.shortname);
+
+    shortname = ENV.disqus.shortname;
+    shouldLazyLoad = (0, _emberDisqusUtilsDefaultFor['default'])(ENV.disqus.lazyLoad, true);
+    filePath = '//' + shortname + '.disqus.com/' + fileName + '.js';
+    cachedValue = _emberDisqusUtilsDisqusCache['default'][filePath];
+
+    /* Set the shortname property on the window */
+
+    if (!window.disqus_shortname) {
+      window.disqus_shortname = shortname;
+    }
+
+    documentIsReady = document.readyState === 'complete';
+
+    /* Check to see is everything else in the app has loaded for lazy loading */
+
+    if (cachedValue) {
+
+      /* Allow the cache to store methods for testing purposes, etc */
+
+      if (_ember['default'].typeOf(cachedValue) === 'function') {
+        cachedValue();
+      }
+
+      /* If window has the related Disqus property, don't load anything... */
+
+      return tryCallback(true);
+    } else if (!shouldLazyLoad || documentIsReady) {
+
+      /* ... Else if we're ready to load the Disqus API, load it... */
+
+      _ember['default'].$.getScript(filePath).then(tryCallback(false));
+
+      _emberDisqusUtilsDisqusCache['default'][filePath] = true; // So we know API has loaded
+    } else {
+
+        /* ... Else wait a small period and check again to see if the Ember app has fully loaded. */
+
+        _ember['default'].run.debounce(this, function () {
+          loadFilepickerApi(context, fileName);
+        }, 200);
+      }
+  }
+});
+define('ember-disqus/utils/observers/set-on-window', ['exports', 'ember'], function (exports, _ember) {
+  'use strict';
+
+  exports['default'] = setOnWindow;
+
+  function setOnWindow(dependentKey, propertyName) {
+    return _ember['default'].on('init', _ember['default'].observer(dependentKey, function () {
+      window[propertyName] = this.get(dependentKey);
+    }));
+  }
+});
 define('ember-getowner-polyfill/fake-owner', ['exports', 'ember'], function (exports, _ember) {
   'use strict';
 
