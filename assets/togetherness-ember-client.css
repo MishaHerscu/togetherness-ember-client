@@ -6182,7 +6182,10 @@ button.close {
 
 body {
   background-color: #f1f1f1;
-  color: #888; }
+  color: #888;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
 
 nav {
   background-color: #fff;
@@ -6240,3 +6243,23 @@ nav {
   box-shadow: 7px 7px 2px #888;
   margin: 15px;
   padding: 15px; }
+
+.my-container {
+  height: 100%;
+  min-height: 100%;
+  position: relative; }
+
+.my-header {
+  background: #fff;
+  padding: 10px; }
+
+.my-body {
+  padding: 10px;
+  padding-bottom: 30px; }
+
+.my-footer {
+  background: #fff;
+  bottom: 0;
+  height: 30px;
+  position: absolute;
+  width: 100%; }
