@@ -11,6 +11,9 @@ $event-card-shadow-color: #888;
 body {
   background-color: $background-color;
   color: $text-grey;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 nav {
@@ -84,4 +87,28 @@ nav {
   box-shadow: 7px 7px 2px $event-card-shadow-color;
   margin: 15px;
   padding: 15px;
+}
+
+.my-container {
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+}
+
+.my-header {
+  background: $white;
+  padding: 10px;
+}
+
+.my-body {
+  padding: 10px;
+  padding-bottom: 30px;
+}
+
+.my-footer {
+  background: $white;
+  bottom: 0;
+  height: 30px;
+  position: absolute;
+  width: 100%;
 }
