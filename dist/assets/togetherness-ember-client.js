@@ -3939,14 +3939,6 @@ define('togetherness-ember-client/plan-trip/route', ['exports', 'ember', 'ember-
         }).then(function () {
           var newTrip = _this.get('store').createRecord('trip', tripData);
           newTrip.save();
-          return newTrip;
-        }).then(function (trip) {
-          var attendanceParams = {
-            trip_id: trip.id,
-            user_id: tripData.user_id
-          };
-          var newAttendance = _this.get('store').createRecord('attendance', attendanceParams);
-          newAttendance.save();
         }).then(function () {
           _this.transitionTo('trips');
         });
