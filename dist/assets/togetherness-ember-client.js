@@ -2010,6 +2010,22 @@ define("togetherness-ember-client/components/city-destination/template", ["expor
 define('togetherness-ember-client/components/date-picker', ['exports', 'ember', 'ember-cli-datepicker/components/date-picker'], function (exports, _ember, _emberCliDatepickerComponentsDatePicker) {
   exports['default'] = _emberCliDatepickerComponentsDatePicker['default'];
 });
+define('togetherness-ember-client/components/disqus-comment-count', ['exports', 'ember-disqus/components/disqus-comment-count'], function (exports, _emberDisqusComponentsDisqusCommentCount) {
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberDisqusComponentsDisqusCommentCount['default'];
+    }
+  });
+});
+define('togetherness-ember-client/components/disqus-comments', ['exports', 'ember-disqus/components/disqus-comments'], function (exports, _emberDisqusComponentsDisqusComments) {
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberDisqusComponentsDisqusComments['default'];
+    }
+  });
+});
 define('togetherness-ember-client/components/email-input/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
     tagName: 'div',
@@ -3121,7 +3137,7 @@ define("togetherness-ember-client/components/planned-trip/template", ["exports"]
             "column": 0
           },
           "end": {
-            "line": 53,
+            "line": 56,
             "column": 0
           }
         },
@@ -3267,6 +3283,16 @@ define("togetherness-ember-client/components/planned-trip/template", ["exports"]
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n\n  ");
         dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h6");
+        var el3 = dom.createTextNode("Comments");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
         var el2 = dom.createElement("hr");
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n\n  ");
@@ -3308,23 +3334,24 @@ define("togetherness-ember-client/components/planned-trip/template", ["exports"]
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var element0 = dom.childAt(fragment, [0]);
         var element1 = dom.childAt(element0, [5, 1]);
-        var element2 = dom.childAt(element0, [13]);
+        var element2 = dom.childAt(element0, [17]);
         var element3 = dom.childAt(element2, [1]);
         var element4 = dom.childAt(element2, [3]);
         var element5 = dom.childAt(element2, [5]);
-        var morphs = new Array(9);
+        var morphs = new Array(10);
         morphs[0] = dom.createMorphAt(dom.childAt(element0, [1, 1]), 1, 1);
         morphs[1] = dom.createMorphAt(dom.childAt(element1, [1, 3]), 0, 0);
         morphs[2] = dom.createMorphAt(dom.childAt(element1, [3, 3]), 0, 0);
         morphs[3] = dom.createMorphAt(dom.childAt(element1, [5, 3]), 0, 0);
         morphs[4] = dom.createMorphAt(dom.childAt(element1, [7, 3]), 0, 0);
         morphs[5] = dom.createMorphAt(dom.childAt(element0, [9]), 1, 1);
-        morphs[6] = dom.createElementMorph(element3);
-        morphs[7] = dom.createElementMorph(element4);
-        morphs[8] = dom.createElementMorph(element5);
+        morphs[6] = dom.createMorphAt(element0, 13, 13);
+        morphs[7] = dom.createElementMorph(element3);
+        morphs[8] = dom.createElementMorph(element4);
+        morphs[9] = dom.createElementMorph(element5);
         return morphs;
       },
-      statements: [["content", "trip.name", ["loc", [null, [4, 6], [4, 19]]]], ["content", "trip.city_name", ["loc", [null, [12, 12], [12, 30]]]], ["content", "trip.start_date", ["loc", [null, [16, 12], [16, 31]]]], ["content", "trip.end_date", ["loc", [null, [20, 12], [20, 29]]]], ["content", "trip.notes", ["loc", [null, [24, 12], [24, 26]]]], ["block", "each", [["get", "trip.attendances", ["loc", [null, [31, 12], [31, 28]]]]], [], 0, null, ["loc", [null, [31, 4], [33, 13]]]], ["element", "action", ["inviteFriend"], [], ["loc", [null, [40, 12], [40, 37]]]], ["element", "action", ["updateTrip"], [], ["loc", [null, [44, 12], [44, 35]]]], ["element", "action", ["deleteTrip"], [], ["loc", [null, [48, 12], [48, 35]]]]],
+      statements: [["content", "trip.name", ["loc", [null, [4, 6], [4, 19]]]], ["content", "trip.city_name", ["loc", [null, [12, 12], [12, 30]]]], ["content", "trip.start_date", ["loc", [null, [16, 12], [16, 31]]]], ["content", "trip.end_date", ["loc", [null, [20, 12], [20, 29]]]], ["content", "trip.notes", ["loc", [null, [24, 12], [24, 26]]]], ["block", "each", [["get", "trip.attendances", ["loc", [null, [31, 12], [31, 28]]]]], [], 0, null, ["loc", [null, [31, 4], [33, 13]]]], ["inline", "disqus-comments", [], ["identifier", ["subexpr", "@mut", [["get", "trip.id", ["loc", [null, [37, 31], [37, 38]]]]], [], []]], ["loc", [null, [37, 2], [37, 40]]]], ["element", "action", ["inviteFriend"], [], ["loc", [null, [43, 12], [43, 37]]]], ["element", "action", ["updateTrip"], [], ["loc", [null, [47, 12], [47, 35]]]], ["element", "action", ["deleteTrip"], [], ["loc", [null, [51, 12], [51, 35]]]]],
       locals: [],
       templates: [child0]
     };
@@ -5480,6 +5507,22 @@ define("togetherness-ember-client/users/template", ["exports"], function (export
     };
   })());
 });
+define('togetherness-ember-client/utils/disqus-cache', ['exports', 'ember-disqus/utils/disqus-cache'], function (exports, _emberDisqusUtilsDisqusCache) {
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberDisqusUtilsDisqusCache['default'];
+    }
+  });
+});
+define('togetherness-ember-client/utils/load-disqus-api', ['exports', 'ember-disqus/utils/load-filepicker-api'], function (exports, _emberDisqusUtilsLoadFilepickerApi) {
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberDisqusUtilsLoadFilepickerApi['default'];
+    }
+  });
+});
 /* jshint ignore:start */
 
 
@@ -5512,7 +5555,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+55f1c662"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+cc8b10e0"});
 }
 
 /* jshint ignore:end */
