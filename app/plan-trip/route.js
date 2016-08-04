@@ -32,6 +32,7 @@ export default Ember.Route.extend({
       .then(() => {
         let newTrip = this.get('store').createRecord('trip', tripData);
         newTrip.save();
+        return newTrip;
       })
       .then((trip) => {
         let attendanceParams = {
