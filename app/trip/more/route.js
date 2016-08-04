@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model () {
-    return this.get('store').findAll('trip');
+  model (params) {
+    return this.get('store').findRecord('trip', params.trip_id);
   },
 
   actions: {

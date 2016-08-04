@@ -17,7 +17,7 @@
     <tbody>
       <tr>
         <td width="35%">City</td>
-        <td>{{trip.city_name}}</td>
+        <td>{{trip.city.name}}</td>
       </tr>
       <tr>
         <td width="35%">Start Date</td>
@@ -36,13 +36,15 @@
 
   <h6>People</h6>
   <ol>
-    {{#each trip.attendances}}
-      <li>{{attendance.user_id}}</li>
+    {{#each trip.attendances as |attendance|}}
+      <li>{{attendance.user.email}}</li>
     {{/each}}
   </ol>
 
-  <h6>Comments</h6>
-  trip id: {{trip.id}}
+  <br>
+  <hr>
+  <br>
+
   {{disqus-comments identifier=trip.id}}
 
   <hr>
