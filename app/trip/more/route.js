@@ -8,6 +8,7 @@ export default Ember.Route.extend({
   actions: {
     deleteTrip(trip){
       trip.destroyRecord();
+      this.transitionTo('trips');
     },
     updateTrip(trip) {
       this.transitionTo('trips/edit', trip);

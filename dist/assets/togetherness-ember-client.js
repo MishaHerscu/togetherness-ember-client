@@ -5474,6 +5474,7 @@ define('togetherness-ember-client/trip/more/route', ['exports', 'ember'], functi
     actions: {
       deleteTrip: function deleteTrip(trip) {
         trip.destroyRecord();
+        this.transitionTo('trips');
       },
       updateTrip: function updateTrip(trip) {
         this.transitionTo('trips/edit', trip);
