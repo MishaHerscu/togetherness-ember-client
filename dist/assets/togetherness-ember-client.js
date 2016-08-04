@@ -3511,11 +3511,11 @@ define("togetherness-ember-client/components/trip-detail/template", ["exports"],
           "loc": {
             "source": null,
             "start": {
-              "line": 31,
+              "line": 39,
               "column": 4
             },
             "end": {
-              "line": 33,
+              "line": 41,
               "column": 4
             }
           },
@@ -3542,7 +3542,7 @@ define("togetherness-ember-client/components/trip-detail/template", ["exports"],
           morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
           return morphs;
         },
-        statements: [["content", "attendance.user_id", ["loc", [null, [32, 10], [32, 32]]]]],
+        statements: [["content", "attendance.user_id", ["loc", [null, [40, 10], [40, 32]]]]],
         locals: [],
         templates: []
       };
@@ -3560,7 +3560,7 @@ define("togetherness-ember-client/components/trip-detail/template", ["exports"],
             "column": 0
           },
           "end": {
-            "line": 61,
+            "line": 69,
             "column": 0
           }
         },
@@ -3580,12 +3580,34 @@ define("togetherness-ember-client/components/trip-detail/template", ["exports"],
         dom.setAttribute(el2, "class", "col-xs-12");
         var el3 = dom.createTextNode("\n    ");
         dom.appendChild(el2, el3);
-        var el3 = dom.createElement("h3");
-        dom.setAttribute(el3, "class", "col-xs-12");
-        dom.setAttribute(el3, "style", "text-align: center;");
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "col-xs-11");
         var el4 = dom.createTextNode("\n      ");
         dom.appendChild(el3, el4);
-        var el4 = dom.createComment("");
+        var el4 = dom.createElement("h3");
+        dom.setAttribute(el4, "class", "col-xs-12");
+        dom.setAttribute(el4, "style", "text-align: center;");
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createComment("");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n      ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "col-xs-1");
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("button");
+        dom.setAttribute(el4, "type", "button");
+        dom.setAttribute(el4, "class", "close tile-close-button");
+        var el5 = dom.createTextNode("×\n      ");
+        dom.appendChild(el4, el5);
         dom.appendChild(el3, el4);
         var el4 = dom.createTextNode("\n    ");
         dom.appendChild(el3, el4);
@@ -3767,28 +3789,31 @@ define("togetherness-ember-client/components/trip-detail/template", ["exports"],
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var element0 = dom.childAt(fragment, [0]);
-        var element1 = dom.childAt(element0, [5, 1]);
-        var element2 = dom.childAt(element0, [19]);
-        var element3 = dom.childAt(element2, [1]);
-        var element4 = dom.childAt(element2, [3]);
-        var element5 = dom.childAt(element2, [5]);
-        var element6 = dom.childAt(element2, [7]);
-        var morphs = new Array(12);
-        morphs[0] = dom.createMorphAt(dom.childAt(element0, [1, 1]), 1, 1);
-        morphs[1] = dom.createMorphAt(dom.childAt(element1, [1, 3]), 0, 0);
-        morphs[2] = dom.createMorphAt(dom.childAt(element1, [3, 3]), 0, 0);
-        morphs[3] = dom.createMorphAt(dom.childAt(element1, [5, 3]), 0, 0);
-        morphs[4] = dom.createMorphAt(dom.childAt(element1, [7, 3]), 0, 0);
-        morphs[5] = dom.createMorphAt(dom.childAt(element0, [9]), 1, 1);
-        morphs[6] = dom.createMorphAt(element0, 13, 13);
-        morphs[7] = dom.createMorphAt(element0, 15, 15);
-        morphs[8] = dom.createElementMorph(element3);
-        morphs[9] = dom.createElementMorph(element4);
-        morphs[10] = dom.createElementMorph(element5);
-        morphs[11] = dom.createElementMorph(element6);
+        var element1 = dom.childAt(element0, [1]);
+        var element2 = dom.childAt(element1, [3, 1]);
+        var element3 = dom.childAt(element0, [5, 1]);
+        var element4 = dom.childAt(element0, [19]);
+        var element5 = dom.childAt(element4, [1]);
+        var element6 = dom.childAt(element4, [3]);
+        var element7 = dom.childAt(element4, [5]);
+        var element8 = dom.childAt(element4, [7]);
+        var morphs = new Array(13);
+        morphs[0] = dom.createMorphAt(dom.childAt(element1, [1, 1]), 1, 1);
+        morphs[1] = dom.createElementMorph(element2);
+        morphs[2] = dom.createMorphAt(dom.childAt(element3, [1, 3]), 0, 0);
+        morphs[3] = dom.createMorphAt(dom.childAt(element3, [3, 3]), 0, 0);
+        morphs[4] = dom.createMorphAt(dom.childAt(element3, [5, 3]), 0, 0);
+        morphs[5] = dom.createMorphAt(dom.childAt(element3, [7, 3]), 0, 0);
+        morphs[6] = dom.createMorphAt(dom.childAt(element0, [9]), 1, 1);
+        morphs[7] = dom.createMorphAt(element0, 13, 13);
+        morphs[8] = dom.createMorphAt(element0, 15, 15);
+        morphs[9] = dom.createElementMorph(element5);
+        morphs[10] = dom.createElementMorph(element6);
+        morphs[11] = dom.createElementMorph(element7);
+        morphs[12] = dom.createElementMorph(element8);
         return morphs;
       },
-      statements: [["content", "trip.name", ["loc", [null, [4, 6], [4, 19]]]], ["content", "trip.city_name", ["loc", [null, [12, 12], [12, 30]]]], ["content", "trip.start_date", ["loc", [null, [16, 12], [16, 31]]]], ["content", "trip.end_date", ["loc", [null, [20, 12], [20, 29]]]], ["content", "trip.notes", ["loc", [null, [24, 12], [24, 26]]]], ["block", "each", [["get", "trip.attendances", ["loc", [null, [31, 12], [31, 28]]]]], [], 0, null, ["loc", [null, [31, 4], [33, 13]]]], ["content", "trip.id", ["loc", [null, [37, 11], [37, 22]]]], ["inline", "disqus-comments", [], ["identifier", ["subexpr", "@mut", [["get", "trip.id", ["loc", [null, [38, 31], [38, 38]]]]], [], []]], ["loc", [null, [38, 2], [38, 40]]]], ["element", "action", ["back"], [], ["loc", [null, [44, 12], [44, 29]]]], ["element", "action", ["inviteFriend"], [], ["loc", [null, [48, 12], [48, 37]]]], ["element", "action", ["updateTrip"], [], ["loc", [null, [52, 12], [52, 35]]]], ["element", "action", ["deleteTrip"], [], ["loc", [null, [56, 12], [56, 35]]]]],
+      statements: [["content", "trip.name", ["loc", [null, [5, 8], [5, 21]]]], ["element", "action", ["back"], [], ["loc", [null, [11, 14], [11, 31]]]], ["content", "trip.city_name", ["loc", [null, [20, 12], [20, 30]]]], ["content", "trip.start_date", ["loc", [null, [24, 12], [24, 31]]]], ["content", "trip.end_date", ["loc", [null, [28, 12], [28, 29]]]], ["content", "trip.notes", ["loc", [null, [32, 12], [32, 26]]]], ["block", "each", [["get", "trip.attendances", ["loc", [null, [39, 12], [39, 28]]]]], [], 0, null, ["loc", [null, [39, 4], [41, 13]]]], ["content", "trip.id", ["loc", [null, [45, 11], [45, 22]]]], ["inline", "disqus-comments", [], ["identifier", ["subexpr", "@mut", [["get", "trip.id", ["loc", [null, [46, 31], [46, 38]]]]], [], []]], ["loc", [null, [46, 2], [46, 40]]]], ["element", "action", ["back"], [], ["loc", [null, [52, 12], [52, 29]]]], ["element", "action", ["inviteFriend"], [], ["loc", [null, [56, 12], [56, 37]]]], ["element", "action", ["updateTrip"], [], ["loc", [null, [60, 12], [60, 35]]]], ["element", "action", ["deleteTrip"], [], ["loc", [null, [64, 12], [64, 35]]]]],
       locals: [],
       templates: [child0]
     };
