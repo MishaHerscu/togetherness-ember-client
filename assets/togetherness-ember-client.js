@@ -3321,7 +3321,7 @@ define("togetherness-ember-client/components/planned-trip/template", ["exports"]
         morphs[8] = dom.createElementMorph(element5);
         return morphs;
       },
-      statements: [["content", "trip.name", ["loc", [null, [4, 6], [4, 19]]]], ["content", "trip.city_name", ["loc", [null, [12, 12], [12, 30]]]], ["content", "trip.start_date", ["loc", [null, [16, 12], [16, 31]]]], ["content", "trip.end_date", ["loc", [null, [20, 12], [20, 29]]]], ["content", "trip.notes", ["loc", [null, [24, 12], [24, 26]]]], ["block", "each", [["get", "trip.attendances", ["loc", [null, [31, 12], [31, 28]]]]], [], 0, null, ["loc", [null, [31, 4], [33, 13]]]], ["element", "action", ["inviteFriend"], [], ["loc", [null, [40, 12], [40, 37]]]], ["element", "action", ["editTrip"], [], ["loc", [null, [44, 12], [44, 33]]]], ["element", "action", ["deleteTrip"], [], ["loc", [null, [48, 12], [48, 35]]]]],
+      statements: [["content", "trip.name", ["loc", [null, [4, 6], [4, 19]]]], ["content", "trip.city_name", ["loc", [null, [12, 12], [12, 30]]]], ["content", "trip.start_date", ["loc", [null, [16, 12], [16, 31]]]], ["content", "trip.end_date", ["loc", [null, [20, 12], [20, 29]]]], ["content", "trip.notes", ["loc", [null, [24, 12], [24, 26]]]], ["block", "each", [["get", "trip.attendances", ["loc", [null, [31, 12], [31, 28]]]]], [], 0, null, ["loc", [null, [31, 4], [33, 13]]]], ["element", "action", ["inviteFriend"], [], ["loc", [null, [40, 12], [40, 37]]]], ["element", "action", ["updateTrip"], [], ["loc", [null, [44, 12], [44, 35]]]], ["element", "action", ["deleteTrip"], [], ["loc", [null, [48, 12], [48, 35]]]]],
       locals: [],
       templates: [child0]
     };
@@ -4446,7 +4446,7 @@ define('togetherness-ember-client/trips/route', ['exports', 'ember'], function (
 
     actions: {
       deleteTrip: function deleteTrip(trip) {
-        console.log(trip);
+        trip.destroyRecord();
       },
       updateTrip: function updateTrip(trip) {
         console.log(trip);
