@@ -3543,7 +3543,7 @@ define('togetherness-ember-client/components/trip-editor/component', ['exports',
 
     actions: {
       submit: function submit() {
-        this.sendAction('submit', this.get('tripData'));
+        this.sendAction('submit', this.get('trip'));
       },
 
       cancel: function cancel() {
@@ -5263,7 +5263,7 @@ define("togetherness-ember-client/trips/edit/template", ["exports"], function (e
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["inline", "trip-editor", [], ["trip", ["subexpr", "@mut", [["get", "trip", ["loc", [null, [2, 7], [2, 11]]]]], [], []], "submit", "save", "cancel", "cancel"], ["loc", [null, [1, 0], [4, 19]]]]],
+      statements: [["inline", "trip-editor", [], ["trip", ["subexpr", "@mut", [["get", "model", ["loc", [null, [2, 7], [2, 12]]]]], [], []], "submit", "save", "cancel", "cancel"], ["loc", [null, [1, 0], [4, 19]]]]],
       locals: [],
       templates: []
     };

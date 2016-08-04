@@ -20,7 +20,7 @@ module.exports = function(environment) {
     },
 
     disqus: {
-      shortname: 'disqus'
+      shortname: 'www-apricitytravel-com'
     }
   };
 

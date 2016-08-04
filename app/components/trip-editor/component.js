@@ -4,7 +4,7 @@ export default Ember.Component.extend({
 
   actions: {
     submit () {
-      this.sendAction('submit', this.get('tripData'));
+      this.sendAction('submit', this.get('trip'));
     },
 
     cancel () {
