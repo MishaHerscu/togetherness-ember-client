@@ -16,19 +16,11 @@
     {{content-for "head-footer"}}
   </head>
   <body class="container-fluid">
-    <div class="my-container">
-      <div class="my-header"></div>
-      <div class="my-body">
-        {{content-for "body"}}
+    {{content-for "body"}}
 
-        <script src="assets/vendor.js"></script>
-        <script src="assets/togetherness-ember-client.js"></script>
+    <script src="assets/vendor.js"></script>
+    <script src="assets/togetherness-ember-client.js"></script>
 
-        {{content-for "body-footer"}}
-      </div>
-      <div class="footer navbar-fixed-bottom website-footer">
-        <h5 class="website-footer-text">Misha Herscu | mishaherscu@gmail.com</h5>
-      </div>
-    </div>
+    {{content-for "body-footer"}}
   </body>
 </html>

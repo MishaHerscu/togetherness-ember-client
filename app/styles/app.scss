@@ -21,18 +21,6 @@ nav {
   height: 40px;
 }
 
-.website-footer {
-  background-color: $white;
-  height: 36px;
-}
-
-.website-footer-text {
-  color: $text-grey;
-  font-weight: 300;
-  margin-top: 9px;
-  text-align: center;
-}
-
 .welcome-banner {
   color: $text-grey;
   font-size: 3em;
@@ -111,4 +99,16 @@ nav {
   height: 36px;
   position: absolute;
   width: 100%;
+}
+
+.website-footer {
+  background-color: $white;
+  height: 36px;
+}
+
+.website-footer-text {
+  color: $text-grey;
+  font-weight: 300;
+  margin-top: 9px;
+  text-align: center;
 }
