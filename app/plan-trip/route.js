@@ -12,6 +12,7 @@ export default Ember.Route.extend({
     submit (data) {
       let tripData = {
         name: data.name,
+        notes: data.notes,
         city_id: '',
         user_id: '',
         start_date: data.start_date,

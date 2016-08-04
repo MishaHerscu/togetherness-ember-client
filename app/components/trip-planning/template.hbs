@@ -26,25 +26,45 @@
     <label>
       Name Your Adventure!
     </label>
-      {{input placeholder="Best Adventure Ever!!!"
-             class="input-group form-control"
-             value=tripData.name}}
+      {{input
+        placeholder="Best Adventure Ever!!!"
+        class="input-group form-control"
+        required="true"
+        value=tripData.name}}
+
+    <br>
+
+    <label>
+      Notes
+    </label>
+      {{textarea
+        rows="3"
+        placeholder="Every good adventure starts with..."
+        class="input-group form-control"
+        required="true"
+        value=tripData.notes}}
 
     <br>
 
     <label>
       Start date:
     </label>
-      {{input type="date" class="input-group form-control"
-            value=tripData.start_date}}
+      {{input
+        type="date"
+        class="input-group form-control"
+        required="true"
+        value=tripData.start_date}}
 
     <br>
 
     <label>
       End date:
     </label>
-      {{input type="date" class="input-group form-control"
-            value=tripData.end_date}}
+      {{input
+        type="date"
+        class="input-group form-control"
+        required="true"
+        value=tripData.end_date}}
 
     <br>
 

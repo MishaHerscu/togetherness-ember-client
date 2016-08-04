@@ -4,6 +4,7 @@ export default Ember.Component.extend({
 
   tripData: {
     name: null,
+    notes: null,
     city_id: null,
     start_date: null,
     end_date: null,

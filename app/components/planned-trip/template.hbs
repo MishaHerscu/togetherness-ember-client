@@ -1,0 +1,52 @@
+<div class="event-card col-xs-5">
+  <div class="col-xs-12">
+    <h3 class="col-xs-12" style="text-align: center;">
+      {{trip.name}}
+    </h3>
+  </div>
+  <h6>Details</h6>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td width="35%">City</td>
+        <td>{{trip.city_name}}</td>
+      </tr>
+      <tr>
+        <td width="35%">Start Date</td>
+        <td>{{trip.start_date}}</td>
+      </tr>
+      <tr>
+        <td width="35%">End Date</td>
+        <td>{{trip.end_date}}</td>
+      </tr>
+      <tr>
+        <td width="35%">Notes</td>
+        <td>{{trip.notes}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h6>People</h6>
+  <ol>
+    {{#each trip.attendances}}
+      <li>{{attendance.user_id}}</li>
+    {{/each}}
+  </ol>
+
+  <hr>
+
+  <div class="col-xs-12" style="text-align: right;">
+    <button class="btn btn-md btn-success disabled"
+            {{action "inviteFriend"}}>
+      Invite
+    </button>
+    <button class="btn btn-md btn-primary"
+            {{action "editTrip"}}>
+      Edit
+    </button>
+    <button class="btn btn-md btn-danger"
+            {{action "deleteTrip"}}>
+      Delete
+    </button>
+  </div>
+</div>

@@ -1,9 +1,11 @@
-<h2>Trip Planning</h2>
+<h2>Adventures</h2>
 
 <br>
 <br>
-<ul>
-  {{#each model as |trip|}}
-    <li>{{trip.name}}</li>
-  {{/each}}
-</ul>
+{{#each model as |trip|}}
+  {{planned-trip
+    trip=trip
+    deleteTrip="deleteTrip"
+    updateTrip="updateTrip"
+    inviteFriend="inviteFriend"}}
+{{/each}}
