@@ -16,8 +16,8 @@ export default Ember.Component.extend({
     inviteFriend () {
       this.sendAction('inviteFriend', this.get('trip'));
     },
-    openTrip () {
-      this.sendAction('openTrip', this.get('trip'));
+    back () {
+      this.sendAction('back');
     }
   },
 });

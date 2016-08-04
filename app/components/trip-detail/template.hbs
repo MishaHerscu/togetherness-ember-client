@@ -1,4 +1,4 @@
-<div class="event-card col-xs-5">
+<div class="event-card col-xs-12">
   <div class="col-xs-12">
     <h3 class="col-xs-12" style="text-align: center;">
       {{trip.name}}
@@ -26,12 +26,23 @@
     </tbody>
   </table>
 
+  <h6>People</h6>
+  <ol>
+    {{#each trip.attendances}}
+      <li>{{attendance.user_id}}</li>
+    {{/each}}
+  </ol>
+
+  <h6>Comments</h6>
+  trip id: {{trip.id}}
+  {{disqus-comments identifier=trip.id}}
+
   <hr>
 
   <div class="col-xs-12" style="text-align: right;">
     <button class="btn btn-md btn-info"
-            {{action "openTrip"}}>
-      More
+            {{action "back"}}>
+      Back
     </button>
     <button class="btn btn-md btn-success disabled"
             {{action "inviteFriend"}}>

@@ -3074,56 +3074,15 @@ define('togetherness-ember-client/components/planned-trip/component', ['exports'
       },
       inviteFriend: function inviteFriend() {
         this.sendAction('inviteFriend', this.get('trip'));
+      },
+      openTrip: function openTrip() {
+        this.sendAction('openTrip', this.get('trip'));
       }
     }
   });
 });
 define("togetherness-ember-client/components/planned-trip/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
-    var child0 = (function () {
-      return {
-        meta: {
-          "fragmentReason": false,
-          "revision": "Ember@2.5.1",
-          "loc": {
-            "source": null,
-            "start": {
-              "line": 31,
-              "column": 4
-            },
-            "end": {
-              "line": 33,
-              "column": 4
-            }
-          },
-          "moduleName": "togetherness-ember-client/components/planned-trip/template.hbs"
-        },
-        isEmpty: false,
-        arity: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        buildFragment: function buildFragment(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("      ");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createElement("li");
-          var el2 = dom.createComment("");
-          dom.appendChild(el1, el2);
-          dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n");
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
-          return morphs;
-        },
-        statements: [["content", "attendance.user_id", ["loc", [null, [32, 10], [32, 32]]]]],
-        locals: [],
-        templates: []
-      };
-    })();
     return {
       meta: {
         "fragmentReason": {
@@ -3137,7 +3096,7 @@ define("togetherness-ember-client/components/planned-trip/template", ["exports"]
             "column": 0
           },
           "end": {
-            "line": 56,
+            "line": 50,
             "column": 0
           }
         },
@@ -3267,32 +3226,6 @@ define("togetherness-ember-client/components/planned-trip/template", ["exports"]
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n\n  ");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("h6");
-        var el3 = dom.createTextNode("People");
-        dom.appendChild(el2, el3);
-        dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n  ");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createElement("ol");
-        var el3 = dom.createTextNode("\n");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createComment("");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("  ");
-        dom.appendChild(el2, el3);
-        dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n\n  ");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createElement("h6");
-        var el3 = dom.createTextNode("Comments");
-        dom.appendChild(el2, el3);
-        dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n  ");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createComment("");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n\n  ");
-        dom.appendChild(el1, el2);
         var el2 = dom.createElement("hr");
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n\n  ");
@@ -3300,6 +3233,13 @@ define("togetherness-ember-client/components/planned-trip/template", ["exports"]
         var el2 = dom.createElement("div");
         dom.setAttribute(el2, "class", "col-xs-12");
         dom.setAttribute(el2, "style", "text-align: right;");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("button");
+        dom.setAttribute(el3, "class", "btn btn-md btn-info");
+        var el4 = dom.createTextNode("\n      More\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n    ");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("button");
@@ -3334,26 +3274,26 @@ define("togetherness-ember-client/components/planned-trip/template", ["exports"]
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var element0 = dom.childAt(fragment, [0]);
         var element1 = dom.childAt(element0, [5, 1]);
-        var element2 = dom.childAt(element0, [17]);
+        var element2 = dom.childAt(element0, [9]);
         var element3 = dom.childAt(element2, [1]);
         var element4 = dom.childAt(element2, [3]);
         var element5 = dom.childAt(element2, [5]);
-        var morphs = new Array(10);
+        var element6 = dom.childAt(element2, [7]);
+        var morphs = new Array(9);
         morphs[0] = dom.createMorphAt(dom.childAt(element0, [1, 1]), 1, 1);
         morphs[1] = dom.createMorphAt(dom.childAt(element1, [1, 3]), 0, 0);
         morphs[2] = dom.createMorphAt(dom.childAt(element1, [3, 3]), 0, 0);
         morphs[3] = dom.createMorphAt(dom.childAt(element1, [5, 3]), 0, 0);
         morphs[4] = dom.createMorphAt(dom.childAt(element1, [7, 3]), 0, 0);
-        morphs[5] = dom.createMorphAt(dom.childAt(element0, [9]), 1, 1);
-        morphs[6] = dom.createMorphAt(element0, 13, 13);
-        morphs[7] = dom.createElementMorph(element3);
-        morphs[8] = dom.createElementMorph(element4);
-        morphs[9] = dom.createElementMorph(element5);
+        morphs[5] = dom.createElementMorph(element3);
+        morphs[6] = dom.createElementMorph(element4);
+        morphs[7] = dom.createElementMorph(element5);
+        morphs[8] = dom.createElementMorph(element6);
         return morphs;
       },
-      statements: [["content", "trip.name", ["loc", [null, [4, 6], [4, 19]]]], ["content", "trip.city_name", ["loc", [null, [12, 12], [12, 30]]]], ["content", "trip.start_date", ["loc", [null, [16, 12], [16, 31]]]], ["content", "trip.end_date", ["loc", [null, [20, 12], [20, 29]]]], ["content", "trip.notes", ["loc", [null, [24, 12], [24, 26]]]], ["block", "each", [["get", "trip.attendances", ["loc", [null, [31, 12], [31, 28]]]]], [], 0, null, ["loc", [null, [31, 4], [33, 13]]]], ["inline", "disqus-comments", [], ["identifier", ["subexpr", "@mut", [["get", "trip.id", ["loc", [null, [37, 31], [37, 38]]]]], [], []]], ["loc", [null, [37, 2], [37, 40]]]], ["element", "action", ["inviteFriend"], [], ["loc", [null, [43, 12], [43, 37]]]], ["element", "action", ["updateTrip"], [], ["loc", [null, [47, 12], [47, 35]]]], ["element", "action", ["deleteTrip"], [], ["loc", [null, [51, 12], [51, 35]]]]],
+      statements: [["content", "trip.name", ["loc", [null, [4, 6], [4, 19]]]], ["content", "trip.city_name", ["loc", [null, [12, 12], [12, 30]]]], ["content", "trip.start_date", ["loc", [null, [16, 12], [16, 31]]]], ["content", "trip.end_date", ["loc", [null, [20, 12], [20, 29]]]], ["content", "trip.notes", ["loc", [null, [24, 12], [24, 26]]]], ["element", "action", ["openTrip"], [], ["loc", [null, [33, 12], [33, 33]]]], ["element", "action", ["inviteFriend"], [], ["loc", [null, [37, 12], [37, 37]]]], ["element", "action", ["updateTrip"], [], ["loc", [null, [41, 12], [41, 35]]]], ["element", "action", ["deleteTrip"], [], ["loc", [null, [45, 12], [45, 35]]]]],
       locals: [],
-      templates: [child0]
+      templates: []
     };
   })());
 });
@@ -3535,6 +3475,322 @@ define("togetherness-ember-client/components/sign-up-form/template", ["exports"]
       statements: [["inline", "email-input", [], ["email", ["subexpr", "@mut", [["get", "credentials.email", ["loc", [null, [1, 20], [1, 37]]]]], [], []]], ["loc", [null, [1, 0], [1, 39]]]], ["inline", "password-input", [], ["password", ["subexpr", "@mut", [["get", "credentials.password", ["loc", [null, [2, 26], [2, 46]]]]], [], []]], ["loc", [null, [2, 0], [2, 48]]]], ["inline", "password-confirmation-input", [], ["password", ["subexpr", "@mut", [["get", "credentials.passwordConfirmation", ["loc", [null, [3, 39], [3, 71]]]]], [], []]], ["loc", [null, [3, 0], [3, 73]]]], ["element", "action", ["submit"], [], ["loc", [null, [5, 46], [5, 65]]]], ["element", "action", ["reset"], [], ["loc", [null, [9, 32], [9, 50]]]]],
       locals: [],
       templates: []
+    };
+  })());
+});
+define('togetherness-ember-client/components/trip-detail/component', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Component.extend({
+    tagName: 'div',
+    classNameBindings: 'hiddenAttraction:hidden',
+    hiddenAttraction: false,
+
+    actions: {
+      deleteTrip: function deleteTrip() {
+        this.sendAction('deleteTrip', this.get('trip'));
+        this.toggleProperty('hiddenAttraction');
+      },
+      updateTrip: function updateTrip() {
+        this.sendAction('updateTrip', this.get('trip'));
+      },
+      inviteFriend: function inviteFriend() {
+        this.sendAction('inviteFriend', this.get('trip'));
+      },
+      back: function back() {
+        this.sendAction('back');
+      }
+    }
+  });
+});
+define("togetherness-ember-client/components/trip-detail/template", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.5.1",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 31,
+              "column": 4
+            },
+            "end": {
+              "line": 33,
+              "column": 4
+            }
+          },
+          "moduleName": "togetherness-ember-client/components/trip-detail/template.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("      ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("li");
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
+          return morphs;
+        },
+        statements: [["content", "attendance.user_id", ["loc", [null, [32, 10], [32, 32]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "triple-curlies"
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 61,
+            "column": 0
+          }
+        },
+        "moduleName": "togetherness-ember-client/components/trip-detail/template.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "event-card col-xs-12");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "col-xs-12");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("h3");
+        dom.setAttribute(el3, "class", "col-xs-12");
+        dom.setAttribute(el3, "style", "text-align: center;");
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createComment("");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h6");
+        var el3 = dom.createTextNode("Details");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("table");
+        dom.setAttribute(el2, "class", "table table-bordered");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("tbody");
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("tr");
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("td");
+        dom.setAttribute(el5, "width", "35%");
+        var el6 = dom.createTextNode("City");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("td");
+        var el6 = dom.createComment("");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n      ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("tr");
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("td");
+        dom.setAttribute(el5, "width", "35%");
+        var el6 = dom.createTextNode("Start Date");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("td");
+        var el6 = dom.createComment("");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n      ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("tr");
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("td");
+        dom.setAttribute(el5, "width", "35%");
+        var el6 = dom.createTextNode("End Date");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("td");
+        var el6 = dom.createComment("");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n      ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("tr");
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("td");
+        dom.setAttribute(el5, "width", "35%");
+        var el6 = dom.createTextNode("Notes");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("td");
+        var el6 = dom.createComment("");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n      ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h6");
+        var el3 = dom.createTextNode("People");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("ol");
+        var el3 = dom.createTextNode("\n");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h6");
+        var el3 = dom.createTextNode("Comments");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  trip id: ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("hr");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "col-xs-12");
+        dom.setAttribute(el2, "style", "text-align: right;");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("button");
+        dom.setAttribute(el3, "class", "btn btn-md btn-info");
+        var el4 = dom.createTextNode("\n      Back\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("button");
+        dom.setAttribute(el3, "class", "btn btn-md btn-success disabled");
+        var el4 = dom.createTextNode("\n      Invite\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("button");
+        dom.setAttribute(el3, "class", "btn btn-md btn-primary");
+        var el4 = dom.createTextNode("\n      Edit\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("button");
+        dom.setAttribute(el3, "class", "btn btn-md btn-danger");
+        var el4 = dom.createTextNode("\n      Delete\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var element0 = dom.childAt(fragment, [0]);
+        var element1 = dom.childAt(element0, [5, 1]);
+        var element2 = dom.childAt(element0, [19]);
+        var element3 = dom.childAt(element2, [1]);
+        var element4 = dom.childAt(element2, [3]);
+        var element5 = dom.childAt(element2, [5]);
+        var element6 = dom.childAt(element2, [7]);
+        var morphs = new Array(12);
+        morphs[0] = dom.createMorphAt(dom.childAt(element0, [1, 1]), 1, 1);
+        morphs[1] = dom.createMorphAt(dom.childAt(element1, [1, 3]), 0, 0);
+        morphs[2] = dom.createMorphAt(dom.childAt(element1, [3, 3]), 0, 0);
+        morphs[3] = dom.createMorphAt(dom.childAt(element1, [5, 3]), 0, 0);
+        morphs[4] = dom.createMorphAt(dom.childAt(element1, [7, 3]), 0, 0);
+        morphs[5] = dom.createMorphAt(dom.childAt(element0, [9]), 1, 1);
+        morphs[6] = dom.createMorphAt(element0, 13, 13);
+        morphs[7] = dom.createMorphAt(element0, 15, 15);
+        morphs[8] = dom.createElementMorph(element3);
+        morphs[9] = dom.createElementMorph(element4);
+        morphs[10] = dom.createElementMorph(element5);
+        morphs[11] = dom.createElementMorph(element6);
+        return morphs;
+      },
+      statements: [["content", "trip.name", ["loc", [null, [4, 6], [4, 19]]]], ["content", "trip.city_name", ["loc", [null, [12, 12], [12, 30]]]], ["content", "trip.start_date", ["loc", [null, [16, 12], [16, 31]]]], ["content", "trip.end_date", ["loc", [null, [20, 12], [20, 29]]]], ["content", "trip.notes", ["loc", [null, [24, 12], [24, 26]]]], ["block", "each", [["get", "trip.attendances", ["loc", [null, [31, 12], [31, 28]]]]], [], 0, null, ["loc", [null, [31, 4], [33, 13]]]], ["content", "trip.id", ["loc", [null, [37, 11], [37, 22]]]], ["inline", "disqus-comments", [], ["identifier", ["subexpr", "@mut", [["get", "trip.id", ["loc", [null, [38, 31], [38, 38]]]]], [], []]], ["loc", [null, [38, 2], [38, 40]]]], ["element", "action", ["back"], [], ["loc", [null, [44, 12], [44, 29]]]], ["element", "action", ["inviteFriend"], [], ["loc", [null, [48, 12], [48, 37]]]], ["element", "action", ["updateTrip"], [], ["loc", [null, [52, 12], [52, 35]]]], ["element", "action", ["deleteTrip"], [], ["loc", [null, [56, 12], [56, 35]]]]],
+      locals: [],
+      templates: [child0]
     };
   })());
 });
@@ -4535,6 +4791,7 @@ define('togetherness-ember-client/router', ['exports', 'ember', 'togetherness-em
     this.route('attractions');
     this.route('attraction-suggestions');
     this.route('cities');
+    this.route('trip/more', { path: '/trip/:trip_id/details' });
     this.route('trips');
     this.route('trips/edit', { path: '/trips/:trip_id/edit' });
     this.route('attendances');
@@ -5208,6 +5465,74 @@ define('togetherness-ember-client/trip/model', ['exports', 'ember-data'], functi
     attendances: _emberData['default'].hasMany('attendance')
   });
 });
+define('togetherness-ember-client/trip/more/route', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Route.extend({
+    model: function model() {
+      return this.get('store').findAll('trip');
+    },
+
+    actions: {
+      deleteTrip: function deleteTrip(trip) {
+        trip.destroyRecord();
+      },
+      updateTrip: function updateTrip(trip) {
+        this.transitionTo('trips/edit', trip);
+      },
+      inviteFriend: function inviteFriend(trip) {
+        console.log(trip);
+      },
+      back: function back() {
+        this.transitionTo('trips');
+      }
+    }
+  });
+});
+define("togetherness-ember-client/trip/more/template", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type"]
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 7,
+            "column": 0
+          }
+        },
+        "moduleName": "togetherness-ember-client/trip/more/template.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        return morphs;
+      },
+      statements: [["inline", "trip-detail", [], ["trip", ["subexpr", "@mut", [["get", "model", ["loc", [null, [2, 7], [2, 12]]]]], [], []], "back", "back", "deleteTrip", "deleteTrip", "updateTrip", "updateTrip", "inviteFriend", "inviteFriend"], ["loc", [null, [1, 0], [6, 31]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
 define('togetherness-ember-client/trips/edit/route', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({
     model: function model(params) {
@@ -5284,8 +5609,10 @@ define('togetherness-ember-client/trips/route', ['exports', 'ember'], function (
       },
       inviteFriend: function inviteFriend(trip) {
         console.log(trip);
+      },
+      openTrip: function openTrip(trip) {
+        this.transitionTo('trip/more', trip);
       }
-
     }
   });
 });
@@ -5303,7 +5630,7 @@ define("togetherness-ember-client/trips/template", ["exports"], function (export
               "column": 0
             },
             "end": {
-              "line": 11,
+              "line": 12,
               "column": 0
             }
           },
@@ -5328,7 +5655,7 @@ define("togetherness-ember-client/trips/template", ["exports"], function (export
           morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
           return morphs;
         },
-        statements: [["inline", "planned-trip", [], ["trip", ["subexpr", "@mut", [["get", "trip", ["loc", [null, [7, 9], [7, 13]]]]], [], []], "deleteTrip", "deleteTrip", "updateTrip", "updateTrip", "inviteFriend", "inviteFriend"], ["loc", [null, [6, 2], [10, 33]]]]],
+        statements: [["inline", "planned-trip", [], ["trip", ["subexpr", "@mut", [["get", "trip", ["loc", [null, [7, 9], [7, 13]]]]], [], []], "openTrip", "openTrip", "deleteTrip", "deleteTrip", "updateTrip", "updateTrip", "inviteFriend", "inviteFriend"], ["loc", [null, [6, 2], [11, 33]]]]],
         locals: ["trip"],
         templates: []
       };
@@ -5347,7 +5674,7 @@ define("togetherness-ember-client/trips/template", ["exports"], function (export
             "column": 0
           },
           "end": {
-            "line": 12,
+            "line": 13,
             "column": 0
           }
         },
@@ -5383,7 +5710,7 @@ define("togetherness-ember-client/trips/template", ["exports"], function (export
         dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["block", "each", [["get", "model", ["loc", [null, [5, 8], [5, 13]]]]], [], 0, null, ["loc", [null, [5, 0], [11, 9]]]]],
+      statements: [["block", "each", [["get", "model", ["loc", [null, [5, 8], [5, 13]]]]], [], 0, null, ["loc", [null, [5, 0], [12, 9]]]]],
       locals: [],
       templates: [child0]
     };
@@ -5555,7 +5882,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+b43f0bc8"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+5084bdf1"});
 }
 
 /* jshint ignore:end */

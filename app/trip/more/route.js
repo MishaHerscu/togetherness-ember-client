@@ -15,8 +15,8 @@ export default Ember.Route.extend({
     inviteFriend(trip) {
       console.log(trip);
     },
-    openTrip(trip) {
-      this.transitionTo('trip/more', trip);
+    back() {
+      this.transitionTo('trips');
     },
   },
 });

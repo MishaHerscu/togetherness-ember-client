@@ -13,6 +13,7 @@ Router.map(function () {
   this.route('attractions');
   this.route('attraction-suggestions');
   this.route('cities');
+  this.route('trip/more', { path: '/trip/:trip_id/details' });
   this.route('trips');
   this.route('trips/edit', { path: '/trips/:trip_id/edit' });
   this.route('attendances');
