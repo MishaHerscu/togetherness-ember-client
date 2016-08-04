@@ -10,7 +10,7 @@ export default Ember.Route.extend({
       trip.destroyRecord();
     },
     updateTrip(trip) {
-      console.log(trip);
+      this.transitionTo('trips/edit', trip);
     },
     inviteFriend(trip) {
       console.log(trip);

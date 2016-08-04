@@ -14,6 +14,7 @@ Router.map(function () {
   this.route('attraction-suggestions');
   this.route('cities');
   this.route('trips');
+  this.route('trips/edit', { path: '/trips/:trip_id/edit' });
   this.route('attendances');
   this.route('plan-trip', { path:'/plan-trip/:attraction_id' } );
 });

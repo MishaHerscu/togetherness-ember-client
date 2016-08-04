@@ -2068,6 +2068,9 @@ define("togetherness-ember-client/components/email-input/template", ["exports"],
     };
   })());
 });
+define('togetherness-ember-client/components/ember-inline-edit', ['exports', 'ember-inline-edit/components/ember-inline-edit'], function (exports, _emberInlineEditComponentsEmberInlineEdit) {
+  exports['default'] = _emberInlineEditComponentsEmberInlineEdit['default'];
+});
 define('togetherness-ember-client/components/flash-message', ['exports', 'ember-cli-flash/components/flash-message'], function (exports, _emberCliFlashComponentsFlashMessage) {
   Object.defineProperty(exports, 'default', {
     enumerable: true,
@@ -3508,6 +3511,244 @@ define("togetherness-ember-client/components/sign-up-form/template", ["exports"]
     };
   })());
 });
+define('togetherness-ember-client/components/trip-editor/component', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Component.extend({
+
+    actions: {
+      submit: function submit() {
+        this.sendAction('submit', this.get('tripData'));
+      },
+
+      cancel: function cancel() {
+        this.sendAction('cancel');
+      }
+
+    }
+  });
+});
+define("togetherness-ember-client/components/trip-editor/template", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["multiple-nodes"]
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 83,
+            "column": 0
+          }
+        },
+        "moduleName": "togetherness-ember-client/components/trip-editor/template.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("h3");
+        var el2 = dom.createTextNode("Edit Adventure!");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("br");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("br");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "white-background-div");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "col-xs-12");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "col-xs-11");
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("h4");
+        var el5 = dom.createTextNode("New Adventure in ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createComment("");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("p");
+        var el5 = dom.createElement("ul");
+        var el6 = dom.createElement("li");
+        var el7 = dom.createTextNode("Remember to check out ");
+        dom.appendChild(el6, el7);
+        var el7 = dom.createComment("");
+        dom.appendChild(el6, el7);
+        var el7 = dom.createTextNode(" on ");
+        dom.appendChild(el6, el7);
+        var el7 = dom.createComment("");
+        dom.appendChild(el6, el7);
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "col-xs-1");
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("button");
+        dom.setAttribute(el4, "type", "button");
+        dom.setAttribute(el4, "class", "close tile-close-button");
+        var el5 = dom.createTextNode("×\n      ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "col-xs-12");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("hr");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("form");
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("label");
+        var el4 = dom.createTextNode("\n      Name Your Adventure!\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n      ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("label");
+        var el4 = dom.createTextNode("\n      Notes\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n      ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("label");
+        var el4 = dom.createTextNode("\n      Start date:\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n      ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("label");
+        var el4 = dom.createTextNode("\n      End date:\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n      ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("button");
+        dom.setAttribute(el3, "class", "btn btn-md btn-primary");
+        dom.setAttribute(el3, "type", "submit");
+        var el4 = dom.createTextNode("\n      Save\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("button");
+        dom.setAttribute(el3, "class", "btn btn-md btn-danger");
+        var el4 = dom.createTextNode("\n      Cancel\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var element0 = dom.childAt(fragment, [6]);
+        var element1 = dom.childAt(element0, [1]);
+        var element2 = dom.childAt(element1, [1]);
+        var element3 = dom.childAt(element2, [3, 0, 0]);
+        var element4 = dom.childAt(element1, [3, 1]);
+        var element5 = dom.childAt(element0, [5]);
+        var element6 = dom.childAt(element5, [27]);
+        var morphs = new Array(10);
+        morphs[0] = dom.createMorphAt(dom.childAt(element2, [1]), 1, 1);
+        morphs[1] = dom.createMorphAt(element3, 1, 1);
+        morphs[2] = dom.createMorphAt(element3, 3, 3);
+        morphs[3] = dom.createElementMorph(element4);
+        morphs[4] = dom.createElementMorph(element5);
+        morphs[5] = dom.createMorphAt(element5, 3, 3);
+        morphs[6] = dom.createMorphAt(element5, 9, 9);
+        morphs[7] = dom.createMorphAt(element5, 15, 15);
+        morphs[8] = dom.createMorphAt(element5, 21, 21);
+        morphs[9] = dom.createElementMorph(element6);
+        return morphs;
+      },
+      statements: [["content", "trip.city_name", ["loc", [null, [9, 27], [9, 45]]]], ["content", "trip.title", ["loc", [null, [10, 39], [10, 53]]]], ["content", "trip.event_date", ["loc", [null, [10, 57], [10, 76]]]], ["element", "action", ["cancel"], [], ["loc", [null, [15, 14], [15, 33]]]], ["element", "action", ["submit"], ["on", "submit"], ["loc", [null, [24, 8], [24, 39]]]], ["inline", "input", [], ["placeholder", "Best Adventure Ever!!!", "class", "input-group form-control", "required", "true", "value", ["subexpr", "@mut", [["get", "trip.name", ["loc", [null, [33, 14], [33, 23]]]]], [], []]], ["loc", [null, [29, 6], [33, 25]]]], ["inline", "textarea", [], ["rows", "3", "placeholder", "Every good adventure starts with...", "class", "input-group form-control", "required", "true", "value", ["subexpr", "@mut", [["get", "trip.notes", ["loc", [null, [45, 14], [45, 24]]]]], [], []]], ["loc", [null, [40, 6], [45, 26]]]], ["inline", "input", [], ["type", "date", "class", "input-group form-control", "required", "true", "value", ["subexpr", "@mut", [["get", "trip.start_date", ["loc", [null, [56, 14], [56, 29]]]]], [], []]], ["loc", [null, [52, 6], [56, 31]]]], ["inline", "input", [], ["type", "date", "class", "input-group form-control", "required", "true", "value", ["subexpr", "@mut", [["get", "trip.end_date", ["loc", [null, [67, 14], [67, 27]]]]], [], []]], ["loc", [null, [63, 6], [67, 29]]]], ["element", "action", ["cancel"], [], ["loc", [null, [76, 12], [76, 31]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
 define('togetherness-ember-client/components/trip-planning/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
 
@@ -3701,7 +3942,7 @@ define("togetherness-ember-client/components/trip-planning/template", ["exports"
         var el3 = dom.createTextNode("\n\n    ");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("button");
-        dom.setAttribute(el3, "class", "btn btn-lg btn-primary");
+        dom.setAttribute(el3, "class", "btn btn-md btn-primary");
         dom.setAttribute(el3, "type", "submit");
         var el4 = dom.createTextNode("\n      Create!\n    ");
         dom.appendChild(el3, el4);
@@ -3709,7 +3950,7 @@ define("togetherness-ember-client/components/trip-planning/template", ["exports"
         var el3 = dom.createTextNode("\n    ");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("button");
-        dom.setAttribute(el3, "class", "btn btn-lg btn-danger");
+        dom.setAttribute(el3, "class", "btn btn-md btn-danger");
         var el4 = dom.createTextNode("\n      Cancel\n    ");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
@@ -3792,6 +4033,20 @@ define('togetherness-ember-client/flash/object', ['exports', 'ember-cli-flash/fl
     enumerable: true,
     get: function get() {
       return _emberCliFlashFlashObject['default'];
+    }
+  });
+});
+define('togetherness-ember-client/helpers/in-arr', ['exports', 'ember-inline-edit/helpers/in-arr'], function (exports, _emberInlineEditHelpersInArr) {
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberInlineEditHelpersInArr['default'];
+    }
+  });
+  Object.defineProperty(exports, 'inArr', {
+    enumerable: true,
+    get: function get() {
+      return _emberInlineEditHelpersInArr.inArr;
     }
   });
 });
@@ -4254,6 +4509,7 @@ define('togetherness-ember-client/router', ['exports', 'ember', 'togetherness-em
     this.route('attraction-suggestions');
     this.route('cities');
     this.route('trips');
+    this.route('trips/edit', { path: '/trips/:trip_id/edit' });
     this.route('attendances');
     this.route('plan-trip', { path: '/plan-trip/:attraction_id' });
   });
@@ -4427,6 +4683,493 @@ define('togetherness-ember-client/tag/model', ['exports', 'ember-data'], functio
     relative_usage: _emberData['default'].attr('string')
   });
 });
+define("togetherness-ember-client/templates/components/ember-inline-edit", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.5.1",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 2,
+                "column": 2
+              },
+              "end": {
+                "line": 10,
+                "column": 2
+              }
+            },
+            "moduleName": "togetherness-ember-client/templates/components/ember-inline-edit.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("    ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("input");
+            dom.setAttribute(el1, "class", "ember-inline-edit-input");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var element2 = dom.childAt(fragment, [1]);
+            var morphs = new Array(4);
+            morphs[0] = dom.createAttrMorph(element2, 'type');
+            morphs[1] = dom.createAttrMorph(element2, 'value');
+            morphs[2] = dom.createAttrMorph(element2, 'oninput');
+            morphs[3] = dom.createAttrMorph(element2, 'style');
+            return morphs;
+          },
+          statements: [["attribute", "type", ["get", "field", ["loc", [null, [4, 15], [4, 20]]]]], ["attribute", "value", ["get", "value", ["loc", [null, [5, 16], [5, 21]]]]], ["attribute", "oninput", ["subexpr", "action", ["setValue"], ["value", "target.value"], ["loc", [null, [7, 16], [7, 58]]]]], ["attribute", "style", ["get", "fieldWidth", ["loc", [null, [8, 16], [8, 26]]]]]],
+          locals: [],
+          templates: []
+        };
+      })();
+      var child1 = (function () {
+        var child0 = (function () {
+          return {
+            meta: {
+              "fragmentReason": false,
+              "revision": "Ember@2.5.1",
+              "loc": {
+                "source": null,
+                "start": {
+                  "line": 10,
+                  "column": 2
+                },
+                "end": {
+                  "line": 16,
+                  "column": 2
+                }
+              },
+              "moduleName": "togetherness-ember-client/templates/components/ember-inline-edit.hbs"
+            },
+            isEmpty: false,
+            arity: 0,
+            cachedFragment: null,
+            hasRendered: false,
+            buildFragment: function buildFragment(dom) {
+              var el0 = dom.createDocumentFragment();
+              var el1 = dom.createTextNode("    ");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createElement("textarea");
+              dom.setAttribute(el1, "class", "ember-inline-edit-input");
+              var el2 = dom.createTextNode("\n    ");
+              dom.appendChild(el1, el2);
+              dom.appendChild(el0, el1);
+              var el1 = dom.createTextNode("\n  ");
+              dom.appendChild(el0, el1);
+              return el0;
+            },
+            buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+              var element1 = dom.childAt(fragment, [1]);
+              var morphs = new Array(2);
+              morphs[0] = dom.createAttrMorph(element1, 'value');
+              morphs[1] = dom.createAttrMorph(element1, 'oninput');
+              return morphs;
+            },
+            statements: [["attribute", "value", ["get", "value", ["loc", [null, [12, 14], [12, 19]]]]], ["attribute", "oninput", ["subexpr", "action", ["setValue"], ["value", "target.value"], ["loc", [null, [14, 14], [14, 56]]]]]],
+            locals: [],
+            templates: []
+          };
+        })();
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.5.1",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 10,
+                "column": 2
+              },
+              "end": {
+                "line": 16,
+                "column": 2
+              }
+            },
+            "moduleName": "togetherness-ember-client/templates/components/ember-inline-edit.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createComment("");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(1);
+            morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+            dom.insertBoundary(fragment, 0);
+            dom.insertBoundary(fragment, null);
+            return morphs;
+          },
+          statements: [["block", "if", [["subexpr", "in-arr", [["get", "textAreaFields", ["loc", [null, [10, 20], [10, 34]]]], ["get", "field", ["loc", [null, [10, 35], [10, 40]]]]], [], ["loc", [null, [10, 12], [10, 41]]]]], [], 0, null, ["loc", [null, [10, 2], [16, 2]]]]],
+          locals: [],
+          templates: [child0]
+        };
+      })();
+      var child2 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.5.1",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 23,
+                "column": 2
+              },
+              "end": {
+                "line": 25,
+                "column": 2
+              }
+            },
+            "moduleName": "togetherness-ember-client/templates/components/ember-inline-edit.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("    ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("span");
+            dom.setAttribute(el1, "class", "hint");
+            var el2 = dom.createComment("");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(1);
+            morphs[0] = dom.createUnsafeMorphAt(dom.childAt(fragment, [1]), 0, 0);
+            return morphs;
+          },
+          statements: [["content", "hintLabel", ["loc", [null, [24, 23], [24, 38]]]]],
+          locals: [],
+          templates: []
+        };
+      })();
+      return {
+        meta: {
+          "fragmentReason": {
+            "name": "missing-wrapper",
+            "problems": ["wrong-type", "multiple-nodes"]
+          },
+          "revision": "Ember@2.5.1",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 1,
+              "column": 0
+            },
+            "end": {
+              "line": 26,
+              "column": 0
+            }
+          },
+          "moduleName": "togetherness-ember-client/templates/components/ember-inline-edit.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n  ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("button");
+          dom.setAttribute(el1, "class", "ember-inline-edit-save");
+          var el2 = dom.createTextNode("\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n  ");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n  \n");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var element3 = dom.childAt(fragment, [2]);
+          var morphs = new Array(4);
+          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+          morphs[1] = dom.createElementMorph(element3);
+          morphs[2] = dom.createMorphAt(element3, 1, 1);
+          morphs[3] = dom.createMorphAt(fragment, 4, 4, contextualElement);
+          dom.insertBoundary(fragment, 0);
+          dom.insertBoundary(fragment, null);
+          return morphs;
+        },
+        statements: [["block", "if", [["subexpr", "in-arr", [["get", "textFields", ["loc", [null, [2, 16], [2, 26]]]], ["get", "field", ["loc", [null, [2, 27], [2, 32]]]]], [], ["loc", [null, [2, 8], [2, 33]]]]], [], 0, 1, ["loc", [null, [2, 2], [16, 9]]]], ["element", "action", ["save"], ["bubbles", false], ["loc", [null, [18, 10], [18, 41]]]], ["content", "saveLabel", ["loc", [null, [20, 4], [20, 17]]]], ["block", "if", [["get", "hintLabel", ["loc", [null, [23, 8], [23, 17]]]]], [], 2, null, ["loc", [null, [23, 2], [25, 9]]]]],
+        locals: [],
+        templates: [child0, child1, child2]
+      };
+    })();
+    var child1 = (function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.5.1",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 27,
+                "column": 2
+              },
+              "end": {
+                "line": 31,
+                "column": 2
+              }
+            },
+            "moduleName": "togetherness-ember-client/templates/components/ember-inline-edit.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("    ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("span");
+            dom.setAttribute(el1, "class", "gray-text");
+            var el2 = dom.createTextNode("\n      ");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createComment("");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode("\n    ");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(1);
+            morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 1, 1);
+            return morphs;
+          },
+          statements: [["content", "placeholder", ["loc", [null, [29, 6], [29, 21]]]]],
+          locals: [],
+          templates: []
+        };
+      })();
+      var child1 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.5.1",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 31,
+                "column": 2
+              },
+              "end": {
+                "line": 33,
+                "column": 2
+              }
+            },
+            "moduleName": "togetherness-ember-client/templates/components/ember-inline-edit.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("    ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createComment("");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(1);
+            morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+            return morphs;
+          },
+          statements: [["content", "value", ["loc", [null, [32, 4], [32, 13]]]]],
+          locals: [],
+          templates: []
+        };
+      })();
+      var child2 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.5.1",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 35,
+                "column": 2
+              },
+              "end": {
+                "line": 39,
+                "column": 2
+              }
+            },
+            "moduleName": "togetherness-ember-client/templates/components/ember-inline-edit.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("    ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("span");
+            dom.setAttribute(el1, "class", "ember-inline-edit-toggle-btn");
+            var el2 = dom.createTextNode("\n      ");
+            dom.appendChild(el1, el2);
+            dom.setNamespace("http://www.w3.org/2000/svg");
+            var el2 = dom.createElement("svg");
+            dom.setAttribute(el2, "xmlns", "http://www.w3.org/2000/svg");
+            dom.setAttribute(el2, "width", "12");
+            dom.setAttribute(el2, "height", "12");
+            dom.setAttribute(el2, "viewBox", "0 0 16 16");
+            var el3 = dom.createElement("g");
+            dom.setAttribute(el3, "fill", "#414141");
+            var el4 = dom.createElement("path");
+            dom.setAttribute(el4, "d", "M8.1 3.5L.3 11.3c-.2.2-.3.4-.3.7v3c0 .6.4 1 1 1h3c.3 0 .5-.1.7-.3l7.8-7.8-4.4-4.4z");
+            dom.appendChild(el3, el4);
+            var el4 = dom.createElement("path");
+            dom.setAttribute(el4, "data-color", "color-2");
+            dom.setAttribute(el4, "d", "M15.7 3.3l-3-3c-.4-.4-1-.4-1.4 0L9.5 2.1l4.4 4.4 1.8-1.8c.4-.4.4-1 0-1.4z");
+            dom.appendChild(el3, el4);
+            dom.appendChild(el2, el3);
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode("\n    ");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var element0 = dom.childAt(fragment, [1]);
+            var morphs = new Array(1);
+            morphs[0] = dom.createAttrMorph(element0, 'onclick');
+            return morphs;
+          },
+          statements: [["attribute", "onclick", ["subexpr", "action", ["startEditing"], [], ["loc", [null, [36, 18], [36, 43]]]]]],
+          locals: [],
+          templates: []
+        };
+      })();
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.5.1",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 26,
+              "column": 0
+            },
+            "end": {
+              "line": 40,
+              "column": 0
+            }
+          },
+          "moduleName": "togetherness-ember-client/templates/components/ember-inline-edit.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(2);
+          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+          morphs[1] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+          dom.insertBoundary(fragment, 0);
+          dom.insertBoundary(fragment, null);
+          return morphs;
+        },
+        statements: [["block", "if", [["get", "valueIsEmpty", ["loc", [null, [27, 8], [27, 20]]]]], [], 0, 1, ["loc", [null, [27, 2], [33, 9]]]], ["block", "if", [["get", "showEditButton", ["loc", [null, [35, 8], [35, 22]]]]], [], 2, null, ["loc", [null, [35, 2], [39, 9]]]]],
+        locals: [],
+        templates: [child0, child1, child2]
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type"]
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 41,
+            "column": 0
+          }
+        },
+        "moduleName": "togetherness-ember-client/templates/components/ember-inline-edit.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        dom.insertBoundary(fragment, null);
+        return morphs;
+      },
+      statements: [["block", "if", [["get", "isEditing", ["loc", [null, [1, 6], [1, 15]]]]], [], 0, 1, ["loc", [null, [1, 0], [40, 7]]]]],
+      locals: [],
+      templates: [child0, child1]
+    };
+  })());
+});
 define('togetherness-ember-client/trip/model', ['exports', 'ember-data'], function (exports, _emberData) {
   exports['default'] = _emberData['default'].Model.extend({
     name: _emberData['default'].attr('string'),
@@ -4437,6 +5180,67 @@ define('togetherness-ember-client/trip/model', ['exports', 'ember-data'], functi
     end_date: _emberData['default'].attr('string'),
     attendances: _emberData['default'].hasMany('attendance')
   });
+});
+define('togetherness-ember-client/trips/edit/route', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Route.extend({
+    model: function model(params) {
+      return this.get('store').findRecord('trip', params.trip_id);
+    },
+
+    actions: {
+      save: function save(trip) {
+        console.log(trip);
+        trip.save();
+        this.transitionTo('trips');
+      }
+    }
+  });
+});
+define("togetherness-ember-client/trips/edit/template", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type"]
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 5,
+            "column": 0
+          }
+        },
+        "moduleName": "togetherness-ember-client/trips/edit/template.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        return morphs;
+      },
+      statements: [["inline", "trip-editor", [], ["trip", ["subexpr", "@mut", [["get", "trip", ["loc", [null, [2, 7], [2, 11]]]]], [], []], "submit", "save", "cancel", "cancel"], ["loc", [null, [1, 0], [4, 19]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
 });
 define('togetherness-ember-client/trips/route', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({
@@ -4449,7 +5253,7 @@ define('togetherness-ember-client/trips/route', ['exports', 'ember'], function (
         trip.destroyRecord();
       },
       updateTrip: function updateTrip(trip) {
-        console.log(trip);
+        this.transitionTo('trips/edit', trip);
       },
       inviteFriend: function inviteFriend(trip) {
         console.log(trip);
@@ -4708,7 +5512,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+170d8da6"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+55f1c662"});
 }
 
 /* jshint ignore:end */
