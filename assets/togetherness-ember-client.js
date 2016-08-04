@@ -2711,7 +2711,7 @@ define("togetherness-ember-client/components/my-application/template", ["exports
             "column": 0
           },
           "end": {
-            "line": 45,
+            "line": 51,
             "column": 0
           }
         },
@@ -2792,10 +2792,32 @@ define("togetherness-ember-client/components/my-application/template", ["exports
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
         var el1 = dom.createElement("div");
-        dom.setAttribute(el1, "class", "col-md-10 col-md-offset-1");
+        dom.setAttribute(el1, "class", "col-md-12");
         var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
-        var el2 = dom.createComment("");
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "col-md-10 col-md-offset-1");
+        dom.setAttribute(el2, "style", "padding-bottom: 36px;");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "footer website-footer navbar-fixed-bottom");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h5");
+        dom.setAttribute(el2, "class", "website-footer-text");
+        var el3 = dom.createTextNode("Misha Herscu | mishaherscu@gmail.com");
+        dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
@@ -2820,10 +2842,10 @@ define("togetherness-ember-client/components/my-application/template", ["exports
         morphs[1] = dom.createMorphAt(dom.childAt(element2, [1]), 1, 1);
         morphs[2] = dom.createMorphAt(dom.childAt(element2, [3]), 1, 1);
         morphs[3] = dom.createMorphAt(fragment, 10, 10, contextualElement);
-        morphs[4] = dom.createMorphAt(dom.childAt(fragment, [12]), 1, 1);
+        morphs[4] = dom.createMorphAt(dom.childAt(fragment, [12, 1]), 1, 1);
         return morphs;
       },
-      statements: [["content", "navbar-header", ["loc", [null, [4, 4], [4, 21]]]], ["block", "if", [["get", "isAuthenticated", ["loc", [null, [8, 14], [8, 29]]]]], [], 0, null, ["loc", [null, [8, 8], [16, 15]]]], ["block", "if", [["get", "isAuthenticated", ["loc", [null, [19, 14], [19, 29]]]]], [], 1, 2, ["loc", [null, [19, 8], [25, 15]]]], ["block", "each", [["get", "flashMessages.queue", ["loc", [null, [35, 8], [35, 27]]]]], [], 3, null, ["loc", [null, [35, 0], [37, 9]]]], ["content", "outlet", ["loc", [null, [40, 2], [40, 12]]]]],
+      statements: [["content", "navbar-header", ["loc", [null, [4, 4], [4, 21]]]], ["block", "if", [["get", "isAuthenticated", ["loc", [null, [8, 14], [8, 29]]]]], [], 0, null, ["loc", [null, [8, 8], [16, 15]]]], ["block", "if", [["get", "isAuthenticated", ["loc", [null, [19, 14], [19, 29]]]]], [], 1, 2, ["loc", [null, [19, 8], [25, 15]]]], ["block", "each", [["get", "flashMessages.queue", ["loc", [null, [35, 8], [35, 27]]]]], [], 3, null, ["loc", [null, [35, 0], [37, 9]]]], ["content", "outlet", ["loc", [null, [41, 4], [41, 14]]]]],
       locals: [],
       templates: [child0, child1, child2, child3]
     };
