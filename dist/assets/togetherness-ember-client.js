@@ -5542,8 +5542,10 @@ define('togetherness-ember-client/trips/edit/route', ['exports', 'ember'], funct
 
     actions: {
       save: function save(trip) {
-        console.log(trip);
         trip.save();
+        this.transitionTo('trips');
+      },
+      cancel: function cancel() {
         this.transitionTo('trips');
       }
     }

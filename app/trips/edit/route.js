@@ -7,8 +7,10 @@ export default Ember.Route.extend({
 
   actions: {
     save (trip) {
-      console.log(trip);
       trip.save();
+      this.transitionTo('trips');
+    },
+    cancel () {
       this.transitionTo('trips');
     }
   }
