@@ -1460,7 +1460,7 @@ define("togetherness-ember-client/components/attraction-suggestion/template", ["
             "column": 0
           },
           "end": {
-            "line": 52,
+            "line": 54,
             "column": 0
           }
         },
@@ -1661,10 +1661,17 @@ define("togetherness-ember-client/components/attraction-suggestion/template", ["
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n\n  ");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("button");
-        dom.setAttribute(el2, "class", "btn btn-lg btn-primary");
-        dom.setAttribute(el2, "style", "text-align: center; align: center;");
-        var el3 = dom.createTextNode("\n    Plan Trip\n  ");
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "style", "text-align: center; margin-bottom: 5px;");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("button");
+        dom.setAttribute(el3, "class", "btn btn-md btn-primary");
+        dom.setAttribute(el3, "style", "text-align: center; align: center;");
+        var el4 = dom.createTextNode("\n      Plan Adventure!\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n\n");
@@ -1681,7 +1688,7 @@ define("togetherness-ember-client/components/attraction-suggestion/template", ["
         var element3 = dom.childAt(element1, [5]);
         var element4 = dom.childAt(element0, [5, 1]);
         var element5 = dom.childAt(element4, [7, 3, 0]);
-        var element6 = dom.childAt(element0, [7]);
+        var element6 = dom.childAt(element0, [7, 1]);
         var morphs = new Array(11);
         morphs[0] = dom.createElementMorph(element2);
         morphs[1] = dom.createMorphAt(dom.childAt(element1, [3]), 0, 0);
@@ -1696,7 +1703,7 @@ define("togetherness-ember-client/components/attraction-suggestion/template", ["
         morphs[10] = dom.createElementMorph(element6);
         return morphs;
       },
-      statements: [["element", "action", ["closeAttraction"], [], ["loc", [null, [5, 12], [5, 40]]]], ["content", "attraction.title", ["loc", [null, [7, 25], [7, 45]]]], ["attribute", "src", ["get", "attraction.medium_image_url", ["loc", [null, [8, 32], [8, 59]]]]], ["content", "attraction.city_name", ["loc", [null, [15, 24], [15, 48]]]], ["content", "attraction.event_date", ["loc", [null, [19, 24], [19, 49]]]], ["content", "attraction.event_time", ["loc", [null, [23, 24], [23, 49]]]], ["attribute", "href", ["get", "attraction.venue_url", ["loc", [null, [27, 34], [27, 54]]]]], ["content", "attraction.venue_name", ["loc", [null, [27, 57], [27, 82]]]], ["content", "attraction.venue_address", ["loc", [null, [31, 24], [31, 52]]]], ["content", "attraction.description", ["loc", [null, [38, 12], [38, 38]]]], ["element", "action", ["createTrip"], [], ["loc", [null, [46, 10], [46, 33]]]]],
+      statements: [["element", "action", ["closeAttraction"], [], ["loc", [null, [5, 12], [5, 40]]]], ["content", "attraction.title", ["loc", [null, [7, 25], [7, 45]]]], ["attribute", "src", ["get", "attraction.medium_image_url", ["loc", [null, [8, 32], [8, 59]]]]], ["content", "attraction.city_name", ["loc", [null, [15, 24], [15, 48]]]], ["content", "attraction.event_date", ["loc", [null, [19, 24], [19, 49]]]], ["content", "attraction.event_time", ["loc", [null, [23, 24], [23, 49]]]], ["attribute", "href", ["get", "attraction.venue_url", ["loc", [null, [27, 34], [27, 54]]]]], ["content", "attraction.venue_name", ["loc", [null, [27, 57], [27, 82]]]], ["content", "attraction.venue_address", ["loc", [null, [31, 24], [31, 52]]]], ["content", "attraction.description", ["loc", [null, [38, 12], [38, 38]]]], ["element", "action", ["createTrip"], [], ["loc", [null, [47, 12], [47, 35]]]]],
       locals: [],
       templates: []
     };
@@ -4484,7 +4491,7 @@ define("togetherness-ember-client/trips/template", ["exports"], function (export
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createElement("h2");
-        var el2 = dom.createTextNode("Trip Planning");
+        var el2 = dom.createTextNode("Adventures");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
