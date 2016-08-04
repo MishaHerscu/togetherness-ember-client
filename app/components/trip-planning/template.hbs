@@ -28,11 +28,7 @@
     </label>
       {{input placeholder="Best Adventure Ever!!!"
              class="input-group form-control"
-             value=form.name}}
-
-      {{input placeholder="City"
-            class="input-group form-control hidden"
-            value=attraction.city_id}}
+             value=tripData.name}}
 
     <br>
 
@@ -40,7 +36,7 @@
       Start date:
     </label>
       {{input type="date" class="input-group form-control"
-            value=form.start_date}}
+            value=tripData.start_date}}
 
     <br>
 
@@ -48,12 +44,12 @@
       End date:
     </label>
       {{input type="date" class="input-group form-control"
-            value=form.end_date}}
+            value=tripData.end_date}}
 
     <br>
 
     <button class="btn btn-lg btn-primary"
-            {{action "submit"}}>
+            type="submit">
       Create!
     </button>
     <button class="btn btn-lg btn-danger"

@@ -198,7 +198,7 @@ define("togetherness-ember-client/attendances/template", ["exports"], function (
           morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
           return morphs;
         },
-        statements: [["content", "attendance", ["loc", [null, [7, 8], [7, 22]]]]],
+        statements: [["content", "attendance.name", ["loc", [null, [7, 8], [7, 27]]]]],
         locals: ["attendance"],
         templates: []
       };
@@ -904,7 +904,7 @@ define('togetherness-ember-client/cities/route', ['exports', 'ember'], function 
             }
           }).sort(function () {
             return 0.5 - Math.random();
-          }).slice(0, 3);
+          }).slice(0, 2);
           filteredArray.push(newCity);
         });
         return filteredArray;
@@ -1875,7 +1875,7 @@ define("togetherness-ember-client/components/city-attraction/template", ["export
             "column": 0
           },
           "end": {
-            "line": 22,
+            "line": 20,
             "column": 0
           }
         },
@@ -1888,83 +1888,66 @@ define("togetherness-ember-client/components/city-attraction/template", ["export
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createElement("div");
-        dom.setAttribute(el1, "class", "event-card col-xs-3");
+        dom.setAttribute(el1, "class", "event-card col-xs-5");
         var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("h5");
-        dom.setAttribute(el2, "class", "col-xs-8");
-        var el3 = dom.createComment("");
-        dom.appendChild(el2, el3);
-        dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n  ");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createElement("img");
-        dom.setAttribute(el2, "class", "col-xs-4");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n  ");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createElement("table");
-        dom.setAttribute(el2, "class", "table table-bordered table-compressed");
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "col-xs-12");
         var el3 = dom.createTextNode("\n    ");
         dom.appendChild(el2, el3);
-        var el3 = dom.createElement("tbody");
+        var el3 = dom.createElement("h5");
+        dom.setAttribute(el3, "class", "col-xs-8");
+        var el4 = dom.createComment("");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("img");
+        dom.setAttribute(el3, "class", "col-xs-4");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("br");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("hr");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "col-xs-12");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("p");
+        var el4 = dom.createTextNode("When: ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createComment("");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode(", ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createComment("");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("p");
+        dom.setAttribute(el3, "class", "event-card-more");
         var el4 = dom.createTextNode("\n      ");
         dom.appendChild(el3, el4);
-        var el4 = dom.createElement("tr");
-        var el5 = dom.createTextNode("\n        ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("td");
-        dom.setAttribute(el5, "width", "25%");
-        var el6 = dom.createTextNode("When");
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n        ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("td");
-        dom.setAttribute(el5, "width", "75%");
-        var el6 = dom.createComment("");
-        dom.appendChild(el5, el6);
-        var el6 = dom.createTextNode(", ");
-        dom.appendChild(el5, el6);
-        var el6 = dom.createComment("");
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n      ");
+        var el4 = dom.createElement("span");
+        var el5 = dom.createTextNode("Details");
         dom.appendChild(el4, el5);
         dom.appendChild(el3, el4);
         var el4 = dom.createTextNode("\n      ");
         dom.appendChild(el3, el4);
-        var el4 = dom.createElement("tr");
+        var el4 = dom.createElement("div");
         var el5 = dom.createTextNode("\n        ");
         dom.appendChild(el4, el5);
-        var el5 = dom.createElement("td");
-        dom.setAttribute(el5, "width", "25%");
-        var el6 = dom.createTextNode("Description");
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n        ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("td");
-        dom.setAttribute(el5, "width", "75%");
-        dom.setAttribute(el5, "class", "event-card-more");
-        var el6 = dom.createTextNode("\n          ");
-        dom.appendChild(el5, el6);
-        var el6 = dom.createElement("span");
-        var el7 = dom.createTextNode("Details");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        var el6 = dom.createTextNode("\n          ");
-        dom.appendChild(el5, el6);
-        var el6 = dom.createElement("div");
-        var el7 = dom.createTextNode("\n            ");
-        dom.appendChild(el6, el7);
-        var el7 = dom.createComment("");
-        dom.appendChild(el6, el7);
-        var el7 = dom.createTextNode("\n          ");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        var el6 = dom.createTextNode("\n        ");
-        dom.appendChild(el5, el6);
+        var el5 = dom.createComment("");
         dom.appendChild(el4, el5);
         var el5 = dom.createTextNode("\n      ");
         dom.appendChild(el4, el5);
@@ -1984,18 +1967,19 @@ define("togetherness-ember-client/components/city-attraction/template", ["export
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var element0 = dom.childAt(fragment, [0]);
-        var element1 = dom.childAt(element0, [3]);
-        var element2 = dom.childAt(element0, [5, 1]);
-        var element3 = dom.childAt(element2, [1, 3]);
+        var element1 = dom.childAt(element0, [1]);
+        var element2 = dom.childAt(element1, [3]);
+        var element3 = dom.childAt(element0, [7]);
+        var element4 = dom.childAt(element3, [1]);
         var morphs = new Array(5);
-        morphs[0] = dom.createMorphAt(dom.childAt(element0, [1]), 0, 0);
-        morphs[1] = dom.createAttrMorph(element1, 'src');
-        morphs[2] = dom.createMorphAt(element3, 0, 0);
-        morphs[3] = dom.createMorphAt(element3, 2, 2);
-        morphs[4] = dom.createMorphAt(dom.childAt(element2, [3, 3, 3]), 1, 1);
+        morphs[0] = dom.createMorphAt(dom.childAt(element1, [1]), 0, 0);
+        morphs[1] = dom.createAttrMorph(element2, 'src');
+        morphs[2] = dom.createMorphAt(element4, 1, 1);
+        morphs[3] = dom.createMorphAt(element4, 3, 3);
+        morphs[4] = dom.createMorphAt(dom.childAt(element3, [3, 3]), 1, 1);
         return morphs;
       },
-      statements: [["content", "attraction.title", ["loc", [null, [2, 23], [2, 43]]]], ["attribute", "src", ["get", "attraction.medium_image_url", ["loc", [null, [3, 30], [3, 57]]]]], ["content", "attraction.event_time", ["loc", [null, [8, 24], [8, 49]]]], ["content", "attraction.event_date", ["loc", [null, [8, 51], [8, 76]]]], ["content", "attraction.description", ["loc", [null, [15, 12], [15, 38]]]]],
+      statements: [["content", "attraction.title", ["loc", [null, [3, 25], [3, 45]]]], ["attribute", "src", ["get", "attraction.medium_image_url", ["loc", [null, [4, 32], [4, 59]]]]], ["content", "attraction.event_time", ["loc", [null, [11, 13], [11, 38]]]], ["content", "attraction.event_date", ["loc", [null, [11, 40], [11, 65]]]], ["content", "attraction.description", ["loc", [null, [15, 8], [15, 34]]]]],
       locals: [],
       templates: []
     };
@@ -3289,13 +3273,22 @@ define("togetherness-ember-client/components/sign-up-form/template", ["exports"]
 define('togetherness-ember-client/components/trip-planning/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
 
+    tripData: {
+      name: null,
+      city_id: null,
+      start_date: null,
+      end_date: null
+    },
+
     actions: {
       submit: function submit() {
-        this.sendAction('submit', this.get('attraction'));
+        this.sendAction('submit', this.get('tripData'));
       },
+
       cancel: function cancel() {
         this.sendAction('cancel');
       }
+
     }
   });
 });
@@ -3315,7 +3308,7 @@ define("togetherness-ember-client/components/trip-planning/template", ["exports"
             "column": 0
           },
           "end": {
-            "line": 67,
+            "line": 63,
             "column": 0
           }
         },
@@ -3420,10 +3413,6 @@ define("togetherness-ember-client/components/trip-planning/template", ["exports"
         dom.appendChild(el2, el3);
         var el3 = dom.createComment("");
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n\n      ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createComment("");
-        dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n\n    ");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("br");
@@ -3460,6 +3449,7 @@ define("togetherness-ember-client/components/trip-planning/template", ["exports"
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("button");
         dom.setAttribute(el3, "class", "btn btn-lg btn-primary");
+        dom.setAttribute(el3, "type", "submit");
         var el4 = dom.createTextNode("\n      Create!\n    ");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
@@ -3492,22 +3482,19 @@ define("togetherness-ember-client/components/trip-planning/template", ["exports"
         var element4 = dom.childAt(element1, [3, 1]);
         var element5 = dom.childAt(element0, [5]);
         var element6 = dom.childAt(element5, [21]);
-        var element7 = dom.childAt(element5, [23]);
-        var morphs = new Array(11);
+        var morphs = new Array(9);
         morphs[0] = dom.createMorphAt(dom.childAt(element2, [1]), 1, 1);
         morphs[1] = dom.createMorphAt(element3, 1, 1);
         morphs[2] = dom.createMorphAt(element3, 3, 3);
         morphs[3] = dom.createElementMorph(element4);
         morphs[4] = dom.createElementMorph(element5);
         morphs[5] = dom.createMorphAt(element5, 3, 3);
-        morphs[6] = dom.createMorphAt(element5, 5, 5);
-        morphs[7] = dom.createMorphAt(element5, 11, 11);
-        morphs[8] = dom.createMorphAt(element5, 17, 17);
-        morphs[9] = dom.createElementMorph(element6);
-        morphs[10] = dom.createElementMorph(element7);
+        morphs[6] = dom.createMorphAt(element5, 9, 9);
+        morphs[7] = dom.createMorphAt(element5, 15, 15);
+        morphs[8] = dom.createElementMorph(element6);
         return morphs;
       },
-      statements: [["content", "attraction.city_name", ["loc", [null, [9, 27], [9, 51]]]], ["content", "attraction.title", ["loc", [null, [10, 39], [10, 59]]]], ["content", "attraction.event_date", ["loc", [null, [10, 63], [10, 88]]]], ["element", "action", ["cancel"], [], ["loc", [null, [15, 14], [15, 33]]]], ["element", "action", ["submit"], ["on", "submit"], ["loc", [null, [24, 8], [24, 39]]]], ["inline", "input", [], ["placeholder", "Best Adventure Ever!!!", "class", "input-group form-control", "value", ["subexpr", "@mut", [["get", "form.name", ["loc", [null, [31, 19], [31, 28]]]]], [], []]], ["loc", [null, [29, 6], [31, 30]]]], ["inline", "input", [], ["placeholder", "City", "class", "input-group form-control hidden", "value", ["subexpr", "@mut", [["get", "attraction.city_id", ["loc", [null, [35, 18], [35, 36]]]]], [], []]], ["loc", [null, [33, 6], [35, 38]]]], ["inline", "input", [], ["type", "date", "class", "input-group form-control", "value", ["subexpr", "@mut", [["get", "form.start_date", ["loc", [null, [43, 18], [43, 33]]]]], [], []]], ["loc", [null, [42, 6], [43, 35]]]], ["inline", "input", [], ["type", "date", "class", "input-group form-control", "value", ["subexpr", "@mut", [["get", "form.end_date", ["loc", [null, [51, 18], [51, 31]]]]], [], []]], ["loc", [null, [50, 6], [51, 33]]]], ["element", "action", ["submit"], [], ["loc", [null, [56, 12], [56, 31]]]], ["element", "action", ["cancel"], [], ["loc", [null, [60, 12], [60, 31]]]]],
+      statements: [["content", "attraction.city_name", ["loc", [null, [9, 27], [9, 51]]]], ["content", "attraction.title", ["loc", [null, [10, 39], [10, 59]]]], ["content", "attraction.event_date", ["loc", [null, [10, 63], [10, 88]]]], ["element", "action", ["cancel"], [], ["loc", [null, [15, 14], [15, 33]]]], ["element", "action", ["submit"], ["on", "submit"], ["loc", [null, [24, 8], [24, 39]]]], ["inline", "input", [], ["placeholder", "Best Adventure Ever!!!", "class", "input-group form-control", "value", ["subexpr", "@mut", [["get", "tripData.name", ["loc", [null, [31, 19], [31, 32]]]]], [], []]], ["loc", [null, [29, 6], [31, 34]]]], ["inline", "input", [], ["type", "date", "class", "input-group form-control", "value", ["subexpr", "@mut", [["get", "tripData.start_date", ["loc", [null, [39, 18], [39, 37]]]]], [], []]], ["loc", [null, [38, 6], [39, 39]]]], ["inline", "input", [], ["type", "date", "class", "input-group form-control", "value", ["subexpr", "@mut", [["get", "tripData.end_date", ["loc", [null, [47, 18], [47, 35]]]]], [], []]], ["loc", [null, [46, 6], [47, 37]]]], ["element", "action", ["cancel"], [], ["loc", [null, [56, 12], [56, 31]]]]],
       locals: [],
       templates: []
     };
@@ -3908,18 +3895,48 @@ define("togetherness-ember-client/interests/template", ["exports"], function (ex
     };
   })());
 });
-define('togetherness-ember-client/plan-trip/route', ['exports', 'ember'], function (exports, _ember) {
+define('togetherness-ember-client/plan-trip/route', ['exports', 'ember', 'ember-local-storage'], function (exports, _ember, _emberLocalStorage) {
   exports['default'] = _ember['default'].Route.extend({
+    credentials: (0, _emberLocalStorage.storageFor)('auth'),
+
     model: function model(params) {
       return this.get('store').findRecord('attraction', params.attraction_id);
     },
 
     actions: {
-      submit: function submit() {
-        console.log('submitting');
+      submit: function submit(data) {
+        var _this = this;
+
+        var tripData = {
+          name: data.name,
+          city_id: '',
+          user_id: '',
+          start_date: data.start_date,
+          end_date: data.end_date
+        };
+
+        var attractionId = this.get('router.router.state.params.plan-trip.attraction_id');
+        this.get('store').findRecord('attraction', attractionId).then(function (attraction) {
+          return attraction.get('city_id');
+        }).then(function (city_id) {
+          tripData.city_id = city_id;
+        }).then(function () {
+          tripData.user_id = _this.get('credentials.id');
+        }).then(function () {
+          var newTrip = _this.get('store').createRecord('trip', tripData);
+          newTrip.save();
+        }).then(function (trip) {
+          var attendanceParams = {
+            trip_id: trip.id,
+            user_id: tripData.user_id
+          };
+          var newAttendance = _this.get('store').createRecord('attendance', attendanceParams);
+          newAttendance.save();
+        }).then(function () {
+          _this.transitionTo('trips');
+        });
       },
       cancel: function cancel() {
-        console.log('cancelling');
         this.transitionTo('attraction-suggestions');
       }
     }
