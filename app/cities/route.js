@@ -12,7 +12,7 @@ export default Ember.Route.extend({
           if(attraction.medium_image_url) { return true; }
         }).sort(() => {
           return 0.5 - Math.random();
-        }).slice(0,3);
+        }).slice(0,2);
         filteredArray.push(newCity);
       });
       return filteredArray;
