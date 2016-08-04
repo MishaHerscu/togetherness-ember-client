@@ -19,6 +19,10 @@
         <td width="35%">End Date</td>
         <td>{{trip.end_date}}</td>
       </tr>
+      <tr>
+        <td width="35%">Notes</td>
+        <td>{{trip.notes}}</td>
+      </tr>
     </tbody>
   </table>
 
@@ -32,8 +36,8 @@
   <hr>
 
   <div class="col-xs-12" style="text-align: right;">
-    <button class="btn btn-md btn-success"
-            {{action "editTrip"}}>
+    <button class="btn btn-md btn-success disabled"
+            {{action "inviteFriend"}}>
       Invite
     </button>
     <button class="btn btn-md btn-primary"
