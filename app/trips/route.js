@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 
   actions: {
     deleteTrip(trip){
-      console.log(trip);
+      trip.destroyRecord();
     },
     updateTrip(trip) {
       console.log(trip);
