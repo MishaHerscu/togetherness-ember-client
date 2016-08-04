@@ -33,14 +33,6 @@ export default Ember.Route.extend({
         let newTrip = this.get('store').createRecord('trip', tripData);
         newTrip.save();
       })
-      .then((trip) => {
-        let attendanceParams = {
-          trip_id: trip.id,
-          user_id: tripData.user_id
-        };
-        let newAttendance = this.get('store').createRecord('attendance', attendanceParams);
-        newAttendance.save();
-      })
       .then(() => {
         this.transitionTo('trips');
       });
