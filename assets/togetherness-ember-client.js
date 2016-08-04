@@ -146,8 +146,8 @@ define("togetherness-ember-client/application/template", ["exports"], function (
 });
 define('togetherness-ember-client/attendance/model', ['exports', 'ember-data'], function (exports, _emberData) {
   exports['default'] = _emberData['default'].Model.extend({
-    trip_id: _emberData['default'].attr('string'),
-    user_id: _emberData['default'].attr('string')
+    trip: _emberData['default'].belongsTo('trip'),
+    user: _emberData['default'].belongsTo('user')
   });
 });
 define('togetherness-ember-client/attendances/route', ['exports', 'ember'], function (exports, _ember) {
@@ -1132,7 +1132,8 @@ define("togetherness-ember-client/cities/template", ["exports"], function (expor
 define('togetherness-ember-client/city/model', ['exports', 'ember-data'], function (exports, _emberData) {
   exports['default'] = _emberData['default'].Model.extend({
     name: _emberData['default'].attr('string'),
-    attractions: _emberData['default'].hasMany('attraction')
+    attractions: _emberData['default'].hasMany('attraction'),
+    trips: _emberData['default'].hasMany('trip')
   });
 });
 define('togetherness-ember-client/components/app-version', ['exports', 'ember-cli-app-version/components/app-version', 'togetherness-ember-client/config/environment'], function (exports, _emberCliAppVersionComponentsAppVersion, _togethernessEmberClientConfigEnvironment) {
@@ -3291,7 +3292,7 @@ define("togetherness-ember-client/components/planned-trip/template", ["exports"]
         morphs[8] = dom.createElementMorph(element6);
         return morphs;
       },
-      statements: [["content", "trip.name", ["loc", [null, [4, 6], [4, 19]]]], ["content", "trip.city_name", ["loc", [null, [12, 12], [12, 30]]]], ["content", "trip.start_date", ["loc", [null, [16, 12], [16, 31]]]], ["content", "trip.end_date", ["loc", [null, [20, 12], [20, 29]]]], ["content", "trip.notes", ["loc", [null, [24, 12], [24, 26]]]], ["element", "action", ["openTrip"], [], ["loc", [null, [33, 12], [33, 33]]]], ["element", "action", ["inviteFriend"], [], ["loc", [null, [37, 12], [37, 37]]]], ["element", "action", ["updateTrip"], [], ["loc", [null, [41, 12], [41, 35]]]], ["element", "action", ["deleteTrip"], [], ["loc", [null, [45, 12], [45, 35]]]]],
+      statements: [["content", "trip.name", ["loc", [null, [4, 6], [4, 19]]]], ["content", "trip.city.name", ["loc", [null, [12, 12], [12, 30]]]], ["content", "trip.start_date", ["loc", [null, [16, 12], [16, 31]]]], ["content", "trip.end_date", ["loc", [null, [20, 12], [20, 29]]]], ["content", "trip.notes", ["loc", [null, [24, 12], [24, 26]]]], ["element", "action", ["openTrip"], [], ["loc", [null, [33, 12], [33, 33]]]], ["element", "action", ["inviteFriend"], [], ["loc", [null, [37, 12], [37, 37]]]], ["element", "action", ["updateTrip"], [], ["loc", [null, [41, 12], [41, 35]]]], ["element", "action", ["deleteTrip"], [], ["loc", [null, [45, 12], [45, 35]]]]],
       locals: [],
       templates: []
     };
@@ -3522,7 +3523,7 @@ define("togetherness-ember-client/components/trip-detail/template", ["exports"],
           "moduleName": "togetherness-ember-client/components/trip-detail/template.hbs"
         },
         isEmpty: false,
-        arity: 0,
+        arity: 1,
         cachedFragment: null,
         hasRendered: false,
         buildFragment: function buildFragment(dom) {
@@ -3542,8 +3543,8 @@ define("togetherness-ember-client/components/trip-detail/template", ["exports"],
           morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
           return morphs;
         },
-        statements: [["content", "attendance.user_id", ["loc", [null, [40, 10], [40, 32]]]]],
-        locals: [],
+        statements: [["content", "attendance.user.email", ["loc", [null, [40, 10], [40, 35]]]]],
+        locals: ["attendance"],
         templates: []
       };
     })();
@@ -3560,7 +3561,7 @@ define("togetherness-ember-client/components/trip-detail/template", ["exports"],
             "column": 0
           },
           "end": {
-            "line": 69,
+            "line": 71,
             "column": 0
           }
         },
@@ -3728,15 +3729,17 @@ define("togetherness-ember-client/components/trip-detail/template", ["exports"],
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n\n  ");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("h6");
-        var el3 = dom.createTextNode("Comments");
-        dom.appendChild(el2, el3);
-        dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n  trip id: ");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createComment("");
+        var el2 = dom.createElement("br");
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("hr");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("br");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n  ");
         dom.appendChild(el1, el2);
         var el2 = dom.createComment("");
         dom.appendChild(el1, el2);
@@ -3792,12 +3795,12 @@ define("togetherness-ember-client/components/trip-detail/template", ["exports"],
         var element1 = dom.childAt(element0, [1]);
         var element2 = dom.childAt(element1, [3, 1]);
         var element3 = dom.childAt(element0, [5, 1]);
-        var element4 = dom.childAt(element0, [19]);
+        var element4 = dom.childAt(element0, [21]);
         var element5 = dom.childAt(element4, [1]);
         var element6 = dom.childAt(element4, [3]);
         var element7 = dom.childAt(element4, [5]);
         var element8 = dom.childAt(element4, [7]);
-        var morphs = new Array(13);
+        var morphs = new Array(12);
         morphs[0] = dom.createMorphAt(dom.childAt(element1, [1, 1]), 1, 1);
         morphs[1] = dom.createElementMorph(element2);
         morphs[2] = dom.createMorphAt(dom.childAt(element3, [1, 3]), 0, 0);
@@ -3805,15 +3808,14 @@ define("togetherness-ember-client/components/trip-detail/template", ["exports"],
         morphs[4] = dom.createMorphAt(dom.childAt(element3, [5, 3]), 0, 0);
         morphs[5] = dom.createMorphAt(dom.childAt(element3, [7, 3]), 0, 0);
         morphs[6] = dom.createMorphAt(dom.childAt(element0, [9]), 1, 1);
-        morphs[7] = dom.createMorphAt(element0, 13, 13);
-        morphs[8] = dom.createMorphAt(element0, 15, 15);
-        morphs[9] = dom.createElementMorph(element5);
-        morphs[10] = dom.createElementMorph(element6);
-        morphs[11] = dom.createElementMorph(element7);
-        morphs[12] = dom.createElementMorph(element8);
+        morphs[7] = dom.createMorphAt(element0, 17, 17);
+        morphs[8] = dom.createElementMorph(element5);
+        morphs[9] = dom.createElementMorph(element6);
+        morphs[10] = dom.createElementMorph(element7);
+        morphs[11] = dom.createElementMorph(element8);
         return morphs;
       },
-      statements: [["content", "trip.name", ["loc", [null, [5, 8], [5, 21]]]], ["element", "action", ["back"], [], ["loc", [null, [11, 14], [11, 31]]]], ["content", "trip.city_name", ["loc", [null, [20, 12], [20, 30]]]], ["content", "trip.start_date", ["loc", [null, [24, 12], [24, 31]]]], ["content", "trip.end_date", ["loc", [null, [28, 12], [28, 29]]]], ["content", "trip.notes", ["loc", [null, [32, 12], [32, 26]]]], ["block", "each", [["get", "trip.attendances", ["loc", [null, [39, 12], [39, 28]]]]], [], 0, null, ["loc", [null, [39, 4], [41, 13]]]], ["content", "trip.id", ["loc", [null, [45, 11], [45, 22]]]], ["inline", "disqus-comments", [], ["identifier", ["subexpr", "@mut", [["get", "trip.id", ["loc", [null, [46, 31], [46, 38]]]]], [], []]], ["loc", [null, [46, 2], [46, 40]]]], ["element", "action", ["back"], [], ["loc", [null, [52, 12], [52, 29]]]], ["element", "action", ["inviteFriend"], [], ["loc", [null, [56, 12], [56, 37]]]], ["element", "action", ["updateTrip"], [], ["loc", [null, [60, 12], [60, 35]]]], ["element", "action", ["deleteTrip"], [], ["loc", [null, [64, 12], [64, 35]]]]],
+      statements: [["content", "trip.name", ["loc", [null, [5, 8], [5, 21]]]], ["element", "action", ["back"], [], ["loc", [null, [11, 14], [11, 31]]]], ["content", "trip.city.name", ["loc", [null, [20, 12], [20, 30]]]], ["content", "trip.start_date", ["loc", [null, [24, 12], [24, 31]]]], ["content", "trip.end_date", ["loc", [null, [28, 12], [28, 29]]]], ["content", "trip.notes", ["loc", [null, [32, 12], [32, 26]]]], ["block", "each", [["get", "trip.attendances", ["loc", [null, [39, 12], [39, 28]]]]], [], 0, null, ["loc", [null, [39, 4], [41, 13]]]], ["inline", "disqus-comments", [], ["identifier", ["subexpr", "@mut", [["get", "trip.id", ["loc", [null, [48, 31], [48, 38]]]]], [], []]], ["loc", [null, [48, 2], [48, 40]]]], ["element", "action", ["back"], [], ["loc", [null, [54, 12], [54, 29]]]], ["element", "action", ["inviteFriend"], [], ["loc", [null, [58, 12], [58, 37]]]], ["element", "action", ["updateTrip"], [], ["loc", [null, [62, 12], [62, 35]]]], ["element", "action", ["deleteTrip"], [], ["loc", [null, [66, 12], [66, 35]]]]],
       locals: [],
       templates: [child0]
     };
@@ -5483,8 +5485,8 @@ define('togetherness-ember-client/trip/model', ['exports', 'ember-data'], functi
   exports['default'] = _emberData['default'].Model.extend({
     name: _emberData['default'].attr('string'),
     notes: _emberData['default'].attr('string'),
-    city_id: _emberData['default'].attr('string'),
-    user_id: _emberData['default'].attr('string'),
+    city: _emberData['default'].belongsTo('city'),
+    user: _emberData['default'].belongsTo('user'),
     start_date: _emberData['default'].attr('string'),
     end_date: _emberData['default'].attr('string'),
     attendances: _emberData['default'].hasMany('attendance')
@@ -5492,8 +5494,8 @@ define('togetherness-ember-client/trip/model', ['exports', 'ember-data'], functi
 });
 define('togetherness-ember-client/trip/more/route', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({
-    model: function model() {
-      return this.get('store').findAll('trip');
+    model: function model(params) {
+      return this.get('store').findRecord('trip', params.trip_id);
     },
 
     actions: {
@@ -5753,7 +5755,9 @@ define('togetherness-ember-client/user-attraction/model', ['exports', 'ember-dat
 });
 define('togetherness-ember-client/user/model', ['exports', 'ember-data'], function (exports, _emberData) {
   exports['default'] = _emberData['default'].Model.extend({
-    email: _emberData['default'].attr('string')
+    email: _emberData['default'].attr('string'),
+    trips: _emberData['default'].hasMany('trip'),
+    attendances: _emberData['default'].hasMany('attendance')
   });
 });
 define('togetherness-ember-client/users/route', ['exports', 'ember'], function (exports, _ember) {
@@ -5910,7 +5914,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+5084bdf1"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+0f0eb78a"});
 }
 
 /* jshint ignore:end */
