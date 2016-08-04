@@ -2032,6 +2032,9 @@ define("togetherness-ember-client/components/city-destination/template", ["expor
     };
   })());
 });
+define('togetherness-ember-client/components/date-picker', ['exports', 'ember', 'ember-cli-datepicker/components/date-picker'], function (exports, _ember, _emberCliDatepickerComponentsDatePicker) {
+  exports['default'] = _emberCliDatepickerComponentsDatePicker['default'];
+});
 define('togetherness-ember-client/components/email-input/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
     tagName: 'div',
@@ -3089,6 +3092,17 @@ define("togetherness-ember-client/components/password-input/template", ["exports
     };
   })());
 });
+define('togetherness-ember-client/components/pikaday-input', ['exports', 'ember', 'ember-pikaday/components/pikaday-input'], function (exports, _ember, _emberPikadayComponentsPikadayInput) {
+  exports['default'] = _emberPikadayComponentsPikadayInput['default'];
+});
+define('togetherness-ember-client/components/pikaday-inputless', ['exports', 'ember-pikaday/components/pikaday-inputless'], function (exports, _emberPikadayComponentsPikadayInputless) {
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberPikadayComponentsPikadayInputless['default'];
+    }
+  });
+});
 define('togetherness-ember-client/components/sign-in-form/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
     tagName: 'form',
@@ -3925,13 +3939,6 @@ define('togetherness-ember-client/plan-trip/route', ['exports', 'ember', 'ember-
         }).then(function () {
           var newTrip = _this.get('store').createRecord('trip', tripData);
           newTrip.save();
-        }).then(function (trip) {
-          var attendanceParams = {
-            trip_id: trip.id,
-            user_id: tripData.user_id
-          };
-          var newAttendance = _this.get('store').createRecord('attendance', attendanceParams);
-          newAttendance.save();
         }).then(function () {
           _this.transitionTo('trips');
         });
@@ -4453,7 +4460,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+c9055f68"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+170d8da6"});
 }
 
 /* jshint ignore:end */
