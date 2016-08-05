@@ -1,7 +1,5 @@
 This is the README for the client for my capston project.
 
-![Alt text](https://s3.amazonaws.com/togetherness-screenshots/Apricity+Screenshot.png "Apricity Travel")
-
 The application will be a way for people to get travel recommendations. It stores information on user interests and recommends traveling to cities on certain dates based on events happening on those dates.
 
 The event data is from the eventful.com API / feed.
