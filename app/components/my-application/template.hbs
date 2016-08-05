@@ -32,9 +32,11 @@
 <br>
 <!-- <h1 class="welcome-banner">Travel Together</h1> -->
 
-{{#each flashMessages.queue as |flash|}}
-  {{flash-message flash=flash}}
-{{/each}}
+<div style="margin-top: 30px;">
+  {{#each flashMessages.queue as |flash|}}
+    {{flash-message flash=flash}}
+  {{/each}}
+</div>
 
 <div class="col-md-12">
   <div class="col-md-10 col-md-offset-1" style="padding-bottom: 36px;">
