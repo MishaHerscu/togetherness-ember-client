@@ -733,6 +733,8 @@ define('togetherness-ember-client/auth/service', ['exports', 'ember', 'ember-loc
         data: {
           credentials: {
             email: credentials.email,
+            givenname: credentials.givenname,
+            surname: credentials.surname,
             password: credentials.password,
             password_confirmation: credentials.passwordConfirmation
           }
@@ -754,6 +756,8 @@ define('togetherness-ember-client/auth/service', ['exports', 'ember', 'ember-loc
         _this.get('credentials').set('id', result.user.id);
         _this.get('credentials').set('email', result.user.email);
         _this.get('credentials').set('token', result.user.token);
+        _this.get('credentials').set('givenname', result.user.givenname);
+        _this.get('credentials').set('surname', result.user.surname);
       });
     },
 
@@ -2092,6 +2096,64 @@ define('togetherness-ember-client/components/flash-message', ['exports', 'ember-
       return _emberCliFlashComponentsFlashMessage['default'];
     }
   });
+});
+define('togetherness-ember-client/components/givenname-input/component', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Component.extend({
+    tagName: 'div',
+    classNames: ['form-group']
+  });
+});
+define("togetherness-ember-client/components/givenname-input/template", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["multiple-nodes", "wrong-type"]
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 6,
+            "column": 0
+          }
+        },
+        "moduleName": "togetherness-ember-client/components/givenname-input/template.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("label");
+        dom.setAttribute(el1, "for", "email");
+        var el2 = dom.createTextNode("First Name");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+        return morphs;
+      },
+      statements: [["inline", "input", [], ["type", "text", "id", "givenname", "placeholder", "First Name", "value", ["subexpr", "@mut", [["get", "givenname", ["loc", [null, [5, 14], [5, 23]]]]], [], []]], ["loc", [null, [2, 0], [5, 25]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
 });
 define('togetherness-ember-client/components/hamburger-menu/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
@@ -3444,7 +3506,7 @@ define("togetherness-ember-client/components/sign-up-form/template", ["exports"]
             "column": 0
           },
           "end": {
-            "line": 12,
+            "line": 14,
             "column": 0
           }
         },
@@ -3456,6 +3518,14 @@ define("togetherness-ember-client/components/sign-up-form/template", ["exports"]
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
@@ -3486,18 +3556,78 @@ define("togetherness-ember-client/components/sign-up-form/template", ["exports"]
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [6]);
-        var element1 = dom.childAt(fragment, [8]);
-        var morphs = new Array(5);
+        var element0 = dom.childAt(fragment, [10]);
+        var element1 = dom.childAt(fragment, [12]);
+        var morphs = new Array(7);
         morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
         morphs[1] = dom.createMorphAt(fragment, 2, 2, contextualElement);
         morphs[2] = dom.createMorphAt(fragment, 4, 4, contextualElement);
-        morphs[3] = dom.createElementMorph(element0);
-        morphs[4] = dom.createElementMorph(element1);
+        morphs[3] = dom.createMorphAt(fragment, 6, 6, contextualElement);
+        morphs[4] = dom.createMorphAt(fragment, 8, 8, contextualElement);
+        morphs[5] = dom.createElementMorph(element0);
+        morphs[6] = dom.createElementMorph(element1);
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["inline", "email-input", [], ["email", ["subexpr", "@mut", [["get", "credentials.email", ["loc", [null, [1, 20], [1, 37]]]]], [], []]], ["loc", [null, [1, 0], [1, 39]]]], ["inline", "password-input", [], ["password", ["subexpr", "@mut", [["get", "credentials.password", ["loc", [null, [2, 26], [2, 46]]]]], [], []]], ["loc", [null, [2, 0], [2, 48]]]], ["inline", "password-confirmation-input", [], ["password", ["subexpr", "@mut", [["get", "credentials.passwordConfirmation", ["loc", [null, [3, 39], [3, 71]]]]], [], []]], ["loc", [null, [3, 0], [3, 73]]]], ["element", "action", ["submit"], [], ["loc", [null, [5, 46], [5, 65]]]], ["element", "action", ["reset"], [], ["loc", [null, [9, 32], [9, 50]]]]],
+      statements: [["inline", "givenname-input", [], ["givenname", ["subexpr", "@mut", [["get", "credentials.givenname", ["loc", [null, [1, 28], [1, 49]]]]], [], []]], ["loc", [null, [1, 0], [1, 51]]]], ["inline", "surname-input", [], ["surname", ["subexpr", "@mut", [["get", "credentials.surname", ["loc", [null, [2, 24], [2, 43]]]]], [], []]], ["loc", [null, [2, 0], [2, 45]]]], ["inline", "email-input", [], ["email", ["subexpr", "@mut", [["get", "credentials.email", ["loc", [null, [3, 20], [3, 37]]]]], [], []]], ["loc", [null, [3, 0], [3, 39]]]], ["inline", "password-input", [], ["password", ["subexpr", "@mut", [["get", "credentials.password", ["loc", [null, [4, 26], [4, 46]]]]], [], []]], ["loc", [null, [4, 0], [4, 48]]]], ["inline", "password-confirmation-input", [], ["password", ["subexpr", "@mut", [["get", "credentials.passwordConfirmation", ["loc", [null, [5, 39], [5, 71]]]]], [], []]], ["loc", [null, [5, 0], [5, 73]]]], ["element", "action", ["submit"], [], ["loc", [null, [7, 46], [7, 65]]]], ["element", "action", ["reset"], [], ["loc", [null, [11, 32], [11, 50]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
+define('togetherness-ember-client/components/surname-input/component', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Component.extend({
+    tagName: 'div',
+    classNames: ['form-group']
+  });
+});
+define("togetherness-ember-client/components/surname-input/template", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["multiple-nodes", "wrong-type"]
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 6,
+            "column": 0
+          }
+        },
+        "moduleName": "togetherness-ember-client/components/surname-input/template.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("label");
+        dom.setAttribute(el1, "for", "email");
+        var el2 = dom.createTextNode("Last Name");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+        return morphs;
+      },
+      statements: [["inline", "input", [], ["type", "text", "id", "surname", "placeholder", "Last Name", "value", ["subexpr", "@mut", [["get", "surname", ["loc", [null, [5, 14], [5, 21]]]]], [], []]], ["loc", [null, [2, 0], [5, 23]]]]],
       locals: [],
       templates: []
     };
@@ -5938,7 +6068,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+f4382585"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+54fb3e8f"});
 }
 
 /* jshint ignore:end */

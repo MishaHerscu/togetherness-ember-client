@@ -196,6 +196,15 @@ define('togetherness-ember-client/tests/components/email-input/component.jshint'
     assert.ok(true, 'components/email-input/component.js should pass jshint.');
   });
 });
+define('togetherness-ember-client/tests/components/givenname-input/component.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - components/givenname-input/component.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/givenname-input/component.js should pass jshint.');
+  });
+});
 define('togetherness-ember-client/tests/components/hamburger-menu/component.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -266,6 +275,15 @@ define('togetherness-ember-client/tests/components/sign-up-form/component.jshint
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'components/sign-up-form/component.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/components/surname-input/component.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - components/surname-input/component.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/surname-input/component.js should pass jshint.');
   });
 });
 define('togetherness-ember-client/tests/components/trip-detail/component.jshint', ['exports'], function (exports) {
