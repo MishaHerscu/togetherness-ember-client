@@ -296,9 +296,6 @@ define('togetherness-ember-client/attraction-suggestions/route', ['exports', 'em
     actions: {
       createTrip: function createTrip(attraction) {
         this.transitionTo('plan-trip', attraction);
-        // .then((planTrip) => {
-        //   planTrip.controller.set('attraction', attraction);
-        // });
       }
     }
   });
@@ -2663,12 +2660,12 @@ define("togetherness-ember-client/components/my-application/template", ["exports
           "loc": {
             "source": null,
             "start": {
-              "line": 35,
-              "column": 0
+              "line": 36,
+              "column": 2
             },
             "end": {
-              "line": 37,
-              "column": 0
+              "line": 38,
+              "column": 2
             }
           },
           "moduleName": "togetherness-ember-client/components/my-application/template.hbs"
@@ -2679,7 +2676,7 @@ define("togetherness-ember-client/components/my-application/template", ["exports
         hasRendered: false,
         buildFragment: function buildFragment(dom) {
           var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("  ");
+          var el1 = dom.createTextNode("    ");
           dom.appendChild(el0, el1);
           var el1 = dom.createComment("");
           dom.appendChild(el0, el1);
@@ -2692,7 +2689,7 @@ define("togetherness-ember-client/components/my-application/template", ["exports
           morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
           return morphs;
         },
-        statements: [["inline", "flash-message", [], ["flash", ["subexpr", "@mut", [["get", "flash", ["loc", [null, [36, 24], [36, 29]]]]], [], []]], ["loc", [null, [36, 2], [36, 31]]]]],
+        statements: [["inline", "flash-message", [], ["flash", ["subexpr", "@mut", [["get", "flash", ["loc", [null, [37, 26], [37, 31]]]]], [], []]], ["loc", [null, [37, 4], [37, 33]]]]],
         locals: ["flash"],
         templates: []
       };
@@ -2711,7 +2708,7 @@ define("togetherness-ember-client/components/my-application/template", ["exports
             "column": 0
           },
           "end": {
-            "line": 51,
+            "line": 53,
             "column": 0
           }
         },
@@ -2787,9 +2784,14 @@ define("togetherness-ember-client/components/my-application/template", ["exports
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
         dom.appendChild(el0, el1);
-        var el1 = dom.createComment("");
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "style", "margin-top: 30px;");
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
+        var el1 = dom.createTextNode("\n\n");
         dom.appendChild(el0, el1);
         var el1 = dom.createElement("div");
         dom.setAttribute(el1, "class", "col-md-12");
@@ -2841,11 +2843,11 @@ define("togetherness-ember-client/components/my-application/template", ["exports
         morphs[0] = dom.createMorphAt(element1, 1, 1);
         morphs[1] = dom.createMorphAt(dom.childAt(element2, [1]), 1, 1);
         morphs[2] = dom.createMorphAt(dom.childAt(element2, [3]), 1, 1);
-        morphs[3] = dom.createMorphAt(fragment, 10, 10, contextualElement);
+        morphs[3] = dom.createMorphAt(dom.childAt(fragment, [10]), 1, 1);
         morphs[4] = dom.createMorphAt(dom.childAt(fragment, [12, 1]), 1, 1);
         return morphs;
       },
-      statements: [["content", "navbar-header", ["loc", [null, [4, 4], [4, 21]]]], ["block", "if", [["get", "isAuthenticated", ["loc", [null, [8, 14], [8, 29]]]]], [], 0, null, ["loc", [null, [8, 8], [16, 15]]]], ["block", "if", [["get", "isAuthenticated", ["loc", [null, [19, 14], [19, 29]]]]], [], 1, 2, ["loc", [null, [19, 8], [25, 15]]]], ["block", "each", [["get", "flashMessages.queue", ["loc", [null, [35, 8], [35, 27]]]]], [], 3, null, ["loc", [null, [35, 0], [37, 9]]]], ["content", "outlet", ["loc", [null, [41, 4], [41, 14]]]]],
+      statements: [["content", "navbar-header", ["loc", [null, [4, 4], [4, 21]]]], ["block", "if", [["get", "isAuthenticated", ["loc", [null, [8, 14], [8, 29]]]]], [], 0, null, ["loc", [null, [8, 8], [16, 15]]]], ["block", "if", [["get", "isAuthenticated", ["loc", [null, [19, 14], [19, 29]]]]], [], 1, 2, ["loc", [null, [19, 8], [25, 15]]]], ["block", "each", [["get", "flashMessages.queue", ["loc", [null, [36, 10], [36, 29]]]]], [], 3, null, ["loc", [null, [36, 2], [38, 11]]]], ["content", "outlet", ["loc", [null, [43, 4], [43, 14]]]]],
       locals: [],
       templates: [child0, child1, child2, child3]
     };
@@ -5936,7 +5938,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+0f0eb78a"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+f4382585"});
 }
 
 /* jshint ignore:end */
