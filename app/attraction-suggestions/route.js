@@ -26,9 +26,6 @@ export default Ember.Route.extend({
   actions: {
     createTrip(attraction){
       this.transitionTo('plan-trip', attraction);
-      // .then((planTrip) => {
-      //   planTrip.controller.set('attraction', attraction);
-      // });
     },
   },
 });
