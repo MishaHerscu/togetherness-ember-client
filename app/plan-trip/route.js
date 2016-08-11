@@ -13,8 +13,8 @@ export default Ember.Route.extend({
       let tripData = {
         name: data.name,
         notes: data.notes,
-        city_id: '',
-        user_id: '',
+        city: '',
+        user: '',
         start_date: data.start_date,
         end_date: data.end_date,
       };
@@ -25,13 +25,15 @@ export default Ember.Route.extend({
         return attraction.get('city_id');
       })
       .then((city_id) => {
-        tripData.city_id = city_id;
+        tripData.city = this.get('store').findRecord('city', city_id);
       })
       .then(() => {
-        tripData.user_id = this.get('credentials.id');
+        tripData.user = this.get('store').findRecord('user', this.get('credentials.id'));
       })
       .then(() => {
+        console.log(tripData);
         let newTrip = this.get('store').createRecord('trip', tripData);
+        console.log(newTrip);
         newTrip.save();
       })
       .then(() => {

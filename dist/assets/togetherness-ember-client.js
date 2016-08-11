@@ -4219,7 +4219,6 @@ define('togetherness-ember-client/components/trip-planning/component', ['exports
     tripData: {
       name: null,
       notes: null,
-      city_id: null,
       start_date: null,
       end_date: null
     },
@@ -4883,8 +4882,8 @@ define('togetherness-ember-client/plan-trip/route', ['exports', 'ember', 'ember-
         var tripData = {
           name: data.name,
           notes: data.notes,
-          city_id: '',
-          user_id: '',
+          city: '',
+          user: '',
           start_date: data.start_date,
           end_date: data.end_date
         };
@@ -4893,11 +4892,13 @@ define('togetherness-ember-client/plan-trip/route', ['exports', 'ember', 'ember-
         this.get('store').findRecord('attraction', attractionId).then(function (attraction) {
           return attraction.get('city_id');
         }).then(function (city_id) {
-          tripData.city_id = city_id;
+          tripData.city = _this.get('store').findRecord('city', city_id);
         }).then(function () {
-          tripData.user_id = _this.get('credentials.id');
+          tripData.user = _this.get('store').findRecord('user', _this.get('credentials.id'));
         }).then(function () {
+          console.log(tripData);
           var newTrip = _this.get('store').createRecord('trip', tripData);
+          console.log(newTrip);
           newTrip.save();
         }).then(function () {
           _this.transitionTo('trips');
