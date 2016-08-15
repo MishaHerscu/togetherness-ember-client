@@ -259,6 +259,15 @@ define('togetherness-ember-client/tests/components/password-input/component.jshi
     assert.ok(true, 'components/password-input/component.js should pass jshint.');
   });
 });
+define('togetherness-ember-client/tests/components/person-profile/component.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - components/person-profile/component.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/person-profile/component.js should pass jshint.');
+  });
+});
 define('togetherness-ember-client/tests/components/planned-trip/component.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -320,6 +329,15 @@ define('togetherness-ember-client/tests/components/trip-planning/component.jshin
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'components/trip-planning/component.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/components/user-profile/component.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - components/user-profile/component.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/user-profile/component.js should pass jshint.');
   });
 });
 define('togetherness-ember-client/tests/events-api/service.jshint', ['exports'], function (exports) {
@@ -1948,6 +1966,155 @@ define('togetherness-ember-client/tests/integration/components/password-input/co
     assert.ok(true, 'integration/components/password-input/component-test.js should pass jshint.');
   });
 });
+define('togetherness-ember-client/tests/integration/components/person-profile/component-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForComponent)('person-profile', 'Integration | Component | person profile', {
+    integration: true
+  });
+
+  (0, _emberQunit.test)('it renders', function (assert) {
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
+
+    this.render(Ember.HTMLBars.template((function () {
+      return {
+        meta: {
+          'fragmentReason': {
+            'name': 'missing-wrapper',
+            'problems': ['wrong-type']
+          },
+          'revision': 'Ember@2.5.1',
+          'loc': {
+            'source': null,
+            'start': {
+              'line': 1,
+              'column': 0
+            },
+            'end': {
+              'line': 1,
+              'column': 18
+            }
+          }
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createComment('');
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+          dom.insertBoundary(fragment, 0);
+          dom.insertBoundary(fragment, null);
+          return morphs;
+        },
+        statements: [['content', 'person-profile', ['loc', [null, [1, 0], [1, 18]]]]],
+        locals: [],
+        templates: []
+      };
+    })()));
+
+    assert.equal(this.$().text().trim(), '');
+
+    // Template block usage:
+    this.render(Ember.HTMLBars.template((function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            'fragmentReason': false,
+            'revision': 'Ember@2.5.1',
+            'loc': {
+              'source': null,
+              'start': {
+                'line': 2,
+                'column': 4
+              },
+              'end': {
+                'line': 4,
+                'column': 4
+              }
+            }
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode('      template block text\n');
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes() {
+            return [];
+          },
+          statements: [],
+          locals: [],
+          templates: []
+        };
+      })();
+
+      return {
+        meta: {
+          'fragmentReason': {
+            'name': 'missing-wrapper',
+            'problems': ['wrong-type']
+          },
+          'revision': 'Ember@2.5.1',
+          'loc': {
+            'source': null,
+            'start': {
+              'line': 1,
+              'column': 0
+            },
+            'end': {
+              'line': 5,
+              'column': 2
+            }
+          }
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode('\n');
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment('');
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode('  ');
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [['block', 'person-profile', [], [], 0, null, ['loc', [null, [2, 4], [4, 23]]]]],
+        locals: [],
+        templates: [child0]
+      };
+    })()));
+
+    assert.equal(this.$().text().trim(), 'template block text');
+  });
+});
+define('togetherness-ember-client/tests/integration/components/person-profile/component-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - integration/components/person-profile/component-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/person-profile/component-test.js should pass jshint.');
+  });
+});
 define('togetherness-ember-client/tests/integration/components/plan-trip/component-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
 
   (0, _emberQunit.moduleForComponent)('plan-trip', 'Integration | Component | plan trip', {
@@ -2991,6 +3158,164 @@ define('togetherness-ember-client/tests/integration/components/trip-editor/compo
     assert.ok(true, 'integration/components/trip-editor/component-test.js should pass jshint.');
   });
 });
+define('togetherness-ember-client/tests/integration/components/user-profile/component-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForComponent)('user-profile', 'Integration | Component | user profile', {
+    integration: true
+  });
+
+  (0, _emberQunit.test)('it renders', function (assert) {
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
+
+    this.render(Ember.HTMLBars.template((function () {
+      return {
+        meta: {
+          'fragmentReason': {
+            'name': 'missing-wrapper',
+            'problems': ['wrong-type']
+          },
+          'revision': 'Ember@2.5.1',
+          'loc': {
+            'source': null,
+            'start': {
+              'line': 1,
+              'column': 0
+            },
+            'end': {
+              'line': 1,
+              'column': 16
+            }
+          }
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createComment('');
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+          dom.insertBoundary(fragment, 0);
+          dom.insertBoundary(fragment, null);
+          return morphs;
+        },
+        statements: [['content', 'user-profile', ['loc', [null, [1, 0], [1, 16]]]]],
+        locals: [],
+        templates: []
+      };
+    })()));
+
+    assert.equal(this.$().text().trim(), '');
+
+    // Template block usage:
+    this.render(Ember.HTMLBars.template((function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            'fragmentReason': false,
+            'revision': 'Ember@2.5.1',
+            'loc': {
+              'source': null,
+              'start': {
+                'line': 2,
+                'column': 4
+              },
+              'end': {
+                'line': 4,
+                'column': 4
+              }
+            }
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode('      template block text\n');
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes() {
+            return [];
+          },
+          statements: [],
+          locals: [],
+          templates: []
+        };
+      })();
+
+      return {
+        meta: {
+          'fragmentReason': {
+            'name': 'missing-wrapper',
+            'problems': ['wrong-type']
+          },
+          'revision': 'Ember@2.5.1',
+          'loc': {
+            'source': null,
+            'start': {
+              'line': 1,
+              'column': 0
+            },
+            'end': {
+              'line': 5,
+              'column': 2
+            }
+          }
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode('\n');
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment('');
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode('  ');
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [['block', 'user-profile', [], [], 0, null, ['loc', [null, [2, 4], [4, 21]]]]],
+        locals: [],
+        templates: [child0]
+      };
+    })()));
+
+    assert.equal(this.$().text().trim(), 'template block text');
+  });
+});
+define('togetherness-ember-client/tests/integration/components/user-profile/component-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - integration/components/user-profile/component-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/user-profile/component-test.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/people/route.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - people/route.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'people/route.js should pass jshint.');
+  });
+});
 define('togetherness-ember-client/tests/plan-trip/route.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -2998,6 +3323,15 @@ define('togetherness-ember-client/tests/plan-trip/route.jshint', ['exports'], fu
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'plan-trip/route.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/profile/route.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - profile/route.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'profile/route.js should pass jshint.');
   });
 });
 define('togetherness-ember-client/tests/resolver.jshint', ['exports'], function (exports) {
@@ -3502,6 +3836,27 @@ define('togetherness-ember-client/tests/unit/initializers/text-field-test.jshint
     assert.ok(true, 'unit/initializers/text-field-test.js should pass jshint.');
   });
 });
+define('togetherness-ember-client/tests/unit/people/route-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:people', 'Unit | Route | people', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('togetherness-ember-client/tests/unit/people/route-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/people/route-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/people/route-test.js should pass jshint.');
+  });
+});
 define('togetherness-ember-client/tests/unit/plan-trip/route-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
 
   (0, _emberQunit.moduleFor)('route:plan-trip', 'Unit | Route | plan trip', {
@@ -3806,15 +4161,6 @@ define('togetherness-ember-client/tests/user/model.jshint', ['exports'], functio
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'user/model.js should pass jshint.');
-  });
-});
-define('togetherness-ember-client/tests/users/route.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - users/route.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'users/route.js should pass jshint.');
   });
 });
 /* jshint ignore:start */
