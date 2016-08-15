@@ -9,7 +9,7 @@ Router.map(function () {
   this.route('sign-up');
   this.route('sign-in');
   this.route('change-password');
-  this.route('users');
+  this.route('profile');
   this.route('attractions');
   this.route('attraction-suggestions');
   this.route('cities');
@@ -18,6 +18,7 @@ Router.map(function () {
   this.route('trips/edit', { path: '/trips/:trip_id/edit' });
   this.route('attendances');
   this.route('plan-trip', { path:'/plan-trip/:attraction_id' } );
+  this.route('people');
 });
 
 export default Router;
