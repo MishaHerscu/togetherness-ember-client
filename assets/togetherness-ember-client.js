@@ -2283,7 +2283,7 @@ define("togetherness-ember-client/components/my-application/template", ["exports
           hasRendered: false,
           buildFragment: function buildFragment(dom) {
             var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("Friends");
+            var el1 = dom.createTextNode("Profile");
             dom.appendChild(el0, el1);
             return el0;
           },
@@ -6030,7 +6030,7 @@ define("togetherness-ember-client/users/template", ["exports"], function (export
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createElement("h2");
-        var el2 = dom.createTextNode("Friends");
+        var el2 = dom.createTextNode("Profile");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
