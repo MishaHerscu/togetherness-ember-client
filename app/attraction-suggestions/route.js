@@ -9,17 +9,11 @@ export default Ember.Route.extend({
       }).slice(0,20);
     })
     .then((result) => {
-      let attractionIds = [];
-      result.forEach((r) => {
-        attractionIds.push(String(r.get('attraction_id')));
+      let attractions = [];
+      result.forEach((attraction) => {
+        attractions.push(this.get('store').findRecord('attraction', attraction.id));
       });
-      return this.get('store').findAll('attraction')
-      .then((attractions) => {
-        let kept_attractions = attractions.toArray().filter((attraction) => {
-          return attractionIds.includes(String(attraction.get('id')));
-        });
-        return kept_attractions;
-      });
+      return attractions;
     });
   },
 

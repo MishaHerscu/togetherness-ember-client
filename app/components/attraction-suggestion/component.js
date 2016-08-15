@@ -12,7 +12,7 @@ export default Ember.Component.extend({
       this.toggleProperty('hiddenAttraction');
     },
     createTrip () {
-      this.sendAction('createTrip', this.get('attraction'));
+      this.sendAction('createTrip', this.get('attraction.id'));
     }
   },
 });

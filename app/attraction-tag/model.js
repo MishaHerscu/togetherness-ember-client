@@ -3,6 +3,6 @@ import { belongsTo } from 'ember-data/relationships';
 // import { hasMany } from 'ember-data/relationships';
 
 export default DS.Model.extend({
-  trip: belongsTo('trip'),
-  user: belongsTo('user'),
+  attraction: belongsTo('attraction'),
+  tag: belongsTo('tag'),
 });

@@ -1,8 +1,10 @@
 import DS from 'ember-data';
+import { belongsTo } from 'ember-data/relationships';
+import { hasMany } from 'ember-data/relationships';
 
 export default DS.Model.extend({
   eventful_id: DS.attr('string'),
-  city_id: DS.attr('string'),
+  // city_id: DS.attr('string'),
   city_name: DS.attr('string'),
   country_name: DS.attr('string'),
   title: DS.attr('string'),
@@ -24,4 +26,8 @@ export default DS.Model.extend({
   longitude: DS.attr('string'),
   image_information: DS.attr('string'),
   medium_image_url: DS.attr('string'),
+
+  city: belongsTo('city'),
+
+  attraction_tags: hasMany('attraction_tag'),
 });

@@ -17,7 +17,7 @@ export default Ember.Route.extend({
   actions: {
     likeAttraction(attraction){
       let user_attraction = {
-        user_id: Number(this.get('credentials').get('id')),
+        user_id: this.get('credentials.id'),
         attraction_id: Number(attraction.id),
         like: true
       };
@@ -26,7 +26,7 @@ export default Ember.Route.extend({
     },
     dislikeAttraction(attraction) {
       let user_attraction = {
-        user_id: Number(this.get('credentials').get('id')),
+        user_id: this.get('credentials.id'),
         attraction_id: Number(attraction.id),
         like: false
       };

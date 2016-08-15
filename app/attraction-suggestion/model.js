@@ -1,6 +1,8 @@
 import DS from 'ember-data';
+import { belongsTo } from 'ember-data/relationships';
+// import { hasMany } from 'ember-data/relationships';
 
 export default DS.Model.extend({
-  user_id: DS.attr('string'),
-  attraction_id: DS.attr('string'),
+  attraction: belongsTo('attraction'),
+  user: belongsTo('user'),
 });
