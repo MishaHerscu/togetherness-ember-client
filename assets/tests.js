@@ -79,6 +79,15 @@ define('togetherness-ember-client/tests/attraction-suggestions/route.jshint', ['
     assert.ok(true, 'attraction-suggestions/route.js should pass jshint.');
   });
 });
+define('togetherness-ember-client/tests/attraction-tag/model.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - attraction-tag/model.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'attraction-tag/model.js should pass jshint.');
+  });
+});
 define('togetherness-ember-client/tests/attraction/model.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -3263,6 +3272,28 @@ define('togetherness-ember-client/tests/unit/attraction-suggestion/model-test.js
     assert.ok(true, 'unit/attraction-suggestion/model-test.js should pass jshint.');
   });
 });
+define('togetherness-ember-client/tests/unit/attraction-tag/model-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('attraction-tag', 'Unit | Model | attraction tag', {
+    // Specify the other units that are required for this test.
+    needs: []
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var model = this.subject();
+    // let store = this.store();
+    assert.ok(!!model);
+  });
+});
+define('togetherness-ember-client/tests/unit/attraction-tag/model-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/attraction-tag/model-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/attraction-tag/model-test.js should pass jshint.');
+  });
+});
 define('togetherness-ember-client/tests/unit/attraction/model-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
 
   (0, _emberQunit.moduleForModel)('attraction', 'Unit | Model | attraction', {
@@ -3684,6 +3715,28 @@ define('togetherness-ember-client/tests/unit/user-attraction/model-test.jshint',
     assert.ok(true, 'unit/user-attraction/model-test.js should pass jshint.');
   });
 });
+define('togetherness-ember-client/tests/unit/user-tag/model-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('user-tag', 'Unit | Model | user tag', {
+    // Specify the other units that are required for this test.
+    needs: []
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var model = this.subject();
+    // let store = this.store();
+    assert.ok(!!model);
+  });
+});
+define('togetherness-ember-client/tests/unit/user-tag/model-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/user-tag/model-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/user-tag/model-test.js should pass jshint.');
+  });
+});
 define('togetherness-ember-client/tests/unit/user/model-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
 
   (0, _emberQunit.moduleForModel)('user', 'Unit | Model | user', {
@@ -3735,6 +3788,15 @@ define('togetherness-ember-client/tests/user-attraction/model.jshint', ['exports
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'user-attraction/model.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/user-tag/model.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - user-tag/model.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'user-tag/model.js should pass jshint.');
   });
 });
 define('togetherness-ember-client/tests/user/model.jshint', ['exports'], function (exports) {

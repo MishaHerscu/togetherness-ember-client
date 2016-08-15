@@ -144,10 +144,12 @@ define("togetherness-ember-client/application/template", ["exports"], function (
     };
   })());
 });
-define('togetherness-ember-client/attendance/model', ['exports', 'ember-data'], function (exports, _emberData) {
+define('togetherness-ember-client/attendance/model', ['exports', 'ember-data', 'ember-data/relationships'], function (exports, _emberData, _emberDataRelationships) {
+  // import { hasMany } from 'ember-data/relationships';
+
   exports['default'] = _emberData['default'].Model.extend({
-    trip: _emberData['default'].belongsTo('trip'),
-    user: _emberData['default'].belongsTo('user')
+    trip: (0, _emberDataRelationships.belongsTo)('trip'),
+    user: (0, _emberDataRelationships.belongsTo)('user')
   });
 });
 define('togetherness-ember-client/attendances/route', ['exports', 'ember'], function (exports, _ember) {
@@ -264,10 +266,12 @@ define("togetherness-ember-client/attendances/template", ["exports"], function (
     };
   })());
 });
-define('togetherness-ember-client/attraction-suggestion/model', ['exports', 'ember-data'], function (exports, _emberData) {
+define('togetherness-ember-client/attraction-suggestion/model', ['exports', 'ember-data', 'ember-data/relationships'], function (exports, _emberData, _emberDataRelationships) {
+  // import { hasMany } from 'ember-data/relationships';
+
   exports['default'] = _emberData['default'].Model.extend({
-    user_id: _emberData['default'].attr('string'),
-    attraction_id: _emberData['default'].attr('string')
+    attraction: (0, _emberDataRelationships.belongsTo)('attraction'),
+    user: (0, _emberDataRelationships.belongsTo)('user')
   });
 });
 define('togetherness-ember-client/attraction-suggestions/route', ['exports', 'ember'], function (exports, _ember) {
@@ -280,16 +284,11 @@ define('togetherness-ember-client/attraction-suggestions/route', ['exports', 'em
           return 0.5 - Math.random();
         }).slice(0, 20);
       }).then(function (result) {
-        var attractionIds = [];
-        result.forEach(function (r) {
-          attractionIds.push(String(r.get('attraction_id')));
+        var attractions = [];
+        result.forEach(function (attraction) {
+          attractions.push(_this.get('store').findRecord('attraction', attraction.id));
         });
-        return _this.get('store').findAll('attraction').then(function (attractions) {
-          var kept_attractions = attractions.toArray().filter(function (attraction) {
-            return attractionIds.includes(String(attraction.get('id')));
-          });
-          return kept_attractions;
-        });
+        return attractions;
       });
     },
 
@@ -480,10 +479,18 @@ define("togetherness-ember-client/attraction-suggestions/template", ["exports"],
     };
   })());
 });
-define('togetherness-ember-client/attraction/model', ['exports', 'ember-data'], function (exports, _emberData) {
+define('togetherness-ember-client/attraction-tag/model', ['exports', 'ember-data', 'ember-data/relationships'], function (exports, _emberData, _emberDataRelationships) {
+  // import { hasMany } from 'ember-data/relationships';
+
+  exports['default'] = _emberData['default'].Model.extend({
+    attraction: (0, _emberDataRelationships.belongsTo)('attraction'),
+    tag: (0, _emberDataRelationships.belongsTo)('tag')
+  });
+});
+define('togetherness-ember-client/attraction/model', ['exports', 'ember-data', 'ember-data/relationships'], function (exports, _emberData, _emberDataRelationships) {
   exports['default'] = _emberData['default'].Model.extend({
     eventful_id: _emberData['default'].attr('string'),
-    city_id: _emberData['default'].attr('string'),
+    // city_id: DS.attr('string'),
     city_name: _emberData['default'].attr('string'),
     country_name: _emberData['default'].attr('string'),
     title: _emberData['default'].attr('string'),
@@ -504,7 +511,11 @@ define('togetherness-ember-client/attraction/model', ['exports', 'ember-data'], 
     latitude: _emberData['default'].attr('string'),
     longitude: _emberData['default'].attr('string'),
     image_information: _emberData['default'].attr('string'),
-    medium_image_url: _emberData['default'].attr('string')
+    medium_image_url: _emberData['default'].attr('string'),
+
+    city: (0, _emberDataRelationships.belongsTo)('city'),
+
+    attraction_tags: (0, _emberDataRelationships.hasMany)('attraction_tag')
   });
 });
 define('togetherness-ember-client/attractions/route', ['exports', 'ember', 'ember-local-storage'], function (exports, _ember, _emberLocalStorage) {
@@ -523,7 +534,7 @@ define('togetherness-ember-client/attractions/route', ['exports', 'ember', 'embe
     actions: {
       likeAttraction: function likeAttraction(attraction) {
         var user_attraction = {
-          user_id: Number(this.get('credentials').get('id')),
+          user_id: this.get('credentials.id'),
           attraction_id: Number(attraction.id),
           like: true
         };
@@ -532,7 +543,7 @@ define('togetherness-ember-client/attractions/route', ['exports', 'ember', 'embe
       },
       dislikeAttraction: function dislikeAttraction(attraction) {
         var user_attraction = {
-          user_id: Number(this.get('credentials').get('id')),
+          user_id: this.get('credentials.id'),
           attraction_id: Number(attraction.id),
           like: false
         };
@@ -1130,13 +1141,16 @@ define("togetherness-ember-client/cities/template", ["exports"], function (expor
     };
   })());
 });
-define('togetherness-ember-client/city/model', ['exports', 'ember-data'], function (exports, _emberData) {
+define('togetherness-ember-client/city/model', ['exports', 'ember-data', 'ember-data/relationships'], function (exports, _emberData, _emberDataRelationships) {
   exports['default'] = _emberData['default'].Model.extend({
     name: _emberData['default'].attr('string'),
-    attractions: _emberData['default'].hasMany('attraction'),
-    trips: _emberData['default'].hasMany('trip')
+
+    attractions: (0, _emberDataRelationships.hasMany)('attraction'),
+    trips: (0, _emberDataRelationships.hasMany)('trip')
   });
 });
+
+// import { belongsTo } from 'ember-data/relationships';
 define('togetherness-ember-client/components/app-version', ['exports', 'ember-cli-app-version/components/app-version', 'togetherness-ember-client/config/environment'], function (exports, _emberCliAppVersionComponentsAppVersion, _togethernessEmberClientConfigEnvironment) {
 
   var name = _togethernessEmberClientConfigEnvironment['default'].APP.name;
@@ -1442,7 +1456,7 @@ define('togetherness-ember-client/components/attraction-suggestion/component', [
         this.toggleProperty('hiddenAttraction');
       },
       createTrip: function createTrip() {
-        this.sendAction('createTrip', this.get('attraction'));
+        this.sendAction('createTrip', this.get('attraction.id'));
       }
     }
   });
@@ -3697,7 +3711,7 @@ define("togetherness-ember-client/components/trip-detail/template", ["exports"],
           morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
           return morphs;
         },
-        statements: [["content", "attendance.user.email", ["loc", [null, [40, 10], [40, 35]]]]],
+        statements: [["content", "attendance.user.fullName", ["loc", [null, [40, 10], [40, 38]]]]],
         locals: ["attendance"],
         templates: []
       };
@@ -4890,15 +4904,9 @@ define('togetherness-ember-client/plan-trip/route', ['exports', 'ember', 'ember-
 
         var attractionId = this.get('router.router.state.params.plan-trip.attraction_id');
         this.get('store').findRecord('attraction', attractionId).then(function (attraction) {
-          return attraction.get('city_id');
-        }).then(function (city_id) {
-          tripData.city = _this.get('store').findRecord('city', city_id);
+          tripData.city = attraction.get('city');
         }).then(function () {
-          tripData.user = _this.get('store').findRecord('user', _this.get('credentials.id'));
-        }).then(function () {
-          console.log(tripData);
           var newTrip = _this.get('store').createRecord('trip', tripData);
-          console.log(newTrip);
           newTrip.save();
         }).then(function () {
           _this.transitionTo('trips');
@@ -5142,13 +5150,18 @@ define("togetherness-ember-client/sign-up/template", ["exports"], function (expo
     };
   })());
 });
-define('togetherness-ember-client/tag/model', ['exports', 'ember-data'], function (exports, _emberData) {
+define('togetherness-ember-client/tag/model', ['exports', 'ember-data', 'ember-data/relationships'], function (exports, _emberData, _emberDataRelationships) {
   exports['default'] = _emberData['default'].Model.extend({
     tag: _emberData['default'].attr('string'),
     usages: _emberData['default'].attr('string'),
-    relative_usage: _emberData['default'].attr('string')
+    relative_usage: _emberData['default'].attr('string'),
+
+    attraction_tags: (0, _emberDataRelationships.hasMany)('attraction-tag'),
+    user_tags: (0, _emberDataRelationships.hasMany)('user-tag')
   });
 });
+
+// import { belongsTo } from 'ember-data/relationships';
 define("togetherness-ember-client/templates/components/ember-inline-edit", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
@@ -5636,15 +5649,19 @@ define("togetherness-ember-client/templates/components/ember-inline-edit", ["exp
     };
   })());
 });
-define('togetherness-ember-client/trip/model', ['exports', 'ember-data'], function (exports, _emberData) {
+define('togetherness-ember-client/trip/model', ['exports', 'ember-data', 'ember-data/relationships'], function (exports, _emberData, _emberDataRelationships) {
   exports['default'] = _emberData['default'].Model.extend({
     name: _emberData['default'].attr('string'),
     notes: _emberData['default'].attr('string'),
-    city: _emberData['default'].belongsTo('city'),
-    user: _emberData['default'].belongsTo('user'),
+    // city_id: DS.attr('number'),
+    // user_id: DS.attr('number'),
     start_date: _emberData['default'].attr('string'),
     end_date: _emberData['default'].attr('string'),
-    attendances: _emberData['default'].hasMany('attendance')
+
+    city: (0, _emberDataRelationships.belongsTo)('city'),
+    user: (0, _emberDataRelationships.belongsTo)('user'),
+
+    attendances: (0, _emberDataRelationships.hasMany)('attendance')
   });
 });
 define('togetherness-ember-client/trip/more/route', ['exports', 'ember'], function (exports, _ember) {
@@ -5908,13 +5925,31 @@ define('togetherness-ember-client/user-attraction/model', ['exports', 'ember-dat
     like: _emberData['default'].attr('boolean')
   });
 });
-define('togetherness-ember-client/user/model', ['exports', 'ember-data'], function (exports, _emberData) {
+define('togetherness-ember-client/user-tag/model', ['exports', 'ember-data', 'ember-data/relationships'], function (exports, _emberData, _emberDataRelationships) {
+  // import { hasMany } from 'ember-data/relationships';
+
   exports['default'] = _emberData['default'].Model.extend({
-    email: _emberData['default'].attr('string'),
-    trips: _emberData['default'].hasMany('trip'),
-    attendances: _emberData['default'].hasMany('attendance')
+    tag: (0, _emberDataRelationships.belongsTo)('tag'),
+    user: (0, _emberDataRelationships.belongsTo)('user')
   });
 });
+define('togetherness-ember-client/user/model', ['exports', 'ember', 'ember-data', 'ember-data/relationships'], function (exports, _ember, _emberData, _emberDataRelationships) {
+  exports['default'] = _emberData['default'].Model.extend({
+    email: _emberData['default'].attr('string'),
+    givenname: _emberData['default'].attr('string'),
+    surname: _emberData['default'].attr('string'),
+
+    attendances: (0, _emberDataRelationships.hasMany)('attendance'),
+    trips: (0, _emberDataRelationships.hasMany)('trip'),
+    user_tags: (0, _emberDataRelationships.hasMany)('user_tag'),
+
+    fullName: _ember['default'].computed('givenname', 'surname', function () {
+      return this.get('givenname') + ' ' + this.get('surname');
+    })
+  });
+});
+
+// import { belongsTo } from 'ember-data/relationships';
 define('togetherness-ember-client/users/route', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({
     model: function model() {
@@ -5963,7 +5998,7 @@ define("togetherness-ember-client/users/template", ["exports"], function (export
           morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
           return morphs;
         },
-        statements: [["content", "user.email", ["loc", [null, [5, 6], [5, 20]]]]],
+        statements: [["content", "user.fullName", ["loc", [null, [5, 6], [5, 23]]]]],
         locals: ["user"],
         templates: []
       };
@@ -6069,7 +6104,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+54fb3e8f"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+b658d49f"});
 }
 
 /* jshint ignore:end */
