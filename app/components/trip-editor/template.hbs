@@ -1,4 +1,4 @@
-<h3>Edit Adventure!</h3>
+<h3>Edit Adventure</h3>
 
 <br />
 <br />
@@ -6,8 +6,7 @@
 <div class="white-background-div">
   <div class="col-xs-12">
     <div class="col-xs-11">
-      <h4>New Adventure in {{trip.city_name}}</h4>
-      <p><ul><li>Remember to check out {{trip.title}} on {{trip.event_date}}</li></ul></p>
+      <h4>Adventure in {{trip.city.name}}</h4>
     </div>
     <div class="col-xs-1">
       <button type="button"
@@ -24,7 +23,7 @@
   <form {{action "submit" on="submit"}}>
 
     <label>
-      Name Your Adventure!
+      Adventure Name
     </label>
       {{input
         placeholder="Best Adventure Ever!!!"
