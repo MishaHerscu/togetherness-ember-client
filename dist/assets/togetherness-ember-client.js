@@ -3205,7 +3205,7 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
             "column": 0
           },
           "end": {
-            "line": 21,
+            "line": 26,
             "column": 0
           }
         },
@@ -3218,7 +3218,19 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createElement("div");
-        dom.setAttribute(el1, "class", "col-xs-12");
+        dom.setAttribute(el1, "class", "col-xs-12 person-profile");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "col-xs-2");
+        dom.setAttribute(el2, "style", "font-weight: 700;");
+        var el3 = dom.createTextNode("\n    Profile Picture\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    (coming soon)\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("div");
@@ -3304,14 +3316,14 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [0, 1, 1, 1]);
+        var element0 = dom.childAt(fragment, [0, 3, 1, 1]);
         var morphs = new Array(3);
         morphs[0] = dom.createMorphAt(dom.childAt(element0, [1, 3]), 0, 0);
         morphs[1] = dom.createMorphAt(dom.childAt(element0, [3, 3]), 0, 0);
         morphs[2] = dom.createMorphAt(dom.childAt(element0, [5, 3]), 0, 0);
         return morphs;
       },
-      statements: [["content", "user.givenname", ["loc", [null, [7, 40], [7, 58]]]], ["content", "user.surname", ["loc", [null, [11, 40], [11, 56]]]], ["content", "user.email", ["loc", [null, [15, 40], [15, 54]]]]],
+      statements: [["content", "user.givenname", ["loc", [null, [12, 40], [12, 58]]]], ["content", "user.surname", ["loc", [null, [16, 40], [16, 56]]]], ["content", "user.email", ["loc", [null, [20, 40], [20, 54]]]]],
       locals: [],
       templates: []
     };
@@ -6656,7 +6668,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+18b2c267"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+7c52fcec"});
 }
 
 /* jshint ignore:end */

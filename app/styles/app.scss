@@ -112,3 +112,15 @@ nav {
   margin-top: 9px;
   text-align: center;
 }
+
+.person-profile {
+  background-color: $event-card-background-color;
+  border: 1px solid $event-card-border-grey;
+  border-radius: 10px;
+  box-shadow: 3px 3px 1px $event-card-shadow-color;
+  margin: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 25px;
+}
