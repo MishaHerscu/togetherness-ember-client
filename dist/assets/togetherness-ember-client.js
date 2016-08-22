@@ -3188,7 +3188,19 @@ define("togetherness-ember-client/components/password-input/template", ["exports
   })());
 });
 define('togetherness-ember-client/components/person-profile/component', ['exports', 'ember'], function (exports, _ember) {
-  exports['default'] = _ember['default'].Component.extend({});
+  exports['default'] = _ember['default'].Component.extend({
+    classNameBindings: 'hiddenPerson:hidden',
+    hiddenPerson: false,
+
+    actions: {
+      closePerson: function closePerson() {
+        this.toggleProperty('hiddenPerson');
+      },
+      requestFriend: function requestFriend() {
+        console.log('requesting friend');
+      }
+    }
+  });
 });
 define("togetherness-ember-client/components/person-profile/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
@@ -3205,7 +3217,7 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
             "column": 0
           },
           "end": {
-            "line": 26,
+            "line": 50,
             "column": 0
           }
         },
@@ -3218,94 +3230,93 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createElement("div");
-        dom.setAttribute(el1, "class", "col-xs-12 person-profile");
-        var el2 = dom.createTextNode("\n  ");
+        dom.setAttribute(el1, "class", "col-xs-5 person-profile");
+        var el2 = dom.createTextNode("\n\n    ");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("div");
-        dom.setAttribute(el2, "class", "col-xs-2");
-        dom.setAttribute(el2, "style", "font-weight: 700;");
-        var el3 = dom.createTextNode("\n    Profile Picture\n    ");
+        dom.setAttribute(el2, "class", "col-xs-12");
+        dom.setAttribute(el2, "style", "margin-bottom: 5px;");
+        var el3 = dom.createTextNode("\n\n      ");
         dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
+        var el3 = dom.createElement("button");
+        dom.setAttribute(el3, "type", "button");
+        dom.setAttribute(el3, "class", "close tile-close-button");
+        dom.setAttribute(el3, "style", "padding: 0px; margin: 0px;");
+        var el4 = dom.createTextNode("×\n      ");
+        dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n    (coming soon)\n  ");
-        dom.appendChild(el2, el3);
-        dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n  ");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createElement("div");
-        dom.setAttribute(el2, "class", "col-xs-5");
         var el3 = dom.createTextNode("\n    ");
         dom.appendChild(el2, el3);
-        var el3 = dom.createElement("table");
-        dom.setAttribute(el3, "class", "table table-bordered col-xs-12");
-        var el4 = dom.createTextNode("\n      ");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("tbody");
-        var el5 = dom.createTextNode("\n        ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("tr");
-        var el6 = dom.createTextNode("\n          ");
-        dom.appendChild(el5, el6);
-        var el6 = dom.createElement("td");
-        var el7 = dom.createTextNode("First Name");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        var el6 = dom.createTextNode("\n          ");
-        dom.appendChild(el5, el6);
-        var el6 = dom.createElement("td");
-        dom.setAttribute(el6, "style", "font-weight: 700;");
-        var el7 = dom.createComment("");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        var el6 = dom.createTextNode("\n        ");
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n        ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("tr");
-        var el6 = dom.createTextNode("\n          ");
-        dom.appendChild(el5, el6);
-        var el6 = dom.createElement("td");
-        var el7 = dom.createTextNode("Last Name");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        var el6 = dom.createTextNode("\n          ");
-        dom.appendChild(el5, el6);
-        var el6 = dom.createElement("td");
-        dom.setAttribute(el6, "style", "font-weight: 700;");
-        var el7 = dom.createComment("");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        var el6 = dom.createTextNode("\n        ");
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n        ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("tr");
-        var el6 = dom.createTextNode("\n          ");
-        dom.appendChild(el5, el6);
-        var el6 = dom.createElement("td");
-        var el7 = dom.createTextNode("Email Address");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        var el6 = dom.createTextNode("\n          ");
-        dom.appendChild(el5, el6);
-        var el6 = dom.createElement("td");
-        dom.setAttribute(el6, "style", "font-weight: 700;");
-        var el7 = dom.createComment("");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        var el6 = dom.createTextNode("\n        ");
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n      ");
-        dom.appendChild(el4, el5);
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n    ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "col-xs-12");
+        var el3 = dom.createTextNode("\n\n      ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "col-xs-3");
+        dom.setAttribute(el3, "style", "font-weight: 700;\n                  margin-bottom: 10px;\n                  border: 1px solid #888;\n                  padding: 10px;\n                  height: 75px;\n                  width: 75px;\n                  text-align: center");
+        var el4 = dom.createTextNode("\n        Profile Picture\n      ");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n  ");
+        var el3 = dom.createTextNode("\n\n      ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "col-xs-6");
+        dom.setAttribute(el3, "style", "text-align: left;");
+        var el4 = dom.createTextNode("\n        ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("h4");
+        dom.setAttribute(el4, "class", "col-xs-12");
+        var el5 = dom.createComment("");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n        ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("div");
+        dom.setAttribute(el4, "class", "col-xs-12");
+        dom.setAttribute(el4, "style", "font-weight: 300;\n                    text-align: left;");
+        var el5 = dom.createTextNode("\n          ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("a");
+        var el6 = dom.createTextNode("\n            ");
+        dom.appendChild(el5, el6);
+        var el6 = dom.createComment("");
+        dom.appendChild(el5, el6);
+        var el6 = dom.createTextNode("\n          ");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n      ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "person-buttons");
+        dom.setAttribute(el3, "class", "col-xs-3");
+        var el4 = dom.createTextNode("\n        ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("div");
+        dom.setAttribute(el4, "style", "text-align: right;");
+        var el5 = dom.createTextNode("\n          ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("button");
+        dom.setAttribute(el5, "class", "btn btn-md btn-primary");
+        dom.setAttribute(el5, "style", "text-align: center;\n                         align: center;\n                         margin-top: 0px;");
+        var el6 = dom.createTextNode("\n            Request Friend\n          ");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n  ");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n");
@@ -3316,14 +3327,21 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [0, 3, 1, 1]);
-        var morphs = new Array(3);
-        morphs[0] = dom.createMorphAt(dom.childAt(element0, [1, 3]), 0, 0);
-        morphs[1] = dom.createMorphAt(dom.childAt(element0, [3, 3]), 0, 0);
-        morphs[2] = dom.createMorphAt(dom.childAt(element0, [5, 3]), 0, 0);
+        var element0 = dom.childAt(fragment, [0]);
+        var element1 = dom.childAt(element0, [1, 1]);
+        var element2 = dom.childAt(element0, [3]);
+        var element3 = dom.childAt(element2, [3]);
+        var element4 = dom.childAt(element3, [3, 1]);
+        var element5 = dom.childAt(element2, [5, 1, 1]);
+        var morphs = new Array(5);
+        morphs[0] = dom.createElementMorph(element1);
+        morphs[1] = dom.createMorphAt(dom.childAt(element3, [1]), 0, 0);
+        morphs[2] = dom.createAttrMorph(element4, 'href');
+        morphs[3] = dom.createMorphAt(element4, 1, 1);
+        morphs[4] = dom.createElementMorph(element5);
         return morphs;
       },
-      statements: [["content", "user.givenname", ["loc", [null, [12, 40], [12, 58]]]], ["content", "user.surname", ["loc", [null, [16, 40], [16, 56]]]], ["content", "user.email", ["loc", [null, [20, 40], [20, 54]]]]],
+      statements: [["element", "action", ["closePerson"], [], ["loc", [null, [8, 14], [8, 38]]]], ["content", "user.fullName", ["loc", [null, [26, 30], [26, 47]]]], ["attribute", "href", ["concat", ["mailto:", ["get", "user.email", ["loc", [null, [30, 28], [30, 38]]]]]]], ["content", "user.email", ["loc", [null, [31, 12], [31, 26]]]], ["element", "action", ["RequestFriend"], [], ["loc", [null, [39, 18], [39, 44]]]]],
       locals: [],
       templates: []
     };
