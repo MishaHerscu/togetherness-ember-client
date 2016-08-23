@@ -3199,12 +3199,238 @@ define('togetherness-ember-client/components/person-profile/component', ['export
       requestFriend: function requestFriend() {
         this.sendAction('requestFriend', this.get('user.id'));
         this.toggleProperty('hiddenPerson');
+      },
+      viewProfile: function viewProfile() {
+        this.sendAction('viewProfile');
       }
     }
   });
 });
 define("togetherness-ember-client/components/person-profile/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.5.1",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 37,
+                "column": 8
+              },
+              "end": {
+                "line": 49,
+                "column": 8
+              }
+            },
+            "moduleName": "togetherness-ember-client/components/person-profile/template.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("          ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("div");
+            dom.setAttribute(el1, "class", "person-buttons col-xs-3");
+            dom.setAttribute(el1, "style", "margin-right: 10px;");
+            var el2 = dom.createTextNode("\n            ");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createElement("div");
+            dom.setAttribute(el2, "style", "text-align: right;");
+            var el3 = dom.createTextNode("\n              ");
+            dom.appendChild(el2, el3);
+            var el3 = dom.createElement("button");
+            dom.setAttribute(el3, "class", "btn btn-md btn-warning disabled");
+            dom.setAttribute(el3, "style", "text-align: center;\n                             align: center;\n                             margin-top: 5px;");
+            var el4 = dom.createTextNode("\n                Requested!\n              ");
+            dom.appendChild(el3, el4);
+            dom.appendChild(el2, el3);
+            var el3 = dom.createTextNode("\n            ");
+            dom.appendChild(el2, el3);
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode("\n          ");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes() {
+            return [];
+          },
+          statements: [],
+          locals: [],
+          templates: []
+        };
+      })();
+      var child1 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.5.1",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 49,
+                "column": 8
+              },
+              "end": {
+                "line": 62,
+                "column": 8
+              }
+            },
+            "moduleName": "togetherness-ember-client/components/person-profile/template.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("          ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("div");
+            dom.setAttribute(el1, "class", "person-buttons col-xs-3");
+            dom.setAttribute(el1, "style", "margin-right: 10px;");
+            var el2 = dom.createTextNode("\n            ");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createElement("div");
+            dom.setAttribute(el2, "style", "text-align: right;");
+            var el3 = dom.createTextNode("\n              ");
+            dom.appendChild(el2, el3);
+            var el3 = dom.createElement("button");
+            dom.setAttribute(el3, "class", "btn btn-md btn-primary");
+            dom.setAttribute(el3, "style", "text-align: center;\n                             align: center;\n                             margin-top: 5px;");
+            var el4 = dom.createTextNode("\n                Request Friend\n              ");
+            dom.appendChild(el3, el4);
+            dom.appendChild(el2, el3);
+            var el3 = dom.createTextNode("\n            ");
+            dom.appendChild(el2, el3);
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode("\n          ");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var element1 = dom.childAt(fragment, [1, 1, 1]);
+            var morphs = new Array(1);
+            morphs[0] = dom.createElementMorph(element1);
+            return morphs;
+          },
+          statements: [["element", "action", ["requestFriend"], [], ["loc", [null, [54, 22], [54, 48]]]]],
+          locals: [],
+          templates: []
+        };
+      })();
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.5.1",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 36,
+              "column": 6
+            },
+            "end": {
+              "line": 63,
+              "column": 6
+            }
+          },
+          "moduleName": "togetherness-ember-client/components/person-profile/template.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+          dom.insertBoundary(fragment, 0);
+          dom.insertBoundary(fragment, null);
+          return morphs;
+        },
+        statements: [["block", "if", [["get", "user.requested", ["loc", [null, [37, 14], [37, 28]]]]], [], 0, 1, ["loc", [null, [37, 8], [62, 15]]]]],
+        locals: [],
+        templates: [child0, child1]
+      };
+    })();
+    var child1 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.5.1",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 63,
+              "column": 6
+            },
+            "end": {
+              "line": 77,
+              "column": 6
+            }
+          },
+          "moduleName": "togetherness-ember-client/components/person-profile/template.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("        ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "person-buttons col-xs-3");
+          dom.setAttribute(el1, "style", "margin-right: 10px;\n                    font-weight: 700;");
+          var el2 = dom.createTextNode("\n          ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("div");
+          dom.setAttribute(el2, "style", "text-align: right;");
+          var el3 = dom.createTextNode("\n            ");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createElement("button");
+          dom.setAttribute(el3, "class", "btn btn-md btn-success");
+          dom.setAttribute(el3, "style", "text-align: center;\n                           align: center;\n                           margin-top: 5px;");
+          var el4 = dom.createTextNode("\n              View Profile\n            ");
+          dom.appendChild(el3, el4);
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("\n          ");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n        ");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var element0 = dom.childAt(fragment, [1, 1, 1]);
+          var morphs = new Array(1);
+          morphs[0] = dom.createElementMorph(element0);
+          return morphs;
+        },
+        statements: [["element", "action", ["viewProfile"], [], ["loc", [null, [69, 20], [69, 44]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
     return {
       meta: {
         "fragmentReason": {
@@ -3218,7 +3444,7 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
             "column": 0
           },
           "end": {
-            "line": 51,
+            "line": 81,
             "column": 0
           }
         },
@@ -3294,30 +3520,11 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
         var el4 = dom.createTextNode("\n      ");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n\n      ");
+        var el3 = dom.createTextNode("\n\n");
         dom.appendChild(el2, el3);
-        var el3 = dom.createElement("div");
-        dom.setAttribute(el3, "class", "person-buttons col-xs-3");
-        dom.setAttribute(el3, "style", "margin-right: 10px;");
-        var el4 = dom.createTextNode("\n        ");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("div");
-        dom.setAttribute(el4, "style", "text-align: right;");
-        var el5 = dom.createTextNode("\n          ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("button");
-        dom.setAttribute(el5, "class", "btn btn-md btn-primary");
-        dom.setAttribute(el5, "style", "text-align: center;\n                         align: center;\n                         margin-top: 5px;");
-        var el6 = dom.createTextNode("\n            Request Friend\n          ");
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n        ");
-        dom.appendChild(el4, el5);
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n      ");
-        dom.appendChild(el3, el4);
+        var el3 = dom.createComment("");
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n\n  ");
+        var el3 = dom.createTextNode("\n  ");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n");
@@ -3328,23 +3535,22 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [0]);
-        var element1 = dom.childAt(element0, [1, 1]);
-        var element2 = dom.childAt(element0, [3]);
-        var element3 = dom.childAt(element2, [3]);
-        var element4 = dom.childAt(element3, [3, 1]);
-        var element5 = dom.childAt(element2, [5, 1, 1]);
+        var element2 = dom.childAt(fragment, [0]);
+        var element3 = dom.childAt(element2, [1, 1]);
+        var element4 = dom.childAt(element2, [3]);
+        var element5 = dom.childAt(element4, [3]);
+        var element6 = dom.childAt(element5, [3, 1]);
         var morphs = new Array(5);
-        morphs[0] = dom.createElementMorph(element1);
-        morphs[1] = dom.createMorphAt(dom.childAt(element3, [1]), 0, 0);
-        morphs[2] = dom.createAttrMorph(element4, 'href');
-        morphs[3] = dom.createMorphAt(element4, 1, 1);
-        morphs[4] = dom.createElementMorph(element5);
+        morphs[0] = dom.createElementMorph(element3);
+        morphs[1] = dom.createMorphAt(dom.childAt(element5, [1]), 0, 0);
+        morphs[2] = dom.createAttrMorph(element6, 'href');
+        morphs[3] = dom.createMorphAt(element6, 1, 1);
+        morphs[4] = dom.createMorphAt(element4, 5, 5);
         return morphs;
       },
-      statements: [["element", "action", ["closePerson"], [], ["loc", [null, [8, 14], [8, 38]]]], ["content", "user.fullName", ["loc", [null, [26, 30], [26, 47]]]], ["attribute", "href", ["concat", ["mailto:", ["get", "user.email", ["loc", [null, [30, 28], [30, 38]]]]]]], ["content", "user.email", ["loc", [null, [31, 12], [31, 26]]]], ["element", "action", ["requestFriend"], [], ["loc", [null, [40, 18], [40, 44]]]]],
+      statements: [["element", "action", ["closePerson"], [], ["loc", [null, [8, 14], [8, 38]]]], ["content", "user.fullName", ["loc", [null, [26, 30], [26, 47]]]], ["attribute", "href", ["concat", ["mailto:", ["get", "user.email", ["loc", [null, [30, 28], [30, 38]]]]]]], ["content", "user.email", ["loc", [null, [31, 12], [31, 26]]]], ["block", "unless", [["get", "user.self", ["loc", [null, [36, 16], [36, 25]]]]], [], 0, 1, ["loc", [null, [36, 6], [77, 17]]]]],
       locals: [],
-      templates: []
+      templates: [child0, child1]
     };
   })());
 });
@@ -5525,12 +5731,31 @@ define('togetherness-ember-client/people/route', ['exports', 'ember', 'ember-loc
     flashMessages: _ember['default'].inject.service(),
 
     model: function model() {
-      return this.get('store').findAll('user');
+      var _this = this;
+
+      return this.get('store').findAll('user').then(function (users) {
+        users.forEach(function (user) {
+          user.set('self', String(user.id) === String(_this.get('credentials.id')));
+        });
+        return users;
+      }).then(function (users) {
+        _this.get('store').findAll('friend-request').then(function (requests) {
+          users.forEach(function (user) {
+            user.set('requested', false);
+            requests.forEach(function (request) {
+              if (String(request.get('requestedUser.id')) === String(user.id)) {
+                user.set('requested', true);
+              }
+            });
+          });
+        });
+        return users;
+      });
     },
 
     actions: {
       requestFriend: function requestFriend(user) {
-        var _this = this;
+        var _this2 = this;
 
         var requestObject = {
           user: this.get('store').findRecord('user', this.get('credentials.id')),
@@ -5542,12 +5767,15 @@ define('togetherness-ember-client/people/route', ['exports', 'ember', 'ember-loc
           return requestObject;
         }).then(function () {
           if (requestObject.user.id !== requestObject.requestedUser.id) {
-            var newFriendRequest = _this.get('store').createRecord('friend-request', requestObject);
+            var newFriendRequest = _this2.get('store').createRecord('friend-request', requestObject);
             newFriendRequest.save();
           } else {
-            _this.get('flashMessages').warning('You cannot friend yourself.');
+            _this2.get('flashMessages').warning('You cannot friend yourself.');
           }
         });
+      },
+      viewProfile: function viewProfile() {
+        this.transitionTo('profile');
       }
     }
   });
@@ -5566,7 +5794,7 @@ define("togetherness-ember-client/people/template", ["exports"], function (expor
               "column": 0
             },
             "end": {
-              "line": 8,
+              "line": 9,
               "column": 0
             }
           },
@@ -5591,7 +5819,7 @@ define("togetherness-ember-client/people/template", ["exports"], function (expor
           morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
           return morphs;
         },
-        statements: [["inline", "person-profile", [], ["user", ["subexpr", "@mut", [["get", "user", ["loc", [null, [6, 9], [6, 13]]]]], [], []], "requestFriend", "requestFriend"], ["loc", [null, [5, 2], [7, 35]]]]],
+        statements: [["inline", "person-profile", [], ["user", ["subexpr", "@mut", [["get", "user", ["loc", [null, [6, 9], [6, 13]]]]], [], []], "requestFriend", "requestFriend", "viewProfile", "viewProfile"], ["loc", [null, [5, 2], [8, 31]]]]],
         locals: ["user"],
         templates: []
       };
@@ -5610,7 +5838,7 @@ define("togetherness-ember-client/people/template", ["exports"], function (expor
             "column": 0
           },
           "end": {
-            "line": 10,
+            "line": 11,
             "column": 0
           }
         },
@@ -5645,7 +5873,7 @@ define("togetherness-ember-client/people/template", ["exports"], function (expor
         morphs[0] = dom.createMorphAt(fragment, 4, 4, contextualElement);
         return morphs;
       },
-      statements: [["block", "each", [["get", "model", ["loc", [null, [4, 8], [4, 13]]]]], [], 0, null, ["loc", [null, [4, 0], [8, 9]]]]],
+      statements: [["block", "each", [["get", "model", ["loc", [null, [4, 8], [4, 13]]]]], [], 0, null, ["loc", [null, [4, 0], [9, 9]]]]],
       locals: [],
       templates: [child0]
     };
@@ -6837,7 +7065,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+b212a95d"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+cdca4a09"});
 }
 
 /* jshint ignore:end */
