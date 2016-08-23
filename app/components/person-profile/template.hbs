@@ -33,18 +33,48 @@
         </div>
       </div>
 
-      <div class="person-buttons col-xs-3"
-           style="margin-right: 10px;">
-        <div style="text-align: right;">
-          <button class="btn btn-md btn-primary"
-                  {{action "requestFriend"}}
-                  style="text-align: center;
-                         align: center;
-                         margin-top: 5px;">
-            Request Friend
-          </button>
+      {{#unless user.self}}
+        {{#if user.requested}}
+          <div class="person-buttons col-xs-3"
+               style="margin-right: 10px;">
+            <div style="text-align: right;">
+              <button class="btn btn-md btn-warning disabled"
+                      style="text-align: center;
+                             align: center;
+                             margin-top: 5px;">
+                Requested!
+              </button>
+            </div>
+          </div>
+        {{else}}
+          <div class="person-buttons col-xs-3"
+               style="margin-right: 10px;">
+            <div style="text-align: right;">
+              <button class="btn btn-md btn-primary"
+                      {{action "requestFriend"}}
+                      style="text-align: center;
+                             align: center;
+                             margin-top: 5px;">
+                Request Friend
+              </button>
+            </div>
+          </div>
+        {{/if}}
+      {{else}}
+        <div class="person-buttons col-xs-3"
+             style="margin-right: 10px;
+                    font-weight: 700;">
+          <div style="text-align: right;">
+            <button class="btn btn-md btn-success"
+                    {{action "viewProfile"}}
+                    style="text-align: center;
+                           align: center;
+                           margin-top: 5px;">
+              View Profile
+            </button>
+          </div>
         </div>
-      </div>
+      {{/unless}}
 
   </div>
 </div>

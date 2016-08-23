@@ -7,7 +7,27 @@ export default Ember.Route.extend({
   flashMessages: Ember.inject.service(),
 
   model () {
-    return this.get('store').findAll('user');
+    return this.get('store').findAll('user')
+    .then((users) => {
+      users.forEach((user) => {
+        user.set('self', String(user.id) === String(this.get('credentials.id')));
+      });
+      return users;
+    })
+    .then((users) => {
+      this.get('store').findAll('friend-request')
+      .then((requests) => {
+        users.forEach((user) => {
+          user.set('requested', false);
+          requests.forEach((request) => {
+            if(String(request.get('requestedUser.id')) === String(user.id)) {
+              user.set('requested', true);
+            }
+          });
+        });
+      });
+      return users;
+    });
   },
 
   actions: {
@@ -31,6 +51,9 @@ export default Ember.Route.extend({
           this.get('flashMessages').warning('You cannot friend yourself.');
         }
       });
-    }
+    },
+    viewProfile(){
+      this.transitionTo('profile');
+    },
   }
 });

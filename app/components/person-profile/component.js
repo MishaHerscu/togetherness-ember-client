@@ -12,5 +12,8 @@ export default Ember.Component.extend({
       this.sendAction('requestFriend', this.get('user.id'));
       this.toggleProperty('hiddenPerson');
     },
+    viewProfile () {
+      this.sendAction('viewProfile');
+    },
   },
 });
