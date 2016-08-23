@@ -4671,7 +4671,7 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
             "column": 0
           },
           "end": {
-            "line": 69,
+            "line": 92,
             "column": 0
           }
         },
@@ -4779,6 +4779,106 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
         dom.appendChild(el0, el1);
         var el1 = dom.createElement("h3");
         var el2 = dom.createTextNode("Friend Requests");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("h4");
+        var el2 = dom.createTextNode("Awaiting Approval");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "col-xs-12");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "col-xs-5");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("table");
+        dom.setAttribute(el3, "class", "table table-bordered col-xs-12");
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("tbody");
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("tr");
+        var el6 = dom.createTextNode("\n          ");
+        dom.appendChild(el5, el6);
+        var el6 = dom.createElement("td");
+        var el7 = dom.createTextNode("First Name");
+        dom.appendChild(el6, el7);
+        dom.appendChild(el5, el6);
+        var el6 = dom.createTextNode("\n          ");
+        dom.appendChild(el5, el6);
+        var el6 = dom.createElement("td");
+        dom.setAttribute(el6, "style", "font-weight: 700;");
+        var el7 = dom.createComment("");
+        dom.appendChild(el6, el7);
+        dom.appendChild(el5, el6);
+        var el6 = dom.createTextNode("\n        ");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("tr");
+        var el6 = dom.createTextNode("\n          ");
+        dom.appendChild(el5, el6);
+        var el6 = dom.createElement("td");
+        var el7 = dom.createTextNode("Last Name");
+        dom.appendChild(el6, el7);
+        dom.appendChild(el5, el6);
+        var el6 = dom.createTextNode("\n          ");
+        dom.appendChild(el5, el6);
+        var el6 = dom.createElement("td");
+        dom.setAttribute(el6, "style", "font-weight: 700;");
+        var el7 = dom.createComment("");
+        dom.appendChild(el6, el7);
+        dom.appendChild(el5, el6);
+        var el6 = dom.createTextNode("\n        ");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("tr");
+        var el6 = dom.createTextNode("\n          ");
+        dom.appendChild(el5, el6);
+        var el6 = dom.createElement("td");
+        var el7 = dom.createTextNode("Email Address");
+        dom.appendChild(el6, el7);
+        dom.appendChild(el5, el6);
+        var el6 = dom.createTextNode("\n          ");
+        dom.appendChild(el5, el6);
+        var el6 = dom.createElement("td");
+        dom.setAttribute(el6, "style", "font-weight: 700;");
+        var el7 = dom.createComment("");
+        dom.appendChild(el6, el7);
+        dom.appendChild(el5, el6);
+        var el6 = dom.createTextNode("\n        ");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n      ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("br");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("h4");
+        var el2 = dom.createTextNode("Pending");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
@@ -4969,9 +5069,10 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var element0 = dom.childAt(fragment, [2, 1, 1, 1]);
-        var element1 = dom.childAt(fragment, [8, 1, 1, 1]);
-        var element2 = dom.childAt(fragment, [14, 1, 1, 1]);
-        var morphs = new Array(9);
+        var element1 = dom.childAt(fragment, [10, 1, 1, 1]);
+        var element2 = dom.childAt(fragment, [16, 1, 1, 1]);
+        var element3 = dom.childAt(fragment, [22, 1, 1, 1]);
+        var morphs = new Array(12);
         morphs[0] = dom.createMorphAt(dom.childAt(element0, [1, 3]), 0, 0);
         morphs[1] = dom.createMorphAt(dom.childAt(element0, [3, 3]), 0, 0);
         morphs[2] = dom.createMorphAt(dom.childAt(element0, [5, 3]), 0, 0);
@@ -4981,9 +5082,12 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
         morphs[6] = dom.createMorphAt(dom.childAt(element2, [1, 3]), 0, 0);
         morphs[7] = dom.createMorphAt(dom.childAt(element2, [3, 3]), 0, 0);
         morphs[8] = dom.createMorphAt(dom.childAt(element2, [5, 3]), 0, 0);
+        morphs[9] = dom.createMorphAt(dom.childAt(element3, [1, 3]), 0, 0);
+        morphs[10] = dom.createMorphAt(dom.childAt(element3, [3, 3]), 0, 0);
+        morphs[11] = dom.createMorphAt(dom.childAt(element3, [5, 3]), 0, 0);
         return morphs;
       },
-      statements: [["content", "user.givenname", ["loc", [null, [8, 40], [8, 58]]]], ["content", "user.surname", ["loc", [null, [12, 40], [12, 56]]]], ["content", "user.email", ["loc", [null, [16, 40], [16, 54]]]], ["content", "user.givenname", ["loc", [null, [31, 40], [31, 58]]]], ["content", "user.surname", ["loc", [null, [35, 40], [35, 56]]]], ["content", "user.email", ["loc", [null, [39, 40], [39, 54]]]], ["content", "user.givenname", ["loc", [null, [54, 40], [54, 58]]]], ["content", "user.surname", ["loc", [null, [58, 40], [58, 56]]]], ["content", "user.email", ["loc", [null, [62, 40], [62, 54]]]]],
+      statements: [["content", "user.givenname", ["loc", [null, [8, 40], [8, 58]]]], ["content", "user.surname", ["loc", [null, [12, 40], [12, 56]]]], ["content", "user.email", ["loc", [null, [16, 40], [16, 54]]]], ["content", "user.givenname", ["loc", [null, [32, 40], [32, 58]]]], ["content", "user.surname", ["loc", [null, [36, 40], [36, 56]]]], ["content", "user.email", ["loc", [null, [40, 40], [40, 54]]]], ["content", "user.givenname", ["loc", [null, [54, 40], [54, 58]]]], ["content", "user.surname", ["loc", [null, [58, 40], [58, 56]]]], ["content", "user.email", ["loc", [null, [62, 40], [62, 54]]]], ["content", "user.givenname", ["loc", [null, [77, 40], [77, 58]]]], ["content", "user.surname", ["loc", [null, [81, 40], [81, 56]]]], ["content", "user.email", ["loc", [null, [85, 40], [85, 54]]]]],
       locals: [],
       templates: []
     };
@@ -6733,7 +6837,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+30f06071"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+b212a95d"});
 }
 
 /* jshint ignore:end */
