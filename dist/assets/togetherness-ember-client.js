@@ -3197,7 +3197,7 @@ define('togetherness-ember-client/components/person-profile/component', ['export
         this.toggleProperty('hiddenPerson');
       },
       requestFriend: function requestFriend() {
-        console.log('requesting friend');
+        this.sendAction('requestFriend', this.get('user.id'));
       }
     }
   });
@@ -3217,7 +3217,7 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
             "column": 0
           },
           "end": {
-            "line": 50,
+            "line": 51,
             "column": 0
           }
         },
@@ -3296,8 +3296,8 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
         var el3 = dom.createTextNode("\n\n      ");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("div");
-        dom.setAttribute(el3, "class", "person-buttons");
-        dom.setAttribute(el3, "class", "col-xs-3");
+        dom.setAttribute(el3, "class", "person-buttons col-xs-3");
+        dom.setAttribute(el3, "style", "margin-right: 10px;");
         var el4 = dom.createTextNode("\n        ");
         dom.appendChild(el3, el4);
         var el4 = dom.createElement("div");
@@ -3306,7 +3306,7 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
         dom.appendChild(el4, el5);
         var el5 = dom.createElement("button");
         dom.setAttribute(el5, "class", "btn btn-md btn-primary");
-        dom.setAttribute(el5, "style", "text-align: center;\n                         align: center;\n                         margin-top: 0px;");
+        dom.setAttribute(el5, "style", "text-align: center;\n                         align: center;\n                         margin-top: 5px;");
         var el6 = dom.createTextNode("\n            Request Friend\n          ");
         dom.appendChild(el5, el6);
         dom.appendChild(el4, el5);
@@ -3341,7 +3341,7 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
         morphs[4] = dom.createElementMorph(element5);
         return morphs;
       },
-      statements: [["element", "action", ["closePerson"], [], ["loc", [null, [8, 14], [8, 38]]]], ["content", "user.fullName", ["loc", [null, [26, 30], [26, 47]]]], ["attribute", "href", ["concat", ["mailto:", ["get", "user.email", ["loc", [null, [30, 28], [30, 38]]]]]]], ["content", "user.email", ["loc", [null, [31, 12], [31, 26]]]], ["element", "action", ["RequestFriend"], [], ["loc", [null, [39, 18], [39, 44]]]]],
+      statements: [["element", "action", ["closePerson"], [], ["loc", [null, [8, 14], [8, 38]]]], ["content", "user.fullName", ["loc", [null, [26, 30], [26, 47]]]], ["attribute", "href", ["concat", ["mailto:", ["get", "user.email", ["loc", [null, [30, 28], [30, 38]]]]]]], ["content", "user.email", ["loc", [null, [31, 12], [31, 26]]]], ["element", "action", ["requestFriend"], [], ["loc", [null, [40, 18], [40, 44]]]]],
       locals: [],
       templates: []
     };
@@ -5029,6 +5029,22 @@ define('togetherness-ember-client/flash/object', ['exports', 'ember-cli-flash/fl
     }
   });
 });
+define('togetherness-ember-client/friend-request/model', ['exports', 'ember-data', 'ember-data/relationships'], function (exports, _emberData, _emberDataRelationships) {
+  // import { hasMany } from 'ember-data/relationships';
+
+  exports['default'] = _emberData['default'].Model.extend({
+    user: (0, _emberDataRelationships.belongsTo)('user'),
+    requestedUser: (0, _emberDataRelationships.belongsTo)('user')
+  });
+});
+define('togetherness-ember-client/friendship/model', ['exports', 'ember-data', 'ember-data/relationships'], function (exports, _emberData, _emberDataRelationships) {
+  // import { hasMany } from 'ember-data/relationships';
+
+  exports['default'] = _emberData['default'].Model.extend({
+    user: (0, _emberDataRelationships.belongsTo)('user'),
+    requestedUser: (0, _emberDataRelationships.belongsTo)('user')
+  });
+});
 define('togetherness-ember-client/helpers/in-arr', ['exports', 'ember-inline-edit/helpers/in-arr'], function (exports, _emberInlineEditHelpersInArr) {
   Object.defineProperty(exports, 'default', {
     enumerable: true,
@@ -5397,10 +5413,31 @@ define("togetherness-ember-client/interests/template", ["exports"], function (ex
     };
   })());
 });
-define('togetherness-ember-client/people/route', ['exports', 'ember'], function (exports, _ember) {
+define('togetherness-ember-client/people/route', ['exports', 'ember', 'ember-local-storage'], function (exports, _ember, _emberLocalStorage) {
   exports['default'] = _ember['default'].Route.extend({
+    credentials: (0, _emberLocalStorage.storageFor)('auth'),
+
     model: function model() {
       return this.get('store').findAll('user');
+    },
+
+    actions: {
+      requestFriend: function requestFriend(user) {
+        var _this = this;
+
+        var requestObject = {
+          user: this.get('store').findRecord('user', this.get('credentials.id')),
+          requestedUser: ''
+        };
+
+        this.get('store').findRecord('user', user).then(function (user) {
+          requestObject.requestedUser = user;
+          return requestObject;
+        }).then(function () {
+          var newFriendRequest = _this.get('store').createRecord('friend-request', requestObject);
+          newFriendRequest.save();
+        });
+      }
     }
   });
 });
@@ -5418,7 +5455,7 @@ define("togetherness-ember-client/people/template", ["exports"], function (expor
               "column": 0
             },
             "end": {
-              "line": 6,
+              "line": 8,
               "column": 0
             }
           },
@@ -5443,7 +5480,7 @@ define("togetherness-ember-client/people/template", ["exports"], function (expor
           morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
           return morphs;
         },
-        statements: [["inline", "person-profile", [], ["user", ["subexpr", "@mut", [["get", "user", ["loc", [null, [5, 24], [5, 28]]]]], [], []]], ["loc", [null, [5, 2], [5, 30]]]]],
+        statements: [["inline", "person-profile", [], ["user", ["subexpr", "@mut", [["get", "user", ["loc", [null, [6, 9], [6, 13]]]]], [], []], "requestFriend", "requestFriend"], ["loc", [null, [5, 2], [7, 35]]]]],
         locals: ["user"],
         templates: []
       };
@@ -5462,7 +5499,7 @@ define("togetherness-ember-client/people/template", ["exports"], function (expor
             "column": 0
           },
           "end": {
-            "line": 8,
+            "line": 10,
             "column": 0
           }
         },
@@ -5497,7 +5534,7 @@ define("togetherness-ember-client/people/template", ["exports"], function (expor
         morphs[0] = dom.createMorphAt(fragment, 4, 4, contextualElement);
         return morphs;
       },
-      statements: [["block", "each", [["get", "model", ["loc", [null, [4, 8], [4, 13]]]]], [], 0, null, ["loc", [null, [4, 0], [6, 9]]]]],
+      statements: [["block", "each", [["get", "model", ["loc", [null, [4, 8], [4, 13]]]]], [], 0, null, ["loc", [null, [4, 0], [8, 9]]]]],
       locals: [],
       templates: [child0]
     };
@@ -6341,8 +6378,6 @@ define('togetherness-ember-client/trip/model', ['exports', 'ember-data', 'ember-
   exports['default'] = _emberData['default'].Model.extend({
     name: _emberData['default'].attr('string'),
     notes: _emberData['default'].attr('string'),
-    // city_id: DS.attr('number'),
-    // user_id: DS.attr('number'),
     start_date: _emberData['default'].attr('string'),
     end_date: _emberData['default'].attr('string'),
 
@@ -6630,7 +6665,12 @@ define('togetherness-ember-client/user/model', ['exports', 'ember', 'ember-data'
     attendances: (0, _emberDataRelationships.hasMany)('attendance'),
     trips: (0, _emberDataRelationships.hasMany)('trip'),
     user_tags: (0, _emberDataRelationships.hasMany)('user_tag'),
-
+    friend_requests: (0, _emberDataRelationships.hasMany)('friend_request', {
+      inverse: 'user'
+    }),
+    friendships: (0, _emberDataRelationships.hasMany)('friendship', {
+      inverse: 'user'
+    }),
     fullName: _ember['default'].computed('givenname', 'surname', function () {
       return this.get('givenname') + ' ' + this.get('surname');
     })
@@ -6686,7 +6726,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+7c52fcec"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+30f06071"});
 }
 
 /* jshint ignore:end */

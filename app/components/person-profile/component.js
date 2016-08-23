@@ -9,7 +9,7 @@ export default Ember.Component.extend({
       this.toggleProperty('hiddenPerson');
     },
     requestFriend () {
-      console.log('requesting friend');
+      this.sendAction('requestFriend', this.get('user.id'));
     },
   },
 });

@@ -5,8 +5,6 @@ import { hasMany } from 'ember-data/relationships';
 export default DS.Model.extend({
   name: DS.attr('string'),
   notes: DS.attr('string'),
-  // city_id: DS.attr('number'),
-  // user_id: DS.attr('number'),
   start_date: DS.attr('string'),
   end_date: DS.attr('string'),
 

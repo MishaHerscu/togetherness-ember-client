@@ -358,6 +358,24 @@ define('togetherness-ember-client/tests/events-api/storage.jshint', ['exports'],
     assert.ok(true, 'events-api/storage.js should pass jshint.');
   });
 });
+define('togetherness-ember-client/tests/friend-request/model.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - friend-request/model.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'friend-request/model.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/friendship/model.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - friendship/model.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'friendship/model.js should pass jshint.');
+  });
+});
 define('togetherness-ember-client/tests/helpers/destroy-app', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = destroyApp;
 
@@ -3804,6 +3822,28 @@ define('togetherness-ember-client/tests/unit/city/model-test.jshint', ['exports'
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/city/model-test.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/unit/friend-request/model-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('friend-request', 'Unit | Model | friend request', {
+    // Specify the other units that are required for this test.
+    needs: []
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var model = this.subject();
+    // let store = this.store();
+    assert.ok(!!model);
+  });
+});
+define('togetherness-ember-client/tests/unit/friend-request/model-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/friend-request/model-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/friend-request/model-test.js should pass jshint.');
   });
 });
 define('togetherness-ember-client/tests/unit/initializers/text-field-test', ['exports', 'ember', 'togetherness-ember-client/initializers/text-field', 'qunit'], function (exports, _ember, _togethernessEmberClientInitializersTextField, _qunit) {
