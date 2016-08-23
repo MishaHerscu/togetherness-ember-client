@@ -3,6 +3,8 @@ import { storageFor } from 'ember-local-storage';
 
 export default Ember.Route.extend({
   credentials: storageFor('auth'),
+  auth: Ember.inject.service(),
+  flashMessages: Ember.inject.service(),
 
   model () {
     return this.get('store').findAll('user');
@@ -22,8 +24,12 @@ export default Ember.Route.extend({
         return requestObject;
       })
       .then(() => {
-        let newFriendRequest = this.get('store').createRecord('friend-request', requestObject);
-        newFriendRequest.save();
+        if (requestObject.user.id !== requestObject.requestedUser.id) {
+          let newFriendRequest = this.get('store').createRecord('friend-request', requestObject);
+          newFriendRequest.save();
+        } else {
+          this.get('flashMessages').warning('You cannot friend yourself.');
+        }
       });
     }
   }

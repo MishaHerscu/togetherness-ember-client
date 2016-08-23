@@ -3198,6 +3198,7 @@ define('togetherness-ember-client/components/person-profile/component', ['export
       },
       requestFriend: function requestFriend() {
         this.sendAction('requestFriend', this.get('user.id'));
+        this.toggleProperty('hiddenPerson');
       }
     }
   });
@@ -5416,6 +5417,8 @@ define("togetherness-ember-client/interests/template", ["exports"], function (ex
 define('togetherness-ember-client/people/route', ['exports', 'ember', 'ember-local-storage'], function (exports, _ember, _emberLocalStorage) {
   exports['default'] = _ember['default'].Route.extend({
     credentials: (0, _emberLocalStorage.storageFor)('auth'),
+    auth: _ember['default'].inject.service(),
+    flashMessages: _ember['default'].inject.service(),
 
     model: function model() {
       return this.get('store').findAll('user');
@@ -5434,8 +5437,12 @@ define('togetherness-ember-client/people/route', ['exports', 'ember', 'ember-loc
           requestObject.requestedUser = user;
           return requestObject;
         }).then(function () {
-          var newFriendRequest = _this.get('store').createRecord('friend-request', requestObject);
-          newFriendRequest.save();
+          if (requestObject.user.id !== requestObject.requestedUser.id) {
+            var newFriendRequest = _this.get('store').createRecord('friend-request', requestObject);
+            newFriendRequest.save();
+          } else {
+            _this.get('flashMessages').warning('You cannot friend yourself.');
+          }
         });
       }
     }
