@@ -1,0 +1,89 @@
+<div class="col-xs-10 col-xs-offset-1">
+  {{#if isAuthenticated}}
+    <div class="col-xs-12">
+      <div class="col-xs-12">
+        <h1>Hi {{credentials.givenname}} {{credentials.surname}}!</h1>
+      </div>
+    </div>
+    <br />
+
+    <div class="col-xs-12">
+      <div class="col-xs-3 small-home-button">
+        {{#link-to "profile"}}
+          <button class="col-xs-12"
+                  style="height:100%">
+            Profile
+          </button>
+        {{/link-to}}
+      </div>
+      <div class="col-xs-3 small-home-button">
+        {{#link-to "attraction-suggestions"}}
+          <button class="col-xs-12"
+                  style="height:100%">
+            Attraction Suggestions
+          </button>
+        {{/link-to}}
+      </div>
+      <div class="col-xs-3 small-home-button">
+        {{#link-to "attractions"}}
+          <button class="col-xs-12"
+                  style="height:100%">
+            Attractions
+          </button>
+        {{/link-to}}
+      </div>
+      <div class="col-xs-3 small-home-button">
+        {{#link-to "cities"}}
+          <button class="col-xs-12"
+                  style="height:100%">
+            Available Cities
+          </button>
+        {{/link-to}}
+      </div>
+      <div class="col-xs-3 small-home-button">
+        {{#link-to "trips"}}
+          <button class="col-xs-12"
+                  style="height:100%">
+            Your Trips
+          </button>
+        {{/link-to}}
+      </div>
+      <div class="col-xs-3 small-home-button">
+        {{#link-to "attendances"}}
+          <button class="col-xs-12"
+                  style="height:100%">
+            All Your Attendances
+          </button>
+        {{/link-to}}
+      </div>
+      <div class="col-xs-3 small-home-button">
+        {{#link-to "people"}}
+          <button class="col-xs-12"
+                  style="height:100%">
+            People
+          </button>
+        {{/link-to}}
+      </div>
+    </div>
+
+
+  {{else}}
+      <br />
+      <h1>Welcome to Apricity Travel!</h1>
+      <br />
+      <h3>
+        Apricity Travel brings the internet to you. It is artifically intelligent concierge for travel and special events with personalized recommendations for you and your friends.
+      </h3>
+      <br />
+      <h4>
+        {{#link-to "sign-up"}}Sign up{{/link-to}}
+        to get the adventure started
+      </h4>
+      <br />
+      <h4>
+        Already a member?
+        {{#link-to "sign-in"}}Sign in{{/link-to}}
+        to peruse adventures and plan your next trip
+      </h4>
+  {{/if}}
+</div>

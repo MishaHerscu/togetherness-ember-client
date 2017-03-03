@@ -1,0 +1,27 @@
+// colors we want
+$website-background-color: #fff;
+$border-color: #2c343c;
+$background-color: #eee;
+$card-background: #2a2a2a;
+$white: #fff;
+$black: #000;
+$aqua: #7fdbff;
+$button-dark: #eee;
+$button-light: #fff;
+$button-border: #999;
+$complete-quiz-background-color: #f2ffe5;
+$complete-quiz-text-color: #aaa;
+$text-grey: #888;
+$background-color: #f1f1f1;
+$event-card-background-color: #fff;
+$event-card-border-grey: #eee;
+$event-card-shadow-color: #888;
+
+// color functions
+@function tint($color, $percentage) {
+  @return mix($white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix($black, $color, $percentage);
+}

@@ -1,0 +1,197 @@
+body {
+  background-color: $website-background-color;
+  color: $text-grey;
+  font-size: 1.5em;
+  font-weight: 200;
+  height: 100%;
+  margin: 0;
+  margin-bottom: 5%;
+  padding: 0;
+}
+
+nav {
+  margin-bottom: 1%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.nav {
+  .nav-button {
+    @include make-lg-column(3);
+    @include make-md-column(3);
+    @include make-sm-column(3);
+    @include make-xs-column(3);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 200;
+}
+
+td {
+  vertical-align: middle;
+}
+
+.content {
+  margin: 10%;
+}
+
+.nav {
+  .nav-button {
+    @include make-lg-column(3);
+    @include make-md-column(3);
+    @include make-sm-column(3);
+    @include make-xs-column(3);
+  }
+}
+
+.dropdown-class {
+  background: $background-color;
+  border: $border-color;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 10px;
+  height: 35px;
+  outline: 0;
+  padding: 5px 3px 5px 10px;
+}
+
+.my-footer {
+  background-color: tint($background-color, 50%);
+  bottom: 0;
+  height: 36px;
+  position: absolute;
+  width: 100%;
+}
+
+.website-footer {
+  background-color: tint($background-color, 50%);
+  height: 36px;
+}
+
+.website-footer-text {
+  color: $text-grey;
+  font-weight: 300;
+  margin-top: 9px;
+  text-align: center;
+}
+
+.profile-picture {
+  border: 0;
+  border-radius: 30%;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+// Chrome, Safari, Opera
+@-webkit-keyframes mymove {
+  50% {box-shadow: 10px 20px 30px $black;}
+}
+
+// Standard syntax
+@keyframes mymove {
+  50% {box-shadow: 10px 20px 30px $black;}
+}
+
+.small-home-button {
+  font-size: 1.5em;
+  height: 170px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.symbol-label {
+  font-size: 1.5em;
+}
+
+.welcome-banner {
+  color: $text-grey;
+  font-size: 3em;
+  text-align: center;
+}
+
+.event-card {
+  background-color: $event-card-background-color;
+  border: 1px solid $event-card-border-grey;
+  border-radius: 10px;
+  box-shadow: 7px 7px 2px $event-card-shadow-color;
+  margin: 15px;
+  padding: 15px;
+}
+
+.event-card-more {
+  span {
+    text-decoration: underline;
+  }
+
+  div {
+    display: none;
+  }
+}
+
+.event-card-more:hover {
+  div {
+    display: block;
+  }
+}
+
+.tile-close-button {
+  float: right;
+}
+
+.hidden {
+  display: none;
+}
+
+.website-logo {
+  height: auto;
+  margin-bottom: 10px;
+  max-height: 30px;
+  overflow: hidden;
+  width: auto;
+}
+
+.white-background-div {
+  background-color: $event-card-background-color;
+  border: 1px solid $event-card-border-grey;
+  border-radius: 10px;
+  box-shadow: 7px 7px 2px $event-card-shadow-color;
+  margin: 15px;
+  padding: 15px;
+}
+
+.my-container {
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+}
+
+.my-header {
+  background: $white;
+  padding: 10px;
+}
+
+.my-body {
+  padding: 10px;
+  padding-bottom: 36px;
+}
+
+.person-profile {
+  background-color: $event-card-background-color;
+  border: 1px solid $event-card-border-grey;
+  border-radius: 10px;
+  box-shadow: 3px 3px 1px $event-card-shadow-color;
+  margin: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
