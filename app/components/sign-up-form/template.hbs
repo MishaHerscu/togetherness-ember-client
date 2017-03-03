@@ -1,13 +1,15 @@
-{{givenname-input givenname=credentials.givenname}}
-{{surname-input surname=credentials.surname}}
-{{email-input email=credentials.email}}
-{{password-input password=credentials.password}}
-{{password-confirmation-input password=credentials.passwordConfirmation}}
+<div class="col-xs-6">
+  {{givenname-input givenname=credentials.givenname}}
+  {{surname-input surname=credentials.surname}}
+  {{email-input email=credentials.email}}
+  {{password-input password=credentials.password}}
+  {{password-confirmation-input password=credentials.passwordConfirmation}}
 
-<button type="submit" class="btn btn-primary" {{action "submit"}}>
-  Sign Up
-</button>
+  <button type="submit" class="btn btn-primary" {{action "submit"}}>
+    Sign Up
+  </button>
 
-<button class="btn btn-default" {{action "reset"}}>
-  Cancel
-</button>
+  <button class="btn btn-default" {{action "reset"}}>
+    Cancel
+  </button>
+</div>
