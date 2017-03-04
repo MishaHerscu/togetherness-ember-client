@@ -20,7 +20,7 @@ export default Ember.Route.extend({
       try {
         let sampleAttractions = allAttractions.sort(() => {
           return 0.5 - Math.random();
-        }).slice(0,maxAttractionIndex-1);
+        }).slice(0,maxAttractionIndex);
         try {
           let attractions = [];
           sampleAttractions.forEach((suggestion) => {

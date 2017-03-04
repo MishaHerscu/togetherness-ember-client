@@ -76,7 +76,7 @@ define('togetherness-ember-client/tests/attraction-suggestions/route.jshint', ['
   QUnit.module('JSHint - attraction-suggestions/route.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'attraction-suggestions/route.js should pass jshint.\nattraction-suggestions/route.js: line 23, col 41, Missing semicolon.\n\n1 error');
+    assert.ok(true, 'attraction-suggestions/route.js should pass jshint.');
   });
 });
 define('togetherness-ember-client/tests/attraction-tag/model.jshint', ['exports'], function (exports) {
