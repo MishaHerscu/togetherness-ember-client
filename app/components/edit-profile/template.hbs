@@ -1,0 +1,33 @@
+{{#if isAuthenticated}}
+
+<h1>{{credentials.givenname}} {{credentials.surname}}</h1>
+
+<br />
+<br />
+
+  <div class="col-xs-8">
+    <br />
+
+    <div class="col-xs-12">
+      {{givenname-input
+        givenname=credentials.givenname}}
+      {{surname-input
+        surname=credentials.surname}}
+      {{email-input
+        email=credentials.email}}
+    </div>
+
+    <div class="col-xs-12"><hr></div>
+
+    <br /><br />
+
+    <div class="col-xs-12">
+      <button type="submit" class="btn btn-primary" {{action "submit"}}>
+        Submit
+      </button>
+      <button type="cancel" class="btn btn-danger" {{action "cancel"}}>
+        Cancel
+      </button>
+    </div>
+  </div>
+{{/if}}

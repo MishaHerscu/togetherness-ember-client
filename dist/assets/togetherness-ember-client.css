@@ -6181,15 +6181,147 @@ button.close {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1); }
 
 body {
-  background-color: #f1f1f1;
+  background-color: #eee;
   color: #888;
+  font-size: 1.5em;
+  font-weight: 200;
   height: 100%;
   margin: 0;
+  margin-bottom: 5%;
   padding: 0; }
 
 nav {
-  background-color: #fff;
-  height: 40px; }
+  margin-bottom: 1%;
+  padding-left: 3%;
+  padding-right: 3%; }
+
+.nav .nav-button {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  float: left;
+  width: 25%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px; }
+  @media (min-width: 1200px) {
+    .nav .nav-button {
+      float: left;
+      width: 25%; } }
+  @media (min-width: 992px) {
+    .nav .nav-button {
+      float: left;
+      width: 25%; } }
+  @media (min-width: 768px) {
+    .nav .nav-button {
+      float: left;
+      width: 25%; } }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 200; }
+
+td {
+  vertical-align: middle; }
+
+.content {
+  margin: 10%; }
+
+.nav .nav-button {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  float: left;
+  width: 25%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px; }
+  @media (min-width: 1200px) {
+    .nav .nav-button {
+      float: left;
+      width: 25%; } }
+  @media (min-width: 992px) {
+    .nav .nav-button {
+      float: left;
+      width: 25%; } }
+  @media (min-width: 768px) {
+    .nav .nav-button {
+      float: left;
+      width: 25%; } }
+
+.dropdown-class {
+  background: #f1f1f1;
+  border: #2c343c;
+  height: 35px;
+  outline: 0;
+  padding: 5px 3px 5px 10px; }
+
+.my-footer {
+  background-color: #f8f8f8;
+  bottom: 0;
+  height: 36px;
+  position: absolute;
+  width: 100%; }
+
+.website-footer {
+  background-color: #f8f8f8;
+  height: 36px; }
+
+.website-footer-text {
+  color: #888;
+  font-weight: 300;
+  margin-top: 9px;
+  text-align: center; }
+
+.profile-picture {
+  border: 0;
+  border-radius: 30%;
+  height: 100%;
+  margin: 0;
+  width: 100%; }
+
+@-webkit-keyframes mymove {
+  50% {
+    box-shadow: 10px 20px 30px #000; } }
+
+@keyframes mymove {
+  50% {
+    box-shadow: 10px 20px 30px #000; } }
+
+.small-home-button {
+  font-size: 1.5em;
+  height: 170px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle; }
+
+.symbol-label {
+  font-size: 1.5em; }
 
 .welcome-banner {
   color: #888;
@@ -6199,8 +6331,7 @@ nav {
 .event-card {
   background-color: #fff;
   border: 1px solid #eee;
-  border-radius: 10px;
-  box-shadow: 7px 7px 2px #888;
+  box-shadow: 3px 3px 1px #888;
   margin: 15px;
   padding: 15px; }
 
@@ -6229,8 +6360,7 @@ nav {
 .white-background-div {
   background-color: #fff;
   border: 1px solid #eee;
-  border-radius: 10px;
-  box-shadow: 7px 7px 2px #888;
+  box-shadow: 3px 3px 1px #888;
   margin: 15px;
   padding: 15px; }
 
@@ -6247,30 +6377,21 @@ nav {
   padding: 10px;
   padding-bottom: 36px; }
 
-.my-footer {
-  background: #fff;
-  bottom: 0;
-  height: 36px;
-  position: absolute;
-  width: 100%; }
-
-.website-footer {
-  background-color: #fff;
-  height: 36px; }
-
-.website-footer-text {
-  color: #888;
-  font-weight: 300;
-  margin-top: 9px;
-  text-align: center; }
-
 .person-profile {
   background-color: #fff;
   border: 1px solid #eee;
-  border-radius: 10px;
   box-shadow: 3px 3px 1px #888;
   margin: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px; }
+  padding: 10px; }
+
+@media (max-width: 768px) {
+  body {
+    font-size: 30px; } }
+
+@media (max-width: 992px) {
+  body {
+    font-size: 20px; } }
+
+@media (max-width: 1200px) {
+  body {
+    font-size: 15px; } }

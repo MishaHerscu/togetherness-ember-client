@@ -1,5 +1,5 @@
-<div class="col-xs-6">
-  <div class="form-group">
+<div class="col-xs-12">
+  <div class="form-group col-xs-4">
     <label for="previous">Old Password</label>
     {{input type="password"
             class="form-control"
@@ -8,7 +8,7 @@
             value=passwords.previous}}
   </div>
 
-  <div class="form-group">
+  <div class="form-group col-xs-4">
     <label for="next">New Password</label>
     {{input type="password"
             class="form-control"
@@ -16,12 +16,14 @@
             placeholder="New password"
             value=passwords.next}}
   </div>
+</div>
 
+<div class="col-xs-12">
   <button type="submit" class="btn btn-primary" {{action "submit"}}>
     Change Password
   </button>
 
-  <button class="btn btn-default" {{action "cancel"}}>
+  <button class="btn btn-default" {{action "reset"}}>
     Cancel
   </button>
 </div>

@@ -8,8 +8,9 @@ const Router = Ember.Router.extend({
 Router.map(function () {
   this.route('sign-up');
   this.route('sign-in');
-  this.route('change-password');
   this.route('profile');
+  this.route('profile/delete', { path: '/profile/delete' });
+  this.route('profile/edit', { path: '/profile/edit' });
   this.route('attractions');
   this.route('attraction-suggestions');
   this.route('cities');
@@ -19,6 +20,7 @@ Router.map(function () {
   this.route('attendances');
   this.route('plan-trip', { path:'/plan-trip/:attraction_id' } );
   this.route('people');
+  this.route('change-password');
 });
 
 export default Router;
