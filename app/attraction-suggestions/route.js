@@ -26,7 +26,6 @@ export default Ember.Route.extend({
           sampleAttractions.forEach((suggestion) => {
             attractions.push(suggestion.get('attraction'));
           });
-          console.log(attractions);
           return Ember.RSVP.hash({
             attractions: attractions,
             recBool: recBool
