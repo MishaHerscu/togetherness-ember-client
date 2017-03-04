@@ -292,7 +292,7 @@ define('togetherness-ember-client/attraction-suggestions/route', ['exports', 'em
         try {
           var sampleAttractions = allAttractions.sort(function () {
             return 0.5 - Math.random();
-          }).slice(0, maxAttractionIndex - 1);
+          }).slice(0, maxAttractionIndex);
           try {
             var _ret = (function () {
               var attractions = [];
@@ -1075,56 +1075,6 @@ define('togetherness-ember-client/cities/route', ['exports', 'ember'], function 
       });
     }
   });
-
-  // example data
-  //
-  // return [
-  //   {
-  //     name: 'Boston',
-  //     attractions: [
-  //       {
-  //         title: 'test event 1',
-  //         description: 'example desctiption 1',
-  //         city_name: 'Boston',
-  //         event_time: '11:00',
-  //         event_date: '8/5/16',
-  //         venue_name: 'the best',
-  //         venue_address: 'my house',
-  //       },
-  //       {
-  //         title: 'test event 1',
-  //         description: 'example desctiption 1',
-  //         city_name: 'Boston',
-  //         event_time: '11:00',
-  //         event_date: '8/5/16',
-  //         venue_name: 'the best',
-  //         venue_address: 'my house',
-  //       },
-  //       {
-  //         title: 'test event 1',
-  //         description: 'example desctiption 1',
-  //         city_name: 'Boston',
-  //         event_time: '11:00',
-  //         event_date: '8/5/16',
-  //         venue_name: 'the best',
-  //         venue_address: 'my house',
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     name: 'Chicago',
-  //     attractions: [
-  //       {
-  //         title: 'test event 2',
-  //         description: 'example desctiption 2',
-  //         city_name: 'Chicago',
-  //         event_time: '11:00',
-  //         event_date: '8/5/16',
-  //         venue_name: 'the best',
-  //         venue_address: 'my house',
-  //       }
-  //     ]
-  //   }];
 });
 define("togetherness-ember-client/cities/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
@@ -2089,7 +2039,9 @@ define("togetherness-ember-client/components/city-attraction/template", ["export
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("h5");
         dom.setAttribute(el3, "class", "col-xs-8");
-        var el4 = dom.createComment("");
+        var el4 = dom.createElement("strong");
+        var el5 = dom.createComment("");
+        dom.appendChild(el4, el5);
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n    ");
@@ -2164,14 +2116,14 @@ define("togetherness-ember-client/components/city-attraction/template", ["export
         var element3 = dom.childAt(element0, [7]);
         var element4 = dom.childAt(element3, [1]);
         var morphs = new Array(5);
-        morphs[0] = dom.createMorphAt(dom.childAt(element1, [1]), 0, 0);
+        morphs[0] = dom.createMorphAt(dom.childAt(element1, [1, 0]), 0, 0);
         morphs[1] = dom.createAttrMorph(element2, 'src');
         morphs[2] = dom.createMorphAt(element4, 1, 1);
         morphs[3] = dom.createMorphAt(element4, 3, 3);
         morphs[4] = dom.createMorphAt(dom.childAt(element3, [3, 3]), 1, 1);
         return morphs;
       },
-      statements: [["content", "attraction.title", ["loc", [null, [3, 25], [3, 45]]]], ["attribute", "src", ["get", "attraction.medium_image_url", ["loc", [null, [4, 32], [4, 59]]]]], ["content", "attraction.event_time", ["loc", [null, [11, 13], [11, 38]]]], ["content", "attraction.event_date", ["loc", [null, [11, 40], [11, 65]]]], ["content", "attraction.description", ["loc", [null, [15, 8], [15, 34]]]]],
+      statements: [["content", "attraction.title", ["loc", [null, [3, 33], [3, 53]]]], ["attribute", "src", ["get", "attraction.medium_image_url", ["loc", [null, [4, 32], [4, 59]]]]], ["content", "attraction.event_time", ["loc", [null, [11, 13], [11, 38]]]], ["content", "attraction.event_date", ["loc", [null, [11, 40], [11, 65]]]], ["content", "attraction.description", ["loc", [null, [15, 8], [15, 34]]]]],
       locals: [],
       templates: []
     };
@@ -2184,7 +2136,10 @@ define("togetherness-ember-client/components/city-destination/template", ["expor
   exports["default"] = Ember.HTMLBars.template((function () {
     return {
       meta: {
-        "fragmentReason": false,
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["multiple-nodes"]
+        },
         "revision": "Ember@2.5.1",
         "loc": {
           "source": null,
@@ -2193,7 +2148,7 @@ define("togetherness-ember-client/components/city-destination/template", ["expor
             "column": 0
           },
           "end": {
-            "line": 2,
+            "line": 3,
             "column": 0
           }
         },
@@ -2207,6 +2162,12 @@ define("togetherness-ember-client/components/city-destination/template", ["expor
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createElement("h3");
         var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("h5");
+        var el2 = dom.createTextNode("Example Attractions:");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
@@ -8833,7 +8794,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+6d9c3a79"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+465911f7"});
 }
 
 /* jshint ignore:end */
