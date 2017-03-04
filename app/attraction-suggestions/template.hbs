@@ -2,12 +2,18 @@
 
 <br />
 <br />
-{{#each model as |attraction|}}
-  {{#if attraction.description}}
-    {{#if attraction.medium_image_url}}
-      {{attraction-suggestion
-        attraction=attraction
-        createTrip="createTrip"}}
+{{#if model.recBool}}
+  {{#each model as |attraction|}}
+    {{#if attraction.description}}
+      {{#if attraction.medium_image_url}}
+        {{attraction-suggestion
+          attraction=attraction
+          createTrip="createTrip"}}
+      {{/if}}
     {{/if}}
-  {{/if}}
-{{/each}}
+  {{/each}}
+{{else}}
+  <h3>
+    Sorry! No recommendations yet. Try {{#link-to "attractions"}}selecting more{{/link-to}} interesting adventures so we can learn more about your preferences.
+  </h3>
+{{/if}}
