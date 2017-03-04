@@ -14,26 +14,26 @@ export default Ember.Route.extend({
 
     return this.get('store').findAll('attraction-suggestion')
     .then((result) => {
-      let attractions = result.toArray();
-      let recBool = attractions.length > 0 ? true : false;
+      let allAttractions = result.toArray();
+      let recBool = allAttractions.length > 0 ? true : false;
+      let maxAttractionIndex = Math.min(20,allAttractions.length);
       try {
-        return attractions.sort(() => {
+        let sampleAttractions = allAttractions.sort(() => {
           return 0.5 - Math.random();
-        }).slice(0,20)
-        .then((result) => {
-          try {
-            let attractions = [];
-            result.forEach((attraction) => {
-              attractions.push(this.get('store').findRecord('attraction', attraction.id));
-            });
-            return Ember.RSVP.hash({
-              attractions: attractions,
-              recBool: recBool
-            });
-          } catch (error) {
-            return errorReturn(error);
-          }
-        });
+        }).slice(0,maxAttractionIndex-1)
+        try {
+          let attractions = [];
+          sampleAttractions.forEach((suggestion) => {
+            attractions.push(suggestion.get('attraction'));
+          });
+          console.log(attractions);
+          return Ember.RSVP.hash({
+            attractions: attractions,
+            recBool: recBool
+          });
+        } catch (error) {
+          return errorReturn(error);
+        }
       } catch (error) {
         return errorReturn(error);
       }

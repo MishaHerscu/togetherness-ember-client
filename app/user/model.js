@@ -17,6 +17,9 @@ export default DS.Model.extend({
   friendships: hasMany('friendship', {
     inverse: 'user'
   }),
+  attraction_suggestions: hasMany('attraction_suggestion', {
+    inverse: 'user'
+  }),
   fullName: Ember.computed('givenname', 'surname', function() {
     return `${this.get('givenname')} ${this.get('surname')}`;
   }),

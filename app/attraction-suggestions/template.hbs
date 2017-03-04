@@ -3,7 +3,7 @@
 <br />
 <br />
 {{#if model.recBool}}
-  {{#each model as |attraction|}}
+  {{#each model.attractions as |attraction|}}
     {{#if attraction.description}}
       {{#if attraction.medium_image_url}}
         {{attraction-suggestion
