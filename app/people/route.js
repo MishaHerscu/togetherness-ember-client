@@ -31,25 +31,43 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    requestFriend(user) {
-
-      let requestObject = {
-        user: this.get('store').findRecord('user', this.get('credentials.id')),
-        requestedUser: ''
-      };
-
-      this.get('store').findRecord('user', user)
-      .then((user) => {
-        requestObject.requestedUser = user;
-        return requestObject;
-      })
-      .then(() => {
-        if (requestObject.user.id !== requestObject.requestedUser.id) {
-          let newFriendRequest = this.get('store').createRecord('friend-request', requestObject);
-          newFriendRequest.save();
-        } else {
-          this.get('flashMessages').warning('You cannot friend yourself.');
-        }
+    requestFriend(requestedUser) {
+      this.get('store').findRecord('user', this.get('credentials.id'))
+      .then((selfUser) => {
+        let requestObject = {
+          user: selfUser,
+          requestedUser: ''
+        };
+        this.get('store').findRecord('user', requestedUser)
+        .then((requestedUser) => {
+          requestObject.requestedUser = requestedUser;
+          return requestObject;
+        })
+        .then(() => {
+          if (requestObject.user.id !== requestObject.requestedUser.id) {
+            let newFriendRequest = this.get('store').createRecord('friend-request', requestObject);
+            newFriendRequest.save();
+            this.refresh();
+          } else {
+            this.get('flashMessages').warning('You cannot friend yourself.');
+          }
+        });
+      });
+    },
+    unRequestFriend(requestedUserId){
+      this.get('store').findAll('friend-request')
+      .then((requests) => {
+        requests.forEach((request) => {
+          request.get('requestedUser')
+          .then((requestedUser) => {
+            if (requestedUser.id === requestedUserId) {
+              request.destroyRecord()
+              .then(() => {
+                this.refresh();
+              });
+            }
+          });
+        });
       });
     },
     viewProfile(){

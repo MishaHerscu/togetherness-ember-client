@@ -4,7 +4,9 @@
 {{#each model as |user|}}
   {{person-profile
     user=user
+    profile=false
     requestFriend="requestFriend"
-    viewProfile="viewProfile"}}
+    viewProfile="viewProfile"
+    unRequestFriend="unRequestFriend"}}
 {{/each}}
 <br />

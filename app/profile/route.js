@@ -6,12 +6,29 @@ export default Ember.Route.extend({
   credentials: storageFor('auth'),
 
   model () {
-    // return this.get('credentials').content;
     return this.get('store').findRecord('user', this.get('credentials.id'))
     .then((user) => {
-      user.set('friends', user.get('friendships').toArray());
-      user.set('requests', user.get('friend_requests').toArray());
-      return user;
+      return Ember.RSVP.hash({
+        user: user,
+        friends: this.get('store').findAll('friendship')
+        .then((friendships) => {
+          return friendships.filter((friendship) => {
+            return (friendship.user === user) || (friendship.requestedUser === user);
+          });
+        }),
+        awaitingApproval: this.get('store').findAll('friend_request')
+        .then((requests) => {
+          return requests.filter((request) => {
+            return String(request.get('requestedUser.id')) === String(this.get('credentials.id'));
+          });
+        }),
+        pendingRequests: this.get('store').findAll('friend_request')
+        .then((requests) => {
+          return requests.filter((request) => {
+            return String(request.get('user.id')) === String(this.get('credentials.id'));
+          });
+        })
+      });
     });
   },
 
@@ -27,6 +44,9 @@ export default Ember.Route.extend({
     },
     declineRequest () {
       console.log('declineRequest triggered!');
+    },
+    unRequestFriend(){
+      console.log('unrequest');
     },
     editProfile () {
       this.transitionTo('profile/edit');

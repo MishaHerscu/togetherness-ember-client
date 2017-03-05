@@ -38,9 +38,10 @@
         {{#unless user.self}}
           {{#if user.requested}}
             <div class="person-buttons col-xs-3"
-                 style="margin-right: 10px;">
+                 style="margin-right: 5px;">
               <div style="text-align: right;">
-                <button class="btn btn-md btn-warning disabled"
+                <button class="btn btn-md btn-warning"
+                        {{action "unRequestFriend"}}
                         style="text-align: center;
                                align: center;
                                margin-top: 5px;">
@@ -50,21 +51,21 @@
             </div>
           {{else}}
             <div class="person-buttons col-xs-3"
-                 style="margin-right: 10px;">
+                 style="margin-right: 5px;">
               <div style="text-align: right;">
                 <button class="btn btn-md btn-primary"
                         {{action "requestFriend"}}
                         style="text-align: center;
                                align: center;
                                margin-top: 5px;">
-                  Request Friend
+                  Request
                 </button>
               </div>
             </div>
           {{/if}}
         {{else}}
           <div class="person-buttons col-xs-3"
-               style="margin-right: 10px;
+               style="margin-right: 5px;
                       font-weight: 700;">
             <div style="text-align: right;">
               <button class="btn btn-md btn-success"
@@ -80,7 +81,7 @@
       {{else}}
         {{#if friend}}
           <div class="person-buttons col-xs-3"
-               style="margin-right: 10px;
+               style="margin-right: 5px;
                       font-weight: 700;">
             <div style="text-align: right;">
               <button class="btn btn-md btn-danger"
@@ -96,4 +97,5 @@
       {{/unless}}
 
   </div>
+
 </div>

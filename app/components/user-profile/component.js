@@ -28,6 +28,10 @@ export default Ember.Component.extend({
       this.sendAction('declineRequest', this.get('user.id'));
       this.toggleProperty('hiddenPerson');
     },
+    unRequestFriend () {
+      this.sendAction('unRequestFriend', this.get('user.id'));
+      this.toggleProperty('hiddenPerson');
+    },
     edit () {
       this.sendAction('editProfile');
     },

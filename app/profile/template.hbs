@@ -1,7 +1,10 @@
 <h2>Profile</h2>
 <br />
 {{user-profile
-  user=model
+  user=model.user
+  friends=model.friends
+  awaitingApproval=model.awaitingApproval
+  pendingRequests=model.pendingRequests
   removeFriend="removeFriend"
   cancelRequest="cancelRequest"
   acceptRequest="acceptRequest"

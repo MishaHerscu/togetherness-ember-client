@@ -13,7 +13,6 @@ export default Ember.Component.extend({
     },
     requestFriend () {
       this.sendAction('requestFriend', this.get('user.id'));
-      this.toggleProperty('hiddenPerson');
     },
     removeFriend () {
       this.sendAction('removeFriend', this.get('user.id'));
@@ -25,11 +24,13 @@ export default Ember.Component.extend({
     },
     acceptRequest () {
       this.sendAction('acceptRequest', this.get('user.id'));
-      this.toggleProperty('hiddenPerson');
     },
     declineRequest () {
       this.sendAction('declineRequest', this.get('user.id'));
       this.toggleProperty('hiddenPerson');
+    },
+    unRequestFriend () {
+      this.sendAction('unRequestFriend', this.get('user.id'));
     },
     viewProfile () {
       this.sendAction('viewProfile');
