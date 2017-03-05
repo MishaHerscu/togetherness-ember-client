@@ -1,3 +1,12 @@
+define('togetherness-ember-client/tests/about/route.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - about/route.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'about/route.js should pass jshint.');
+  });
+});
 define('togetherness-ember-client/tests/ajax/service.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -356,6 +365,15 @@ define('togetherness-ember-client/tests/components/user-profile/component.jshint
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'components/user-profile/component.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/contact/route.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - contact/route.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'contact/route.js should pass jshint.');
   });
 });
 define('togetherness-ember-client/tests/events-api/service.jshint', ['exports'], function (exports) {
@@ -3692,7 +3710,7 @@ define('togetherness-ember-client/tests/profile/route.jshint', ['exports'], func
   QUnit.module('JSHint - profile/route.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'profile/route.js should pass jshint.');
+    assert.ok(false, 'profile/route.js should pass jshint.\nprofile/route.js: line 91, col 21, \'declineRequest\' is not defined.\n\n1 error');
   });
 });
 define('togetherness-ember-client/tests/resolver.jshint', ['exports'], function (exports) {
@@ -3738,6 +3756,15 @@ define('togetherness-ember-client/tests/tag/model.jshint', ['exports'], function
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'tag/model.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/team/route.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - team/route.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'team/route.js should pass jshint.');
   });
 });
 define('togetherness-ember-client/tests/test-helper', ['exports', 'togetherness-ember-client/tests/helpers/resolver', 'togetherness-ember-client/tests/helpers/flash-message', 'ember-qunit'], function (exports, _togethernessEmberClientTestsHelpersResolver, _togethernessEmberClientTestsHelpersFlashMessage, _emberQunit) {
@@ -3787,6 +3814,27 @@ define('togetherness-ember-client/tests/trips/route.jshint', ['exports'], functi
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'trips/route.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/unit/about/route-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:about', 'Unit | Route | about', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('togetherness-ember-client/tests/unit/about/route-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/about/route-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/about/route-test.js should pass jshint.');
   });
 });
 define('togetherness-ember-client/tests/unit/ajax/service-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
@@ -4167,6 +4215,27 @@ define('togetherness-ember-client/tests/unit/city/model-test.jshint', ['exports'
     assert.ok(true, 'unit/city/model-test.js should pass jshint.');
   });
 });
+define('togetherness-ember-client/tests/unit/contact/route-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:contact', 'Unit | Route | contact', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('togetherness-ember-client/tests/unit/contact/route-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/contact/route-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/contact/route-test.js should pass jshint.');
+  });
+});
 define('togetherness-ember-client/tests/unit/friend-request/model-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
 
   (0, _emberQunit.moduleForModel)('friend-request', 'Unit | Model | friend request', {
@@ -4365,6 +4434,27 @@ define('togetherness-ember-client/tests/unit/tag/model-test.jshint', ['exports']
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/tag/model-test.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/unit/team/route-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:team', 'Unit | Route | team', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('togetherness-ember-client/tests/unit/team/route-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/team/route-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/team/route-test.js should pass jshint.');
   });
 });
 define('togetherness-ember-client/tests/unit/travel-recommendations/route-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
