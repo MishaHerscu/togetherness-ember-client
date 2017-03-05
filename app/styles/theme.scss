@@ -13,9 +13,7 @@ nav {
   margin-bottom: 1%;
   padding-left: 3%;
   padding-right: 3%;
-}
 
-.nav {
   .nav-button {
     @include make-lg-column(3);
     @include make-md-column(3);
@@ -187,4 +185,12 @@ td {
   box-shadow: 3px 3px 1px $event-card-shadow-color;
   margin: 10px;
   padding: 10px;
+}
+
+.profilepicture {
+  border: 0;
+  border-radius: 20%;
+  height: 100%;
+  margin: 0;
+  width: 100%;
 }

@@ -86,6 +86,9 @@ export default Ember.Route.extend({
           } else {
             this.get('flashMessages').warning('You cannot friend yourself.');
           }
+        })
+        .then((userId) => {
+          this.send(declineRequest, userId);
         });
       });
     },

@@ -21,6 +21,9 @@ Router.map(function () {
   this.route('plan-trip', { path:'/plan-trip/:attraction_id' } );
   this.route('people');
   this.route('change-password');
+  this.route('about');
+  this.route('team');
+  this.route('contact');
 });
 
 export default Router;

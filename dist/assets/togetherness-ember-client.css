@@ -6194,38 +6194,37 @@ nav {
   margin-bottom: 1%;
   padding-left: 3%;
   padding-right: 3%; }
-
-.nav .nav-button {
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-  position: relative;
-  float: left;
-  width: 25%;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px; }
-  @media (min-width: 1200px) {
-    .nav .nav-button {
-      float: left;
-      width: 25%; } }
-  @media (min-width: 992px) {
-    .nav .nav-button {
-      float: left;
-      width: 25%; } }
-  @media (min-width: 768px) {
-    .nav .nav-button {
-      float: left;
-      width: 25%; } }
+  nav .nav-button {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    float: left;
+    width: 25%;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px; }
+    @media (min-width: 1200px) {
+      nav .nav-button {
+        float: left;
+        width: 25%; } }
+    @media (min-width: 992px) {
+      nav .nav-button {
+        float: left;
+        width: 25%; } }
+    @media (min-width: 768px) {
+      nav .nav-button {
+        float: left;
+        width: 25%; } }
 
 h1,
 h2,
@@ -6383,6 +6382,13 @@ td {
   box-shadow: 3px 3px 1px #888;
   margin: 10px;
   padding: 10px; }
+
+.profilepicture {
+  border: 0;
+  border-radius: 20%;
+  height: 100%;
+  margin: 0;
+  width: 100%; }
 
 @media (max-width: 768px) {
   body {
