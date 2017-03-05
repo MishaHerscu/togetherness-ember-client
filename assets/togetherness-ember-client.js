@@ -8391,7 +8391,7 @@ define('togetherness-ember-client/profile/route', ['exports', 'ember', 'ember-lo
               _this4.get('flashMessages').warning('You cannot friend yourself.');
             }
           }).then(function (userId) {
-            _this4.send(declineRequest, userId);
+            _this4.send('declineRequest', userId);
           });
         });
       },
@@ -9659,7 +9659,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+465911f7"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+4ab3f85e"});
 }
 
 /* jshint ignore:end */
