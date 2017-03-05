@@ -88,7 +88,7 @@ export default Ember.Route.extend({
           }
         })
         .then((userId) => {
-          this.send(declineRequest, userId);
+          this.send('declineRequest', userId);
         });
       });
     },

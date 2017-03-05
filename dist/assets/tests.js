@@ -3710,7 +3710,7 @@ define('togetherness-ember-client/tests/profile/route.jshint', ['exports'], func
   QUnit.module('JSHint - profile/route.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'profile/route.js should pass jshint.\nprofile/route.js: line 91, col 21, \'declineRequest\' is not defined.\n\n1 error');
+    assert.ok(true, 'profile/route.js should pass jshint.');
   });
 });
 define('togetherness-ember-client/tests/resolver.jshint', ['exports'], function (exports) {
