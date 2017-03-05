@@ -33,20 +33,96 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    removeFriend () {
-      console.log('removeFriend triggered!');
+    removeFriend (userId) {
+      this.get('store').findAll('friendships')
+      .then((friendships) => {
+        friendships.forEach((friendship) => {
+          friendship.get('user')
+          .then((fUser) => {
+            friendship.get('requestedUser')
+            .then((rUser) => {
+              if ((userId === fUser) || (userId === rUser)) {
+                friendship.destroyRecord()
+                .then(() => {
+                  this.refresh();
+                });
+              }
+            });
+          });
+        });
+      });
     },
-    cancelRequest () {
-      console.log('cancelRequest triggered!');
+    cancelRequest (userId) {
+      this.get('store').findAll('friend-request')
+      .then((requests) => {
+        requests.forEach((request) => {
+          request.get('requestedUser')
+          .then((requestedUser) => {
+            if (requestedUser.id === userId) {
+              request.destroyRecord()
+              .then(() => {
+                this.refresh();
+              });
+            }
+          });
+        });
+      });
     },
-    acceptRequest () {
-      console.log('acceptRequest triggered!');
+    acceptRequest (userId) {
+      this.get('store').findRecord('user', this.get('credentials.id'))
+      .then((selfUser) => {
+        this.get('store').findRecord('user', userId)
+        .then((requestingUser) => {
+          let newFriendshipData = {
+            user: requestingUser,
+            requestedUser: selfUser
+          };
+          if (newFriendshipData.user.id !== newFriendshipData.requestedUser.id) {
+            let newFriendship = this.get('store').createRecord('friendship', newFriendshipData);
+            newFriendship.save()
+            .then(() => {
+              this.refresh();
+            });
+          } else {
+            this.get('flashMessages').warning('You cannot friend yourself.');
+          }
+        });
+      });
     },
-    declineRequest () {
-      console.log('declineRequest triggered!');
+    declineRequest (userId) {
+      this.get('store').findAll('friend-request')
+      .then((requests) => {
+        requests.forEach((request) => {
+          request.get('user')
+          .then((rUser) => {
+            if (rUser.id === userId) {
+              request.destroyRecord()
+              .then(() => {
+                this.refresh();
+              });
+            }
+          });
+        });
+      });
     },
-    unRequestFriend(){
-      console.log('unrequest');
+    unRequestFriend (userId) {
+      this.get('store').findAll('friend-request')
+      .then((requests) => {
+        requests.forEach((request) => {
+          request.get('requestedUser')
+          .then((requestedUser) => {
+            if (requestedUser.id === userId) {
+              request.destroyRecord()
+              .then(() => {
+                this.refresh();
+              });
+            }
+          });
+        });
+      });
+    },
+    changePassword () {
+      this.transitionTo('change-password');
     },
     editProfile () {
       this.transitionTo('profile/edit');

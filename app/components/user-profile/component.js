@@ -9,33 +9,25 @@ export default Ember.Component.extend({
   hiddenPerson: false,
 
   actions: {
-    hidePerson () {
-      this.toggleProperty('hiddenPerson');
+    removeFriend (userId) {
+      this.sendAction('removeFriend', userId);
     },
-    removeFriend () {
-      this.sendAction('removeFriend', this.get('user.id'));
-      this.toggleProperty('hiddenPerson');
+    cancelRequest (userId) {
+      this.sendAction('cancelRequest', userId);
     },
-    cancelRequest () {
-      this.sendAction('cancelRequest', this.get('user.id'));
-      this.toggleProperty('hiddenPerson');
+    acceptRequest (userId) {
+      this.sendAction('acceptRequest', userId);
     },
-    acceptRequest () {
-      this.sendAction('acceptRequest', this.get('user.id'));
-      this.toggleProperty('hiddenPerson');
+    declineRequest (userId) {
+      this.sendAction('declineRequest', userId);
     },
-    declineRequest () {
-      this.sendAction('declineRequest', this.get('user.id'));
-      this.toggleProperty('hiddenPerson');
+    unRequestFriend (userId) {
+      this.sendAction('unRequestFriend', userId);
     },
-    unRequestFriend () {
-      this.sendAction('unRequestFriend', this.get('user.id'));
-      this.toggleProperty('hiddenPerson');
-    },
-    edit () {
+    editProfile () {
       this.sendAction('editProfile');
     },
-    delete () {
+    deleteProfile () {
       this.sendAction('deleteProfile');
     },
   }

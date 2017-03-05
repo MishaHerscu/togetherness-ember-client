@@ -24,6 +24,7 @@ export default Ember.Component.extend({
     },
     acceptRequest () {
       this.sendAction('acceptRequest', this.get('user.id'));
+      this.toggleProperty('hiddenPerson');
     },
     declineRequest () {
       this.sendAction('declineRequest', this.get('user.id'));

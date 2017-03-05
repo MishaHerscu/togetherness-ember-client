@@ -4318,6 +4318,7 @@ define('togetherness-ember-client/components/person-profile/component', ['export
       },
       acceptRequest: function acceptRequest() {
         this.sendAction('acceptRequest', this.get('user.id'));
+        this.toggleProperty('hiddenPerson');
       },
       declineRequest: function declineRequest() {
         this.sendAction('declineRequest', this.get('user.id'));
@@ -4372,9 +4373,9 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
           return el0;
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var element4 = dom.childAt(fragment, [1]);
+          var element9 = dom.childAt(fragment, [1]);
           var morphs = new Array(1);
-          morphs[0] = dom.createElementMorph(element4);
+          morphs[0] = dom.createElementMorph(element9);
           return morphs;
         },
         statements: [["element", "action", ["closePerson"], [], ["loc", [null, [8, 16], [8, 40]]]]],
@@ -4392,11 +4393,11 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
               "loc": {
                 "source": null,
                 "start": {
-                  "line": 39,
+                  "line": 40,
                   "column": 10
                 },
                 "end": {
-                  "line": 52,
+                  "line": 53,
                   "column": 10
                 }
               },
@@ -4436,12 +4437,12 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
               return el0;
             },
             buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-              var element3 = dom.childAt(fragment, [1, 1, 1]);
+              var element8 = dom.childAt(fragment, [1, 1, 1]);
               var morphs = new Array(1);
-              morphs[0] = dom.createElementMorph(element3);
+              morphs[0] = dom.createElementMorph(element8);
               return morphs;
             },
-            statements: [["element", "action", ["unRequestFriend"], [], ["loc", [null, [44, 24], [44, 52]]]]],
+            statements: [["element", "action", ["unRequestFriend"], [], ["loc", [null, [45, 24], [45, 52]]]]],
             locals: [],
             templates: []
           };
@@ -4454,11 +4455,11 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
               "loc": {
                 "source": null,
                 "start": {
-                  "line": 52,
+                  "line": 53,
                   "column": 10
                 },
                 "end": {
-                  "line": 65,
+                  "line": 66,
                   "column": 10
                 }
               },
@@ -4498,12 +4499,12 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
               return el0;
             },
             buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-              var element2 = dom.childAt(fragment, [1, 1, 1]);
+              var element7 = dom.childAt(fragment, [1, 1, 1]);
               var morphs = new Array(1);
-              morphs[0] = dom.createElementMorph(element2);
+              morphs[0] = dom.createElementMorph(element7);
               return morphs;
             },
-            statements: [["element", "action", ["requestFriend"], [], ["loc", [null, [57, 24], [57, 50]]]]],
+            statements: [["element", "action", ["requestFriend"], [], ["loc", [null, [58, 24], [58, 50]]]]],
             locals: [],
             templates: []
           };
@@ -4515,11 +4516,11 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
             "loc": {
               "source": null,
               "start": {
-                "line": 38,
+                "line": 39,
                 "column": 8
               },
               "end": {
-                "line": 66,
+                "line": 67,
                 "column": 8
               }
             },
@@ -4542,7 +4543,7 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
             dom.insertBoundary(fragment, null);
             return morphs;
           },
-          statements: [["block", "if", [["get", "user.requested", ["loc", [null, [39, 16], [39, 30]]]]], [], 0, 1, ["loc", [null, [39, 10], [65, 17]]]]],
+          statements: [["block", "if", [["get", "user.requested", ["loc", [null, [40, 16], [40, 30]]]]], [], 0, 1, ["loc", [null, [40, 10], [66, 17]]]]],
           locals: [],
           templates: [child0, child1]
         };
@@ -4555,11 +4556,11 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
             "loc": {
               "source": null,
               "start": {
-                "line": 66,
+                "line": 67,
                 "column": 8
               },
               "end": {
-                "line": 80,
+                "line": 81,
                 "column": 8
               }
             },
@@ -4599,12 +4600,12 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
             return el0;
           },
           buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var element1 = dom.childAt(fragment, [1, 1, 1]);
+            var element6 = dom.childAt(fragment, [1, 1, 1]);
             var morphs = new Array(1);
-            morphs[0] = dom.createElementMorph(element1);
+            morphs[0] = dom.createElementMorph(element6);
             return morphs;
           },
-          statements: [["element", "action", ["viewProfile"], [], ["loc", [null, [72, 22], [72, 46]]]]],
+          statements: [["element", "action", ["viewProfile"], [], ["loc", [null, [73, 22], [73, 46]]]]],
           locals: [],
           templates: []
         };
@@ -4616,11 +4617,11 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
           "loc": {
             "source": null,
             "start": {
-              "line": 37,
+              "line": 38,
               "column": 6
             },
             "end": {
-              "line": 81,
+              "line": 82,
               "column": 6
             }
           },
@@ -4643,7 +4644,7 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "unless", [["get", "user.self", ["loc", [null, [38, 18], [38, 27]]]]], [], 0, 1, ["loc", [null, [38, 8], [80, 19]]]]],
+        statements: [["block", "unless", [["get", "user.self", ["loc", [null, [39, 18], [39, 27]]]]], [], 0, 1, ["loc", [null, [39, 8], [81, 19]]]]],
         locals: [],
         templates: [child0, child1]
       };
@@ -4657,11 +4658,11 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
             "loc": {
               "source": null,
               "start": {
-                "line": 82,
+                "line": 83,
                 "column": 8
               },
               "end": {
-                "line": 96,
+                "line": 97,
                 "column": 8
               }
             },
@@ -4701,12 +4702,12 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
             return el0;
           },
           buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var element0 = dom.childAt(fragment, [1, 1, 1]);
+            var element5 = dom.childAt(fragment, [1, 1, 1]);
             var morphs = new Array(1);
-            morphs[0] = dom.createElementMorph(element0);
+            morphs[0] = dom.createElementMorph(element5);
             return morphs;
           },
-          statements: [["element", "action", ["removeFriend"], [], ["loc", [null, [88, 22], [88, 47]]]]],
+          statements: [["element", "action", ["removeFriend"], [], ["loc", [null, [89, 22], [89, 47]]]]],
           locals: [],
           templates: []
         };
@@ -4718,11 +4719,11 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
           "loc": {
             "source": null,
             "start": {
-              "line": 81,
+              "line": 82,
               "column": 6
             },
             "end": {
-              "line": 97,
+              "line": 98,
               "column": 6
             }
           },
@@ -4745,9 +4746,234 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "if", [["get", "friend", ["loc", [null, [82, 14], [82, 20]]]]], [], 0, null, ["loc", [null, [82, 8], [96, 15]]]]],
+        statements: [["block", "if", [["get", "friend", ["loc", [null, [83, 14], [83, 20]]]]], [], 0, null, ["loc", [null, [83, 8], [97, 15]]]]],
         locals: [],
         templates: [child0]
+      };
+    })();
+    var child3 = (function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.5.1",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 103,
+                "column": 6
+              },
+              "end": {
+                "line": 113,
+                "column": 6
+              }
+            },
+            "moduleName": "togetherness-ember-client/components/person-profile/template.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("        ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("div");
+            dom.setAttribute(el1, "style", "text-align: right;");
+            var el2 = dom.createTextNode("\n          ");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createElement("button");
+            dom.setAttribute(el2, "class", "btn btn-md btn-warning");
+            dom.setAttribute(el2, "style", "text-align: center;\n                         align: center;\n                         margin-top: 5px;");
+            var el3 = dom.createTextNode("\n            Cancel\n          ");
+            dom.appendChild(el2, el3);
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode("\n        ");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var element4 = dom.childAt(fragment, [1, 1]);
+            var morphs = new Array(1);
+            morphs[0] = dom.createElementMorph(element4);
+            return morphs;
+          },
+          statements: [["element", "action", ["cancelRequest"], [], ["loc", [null, [106, 18], [106, 44]]]]],
+          locals: [],
+          templates: []
+        };
+      })();
+      var child1 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.5.1",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 115,
+                "column": 6
+              },
+              "end": {
+                "line": 132,
+                "column": 6
+              }
+            },
+            "moduleName": "togetherness-ember-client/components/person-profile/template.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("        ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("div");
+            dom.setAttribute(el1, "style", "text-align: right;");
+            var el2 = dom.createTextNode("\n          ");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createElement("button");
+            dom.setAttribute(el2, "class", "btn btn-md btn-success");
+            dom.setAttribute(el2, "style", "text-align: center;\n                         align: center;\n                         margin-top: 5px;");
+            var el3 = dom.createTextNode("\n            Accept\n          ");
+            dom.appendChild(el2, el3);
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode("\n          ");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createElement("button");
+            dom.setAttribute(el2, "class", "btn btn-md btn-danger");
+            dom.setAttribute(el2, "style", "text-align: center;\n                         align: center;\n                         margin-top: 5px;");
+            var el3 = dom.createTextNode("\n            Reject\n          ");
+            dom.appendChild(el2, el3);
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode("\n        ");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var element1 = dom.childAt(fragment, [1]);
+            var element2 = dom.childAt(element1, [1]);
+            var element3 = dom.childAt(element1, [3]);
+            var morphs = new Array(2);
+            morphs[0] = dom.createElementMorph(element2);
+            morphs[1] = dom.createElementMorph(element3);
+            return morphs;
+          },
+          statements: [["element", "action", ["acceptRequest"], [], ["loc", [null, [118, 18], [118, 44]]]], ["element", "action", ["declineRequest"], [], ["loc", [null, [125, 18], [125, 45]]]]],
+          locals: [],
+          templates: []
+        };
+      })();
+      var child2 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.5.1",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 134,
+                "column": 6
+              },
+              "end": {
+                "line": 144,
+                "column": 6
+              }
+            },
+            "moduleName": "togetherness-ember-client/components/person-profile/template.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("        ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("div");
+            dom.setAttribute(el1, "style", "text-align: right;");
+            var el2 = dom.createTextNode("\n          ");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createElement("button");
+            dom.setAttribute(el2, "class", "btn btn-md btn-danger");
+            dom.setAttribute(el2, "style", "text-align: center;\n                         align: center;\n                         margin-top: 5px;");
+            var el3 = dom.createTextNode("\n            Remove Friend\n          ");
+            dom.appendChild(el2, el3);
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode("\n        ");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var element0 = dom.childAt(fragment, [1, 1]);
+            var morphs = new Array(1);
+            morphs[0] = dom.createElementMorph(element0);
+            return morphs;
+          },
+          statements: [["element", "action", ["removeFriend"], [], ["loc", [null, [137, 18], [137, 43]]]]],
+          locals: [],
+          templates: []
+        };
+      })();
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.5.1",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 101,
+              "column": 6
+            },
+            "end": {
+              "line": 146,
+              "column": 6
+            }
+          },
+          "moduleName": "togetherness-ember-client/components/person-profile/template.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(3);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          morphs[1] = dom.createMorphAt(fragment, 3, 3, contextualElement);
+          morphs[2] = dom.createMorphAt(fragment, 5, 5, contextualElement);
+          return morphs;
+        },
+        statements: [["block", "if", [["get", "awaiting", ["loc", [null, [103, 12], [103, 20]]]]], [], 0, null, ["loc", [null, [103, 6], [113, 13]]]], ["block", "if", [["get", "pending", ["loc", [null, [115, 12], [115, 19]]]]], [], 1, null, ["loc", [null, [115, 6], [132, 13]]]], ["block", "if", [["get", "friend", ["loc", [null, [134, 12], [134, 18]]]]], [], 2, null, ["loc", [null, [134, 6], [144, 13]]]]],
+        locals: [],
+        templates: [child0, child1, child2]
       };
     })();
     return {
@@ -4763,7 +4989,7 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
             "column": 0
           },
           "end": {
-            "line": 102,
+            "line": 154,
             "column": 0
           }
         },
@@ -4797,7 +5023,7 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("div");
         dom.setAttribute(el3, "class", "col-xs-3");
-        dom.setAttribute(el3, "style", "font-weight: 200;\n                  margin-bottom: 10px;\n                  border: 0.3px solid #AAA;\n                  padding: 10px;\n                  height: 75px;\n                  width: 75px;\n                  text-align: center");
+        dom.setAttribute(el3, "style", "font-weight: 100;\n                  margin-bottom: 10px;\n                  border: 0.1px solid #CCC;\n                  padding: 10px;\n                  height: 75px;\n                  width: 75px;\n                  text-align: center");
         var el4 = dom.createTextNode("\n        Profile Picture\n      ");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
@@ -4834,11 +5060,23 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
         var el4 = dom.createTextNode("\n      ");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n\n");
+        var el3 = dom.createTextNode("\n\n      ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment(" PEOPLE ROUTE ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n");
         dom.appendChild(el2, el3);
         var el3 = dom.createComment("");
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n  ");
+        var el3 = dom.createTextNode("\n      ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment(" PROFILE ROUTE ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n\n\n  ");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n\n");
@@ -4849,21 +5087,22 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element5 = dom.childAt(fragment, [0]);
-        var element6 = dom.childAt(element5, [3]);
-        var element7 = dom.childAt(element6, [3]);
-        var element8 = dom.childAt(element7, [3, 1]);
-        var morphs = new Array(5);
-        morphs[0] = dom.createMorphAt(dom.childAt(element5, [1]), 1, 1);
-        morphs[1] = dom.createMorphAt(dom.childAt(element7, [1]), 0, 0);
-        morphs[2] = dom.createAttrMorph(element8, 'href');
-        morphs[3] = dom.createMorphAt(element8, 1, 1);
-        morphs[4] = dom.createMorphAt(element6, 5, 5);
+        var element10 = dom.childAt(fragment, [0]);
+        var element11 = dom.childAt(element10, [3]);
+        var element12 = dom.childAt(element11, [3]);
+        var element13 = dom.childAt(element12, [3, 1]);
+        var morphs = new Array(6);
+        morphs[0] = dom.createMorphAt(dom.childAt(element10, [1]), 1, 1);
+        morphs[1] = dom.createMorphAt(dom.childAt(element12, [1]), 0, 0);
+        morphs[2] = dom.createAttrMorph(element13, 'href');
+        morphs[3] = dom.createMorphAt(element13, 1, 1);
+        morphs[4] = dom.createMorphAt(element11, 7, 7);
+        morphs[5] = dom.createMorphAt(element11, 11, 11);
         return morphs;
       },
-      statements: [["block", "unless", [["get", "profile", ["loc", [null, [4, 16], [4, 23]]]]], [], 0, null, ["loc", [null, [4, 6], [10, 17]]]], ["content", "user.fullName", ["loc", [null, [27, 30], [27, 47]]]], ["attribute", "href", ["concat", ["mailto:", ["get", "user.email", ["loc", [null, [31, 28], [31, 38]]]]]]], ["content", "user.email", ["loc", [null, [32, 12], [32, 26]]]], ["block", "unless", [["get", "profile", ["loc", [null, [37, 16], [37, 23]]]]], [], 1, 2, ["loc", [null, [37, 6], [97, 17]]]]],
+      statements: [["block", "unless", [["get", "profile", ["loc", [null, [4, 16], [4, 23]]]]], [], 0, null, ["loc", [null, [4, 6], [10, 17]]]], ["content", "user.fullName", ["loc", [null, [27, 30], [27, 47]]]], ["attribute", "href", ["concat", ["mailto:", ["get", "user.email", ["loc", [null, [31, 28], [31, 38]]]]]]], ["content", "user.email", ["loc", [null, [32, 12], [32, 26]]]], ["block", "unless", [["get", "profile", ["loc", [null, [38, 16], [38, 23]]]]], [], 1, 2, ["loc", [null, [38, 6], [98, 17]]]], ["block", "if", [["get", "profile", ["loc", [null, [101, 12], [101, 19]]]]], [], 3, null, ["loc", [null, [101, 6], [146, 13]]]]],
       locals: [],
-      templates: [child0, child1, child2]
+      templates: [child0, child1, child2, child3]
     };
   })());
 });
@@ -6252,33 +6491,25 @@ define('togetherness-ember-client/components/user-profile/component', ['exports'
     hiddenPerson: false,
 
     actions: {
-      hidePerson: function hidePerson() {
-        this.toggleProperty('hiddenPerson');
+      removeFriend: function removeFriend(userId) {
+        this.sendAction('removeFriend', userId);
       },
-      removeFriend: function removeFriend() {
-        this.sendAction('removeFriend', this.get('user.id'));
-        this.toggleProperty('hiddenPerson');
+      cancelRequest: function cancelRequest(userId) {
+        this.sendAction('cancelRequest', userId);
       },
-      cancelRequest: function cancelRequest() {
-        this.sendAction('cancelRequest', this.get('user.id'));
-        this.toggleProperty('hiddenPerson');
+      acceptRequest: function acceptRequest(userId) {
+        this.sendAction('acceptRequest', userId);
       },
-      acceptRequest: function acceptRequest() {
-        this.sendAction('acceptRequest', this.get('user.id'));
-        this.toggleProperty('hiddenPerson');
+      declineRequest: function declineRequest(userId) {
+        this.sendAction('declineRequest', userId);
       },
-      declineRequest: function declineRequest() {
-        this.sendAction('declineRequest', this.get('user.id'));
-        this.toggleProperty('hiddenPerson');
+      unRequestFriend: function unRequestFriend(userId) {
+        this.sendAction('unRequestFriend', userId);
       },
-      unRequestFriend: function unRequestFriend() {
-        this.sendAction('unRequestFriend', this.get('user.id'));
-        this.toggleProperty('hiddenPerson');
-      },
-      edit: function edit() {
+      editProfile: function editProfile() {
         this.sendAction('editProfile');
       },
-      'delete': function _delete() {
+      deleteProfile: function deleteProfile() {
         this.sendAction('deleteProfile');
       }
     }
@@ -6295,11 +6526,11 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
             "loc": {
               "source": null,
               "start": {
-                "line": 40,
+                "line": 43,
                 "column": 8
               },
               "end": {
-                "line": 53,
+                "line": 56,
                 "column": 8
               }
             },
@@ -6324,7 +6555,7 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
             morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
             return morphs;
           },
-          statements: [["inline", "person-profile", [], ["user", ["subexpr", "@mut", [["get", "request.requestedUser", ["loc", [null, [42, 17], [42, 38]]]]], [], []], "profile", true, "awaiting", true, "pending", false, "friend", false, "hidePerson", "hidePerson", "removeFriend", "removeFriend", "cancelRequest", "cancelRequest", "acceptRequest", "acceptRequest", "declineRequest", "declineRequest", "unRequestFriend", "unRequestFriend"], ["loc", [null, [41, 10], [52, 47]]]]],
+          statements: [["inline", "person-profile", [], ["user", ["subexpr", "@mut", [["get", "request.requestedUser", ["loc", [null, [45, 17], [45, 38]]]]], [], []], "profile", true, "awaiting", true, "pending", false, "friend", false, "hidePerson", "hidePerson", "removeFriend", "removeFriend", "cancelRequest", "cancelRequest", "acceptRequest", "acceptRequest", "declineRequest", "declineRequest", "unRequestFriend", "unRequestFriend"], ["loc", [null, [44, 10], [55, 47]]]]],
           locals: ["request"],
           templates: []
         };
@@ -6337,11 +6568,11 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
             "loc": {
               "source": null,
               "start": {
-                "line": 62,
+                "line": 65,
                 "column": 8
               },
               "end": {
-                "line": 75,
+                "line": 78,
                 "column": 8
               }
             },
@@ -6366,7 +6597,7 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
             morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
             return morphs;
           },
-          statements: [["inline", "person-profile", [], ["user", ["subexpr", "@mut", [["get", "request.requestedUser", ["loc", [null, [64, 17], [64, 38]]]]], [], []], "profile", true, "awaiting", false, "pending", true, "friend", false, "hidePerson", "hidePerson", "removeFriend", "removeFriend", "cancelRequest", "cancelRequest", "acceptRequest", "acceptRequest", "declineRequest", "declineRequest", "unRequestFriend", "unRequestFriend"], ["loc", [null, [63, 10], [74, 47]]]]],
+          statements: [["inline", "person-profile", [], ["user", ["subexpr", "@mut", [["get", "request.requestedUser", ["loc", [null, [67, 17], [67, 38]]]]], [], []], "profile", true, "awaiting", false, "pending", true, "friend", false, "hidePerson", "hidePerson", "removeFriend", "removeFriend", "cancelRequest", "cancelRequest", "acceptRequest", "acceptRequest", "declineRequest", "declineRequest", "unRequestFriend", "unRequestFriend"], ["loc", [null, [66, 10], [77, 47]]]]],
           locals: ["request"],
           templates: []
         };
@@ -6379,11 +6610,11 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
             "loc": {
               "source": null,
               "start": {
-                "line": 84,
+                "line": 87,
                 "column": 8
               },
               "end": {
-                "line": 97,
+                "line": 100,
                 "column": 8
               }
             },
@@ -6408,7 +6639,7 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
             morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
             return morphs;
           },
-          statements: [["inline", "person-profile", [], ["user", ["subexpr", "@mut", [["get", "friend.user", ["loc", [null, [86, 17], [86, 28]]]]], [], []], "profile", true, "awaiting", false, "pending", false, "friend", true, "hidePerson", "hidePerson", "removeFriend", "removeFriend", "cancelRequest", "cancelRequest", "acceptRequest", "acceptRequest", "declineRequest", "declineRequest", "unRequestFriend", "unRequestFriend"], ["loc", [null, [85, 10], [96, 47]]]]],
+          statements: [["inline", "person-profile", [], ["user", ["subexpr", "@mut", [["get", "friend.user", ["loc", [null, [89, 17], [89, 28]]]]], [], []], "profile", true, "awaiting", false, "pending", false, "friend", true, "hidePerson", "hidePerson", "removeFriend", "removeFriend", "cancelRequest", "cancelRequest", "acceptRequest", "acceptRequest", "declineRequest", "declineRequest", "unRequestFriend", "unRequestFriend"], ["loc", [null, [88, 10], [99, 47]]]]],
           locals: ["friend"],
           templates: []
         };
@@ -6424,7 +6655,7 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
               "column": 2
             },
             "end": {
-              "line": 110,
+              "line": 113,
               "column": 2
             }
           },
@@ -6551,10 +6782,17 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
           var el3 = dom.createTextNode("\n      ");
           dom.appendChild(el2, el3);
           dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n      ");
+          var el2 = dom.createTextNode("\n    ");
           dom.appendChild(el1, el2);
-          var el2 = dom.createElement("br");
-          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n      ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("br");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n\n    ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "col-xs-12");
           var el2 = dom.createTextNode("\n\n      ");
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("h3");
@@ -6652,25 +6890,25 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
           var element0 = dom.childAt(fragment, [1]);
-          var element1 = dom.childAt(fragment, [9]);
-          var element2 = dom.childAt(element1, [1, 1]);
-          var element3 = dom.childAt(element1, [25]);
-          var element4 = dom.childAt(element1, [27]);
+          var element1 = dom.childAt(fragment, [9, 1, 1]);
+          var element2 = dom.childAt(fragment, [13]);
+          var element3 = dom.childAt(element2, [21]);
+          var element4 = dom.childAt(element2, [23]);
           var morphs = new Array(11);
           morphs[0] = dom.createMorphAt(element0, 0, 0);
           morphs[1] = dom.createMorphAt(element0, 2, 2);
-          morphs[2] = dom.createMorphAt(dom.childAt(element2, [1, 3]), 0, 0);
-          morphs[3] = dom.createMorphAt(dom.childAt(element2, [3, 3]), 0, 0);
-          morphs[4] = dom.createMorphAt(dom.childAt(element2, [5, 3]), 0, 0);
-          morphs[5] = dom.createMorphAt(dom.childAt(element2, [7, 3]), 0, 0);
-          morphs[6] = dom.createMorphAt(dom.childAt(element1, [9]), 1, 1);
-          morphs[7] = dom.createMorphAt(dom.childAt(element1, [15]), 1, 1);
-          morphs[8] = dom.createMorphAt(dom.childAt(element1, [21]), 1, 1);
+          morphs[2] = dom.createMorphAt(dom.childAt(element1, [1, 3]), 0, 0);
+          morphs[3] = dom.createMorphAt(dom.childAt(element1, [3, 3]), 0, 0);
+          morphs[4] = dom.createMorphAt(dom.childAt(element1, [5, 3]), 0, 0);
+          morphs[5] = dom.createMorphAt(dom.childAt(element1, [7, 3]), 0, 0);
+          morphs[6] = dom.createMorphAt(dom.childAt(element2, [5]), 1, 1);
+          morphs[7] = dom.createMorphAt(dom.childAt(element2, [11]), 1, 1);
+          morphs[8] = dom.createMorphAt(dom.childAt(element2, [17]), 1, 1);
           morphs[9] = dom.createElementMorph(element3);
           morphs[10] = dom.createElementMorph(element4);
           return morphs;
         },
-        statements: [["content", "user.givenname", ["loc", [null, [5, 8], [5, 26]]]], ["content", "user.surname", ["loc", [null, [5, 27], [5, 43]]]], ["content", "user.id", ["loc", [null, [16, 16], [16, 27]]]], ["content", "user.givenname", ["loc", [null, [20, 16], [20, 34]]]], ["content", "user.surname", ["loc", [null, [24, 16], [24, 32]]]], ["content", "user.email", ["loc", [null, [28, 16], [28, 30]]]], ["block", "each", [["get", "awaitingApproval", ["loc", [null, [40, 16], [40, 32]]]]], [], 0, null, ["loc", [null, [40, 8], [53, 17]]]], ["block", "each", [["get", "pendingRequests", ["loc", [null, [62, 16], [62, 31]]]]], [], 1, null, ["loc", [null, [62, 8], [75, 17]]]], ["block", "each", [["get", "friends", ["loc", [null, [84, 16], [84, 23]]]]], [], 2, null, ["loc", [null, [84, 8], [97, 17]]]], ["element", "action", ["edit"], [], ["loc", [null, [102, 52], [102, 69]]]], ["element", "action", ["delete"], [], ["loc", [null, [106, 51], [106, 70]]]]],
+        statements: [["content", "user.givenname", ["loc", [null, [5, 8], [5, 26]]]], ["content", "user.surname", ["loc", [null, [5, 27], [5, 43]]]], ["content", "user.id", ["loc", [null, [16, 16], [16, 27]]]], ["content", "user.givenname", ["loc", [null, [20, 16], [20, 34]]]], ["content", "user.surname", ["loc", [null, [24, 16], [24, 32]]]], ["content", "user.email", ["loc", [null, [28, 16], [28, 30]]]], ["block", "each", [["get", "awaitingApproval", ["loc", [null, [43, 16], [43, 32]]]]], [], 0, null, ["loc", [null, [43, 8], [56, 17]]]], ["block", "each", [["get", "pendingRequests", ["loc", [null, [65, 16], [65, 31]]]]], [], 1, null, ["loc", [null, [65, 8], [78, 17]]]], ["block", "each", [["get", "friends", ["loc", [null, [87, 16], [87, 23]]]]], [], 2, null, ["loc", [null, [87, 8], [100, 17]]]], ["element", "action", ["editProfile"], [], ["loc", [null, [105, 52], [105, 76]]]], ["element", "action", ["deleteProfile"], [], ["loc", [null, [109, 51], [109, 77]]]]],
         locals: [],
         templates: [child0, child1, child2]
       };
@@ -6688,7 +6926,7 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
             "column": 0
           },
           "end": {
-            "line": 112,
+            "line": 115,
             "column": 0
           }
         },
@@ -6722,7 +6960,7 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
         morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0]), 3, 3);
         return morphs;
       },
-      statements: [["block", "if", [["get", "isAuthenticated", ["loc", [null, [4, 8], [4, 23]]]]], [], 0, null, ["loc", [null, [4, 2], [110, 9]]]]],
+      statements: [["block", "if", [["get", "isAuthenticated", ["loc", [null, [4, 8], [4, 23]]]]], [], 0, null, ["loc", [null, [4, 2], [113, 9]]]]],
       locals: [],
       templates: [child0]
     };
@@ -7710,20 +7948,90 @@ define('togetherness-ember-client/profile/route', ['exports', 'ember', 'ember-lo
     },
 
     actions: {
-      removeFriend: function removeFriend() {
-        console.log('removeFriend triggered!');
+      removeFriend: function removeFriend(userId) {
+        var _this2 = this;
+
+        this.get('store').findAll('friendships').then(function (friendships) {
+          friendships.forEach(function (friendship) {
+            friendship.get('user').then(function (fUser) {
+              friendship.get('requestedUser').then(function (rUser) {
+                if (userId === fUser || userId === rUser) {
+                  friendship.destroyRecord().then(function () {
+                    _this2.refresh();
+                  });
+                }
+              });
+            });
+          });
+        });
       },
-      cancelRequest: function cancelRequest() {
-        console.log('cancelRequest triggered!');
+      cancelRequest: function cancelRequest(userId) {
+        var _this3 = this;
+
+        this.get('store').findAll('friend-request').then(function (requests) {
+          requests.forEach(function (request) {
+            request.get('requestedUser').then(function (requestedUser) {
+              if (requestedUser.id === userId) {
+                request.destroyRecord().then(function () {
+                  _this3.refresh();
+                });
+              }
+            });
+          });
+        });
       },
-      acceptRequest: function acceptRequest() {
-        console.log('acceptRequest triggered!');
+      acceptRequest: function acceptRequest(userId) {
+        var _this4 = this;
+
+        this.get('store').findRecord('user', this.get('credentials.id')).then(function (selfUser) {
+          _this4.get('store').findRecord('user', userId).then(function (requestingUser) {
+            var newFriendshipData = {
+              user: requestingUser,
+              requestedUser: selfUser
+            };
+            if (newFriendshipData.user.id !== newFriendshipData.requestedUser.id) {
+              var newFriendship = _this4.get('store').createRecord('friendship', newFriendshipData);
+              newFriendship.save().then(function () {
+                _this4.refresh();
+              });
+            } else {
+              _this4.get('flashMessages').warning('You cannot friend yourself.');
+            }
+          });
+        });
       },
-      declineRequest: function declineRequest() {
-        console.log('declineRequest triggered!');
+      declineRequest: function declineRequest(userId) {
+        var _this5 = this;
+
+        this.get('store').findAll('friend-request').then(function (requests) {
+          requests.forEach(function (request) {
+            request.get('user').then(function (rUser) {
+              if (rUser.id === userId) {
+                request.destroyRecord().then(function () {
+                  _this5.refresh();
+                });
+              }
+            });
+          });
+        });
       },
-      unRequestFriend: function unRequestFriend() {
-        console.log('unrequest');
+      unRequestFriend: function unRequestFriend(userId) {
+        var _this6 = this;
+
+        this.get('store').findAll('friend-request').then(function (requests) {
+          requests.forEach(function (request) {
+            request.get('requestedUser').then(function (requestedUser) {
+              if (requestedUser.id === userId) {
+                request.destroyRecord().then(function () {
+                  _this6.refresh();
+                });
+              }
+            });
+          });
+        });
+      },
+      changePassword: function changePassword() {
+        this.transitionTo('change-password');
       },
       editProfile: function editProfile() {
         this.transitionTo('profile/edit');
@@ -7750,7 +8058,7 @@ define("togetherness-ember-client/profile/template", ["exports"], function (expo
             "column": 0
           },
           "end": {
-            "line": 15,
+            "line": 16,
             "column": 0
           }
         },
@@ -7783,7 +8091,7 @@ define("togetherness-ember-client/profile/template", ["exports"], function (expo
         morphs[0] = dom.createMorphAt(fragment, 4, 4, contextualElement);
         return morphs;
       },
-      statements: [["inline", "user-profile", [], ["user", ["subexpr", "@mut", [["get", "model.user", ["loc", [null, [4, 7], [4, 17]]]]], [], []], "friends", ["subexpr", "@mut", [["get", "model.friends", ["loc", [null, [5, 10], [5, 23]]]]], [], []], "awaitingApproval", ["subexpr", "@mut", [["get", "model.awaitingApproval", ["loc", [null, [6, 19], [6, 41]]]]], [], []], "pendingRequests", ["subexpr", "@mut", [["get", "model.pendingRequests", ["loc", [null, [7, 18], [7, 39]]]]], [], []], "removeFriend", "removeFriend", "cancelRequest", "cancelRequest", "acceptRequest", "acceptRequest", "declineRequest", "declineRequest", "changePassword", "changePassword", "editProfile", "editProfile", "deleteProfile", "deleteProfile"], ["loc", [null, [3, 0], [14, 33]]]]],
+      statements: [["inline", "user-profile", [], ["user", ["subexpr", "@mut", [["get", "model.user", ["loc", [null, [4, 7], [4, 17]]]]], [], []], "friends", ["subexpr", "@mut", [["get", "model.friends", ["loc", [null, [5, 10], [5, 23]]]]], [], []], "awaitingApproval", ["subexpr", "@mut", [["get", "model.awaitingApproval", ["loc", [null, [6, 19], [6, 41]]]]], [], []], "pendingRequests", ["subexpr", "@mut", [["get", "model.pendingRequests", ["loc", [null, [7, 18], [7, 39]]]]], [], []], "removeFriend", "removeFriend", "cancelRequest", "cancelRequest", "acceptRequest", "acceptRequest", "declineRequest", "declineRequest", "unRequestFriend", "unRequestFriend", "changePassword", "changePassword", "editProfile", "editProfile", "deleteProfile", "deleteProfile"], ["loc", [null, [3, 0], [15, 33]]]]],
       locals: [],
       templates: []
     };
