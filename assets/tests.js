@@ -16,6 +16,15 @@ define('togetherness-ember-client/tests/ajax/service.jshint', ['exports'], funct
     assert.ok(true, 'ajax/service.js should pass jshint.');
   });
 });
+define('togetherness-ember-client/tests/all-events/route.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - all-events/route.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'all-events/route.js should pass jshint.');
+  });
+});
 define('togetherness-ember-client/tests/app.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -3857,6 +3866,27 @@ define('togetherness-ember-client/tests/unit/ajax/service-test.jshint', ['export
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/ajax/service-test.js should pass jshint.');
+  });
+});
+define('togetherness-ember-client/tests/unit/all-events/route-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:all-events', 'Unit | Route | all events', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('togetherness-ember-client/tests/unit/all-events/route-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/all-events/route-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/all-events/route-test.js should pass jshint.');
   });
 });
 define('togetherness-ember-client/tests/unit/application/adapter-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
