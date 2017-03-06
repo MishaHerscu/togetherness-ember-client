@@ -50,7 +50,6 @@ export default Ember.Route.extend({
       this.get('store').findRecord('user', this.get('credentials.id'))
       .then((currentUser) => {
         let keywordsArray = currentUser.get('keywords_string').split(' ');
-        console.log(keywordsArray);
         if (keywordsArray.includes(keyword)) {
           this.get('flashMessages').warning('You already have that keyword!');
         } else {
@@ -67,7 +66,6 @@ export default Ember.Route.extend({
       this.get('store').findRecord('user', this.get('credentials.id'))
       .then((currentUser) => {
         let keywordsString = currentUser.get('keywords_string');
-        console.log(keywordsString);
         keywordsString = keywordsString.replace(keyword, '');
         this.get('auth').updateKeywords(this.get('credentials'), keywordsString.trim())
         .then(() => {

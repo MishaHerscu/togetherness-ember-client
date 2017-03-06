@@ -10330,7 +10330,6 @@ define('togetherness-ember-client/view-keywords/route', ['exports', 'ember'], fu
 
         this.get('store').findRecord('user', this.get('credentials.id')).then(function (currentUser) {
           var keywordsArray = currentUser.get('keywords_string').split(' ');
-          console.log(keywordsArray);
           if (keywordsArray.includes(keyword)) {
             _this2.get('flashMessages').warning('You already have that keyword!');
           } else {
@@ -10347,7 +10346,6 @@ define('togetherness-ember-client/view-keywords/route', ['exports', 'ember'], fu
 
         this.get('store').findRecord('user', this.get('credentials.id')).then(function (currentUser) {
           var keywordsString = currentUser.get('keywords_string');
-          console.log(keywordsString);
           keywordsString = keywordsString.replace(keyword, '');
           _this3.get('auth').updateKeywords(_this3.get('credentials'), keywordsString.trim()).then(function () {
             _this3.get('flashMessages').success('You successfully removed: ' + keyword);
@@ -10492,7 +10490,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+da7ce841"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+16a01dd4"});
 }
 
 /* jshint ignore:end */
