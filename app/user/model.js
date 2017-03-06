@@ -7,6 +7,7 @@ export default DS.Model.extend({
   email: DS.attr('string'),
   givenname: DS.attr('string'),
   surname: DS.attr('string'),
+  keywords_string: DS.attr('string'),
 
   attendances: hasMany('attendance'),
   trips: hasMany('trip'),

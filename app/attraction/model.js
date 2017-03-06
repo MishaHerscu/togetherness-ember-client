@@ -4,11 +4,11 @@ import { hasMany } from 'ember-data/relationships';
 
 export default DS.Model.extend({
   eventful_id: DS.attr('string'),
-  // city_id: DS.attr('string'),
   city_name: DS.attr('string'),
   country_name: DS.attr('string'),
   title: DS.attr('string'),
   description: DS.attr('string'),
+  keywords_string: DS.attr('string'),
   owner: DS.attr('string'),
   db_start_time: DS.attr('string'),
   db_stop_time: DS.attr('string'),

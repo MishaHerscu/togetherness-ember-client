@@ -16,7 +16,7 @@ export default Ember.Route.extend({
     .then((result) => {
       let allAttractions = result.toArray();
       let recBool = allAttractions.length > 0 ? true : false;
-      let maxAttractionIndex = Math.min(20,allAttractions.length);
+      let maxAttractionIndex = Math.min(50,allAttractions.length);
       try {
         let sampleAttractions = allAttractions.sort(() => {
           return 0.5 - Math.random();
