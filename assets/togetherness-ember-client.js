@@ -498,7 +498,7 @@ define('togetherness-ember-client/attraction-suggestions/route', ['exports', 'em
         });
       };
 
-      return this.get('store').findAll('attraction-suggestion').then(function (result) {
+      return this.get('store').findAll('attraction-suggestion', { reload: true }).then(function (result) {
         var allAttractions = result.toArray();
         var recBool = allAttractions.length > 0 ? true : false;
         var maxAttractionIndex = Math.min(50, allAttractions.length);
@@ -2953,12 +2953,112 @@ define('togetherness-ember-client/components/keyword-tile/component', ['exports'
     actions: {
       removeKeyword: function removeKeyword() {
         this.sendAction('removeKeyword', this.get('keyword'));
+      },
+      selectKeyword: function selectKeyword() {
+        this.sendAction('selectKeyword', this.get('keyword'));
+      },
+      unSelectKeyword: function unSelectKeyword() {
+        this.sendAction('unSelectKeyword', this.get('keyword'));
       }
     }
   });
 });
 define("togetherness-ember-client/components/keyword-tile/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.5.1",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 7,
+              "column": 4
+            },
+            "end": {
+              "line": 11,
+              "column": 4
+            }
+          },
+          "moduleName": "togetherness-ember-client/components/keyword-tile/template.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("      ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("button");
+          dom.setAttribute(el1, "type", "submit");
+          dom.setAttribute(el1, "class", "btn btn-primary btn-sm");
+          var el2 = dom.createTextNode("\n        Unselect\n      ");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var element1 = dom.childAt(fragment, [1]);
+          var morphs = new Array(1);
+          morphs[0] = dom.createElementMorph(element1);
+          return morphs;
+        },
+        statements: [["element", "action", ["unSelectKeyword"], [], ["loc", [null, [8, 59], [8, 87]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child1 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.5.1",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 11,
+              "column": 4
+            },
+            "end": {
+              "line": 15,
+              "column": 4
+            }
+          },
+          "moduleName": "togetherness-ember-client/components/keyword-tile/template.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("      ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("button");
+          dom.setAttribute(el1, "type", "submit");
+          dom.setAttribute(el1, "class", "btn btn-info btn-sm");
+          var el2 = dom.createTextNode("\n        Select\n      ");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var element0 = dom.childAt(fragment, [1]);
+          var morphs = new Array(1);
+          morphs[0] = dom.createElementMorph(element0);
+          return morphs;
+        },
+        statements: [["element", "action", ["selectKeyword"], [], ["loc", [null, [12, 56], [12, 82]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
     return {
       meta: {
         "fragmentReason": {
@@ -2972,7 +3072,7 @@ define("togetherness-ember-client/components/keyword-tile/template", ["exports"]
             "column": 0
           },
           "end": {
-            "line": 9,
+            "line": 18,
             "column": 0
           }
         },
@@ -2985,13 +3085,17 @@ define("togetherness-ember-client/components/keyword-tile/template", ["exports"]
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createElement("div");
-        dom.setAttribute(el1, "class", "col-xs-2 keyword-tile");
+        dom.setAttribute(el1, "class", "col-xs-3 keyword-tile");
         var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("h3");
         var el3 = dom.createTextNode("\n    ");
         dom.appendChild(el2, el3);
         var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
         dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n    ");
         dom.appendChild(el2, el3);
@@ -3001,7 +3105,11 @@ define("togetherness-ember-client/components/keyword-tile/template", ["exports"]
         var el4 = dom.createTextNode("\n      Remove\n    ");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n  ");
+        var el3 = dom.createTextNode("\n");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("  ");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n");
@@ -3012,16 +3120,17 @@ define("togetherness-ember-client/components/keyword-tile/template", ["exports"]
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [0, 1]);
-        var element1 = dom.childAt(element0, [3]);
-        var morphs = new Array(2);
-        morphs[0] = dom.createMorphAt(element0, 1, 1);
-        morphs[1] = dom.createElementMorph(element1);
+        var element2 = dom.childAt(fragment, [0, 1]);
+        var element3 = dom.childAt(element2, [5]);
+        var morphs = new Array(3);
+        morphs[0] = dom.createMorphAt(element2, 1, 1);
+        morphs[1] = dom.createElementMorph(element3);
+        morphs[2] = dom.createMorphAt(element2, 7, 7);
         return morphs;
       },
-      statements: [["content", "keyword", ["loc", [null, [3, 4], [3, 15]]]], ["element", "action", ["removeKeyword"], [], ["loc", [null, [4, 56], [4, 82]]]]],
+      statements: [["content", "keyword.word", ["loc", [null, [3, 4], [3, 20]]]], ["element", "action", ["removeKeyword"], [], ["loc", [null, [4, 56], [4, 82]]]], ["block", "if", [["get", "keyword.selected", ["loc", [null, [7, 10], [7, 26]]]]], [], 0, 1, ["loc", [null, [7, 4], [15, 11]]]]],
       locals: [],
-      templates: []
+      templates: [child0, child1]
     };
   })());
 });
@@ -3032,6 +3141,7 @@ define('togetherness-ember-client/components/manage-keywords/component', ['expor
     isAuthenticated: _ember['default'].computed.alias('auth.isAuthenticated'),
 
     newKeyWord: '',
+    selectedKeywords: '',
 
     actions: {
       viewProfile: function viewProfile() {
@@ -3045,6 +3155,18 @@ define('togetherness-ember-client/components/manage-keywords/component', ['expor
       },
       updateKeywordSearch: function updateKeywordSearch(keywordSearch) {
         this.sendAction('updateKeywordSearch', keywordSearch);
+      },
+      removeSelectedKeywords: function removeSelectedKeywords() {
+        this.sendAction('removeSelectedKeywords');
+      },
+      removeAllKeywords: function removeAllKeywords() {
+        this.sendAction('removeAllKeywords');
+      },
+      selectKeyword: function selectKeyword(keyword) {
+        this.sendAction('selectKeyword', keyword);
+      },
+      unSelectKeyword: function unSelectKeyword(keyword) {
+        this.sendAction('unSelectKeyword', keyword);
       }
     }
   });
@@ -3061,11 +3183,11 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
               "loc": {
                 "source": null,
                 "start": {
-                  "line": 28,
+                  "line": 27,
                   "column": 8
                 },
                 "end": {
-                  "line": 32,
+                  "line": 33,
                   "column": 8
                 }
               },
@@ -3090,7 +3212,7 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
               morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
               return morphs;
             },
-            statements: [["inline", "keyword-tile", [], ["keyword", ["subexpr", "@mut", [["get", "keyword", ["loc", [null, [30, 20], [30, 27]]]]], [], []], "removeKeyword", "removeKeyword"], ["loc", [null, [29, 10], [31, 43]]]]],
+            statements: [["inline", "keyword-tile", [], ["keyword", ["subexpr", "@mut", [["get", "keyword", ["loc", [null, [29, 20], [29, 27]]]]], [], []], "removeKeyword", "removeKeyword", "selectKeyword", "selectKeyword", "unSelectKeyword", "unSelectKeyword"], ["loc", [null, [28, 10], [32, 47]]]]],
             locals: ["keyword"],
             templates: []
           };
@@ -3102,11 +3224,11 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
             "loc": {
               "source": null,
               "start": {
-                "line": 27,
+                "line": 26,
                 "column": 6
               },
               "end": {
-                "line": 33,
+                "line": 34,
                 "column": 6
               }
             },
@@ -3129,7 +3251,7 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
             dom.insertBoundary(fragment, null);
             return morphs;
           },
-          statements: [["block", "each", [["get", "keywords", ["loc", [null, [28, 16], [28, 24]]]]], [], 0, null, ["loc", [null, [28, 8], [32, 17]]]]],
+          statements: [["block", "each", [["get", "keywords", ["loc", [null, [27, 16], [27, 24]]]]], [], 0, null, ["loc", [null, [27, 8], [33, 17]]]]],
           locals: [],
           templates: [child0]
         };
@@ -3143,11 +3265,11 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
               "loc": {
                 "source": null,
                 "start": {
-                  "line": 34,
+                  "line": 35,
                   "column": 45
                 },
                 "end": {
-                  "line": 34,
+                  "line": 35,
                   "column": 77
                 }
               },
@@ -3178,11 +3300,11 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
             "loc": {
               "source": null,
               "start": {
-                "line": 33,
+                "line": 34,
                 "column": 6
               },
               "end": {
-                "line": 35,
+                "line": 36,
                 "column": 6
               }
             },
@@ -3213,7 +3335,7 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
             morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 1, 1);
             return morphs;
           },
-          statements: [["block", "link-to", ["attractions"], [], 0, null, ["loc", [null, [34, 45], [34, 89]]]]],
+          statements: [["block", "link-to", ["attractions"], [], 0, null, ["loc", [null, [35, 45], [35, 89]]]]],
           locals: [],
           templates: [child0]
         };
@@ -3231,7 +3353,7 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
               "column": 0
             },
             "end": {
-              "line": 48,
+              "line": 57,
               "column": 0
             }
           },
@@ -3253,7 +3375,11 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
           var el3 = dom.createTextNode("Add New Keywords");
           dom.appendChild(el2, el3);
           dom.appendChild(el1, el2);
-          var el2 = dom.createElement("br");
+          var el2 = dom.createTextNode("\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("h4");
+          var el3 = dom.createTextNode("You can add more than one keyword at a time seperated by commas or spaces");
+          dom.appendChild(el2, el3);
           dom.appendChild(el1, el2);
           var el2 = dom.createTextNode("\n    ");
           dom.appendChild(el1, el2);
@@ -3267,17 +3393,9 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
           var el3 = dom.createTextNode("\n      Add\n    ");
           dom.appendChild(el2, el3);
           dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n\n    ");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createElement("br");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n      ");
+          var el2 = dom.createTextNode("\n\n      ");
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("hr");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n    ");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createElement("br");
           dom.appendChild(el1, el2);
           var el2 = dom.createTextNode("\n\n    ");
           dom.appendChild(el1, el2);
@@ -3334,6 +3452,30 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("div");
           dom.setAttribute(el2, "class", "col-xs-12");
+          dom.setAttribute(el2, "style", "margin-top: 10px; margin-bottom: 10px;");
+          var el3 = dom.createTextNode("\n      ");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createElement("button");
+          dom.setAttribute(el3, "type", "submit");
+          dom.setAttribute(el3, "class", "btn btn-warning btn-md");
+          var el4 = dom.createTextNode("\n        Remove Selected Keywords\n      ");
+          dom.appendChild(el3, el4);
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("\n      ");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createElement("button");
+          dom.setAttribute(el3, "type", "submit");
+          dom.setAttribute(el3, "class", "btn btn-danger btn-md");
+          var el4 = dom.createTextNode("\n        Remove All Keywords\n      ");
+          dom.appendChild(el3, el4);
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("\n    ");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("div");
+          dom.setAttribute(el2, "class", "col-xs-12");
           var el3 = dom.createTextNode("\n      ");
           dom.appendChild(el2, el3);
           var el3 = dom.createElement("button");
@@ -3354,17 +3496,22 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
           var element0 = dom.childAt(fragment, [1]);
-          var element1 = dom.childAt(element0, [6]);
-          var element2 = dom.childAt(element0, [30, 1]);
-          var morphs = new Array(5);
-          morphs[0] = dom.createMorphAt(element0, 4, 4);
+          var element1 = dom.childAt(element0, [7]);
+          var element2 = dom.childAt(element0, [27]);
+          var element3 = dom.childAt(element2, [1]);
+          var element4 = dom.childAt(element2, [3]);
+          var element5 = dom.childAt(element0, [29, 1]);
+          var morphs = new Array(7);
+          morphs[0] = dom.createMorphAt(element0, 5, 5);
           morphs[1] = dom.createElementMorph(element1);
-          morphs[2] = dom.createMorphAt(dom.childAt(element0, [18]), 1, 1);
-          morphs[3] = dom.createMorphAt(dom.childAt(element0, [22]), 1, 1);
-          morphs[4] = dom.createElementMorph(element2);
+          morphs[2] = dom.createMorphAt(dom.childAt(element0, [15]), 1, 1);
+          morphs[3] = dom.createMorphAt(dom.childAt(element0, [19]), 1, 1);
+          morphs[4] = dom.createElementMorph(element3);
+          morphs[5] = dom.createElementMorph(element4);
+          morphs[6] = dom.createElementMorph(element5);
           return morphs;
         },
-        statements: [["inline", "keyword-input", [], ["keyword", ["subexpr", "@mut", [["get", "newKeyWord", ["loc", [null, [6, 14], [6, 24]]]]], [], []]], ["loc", [null, [5, 4], [6, 26]]]], ["element", "action", ["addKeyword"], [], ["loc", [null, [7, 57], [7, 80]]]], ["inline", "keyword-search", [], ["keywordsearch", ["subexpr", "@mut", [["get", "keywordsearch", ["loc", [null, [20, 22], [20, 35]]]]], [], []], "updateKeywordSearch", "updateKeywordSearch"], ["loc", [null, [19, 6], [21, 51]]]], ["block", "if", [["get", "keywordsBool", ["loc", [null, [27, 12], [27, 24]]]]], [], 0, 1, ["loc", [null, [27, 6], [35, 13]]]], ["element", "action", ["viewProfile"], [], ["loc", [null, [43, 59], [43, 83]]]]],
+        statements: [["inline", "keyword-input", [], ["keyword", ["subexpr", "@mut", [["get", "newKeyWord", ["loc", [null, [7, 14], [7, 24]]]]], [], []]], ["loc", [null, [6, 4], [7, 26]]]], ["element", "action", ["addKeyword"], [], ["loc", [null, [8, 57], [8, 80]]]], ["inline", "keyword-search", [], ["keywordsearch", ["subexpr", "@mut", [["get", "keywordsearch", ["loc", [null, [19, 22], [19, 35]]]]], [], []], "updateKeywordSearch", "updateKeywordSearch"], ["loc", [null, [18, 6], [20, 51]]]], ["block", "if", [["get", "keywordsBool", ["loc", [null, [26, 12], [26, 24]]]]], [], 0, 1, ["loc", [null, [26, 6], [36, 13]]]], ["element", "action", ["removeSelectedKeywords"], [], ["loc", [null, [44, 59], [44, 94]]]], ["element", "action", ["removeAllKeywords"], [], ["loc", [null, [47, 58], [47, 88]]]], ["element", "action", ["viewProfile"], [], ["loc", [null, [52, 59], [52, 83]]]]],
         locals: [],
         templates: [child0, child1]
       };
@@ -3383,7 +3530,7 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
             "column": 0
           },
           "end": {
-            "line": 49,
+            "line": 58,
             "column": 0
           }
         },
@@ -3406,7 +3553,7 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
         dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["block", "if", [["get", "isAuthenticated", ["loc", [null, [1, 6], [1, 21]]]]], [], 0, null, ["loc", [null, [1, 0], [48, 7]]]]],
+      statements: [["block", "if", [["get", "isAuthenticated", ["loc", [null, [1, 6], [1, 21]]]]], [], 0, null, ["loc", [null, [1, 0], [57, 7]]]]],
       locals: [],
       templates: [child0]
     };
@@ -10332,6 +10479,7 @@ define('togetherness-ember-client/view-keywords/route', ['exports', 'ember'], fu
     isAuthenticated: _ember['default'].computed.alias('auth.isAuthenticated'),
     flashMessages: _ember['default'].inject.service(),
     keywordSearch: '',
+    selectedKeywords: [],
 
     model: function model() {
       var _this = this;
@@ -10349,6 +10497,24 @@ define('togetherness-ember-client/view-keywords/route', ['exports', 'ember'], fu
           return keywordArray.filter(function (word) {
             return word.length > 0 && word !== ' ';
           });
+        }).then(function (keywordArray) {
+          var keywordHashArray = [];
+          keywordArray.forEach(function (word) {
+            var keywordHash = {
+              word: word,
+              selected: false
+            };
+            var selectedKeywordHashes = _this.get('selectedKeywords');
+            var selectedKeywords = [];
+            selectedKeywordHashes.forEach(function (wordHash) {
+              selectedKeywords.push(wordHash.word);
+            });
+            if (selectedKeywords.includes(word)) {
+              keywordHash.selected = true;
+            }
+            keywordHashArray.push(keywordHash);
+          });
+          return keywordHashArray;
         }),
         keywordsBool: this.get('store').findRecord('user', this.get('credentials.id')).then(function (user) {
           return user.get('keywords_string').split(' ').toArray().filter(function (word) {
@@ -10387,6 +10553,7 @@ define('togetherness-ember-client/view-keywords/route', ['exports', 'ember'], fu
             var keywordsString = currentUser.get('keywords_string') + ' ' + keyword;
             _this2.get('auth').updateKeywords(_this2.get('credentials'), keywordsString.trim()).then(function () {
               _this2.get('flashMessages').success('You successfully added: ' + keyword);
+              _this2.get('store').unloadAll();
               _this2.refresh();
             });
           }
@@ -10400,13 +10567,56 @@ define('togetherness-ember-client/view-keywords/route', ['exports', 'ember'], fu
           keywordsString = keywordsString.replace(keyword, '');
           keywordsString = keywordsString.replace('  ', ' ');
           _this3.get('auth').updateKeywords(_this3.get('credentials'), keywordsString.trim()).then(function () {
-            _this3.get('flashMessages').success('You successfully removed: ' + keyword);
+            _this3.get('flashMessages').success('You successfully removed: ' + keyword.word);
+            _this3.get('store').unloadAll();
             _this3.refresh();
           });
         });
       },
+      removeSelectedKeywords: function removeSelectedKeywords() {
+        var _this4 = this;
+
+        var selectedKeywordHashes = this.get('selectedKeywords');
+        var selectedKeywords = [];
+        selectedKeywordHashes.forEach(function (wordHash) {
+          selectedKeywords.push(wordHash.word);
+        });
+        this.get('store').findRecord('user', this.get('credentials.id')).then(function (currentUser) {
+          var keywordsString = currentUser.get('keywords_string');
+          selectedKeywords.forEach(function (keyword) {
+            keywordsString = keywordsString.replace(keyword, '');
+            keywordsString = keywordsString.replace('  ', ' ');
+            _this4.get('auth').updateKeywords(_this4.get('credentials'), keywordsString.trim()).then(function () {
+              _this4.get('flashMessages').success('You successfully removed selected keywords!');
+              _this4.get('store').unloadAll();
+              _this4.refresh();
+            });
+          });
+        });
+      },
+      removeAllKeywords: function removeAllKeywords() {
+        var _this5 = this;
+
+        this.get('auth').updateKeywords(this.get('credentials'), '').then(function () {
+          _this5.get('flashMessages').success('You successfully removed all of your keywords!');
+          _this5.get('store').unloadAll();
+          _this5.refresh();
+        });
+      },
       updateKeywordSearch: function updateKeywordSearch(keywordSearch) {
         this.set('keywordSearch', keywordSearch);
+        this.refresh();
+      },
+      selectKeyword: function selectKeyword(keyword) {
+        var selectedKeywords = this.get('selectedKeywords');
+        selectedKeywords.push(keyword);
+        this.set('selectedKeywords', selectedKeywords);
+        this.refresh();
+      },
+      unSelectKeyword: function unSelectKeyword(keyword) {
+        var selectedKeywords = this.get('selectedKeywords');
+        selectedKeywords.splice(selectedKeywords.indexOf(keyword), 1);
+        this.set('selectedKeywords', selectedKeywords);
         this.refresh();
       }
     }
@@ -10464,7 +10674,7 @@ define("togetherness-ember-client/view-keywords/template", ["exports"], function
             "column": 0
           },
           "end": {
-            "line": 11,
+            "line": 15,
             "column": 0
           }
         },
@@ -10504,7 +10714,7 @@ define("togetherness-ember-client/view-keywords/template", ["exports"], function
         morphs[1] = dom.createMorphAt(fragment, 6, 6, contextualElement);
         return morphs;
       },
-      statements: [["block", "link-to", ["profile"], [], 0, null, ["loc", [null, [2, 4], [2, 55]]]], ["inline", "manage-keywords", [], ["keywords", ["subexpr", "@mut", [["get", "model.keywords", ["loc", [null, [5, 11], [5, 25]]]]], [], []], "keywordsBool", ["subexpr", "@mut", [["get", "model.keywordsBool", ["loc", [null, [6, 15], [6, 33]]]]], [], []], "viewProfile", "viewProfile", "addKeyword", "addKeyword", "removeKeyword", "removeKeyword", "updateKeywordSearch", "updateKeywordSearch"], ["loc", [null, [4, 0], [10, 45]]]]],
+      statements: [["block", "link-to", ["profile"], [], 0, null, ["loc", [null, [2, 4], [2, 55]]]], ["inline", "manage-keywords", [], ["keywords", ["subexpr", "@mut", [["get", "model.keywords", ["loc", [null, [5, 11], [5, 25]]]]], [], []], "keywordsBool", ["subexpr", "@mut", [["get", "model.keywordsBool", ["loc", [null, [6, 15], [6, 33]]]]], [], []], "viewProfile", "viewProfile", "addKeyword", "addKeyword", "removeKeyword", "removeKeyword", "updateKeywordSearch", "updateKeywordSearch", "removeSelectedKeywords", "removeSelectedKeywords", "removeAllKeywords", "removeAllKeywords", "selectKeyword", "selectKeyword", "unSelectKeyword", "unSelectKeyword"], ["loc", [null, [4, 0], [14, 37]]]]],
       locals: [],
       templates: [child0]
     };
@@ -10542,7 +10752,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+16a01dd4"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+31d82e4a"});
 }
 
 /* jshint ignore:end */
