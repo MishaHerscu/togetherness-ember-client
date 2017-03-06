@@ -19,6 +19,11 @@ export default Ember.Route.extend({
         return keywordArray.toArray().sort((a, b) => {
           return a > b;
         });
+      })
+      .then((keywordArray) => {
+        return keywordArray.filter((word) => {
+          return word.length > 0 && word !== ' ';
+        });
       }),
       keywordsBool: this.get('store').findRecord('user', this.get('credentials.id'))
       .then((user) => {
@@ -29,6 +34,11 @@ export default Ember.Route.extend({
       .then((keywordArray) => {
         return keywordArray.toArray().sort((a, b) => {
           return a > b;
+        });
+      })
+      .then((keywordArray) => {
+        return keywordArray.filter((word) => {
+          return word.length > 0 && word !== ' ';
         });
       })
       .then((sortedKeywordArray) => {
@@ -67,6 +77,7 @@ export default Ember.Route.extend({
       .then((currentUser) => {
         let keywordsString = currentUser.get('keywords_string');
         keywordsString = keywordsString.replace(keyword, '');
+        keywordsString = keywordsString.replace('  ', ' ');
         this.get('auth').updateKeywords(this.get('credentials'), keywordsString.trim())
         .then(() => {
           this.get('flashMessages').success('You successfully removed: ' + keyword);
