@@ -35,6 +35,7 @@ export default Ember.Service.extend({
       this.get('credentials').set('token', result.user.token);
       this.get('credentials').set('givenname', result.user.givenname);
       this.get('credentials').set('surname', result.user.surname);
+      this.get('credentials').set('keywords_string', result.user.keywords_string);
     });
   },
 
@@ -61,6 +62,17 @@ export default Ember.Service.extend({
           givenname: credentials.get('givenname'),
           surname: credentials.get('surname'),
           email: credentials.get('email'),
+        },
+      },
+    });
+  },
+
+  updateKeywords (credentials, keywordString) {
+    return this.get('ajax').patch(`/users/${this.get('credentials.id')}`, {
+      data: {
+        credentials: {
+          email: credentials.get('email'),
+          keywords_string: keywordString
         },
       },
     });

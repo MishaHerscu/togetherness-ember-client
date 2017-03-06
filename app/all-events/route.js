@@ -6,12 +6,7 @@ export default Ember.Route.extend({
   credentials: storageFor('auth'),
 
   model () {
-    return this.get('store').findAll('attraction')
-    .then((result) => {
-      return result.toArray().sort(() => {
-        return 0.5 - Math.random();
-      });
-    });
+    return this.get('store').findAll('attraction');
   },
 
   actions: {

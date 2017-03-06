@@ -30,5 +30,8 @@ export default Ember.Component.extend({
     deleteProfile () {
       this.sendAction('deleteProfile');
     },
+    viewKeywords () {
+      this.sendAction('viewKeywords');
+    }
   }
 });

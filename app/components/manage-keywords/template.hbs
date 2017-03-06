@@ -1,0 +1,48 @@
+{{#if isAuthenticated}}
+  <div class="white-background-div col-xs-12">
+
+    <h3>Add New Keywords</h3><br />
+    {{keyword-input
+      keyword=newKeyWord}}
+    <button type="submit" class="btn btn-success btn-sm" {{action "addKeyword"}}>
+      Add
+    </button>
+
+    <br />
+      <hr />
+    <br />
+
+    <h3>Current Keywords</h3>
+
+    <h4>Filter</h4>
+    <div class="form-group col-xs-12">
+      {{keyword-search
+        keywordsearch=keywordsearch
+        updateKeywordSearch="updateKeywordSearch"}}
+    </div>
+
+    <br />
+    <div class="col-xs-12"
+         syle="margin-top: 15px; margin-bottom: 15px;">
+      {{#if keywordsBool}}
+        {{#each keywords as |keyword|}}
+          {{keyword-tile
+            keyword=keyword
+            removeKeyword="removeKeyword"}}
+        {{/each}}
+      {{else}}
+        <h4>You have no keywords at this time.</h4>
+      {{/if}}
+    </div>
+
+    <br />
+      <hr />
+    <br />
+
+    <div class="col-xs-12">
+      <button type="submit" class="btn btn-primary btn-lg" {{action "viewProfile"}}>
+        Return to Profile
+      </button>
+    </div>
+  </div>
+{{/if}}

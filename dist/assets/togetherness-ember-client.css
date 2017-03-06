@@ -6383,6 +6383,13 @@ td {
   margin: 10px;
   padding: 10px; }
 
+.keyword-tile {
+  background-color: #fff;
+  border: 1px solid #eee;
+  box-shadow: 2px 2px 1px #888;
+  margin: 5px;
+  padding: 5px; }
+
 .profilepicture {
   border: 0;
   border-radius: 20%;

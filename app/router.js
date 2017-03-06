@@ -25,6 +25,7 @@ Router.map(function () {
   this.route('team');
   this.route('contact');
   this.route('all-events');
+  this.route('view-keywords');
 });
 
 export default Router;

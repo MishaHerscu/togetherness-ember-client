@@ -132,6 +132,9 @@ export default Ember.Route.extend({
     },
     deleteProfile () {
       this.transitionTo('profile/delete');
+    },
+    viewKeywords () {
+      this.transitionTo('view-keywords');
     }
   },
 });
