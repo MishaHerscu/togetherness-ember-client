@@ -15,6 +15,7 @@ export default Ember.Service.extend({
           surname: credentials.surname,
           password: credentials.password,
           password_confirmation: credentials.passwordConfirmation,
+          keywords_string: ''
         },
       },
     });

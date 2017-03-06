@@ -1114,7 +1114,8 @@ define('togetherness-ember-client/auth/service', ['exports', 'ember', 'ember-loc
             givenname: credentials.givenname,
             surname: credentials.surname,
             password: credentials.password,
-            password_confirmation: credentials.passwordConfirmation
+            password_confirmation: credentials.passwordConfirmation,
+            keywords_string: ''
           }
         }
       });
@@ -3134,6 +3135,42 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
         };
       })();
       var child1 = (function () {
+        var child0 = (function () {
+          return {
+            meta: {
+              "fragmentReason": false,
+              "revision": "Ember@2.5.1",
+              "loc": {
+                "source": null,
+                "start": {
+                  "line": 34,
+                  "column": 45
+                },
+                "end": {
+                  "line": 34,
+                  "column": 77
+                }
+              },
+              "moduleName": "togetherness-ember-client/components/manage-keywords/template.hbs"
+            },
+            isEmpty: false,
+            arity: 0,
+            cachedFragment: null,
+            hasRendered: false,
+            buildFragment: function buildFragment(dom) {
+              var el0 = dom.createDocumentFragment();
+              var el1 = dom.createTextNode("Select");
+              dom.appendChild(el0, el1);
+              return el0;
+            },
+            buildRenderNodes: function buildRenderNodes() {
+              return [];
+            },
+            statements: [],
+            locals: [],
+            templates: []
+          };
+        })();
         return {
           meta: {
             "fragmentReason": false,
@@ -3160,19 +3197,25 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
             var el1 = dom.createTextNode("        ");
             dom.appendChild(el0, el1);
             var el1 = dom.createElement("h4");
-            var el2 = dom.createTextNode("You have no keywords at this time.");
+            var el2 = dom.createTextNode("You have no preference keywords. ");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createComment("");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode(" interesting attractions or simply enter keywords above to get started.");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
             var el1 = dom.createTextNode("\n");
             dom.appendChild(el0, el1);
             return el0;
           },
-          buildRenderNodes: function buildRenderNodes() {
-            return [];
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(1);
+            morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 1, 1);
+            return morphs;
           },
-          statements: [],
+          statements: [["block", "link-to", ["attractions"], [], 0, null, ["loc", [null, [34, 45], [34, 89]]]]],
           locals: [],
-          templates: []
+          templates: [child0]
         };
       })();
       return {
