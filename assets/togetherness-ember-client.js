@@ -10302,6 +10302,10 @@ define('togetherness-ember-client/view-keywords/route', ['exports', 'ember'], fu
           return keywordArray.toArray().sort(function (a, b) {
             return a > b;
           });
+        }).then(function (keywordArray) {
+          return keywordArray.filter(function (word) {
+            return word.length > 0 && word !== ' ';
+          });
         }),
         keywordsBool: this.get('store').findRecord('user', this.get('credentials.id')).then(function (user) {
           return user.get('keywords_string').split(' ').toArray().filter(function (word) {
@@ -10310,6 +10314,10 @@ define('togetherness-ember-client/view-keywords/route', ['exports', 'ember'], fu
         }).then(function (keywordArray) {
           return keywordArray.toArray().sort(function (a, b) {
             return a > b;
+          });
+        }).then(function (keywordArray) {
+          return keywordArray.filter(function (word) {
+            return word.length > 0 && word !== ' ';
           });
         }).then(function (sortedKeywordArray) {
           if (sortedKeywordArray.length === 0 || sortedKeywordArray.length === 1 && sortedKeywordArray[0] === '') {
@@ -10347,6 +10355,7 @@ define('togetherness-ember-client/view-keywords/route', ['exports', 'ember'], fu
         this.get('store').findRecord('user', this.get('credentials.id')).then(function (currentUser) {
           var keywordsString = currentUser.get('keywords_string');
           keywordsString = keywordsString.replace(keyword, '');
+          keywordsString = keywordsString.replace('  ', ' ');
           _this3.get('auth').updateKeywords(_this3.get('credentials'), keywordsString.trim()).then(function () {
             _this3.get('flashMessages').success('You successfully removed: ' + keyword);
             _this3.refresh();
