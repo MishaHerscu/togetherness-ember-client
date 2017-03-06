@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   isAuthenticated: Ember.computed.alias('auth.isAuthenticated'),
 
   newKeyWord: '',
+  selectedKeywords: '',
 
   actions: {
     viewProfile () {
@@ -19,6 +20,18 @@ export default Ember.Component.extend({
     },
     updateKeywordSearch (keywordSearch) {
       this.sendAction('updateKeywordSearch', keywordSearch);
+    },
+    removeSelectedKeywords () {
+      this.sendAction('removeSelectedKeywords');
+    },
+    removeAllKeywords () {
+      this.sendAction('removeAllKeywords');
+    },
+    selectKeyword (keyword) {
+      this.sendAction('selectKeyword', keyword);
+    },
+    unSelectKeyword (keyword) {
+      this.sendAction('unSelectKeyword', keyword);
     },
   },
 });

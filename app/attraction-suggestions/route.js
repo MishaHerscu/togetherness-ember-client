@@ -12,7 +12,7 @@ export default Ember.Route.extend({
       });
     };
 
-    return this.get('store').findAll('attraction-suggestion')
+    return this.get('store').findAll('attraction-suggestion', { reload: true } )
     .then((result) => {
       let allAttractions = result.toArray();
       let recBool = allAttractions.length > 0 ? true : false;

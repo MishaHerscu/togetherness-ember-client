@@ -1,8 +1,17 @@
-<div class="col-xs-2 keyword-tile">
+<div class="col-xs-3 keyword-tile">
   <h3>
-    {{keyword}}
+    {{keyword.word}} <br />
     <button type="submit" class="btn btn-danger btn-sm" {{action "removeKeyword"}}>
       Remove
     </button>
+    {{#if keyword.selected}}
+      <button type="submit" class="btn btn-primary btn-sm" {{action "unSelectKeyword"}}>
+        Unselect
+      </button>
+    {{else}}
+      <button type="submit" class="btn btn-info btn-sm" {{action "selectKeyword"}}>
+        Select
+      </button>
+    {{/if}}
   </h3>
 </div>

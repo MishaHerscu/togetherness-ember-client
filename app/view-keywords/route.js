@@ -6,6 +6,7 @@ export default Ember.Route.extend({
   isAuthenticated: Ember.computed.alias('auth.isAuthenticated'),
   flashMessages: Ember.inject.service(),
   keywordSearch: '',
+  selectedKeywords: [],
 
   model () {
     return Ember.RSVP.hash({
@@ -24,6 +25,25 @@ export default Ember.Route.extend({
         return keywordArray.filter((word) => {
           return word.length > 0 && word !== ' ';
         });
+      })
+      .then((keywordArray) => {
+        let keywordHashArray = [];
+        keywordArray.forEach((word) => {
+          let keywordHash = {
+            word: word,
+            selected: false
+          };
+          let selectedKeywordHashes = this.get('selectedKeywords');
+          let selectedKeywords = [];
+          selectedKeywordHashes.forEach((wordHash) => {
+            selectedKeywords.push(wordHash.word);
+          });
+          if ( selectedKeywords.includes(word) ) {
+            keywordHash.selected = true;
+          }
+          keywordHashArray.push(keywordHash);
+        });
+        return keywordHashArray;
       }),
       keywordsBool: this.get('store').findRecord('user', this.get('credentials.id'))
       .then((user) => {
@@ -67,6 +87,7 @@ export default Ember.Route.extend({
           this.get('auth').updateKeywords(this.get('credentials'), keywordsString.trim())
           .then(() => {
             this.get('flashMessages').success('You successfully added: ' + keyword);
+            this.get('store').unloadAll();
             this.refresh();
           });
         }
@@ -80,13 +101,55 @@ export default Ember.Route.extend({
         keywordsString = keywordsString.replace('  ', ' ');
         this.get('auth').updateKeywords(this.get('credentials'), keywordsString.trim())
         .then(() => {
-          this.get('flashMessages').success('You successfully removed: ' + keyword);
+          this.get('flashMessages').success('You successfully removed: ' + keyword.word);
+          this.get('store').unloadAll();
           this.refresh();
         });
       });
     },
+    removeSelectedKeywords () {
+      let selectedKeywordHashes = this.get('selectedKeywords');
+      let selectedKeywords = [];
+      selectedKeywordHashes.forEach((wordHash) => {
+        selectedKeywords.push(wordHash.word);
+      });
+      this.get('store').findRecord('user', this.get('credentials.id'))
+      .then((currentUser) => {
+        let keywordsString = currentUser.get('keywords_string');
+        selectedKeywords.forEach((keyword) => {
+          keywordsString = keywordsString.replace(keyword, '');
+          keywordsString = keywordsString.replace('  ', ' ');
+          this.get('auth').updateKeywords(this.get('credentials'), keywordsString.trim())
+          .then(() => {
+            this.get('flashMessages').success('You successfully removed selected keywords!');
+            this.get('store').unloadAll();
+            this.refresh();
+          });
+        });
+      });
+    },
+    removeAllKeywords () {
+      this.get('auth').updateKeywords(this.get('credentials'), '')
+      .then(() => {
+        this.get('flashMessages').success('You successfully removed all of your keywords!');
+        this.get('store').unloadAll();
+        this.refresh();
+      });
+    },
     updateKeywordSearch (keywordSearch) {
       this.set('keywordSearch', keywordSearch);
+      this.refresh();
+    },
+    selectKeyword (keyword) {
+      let selectedKeywords = this.get('selectedKeywords');
+      selectedKeywords.push(keyword);
+      this.set('selectedKeywords',selectedKeywords);
+      this.refresh();
+    },
+    unSelectKeyword (keyword) {
+      let selectedKeywords = this.get('selectedKeywords');
+      selectedKeywords.splice(selectedKeywords.indexOf(keyword),1);
+      this.set('selectedKeywords',selectedKeywords);
       this.refresh();
     },
   },

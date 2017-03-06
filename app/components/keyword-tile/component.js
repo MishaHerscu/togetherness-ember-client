@@ -9,5 +9,11 @@ export default Ember.Component.extend({
     removeKeyword () {
       this.sendAction('removeKeyword', this.get('keyword'));
     },
+    selectKeyword () {
+      this.sendAction('selectKeyword', this.get('keyword'));
+    },
+    unSelectKeyword () {
+      this.sendAction('unSelectKeyword', this.get('keyword'));
+    },
   },
 });
