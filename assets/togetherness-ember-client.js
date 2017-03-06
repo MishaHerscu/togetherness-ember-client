@@ -111,11 +111,7 @@ define('togetherness-ember-client/all-events/route', ['exports', 'ember', 'ember
     credentials: (0, _emberLocalStorage.storageFor)('auth'),
 
     model: function model() {
-      return this.get('store').findAll('attraction').then(function (result) {
-        return result.toArray().sort(function () {
-          return 0.5 - Math.random();
-        });
-      });
+      return this.get('store').findAll('attraction');
     },
 
     actions: {
@@ -143,88 +139,6 @@ define('togetherness-ember-client/all-events/route', ['exports', 'ember', 'ember
 define("togetherness-ember-client/all-events/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
-      var child0 = (function () {
-        var child0 = (function () {
-          return {
-            meta: {
-              "fragmentReason": false,
-              "revision": "Ember@2.5.1",
-              "loc": {
-                "source": null,
-                "start": {
-                  "line": 7,
-                  "column": 4
-                },
-                "end": {
-                  "line": 12,
-                  "column": 4
-                }
-              },
-              "moduleName": "togetherness-ember-client/all-events/template.hbs"
-            },
-            isEmpty: false,
-            arity: 0,
-            cachedFragment: null,
-            hasRendered: false,
-            buildFragment: function buildFragment(dom) {
-              var el0 = dom.createDocumentFragment();
-              var el1 = dom.createTextNode("      ");
-              dom.appendChild(el0, el1);
-              var el1 = dom.createComment("");
-              dom.appendChild(el0, el1);
-              var el1 = dom.createTextNode("\n");
-              dom.appendChild(el0, el1);
-              return el0;
-            },
-            buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-              var morphs = new Array(1);
-              morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
-              return morphs;
-            },
-            statements: [["inline", "attraction-event", [], ["attraction", ["subexpr", "@mut", [["get", "attraction", ["loc", [null, [9, 19], [9, 29]]]]], [], []], "likeAttraction", "likeAttraction", "dislikeAttraction", "dislikeAttraction"], ["loc", [null, [8, 6], [11, 47]]]]],
-            locals: [],
-            templates: []
-          };
-        })();
-        return {
-          meta: {
-            "fragmentReason": false,
-            "revision": "Ember@2.5.1",
-            "loc": {
-              "source": null,
-              "start": {
-                "line": 6,
-                "column": 2
-              },
-              "end": {
-                "line": 13,
-                "column": 2
-              }
-            },
-            "moduleName": "togetherness-ember-client/all-events/template.hbs"
-          },
-          isEmpty: false,
-          arity: 0,
-          cachedFragment: null,
-          hasRendered: false,
-          buildFragment: function buildFragment(dom) {
-            var el0 = dom.createDocumentFragment();
-            var el1 = dom.createComment("");
-            dom.appendChild(el0, el1);
-            return el0;
-          },
-          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var morphs = new Array(1);
-            morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
-            dom.insertBoundary(fragment, 0);
-            dom.insertBoundary(fragment, null);
-            return morphs;
-          },
-          statements: [["block", "if", [["get", "attraction.medium_image_url", ["loc", [null, [7, 10], [7, 37]]]]], [], 0, null, ["loc", [null, [7, 4], [12, 11]]]]],
-          locals: [],
-          templates: [child0]
-        };
-      })();
       return {
         meta: {
           "fragmentReason": false,
@@ -236,7 +150,7 @@ define("togetherness-ember-client/all-events/template", ["exports"], function (e
               "column": 0
             },
             "end": {
-              "line": 14,
+              "line": 10,
               "column": 0
             }
           },
@@ -248,20 +162,22 @@ define("togetherness-ember-client/all-events/template", ["exports"], function (e
         hasRendered: false,
         buildFragment: function buildFragment(dom) {
           var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("  ");
+          dom.appendChild(el0, el1);
           var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
           dom.appendChild(el0, el1);
           return el0;
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
           var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
-          dom.insertBoundary(fragment, 0);
-          dom.insertBoundary(fragment, null);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
           return morphs;
         },
-        statements: [["block", "if", [["get", "attraction.description", ["loc", [null, [6, 8], [6, 30]]]]], [], 0, null, ["loc", [null, [6, 2], [13, 9]]]]],
+        statements: [["inline", "attraction-event", [], ["attraction", ["subexpr", "@mut", [["get", "attraction", ["loc", [null, [7, 15], [7, 25]]]]], [], []], "likeAttraction", "likeAttraction", "dislikeAttraction", "dislikeAttraction"], ["loc", [null, [6, 2], [9, 43]]]]],
         locals: ["attraction"],
-        templates: [child0]
+        templates: []
       };
     })();
     return {
@@ -278,7 +194,7 @@ define("togetherness-ember-client/all-events/template", ["exports"], function (e
             "column": 0
           },
           "end": {
-            "line": 15,
+            "line": 11,
             "column": 0
           }
         },
@@ -314,7 +230,7 @@ define("togetherness-ember-client/all-events/template", ["exports"], function (e
         dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["block", "each", [["get", "model", ["loc", [null, [5, 8], [5, 13]]]]], [], 0, null, ["loc", [null, [5, 0], [14, 9]]]]],
+      statements: [["block", "each", [["get", "model", ["loc", [null, [5, 8], [5, 13]]]]], [], 0, null, ["loc", [null, [5, 0], [10, 9]]]]],
       locals: [],
       templates: [child0]
     };
@@ -1220,6 +1136,7 @@ define('togetherness-ember-client/auth/service', ['exports', 'ember', 'ember-loc
         _this.get('credentials').set('token', result.user.token);
         _this.get('credentials').set('givenname', result.user.givenname);
         _this.get('credentials').set('surname', result.user.surname);
+        _this.get('credentials').set('keywords_string', result.user.keywords_string);
       });
     },
 
@@ -1249,6 +1166,17 @@ define('togetherness-ember-client/auth/service', ['exports', 'ember', 'ember-loc
             givenname: credentials.get('givenname'),
             surname: credentials.get('surname'),
             email: credentials.get('email')
+          }
+        }
+      });
+    },
+
+    updateKeywords: function updateKeywords(credentials, keywordString) {
+      return this.get('ajax').patch('/users/' + this.get('credentials.id'), {
+        data: {
+          credentials: {
+            email: credentials.get('email'),
+            keywords_string: keywordString
           }
         }
       });
@@ -2898,6 +2826,546 @@ define("togetherness-ember-client/components/hamburger-menu/template", ["exports
       statements: [],
       locals: [],
       templates: []
+    };
+  })());
+});
+define('togetherness-ember-client/components/keyword-input/component', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Component.extend({
+    tagName: 'div',
+    classNames: ['form-group']
+  });
+});
+define("togetherness-ember-client/components/keyword-input/template", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["multiple-nodes", "wrong-type"]
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 6,
+            "column": 0
+          }
+        },
+        "moduleName": "togetherness-ember-client/components/keyword-input/template.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("label");
+        dom.setAttribute(el1, "for", "email");
+        var el2 = dom.createTextNode("New Keyword");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+        return morphs;
+      },
+      statements: [["inline", "input", [], ["type", "text", "id", "keyword", "placeholder", "Keyword of Interest", "value", ["subexpr", "@mut", [["get", "keyword", ["loc", [null, [5, 14], [5, 21]]]]], [], []]], ["loc", [null, [2, 0], [5, 23]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
+define('togetherness-ember-client/components/keyword-search/component', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Component.extend({
+
+    actions: {
+      updateKeywordSearch: function updateKeywordSearch() {
+        this.sendAction('updateKeywordSearch', this.get('keywordSearch'));
+      }
+    }
+  });
+});
+define("togetherness-ember-client/components/keyword-search/template", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type"]
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 5,
+            "column": 0
+          }
+        },
+        "moduleName": "togetherness-ember-client/components/keyword-search/template.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        return morphs;
+      },
+      statements: [["inline", "input", [], ["placeholder", "Search", "value", ["subexpr", "@mut", [["get", "keywordSearch", ["loc", [null, [3, 8], [3, 21]]]]], [], []], "key-up", "updateKeywordSearch"], ["loc", [null, [1, 0], [4, 32]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
+define('togetherness-ember-client/components/keyword-tile/component', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Component.extend({
+    auth: _ember['default'].inject.service(),
+    credentials: _ember['default'].computed.alias('auth.credentials'),
+    isAuthenticated: _ember['default'].computed.alias('auth.isAuthenticated'),
+
+    actions: {
+      removeKeyword: function removeKeyword() {
+        this.sendAction('removeKeyword', this.get('keyword'));
+      }
+    }
+  });
+});
+define("togetherness-ember-client/components/keyword-tile/template", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "triple-curlies"
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 9,
+            "column": 0
+          }
+        },
+        "moduleName": "togetherness-ember-client/components/keyword-tile/template.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "col-xs-2 keyword-tile");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h3");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("button");
+        dom.setAttribute(el3, "type", "submit");
+        dom.setAttribute(el3, "class", "btn btn-danger btn-sm");
+        var el4 = dom.createTextNode("\n      Remove\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var element0 = dom.childAt(fragment, [0, 1]);
+        var element1 = dom.childAt(element0, [3]);
+        var morphs = new Array(2);
+        morphs[0] = dom.createMorphAt(element0, 1, 1);
+        morphs[1] = dom.createElementMorph(element1);
+        return morphs;
+      },
+      statements: [["content", "keyword", ["loc", [null, [3, 4], [3, 15]]]], ["element", "action", ["removeKeyword"], [], ["loc", [null, [4, 56], [4, 82]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
+define('togetherness-ember-client/components/manage-keywords/component', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Component.extend({
+    auth: _ember['default'].inject.service(),
+    credentials: _ember['default'].computed.alias('auth.credentials'),
+    isAuthenticated: _ember['default'].computed.alias('auth.isAuthenticated'),
+
+    newKeyWord: '',
+
+    actions: {
+      viewProfile: function viewProfile() {
+        this.sendAction('viewProfile');
+      },
+      addKeyword: function addKeyword() {
+        this.sendAction('addKeyword', this.get('newKeyWord'));
+      },
+      removeKeyword: function removeKeyword(keyword) {
+        this.sendAction('removeKeyword', keyword);
+      },
+      updateKeywordSearch: function updateKeywordSearch(keywordSearch) {
+        this.sendAction('updateKeywordSearch', keywordSearch);
+      }
+    }
+  });
+});
+define("togetherness-ember-client/components/manage-keywords/template", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      var child0 = (function () {
+        var child0 = (function () {
+          return {
+            meta: {
+              "fragmentReason": false,
+              "revision": "Ember@2.5.1",
+              "loc": {
+                "source": null,
+                "start": {
+                  "line": 28,
+                  "column": 8
+                },
+                "end": {
+                  "line": 32,
+                  "column": 8
+                }
+              },
+              "moduleName": "togetherness-ember-client/components/manage-keywords/template.hbs"
+            },
+            isEmpty: false,
+            arity: 1,
+            cachedFragment: null,
+            hasRendered: false,
+            buildFragment: function buildFragment(dom) {
+              var el0 = dom.createDocumentFragment();
+              var el1 = dom.createTextNode("          ");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createComment("");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createTextNode("\n");
+              dom.appendChild(el0, el1);
+              return el0;
+            },
+            buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+              var morphs = new Array(1);
+              morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+              return morphs;
+            },
+            statements: [["inline", "keyword-tile", [], ["keyword", ["subexpr", "@mut", [["get", "keyword", ["loc", [null, [30, 20], [30, 27]]]]], [], []], "removeKeyword", "removeKeyword"], ["loc", [null, [29, 10], [31, 43]]]]],
+            locals: ["keyword"],
+            templates: []
+          };
+        })();
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.5.1",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 27,
+                "column": 6
+              },
+              "end": {
+                "line": 33,
+                "column": 6
+              }
+            },
+            "moduleName": "togetherness-ember-client/components/manage-keywords/template.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createComment("");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(1);
+            morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+            dom.insertBoundary(fragment, 0);
+            dom.insertBoundary(fragment, null);
+            return morphs;
+          },
+          statements: [["block", "each", [["get", "keywords", ["loc", [null, [28, 16], [28, 24]]]]], [], 0, null, ["loc", [null, [28, 8], [32, 17]]]]],
+          locals: [],
+          templates: [child0]
+        };
+      })();
+      var child1 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.5.1",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 33,
+                "column": 6
+              },
+              "end": {
+                "line": 35,
+                "column": 6
+              }
+            },
+            "moduleName": "togetherness-ember-client/components/manage-keywords/template.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("        ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("h4");
+            var el2 = dom.createTextNode("You have no keywords at this time.");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes() {
+            return [];
+          },
+          statements: [],
+          locals: [],
+          templates: []
+        };
+      })();
+      return {
+        meta: {
+          "fragmentReason": {
+            "name": "triple-curlies"
+          },
+          "revision": "Ember@2.5.1",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 1,
+              "column": 0
+            },
+            "end": {
+              "line": 48,
+              "column": 0
+            }
+          },
+          "moduleName": "togetherness-ember-client/components/manage-keywords/template.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("  ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "white-background-div col-xs-12");
+          var el2 = dom.createTextNode("\n\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("h3");
+          var el3 = dom.createTextNode("Add New Keywords");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("br");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("button");
+          dom.setAttribute(el2, "type", "submit");
+          dom.setAttribute(el2, "class", "btn btn-success btn-sm");
+          var el3 = dom.createTextNode("\n      Add\n    ");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("br");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n      ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("hr");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("br");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("h3");
+          var el3 = dom.createTextNode("Current Keywords");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("h4");
+          var el3 = dom.createTextNode("Filter");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("div");
+          dom.setAttribute(el2, "class", "form-group col-xs-12");
+          var el3 = dom.createTextNode("\n      ");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createComment("");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("\n    ");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("br");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("div");
+          dom.setAttribute(el2, "class", "col-xs-12");
+          dom.setAttribute(el2, "syle", "margin-top: 15px; margin-bottom: 15px;");
+          var el3 = dom.createTextNode("\n");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createComment("");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("    ");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("br");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n      ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("hr");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("br");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("div");
+          dom.setAttribute(el2, "class", "col-xs-12");
+          var el3 = dom.createTextNode("\n      ");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createElement("button");
+          dom.setAttribute(el3, "type", "submit");
+          dom.setAttribute(el3, "class", "btn btn-primary btn-lg");
+          var el4 = dom.createTextNode("\n        Return to Profile\n      ");
+          dom.appendChild(el3, el4);
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("\n    ");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n  ");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var element0 = dom.childAt(fragment, [1]);
+          var element1 = dom.childAt(element0, [6]);
+          var element2 = dom.childAt(element0, [30, 1]);
+          var morphs = new Array(5);
+          morphs[0] = dom.createMorphAt(element0, 4, 4);
+          morphs[1] = dom.createElementMorph(element1);
+          morphs[2] = dom.createMorphAt(dom.childAt(element0, [18]), 1, 1);
+          morphs[3] = dom.createMorphAt(dom.childAt(element0, [22]), 1, 1);
+          morphs[4] = dom.createElementMorph(element2);
+          return morphs;
+        },
+        statements: [["inline", "keyword-input", [], ["keyword", ["subexpr", "@mut", [["get", "newKeyWord", ["loc", [null, [6, 14], [6, 24]]]]], [], []]], ["loc", [null, [5, 4], [6, 26]]]], ["element", "action", ["addKeyword"], [], ["loc", [null, [7, 57], [7, 80]]]], ["inline", "keyword-search", [], ["keywordsearch", ["subexpr", "@mut", [["get", "keywordsearch", ["loc", [null, [20, 22], [20, 35]]]]], [], []], "updateKeywordSearch", "updateKeywordSearch"], ["loc", [null, [19, 6], [21, 51]]]], ["block", "if", [["get", "keywordsBool", ["loc", [null, [27, 12], [27, 24]]]]], [], 0, 1, ["loc", [null, [27, 6], [35, 13]]]], ["element", "action", ["viewProfile"], [], ["loc", [null, [43, 59], [43, 83]]]]],
+        locals: [],
+        templates: [child0, child1]
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type"]
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 49,
+            "column": 0
+          }
+        },
+        "moduleName": "togetherness-ember-client/components/manage-keywords/template.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        dom.insertBoundary(fragment, null);
+        return morphs;
+      },
+      statements: [["block", "if", [["get", "isAuthenticated", ["loc", [null, [1, 6], [1, 21]]]]], [], 0, null, ["loc", [null, [1, 0], [48, 7]]]]],
+      locals: [],
+      templates: [child0]
     };
   })());
 });
@@ -6982,6 +7450,9 @@ define('togetherness-ember-client/components/user-profile/component', ['exports'
       },
       deleteProfile: function deleteProfile() {
         this.sendAction('deleteProfile');
+      },
+      viewKeywords: function viewKeywords() {
+        this.sendAction('viewKeywords');
       }
     }
   });
@@ -7126,7 +7597,7 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
               "column": 2
             },
             "end": {
-              "line": 113,
+              "line": 117,
               "column": 2
             }
           },
@@ -7340,6 +7811,14 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("button");
           dom.setAttribute(el2, "type", "submit");
+          dom.setAttribute(el2, "class", "btn btn-success");
+          var el3 = dom.createTextNode("\n        Manage Keywords\n      ");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n\n      ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("button");
+          dom.setAttribute(el2, "type", "submit");
           dom.setAttribute(el2, "class", "btn btn-primary");
           var el3 = dom.createTextNode("\n        Edit Profile\n      ");
           dom.appendChild(el2, el3);
@@ -7365,7 +7844,8 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
           var element2 = dom.childAt(fragment, [13]);
           var element3 = dom.childAt(element2, [21]);
           var element4 = dom.childAt(element2, [23]);
-          var morphs = new Array(11);
+          var element5 = dom.childAt(element2, [25]);
+          var morphs = new Array(12);
           morphs[0] = dom.createMorphAt(element0, 0, 0);
           morphs[1] = dom.createMorphAt(element0, 2, 2);
           morphs[2] = dom.createMorphAt(dom.childAt(element1, [1, 3]), 0, 0);
@@ -7377,9 +7857,10 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
           morphs[8] = dom.createMorphAt(dom.childAt(element2, [17]), 1, 1);
           morphs[9] = dom.createElementMorph(element3);
           morphs[10] = dom.createElementMorph(element4);
+          morphs[11] = dom.createElementMorph(element5);
           return morphs;
         },
-        statements: [["content", "user.givenname", ["loc", [null, [5, 8], [5, 26]]]], ["content", "user.surname", ["loc", [null, [5, 27], [5, 43]]]], ["content", "user.id", ["loc", [null, [16, 16], [16, 27]]]], ["content", "user.givenname", ["loc", [null, [20, 16], [20, 34]]]], ["content", "user.surname", ["loc", [null, [24, 16], [24, 32]]]], ["content", "user.email", ["loc", [null, [28, 16], [28, 30]]]], ["block", "each", [["get", "awaitingApproval", ["loc", [null, [43, 16], [43, 32]]]]], [], 0, null, ["loc", [null, [43, 8], [56, 17]]]], ["block", "each", [["get", "pendingRequests", ["loc", [null, [65, 16], [65, 31]]]]], [], 1, null, ["loc", [null, [65, 8], [78, 17]]]], ["block", "each", [["get", "friends", ["loc", [null, [87, 16], [87, 23]]]]], [], 2, null, ["loc", [null, [87, 8], [100, 17]]]], ["element", "action", ["editProfile"], [], ["loc", [null, [105, 52], [105, 76]]]], ["element", "action", ["deleteProfile"], [], ["loc", [null, [109, 51], [109, 77]]]]],
+        statements: [["content", "user.givenname", ["loc", [null, [5, 8], [5, 26]]]], ["content", "user.surname", ["loc", [null, [5, 27], [5, 43]]]], ["content", "user.id", ["loc", [null, [16, 16], [16, 27]]]], ["content", "user.givenname", ["loc", [null, [20, 16], [20, 34]]]], ["content", "user.surname", ["loc", [null, [24, 16], [24, 32]]]], ["content", "user.email", ["loc", [null, [28, 16], [28, 30]]]], ["block", "each", [["get", "awaitingApproval", ["loc", [null, [43, 16], [43, 32]]]]], [], 0, null, ["loc", [null, [43, 8], [56, 17]]]], ["block", "each", [["get", "pendingRequests", ["loc", [null, [65, 16], [65, 31]]]]], [], 1, null, ["loc", [null, [65, 8], [78, 17]]]], ["block", "each", [["get", "friends", ["loc", [null, [87, 16], [87, 23]]]]], [], 2, null, ["loc", [null, [87, 8], [100, 17]]]], ["element", "action", ["viewKeywords"], [], ["loc", [null, [105, 52], [105, 77]]]], ["element", "action", ["editProfile"], [], ["loc", [null, [109, 52], [109, 76]]]], ["element", "action", ["deleteProfile"], [], ["loc", [null, [113, 51], [113, 77]]]]],
         locals: [],
         templates: [child0, child1, child2]
       };
@@ -7397,7 +7878,7 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
             "column": 0
           },
           "end": {
-            "line": 115,
+            "line": 119,
             "column": 0
           }
         },
@@ -7431,7 +7912,7 @@ define("togetherness-ember-client/components/user-profile/template", ["exports"]
         morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0]), 3, 3);
         return morphs;
       },
-      statements: [["block", "if", [["get", "isAuthenticated", ["loc", [null, [4, 8], [4, 23]]]]], [], 0, null, ["loc", [null, [4, 2], [113, 9]]]]],
+      statements: [["block", "if", [["get", "isAuthenticated", ["loc", [null, [4, 8], [4, 23]]]]], [], 0, null, ["loc", [null, [4, 2], [117, 9]]]]],
       locals: [],
       templates: [child0]
     };
@@ -8600,6 +9081,9 @@ define('togetherness-ember-client/profile/route', ['exports', 'ember', 'ember-lo
       },
       deleteProfile: function deleteProfile() {
         this.transitionTo('profile/delete');
+      },
+      viewKeywords: function viewKeywords() {
+        this.transitionTo('view-keywords');
       }
     }
   });
@@ -8620,7 +9104,7 @@ define("togetherness-ember-client/profile/template", ["exports"], function (expo
             "column": 0
           },
           "end": {
-            "line": 16,
+            "line": 17,
             "column": 0
           }
         },
@@ -8653,7 +9137,7 @@ define("togetherness-ember-client/profile/template", ["exports"], function (expo
         morphs[0] = dom.createMorphAt(fragment, 4, 4, contextualElement);
         return morphs;
       },
-      statements: [["inline", "user-profile", [], ["user", ["subexpr", "@mut", [["get", "model.user", ["loc", [null, [4, 7], [4, 17]]]]], [], []], "friends", ["subexpr", "@mut", [["get", "model.friends", ["loc", [null, [5, 10], [5, 23]]]]], [], []], "awaitingApproval", ["subexpr", "@mut", [["get", "model.awaitingApproval", ["loc", [null, [6, 19], [6, 41]]]]], [], []], "pendingRequests", ["subexpr", "@mut", [["get", "model.pendingRequests", ["loc", [null, [7, 18], [7, 39]]]]], [], []], "removeFriend", "removeFriend", "cancelRequest", "cancelRequest", "acceptRequest", "acceptRequest", "declineRequest", "declineRequest", "unRequestFriend", "unRequestFriend", "changePassword", "changePassword", "editProfile", "editProfile", "deleteProfile", "deleteProfile"], ["loc", [null, [3, 0], [15, 33]]]]],
+      statements: [["inline", "user-profile", [], ["user", ["subexpr", "@mut", [["get", "model.user", ["loc", [null, [4, 7], [4, 17]]]]], [], []], "friends", ["subexpr", "@mut", [["get", "model.friends", ["loc", [null, [5, 10], [5, 23]]]]], [], []], "awaitingApproval", ["subexpr", "@mut", [["get", "model.awaitingApproval", ["loc", [null, [6, 19], [6, 41]]]]], [], []], "pendingRequests", ["subexpr", "@mut", [["get", "model.pendingRequests", ["loc", [null, [7, 18], [7, 39]]]]], [], []], "removeFriend", "removeFriend", "cancelRequest", "cancelRequest", "acceptRequest", "acceptRequest", "declineRequest", "declineRequest", "unRequestFriend", "unRequestFriend", "changePassword", "changePassword", "editProfile", "editProfile", "deleteProfile", "deleteProfile", "viewKeywords", "viewKeywords"], ["loc", [null, [3, 0], [16, 31]]]]],
       locals: [],
       templates: []
     };
@@ -8688,6 +9172,7 @@ define('togetherness-ember-client/router', ['exports', 'ember', 'togetherness-em
     this.route('team');
     this.route('contact');
     this.route('all-events');
+    this.route('view-keywords');
   });
 
   exports['default'] = Router;
@@ -9797,6 +10282,184 @@ define('togetherness-ember-client/utils/load-disqus-api', ['exports', 'ember-dis
     }
   });
 });
+define('togetherness-ember-client/view-keywords/route', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Route.extend({
+    auth: _ember['default'].inject.service(),
+    credentials: _ember['default'].computed.alias('auth.credentials'),
+    isAuthenticated: _ember['default'].computed.alias('auth.isAuthenticated'),
+    flashMessages: _ember['default'].inject.service(),
+    keywordSearch: '',
+
+    model: function model() {
+      var _this = this;
+
+      return _ember['default'].RSVP.hash({
+        keywords: this.get('store').findRecord('user', this.get('credentials.id')).then(function (user) {
+          return user.get('keywords_string').split(' ').toArray().filter(function (word) {
+            return _this.get('keywordSearch').toLowerCase() === word.substr(0, _this.get('keywordSearch').length).toLowerCase();
+          });
+        }).then(function (keywordArray) {
+          return keywordArray.toArray().sort(function (a, b) {
+            return a > b;
+          });
+        }),
+        keywordsBool: this.get('store').findRecord('user', this.get('credentials.id')).then(function (user) {
+          return user.get('keywords_string').split(' ').toArray().filter(function (word) {
+            return _this.get('keywordSearch').toLowerCase() === word.substr(0, _this.get('keywordSearch').length).toLowerCase();
+          });
+        }).then(function (keywordArray) {
+          return keywordArray.toArray().sort(function (a, b) {
+            return a > b;
+          });
+        }).then(function (sortedKeywordArray) {
+          if (sortedKeywordArray.length === 0 || sortedKeywordArray.length === 1 && sortedKeywordArray[0] === '') {
+            return false;
+          } else {
+            return true;
+          }
+        })
+      });
+    },
+
+    actions: {
+      viewProfile: function viewProfile() {
+        this.transitionTo('profile');
+      },
+      addKeyword: function addKeyword(keyword) {
+        var _this2 = this;
+
+        this.get('store').findRecord('user', this.get('credentials.id')).then(function (currentUser) {
+          var keywordsArray = currentUser.get('keywords_string').split(' ');
+          console.log(keywordsArray);
+          if (keywordsArray.includes(keyword)) {
+            _this2.get('flashMessages').warning('You already have that keyword!');
+          } else {
+            var keywordsString = currentUser.get('keywords_string') + ' ' + keyword;
+            _this2.get('auth').updateKeywords(_this2.get('credentials'), keywordsString.trim()).then(function () {
+              _this2.get('flashMessages').success('You successfully added: ' + keyword);
+              _this2.refresh();
+            });
+          }
+        });
+      },
+      removeKeyword: function removeKeyword(keyword) {
+        var _this3 = this;
+
+        this.get('store').findRecord('user', this.get('credentials.id')).then(function (currentUser) {
+          var keywordsString = currentUser.get('keywords_string');
+          console.log(keywordsString);
+          keywordsString = keywordsString.replace(keyword, '');
+          _this3.get('auth').updateKeywords(_this3.get('credentials'), keywordsString.trim()).then(function () {
+            _this3.get('flashMessages').success('You successfully removed: ' + keyword);
+            _this3.refresh();
+          });
+        });
+      },
+      updateKeywordSearch: function updateKeywordSearch(keywordSearch) {
+        this.set('keywordSearch', keywordSearch);
+        this.refresh();
+      }
+    }
+  });
+});
+define("togetherness-ember-client/view-keywords/template", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.5.1",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 2,
+              "column": 4
+            },
+            "end": {
+              "line": 2,
+              "column": 43
+            }
+          },
+          "moduleName": "togetherness-ember-client/view-keywords/template.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("Return to Profile");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes() {
+          return [];
+        },
+        statements: [],
+        locals: [],
+        templates: []
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["multiple-nodes", "wrong-type"]
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 11,
+            "column": 0
+          }
+        },
+        "moduleName": "togetherness-ember-client/view-keywords/template.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("h2");
+        var el2 = dom.createTextNode("Your Search Keywords");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("h4");
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("br");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(2);
+        morphs[0] = dom.createMorphAt(dom.childAt(fragment, [2]), 0, 0);
+        morphs[1] = dom.createMorphAt(fragment, 6, 6, contextualElement);
+        return morphs;
+      },
+      statements: [["block", "link-to", ["profile"], [], 0, null, ["loc", [null, [2, 4], [2, 55]]]], ["inline", "manage-keywords", [], ["keywords", ["subexpr", "@mut", [["get", "model.keywords", ["loc", [null, [5, 11], [5, 25]]]]], [], []], "keywordsBool", ["subexpr", "@mut", [["get", "model.keywordsBool", ["loc", [null, [6, 15], [6, 33]]]]], [], []], "viewProfile", "viewProfile", "addKeyword", "addKeyword", "removeKeyword", "removeKeyword", "updateKeywordSearch", "updateKeywordSearch"], ["loc", [null, [4, 0], [10, 45]]]]],
+      locals: [],
+      templates: [child0]
+    };
+  })());
+});
 /* jshint ignore:start */
 
 
@@ -9829,7 +10492,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+18bf6de9"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+da7ce841"});
 }
 
 /* jshint ignore:end */
