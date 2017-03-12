@@ -3,11 +3,21 @@
 <br />
 <br />
 
-{{#each model as |category|}}
-  Name: <strong>{{category.label}}</strong><br />
-  ID: <strong>{{category.title}}</strong>
-
-  <br />
-    <hr>
-  <br />
-{{/each}}
+<div class="col-xs-6">
+  <table class="table table-striped table-condensed table-bordered table-hover">
+    <tbody>
+      <tr>
+        <th>Index</th>
+        <th>Name</th>
+        <th>ID</th>
+      </tr>
+      {{#each model as |category index|}}
+        <tr>
+          <td>{{index}}</td>
+          <td>{{category.label}}</td>
+          <td>{{category.title}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

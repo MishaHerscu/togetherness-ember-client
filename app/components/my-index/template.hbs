@@ -1,30 +1,33 @@
-<div class="col-xs-10 col-xs-offset-1">
+<div class="col-xs-12">
   {{#if isAuthenticated}}
     <div class="col-xs-12">
       <div class="col-xs-12">
         <h1>Hi {{credentials.givenname}}!</h1>
       </div>
     </div>
+
+    <br />
+      <hr>
     <br />
 
     <div class="col-xs-12">
-      <div class="col-xs-3 small-home-button">
+      <div class="col-xs-2 small-home-button">
         {{#link-to "trips"}}
           <button class="col-xs-12"
                   style="height:100%">
-            Your Trips
+            Trip Planning
           </button>
         {{/link-to}}
       </div>
-      <div class="col-xs-3 small-home-button">
+      <div class="col-xs-2 small-home-button">
         {{#link-to "attendances"}}
           <button class="col-xs-12"
                   style="height:100%">
-            All Your Attendances
+            All Your Trips
           </button>
         {{/link-to}}
       </div>
-      <div class="col-xs-3 small-home-button">
+      <div class="col-xs-2 small-home-button">
         {{#link-to "profile"}}
           <button class="col-xs-12"
                   style="height:100%">
@@ -32,23 +35,23 @@
           </button>
         {{/link-to}}
       </div>
-      <div class="col-xs-3 small-home-button">
+      <div class="col-xs-2 small-home-button">
         {{#link-to "attractions"}}
           <button class="col-xs-12"
                   style="height:100%">
-            Train Model
+            Set Interests
           </button>
         {{/link-to}}
       </div>
-      <div class="col-xs-3 small-home-button">
+      <div class="col-xs-2 small-home-button">
         {{#link-to "attraction-suggestions"}}
           <button class="col-xs-12"
                   style="height:100%">
-            Event Suggestions
+            Suggestions
           </button>
         {{/link-to}}
       </div>
-      <div class="col-xs-3 small-home-button">
+      <div class="col-xs-2 small-home-button">
         {{#link-to "all-events"}}
           <button class="col-xs-12"
                   style="height:100%">
@@ -56,7 +59,15 @@
           </button>
         {{/link-to}}
       </div>
-      <div class="col-xs-3 small-home-button">
+      <div class="col-xs-2 small-home-button">
+        {{#link-to "categories"}}
+          <button class="col-xs-12"
+                  style="height:100%">
+            Event Categories
+          </button>
+        {{/link-to}}
+      </div>
+      <div class="col-xs-2 small-home-button">
         {{#link-to "cities"}}
           <button class="col-xs-12"
                   style="height:100%">
@@ -64,7 +75,7 @@
           </button>
         {{/link-to}}
       </div>
-      <div class="col-xs-3 small-home-button">
+      <div class="col-xs-2 small-home-button">
         {{#link-to "people"}}
           <button class="col-xs-12"
                   style="height:100%">
@@ -72,7 +83,7 @@
           </button>
         {{/link-to}}
       </div>
-      <div class="col-xs-3 small-home-button">
+      <div class="col-xs-2 small-home-button">
         {{#link-to "change-password"}}
           <button class="col-xs-12"
                   style="height:100%">
