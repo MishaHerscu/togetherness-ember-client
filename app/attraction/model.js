@@ -29,10 +29,10 @@ export default DS.Model.extend({
 
   city: belongsTo('city'),
 
-  attraction_tags: hasMany('attraction_tag', {
+  attraction_suggestions: hasMany('attraction_suggestion', {
     inverse: 'attraction'
   }),
-  attraction_suggestions: hasMany('attraction_suggestion', {
+  attraction_categories: hasMany('attraction_category', {
     inverse: 'attraction'
   }),
 });

@@ -1,0 +1,14 @@
+<h2>Attraction Categories</h2>
+
+<br />
+<br />
+<ul>
+  {{#each model as |attractionCategory|}}
+    <li>
+      <strong>{{attractionCategory.attraction}}</strong>
+      is in the
+      <strong>{{attractionCategory.category.title}}</strong>
+      category.
+    </li>
+  {{/each}}
+</ul>

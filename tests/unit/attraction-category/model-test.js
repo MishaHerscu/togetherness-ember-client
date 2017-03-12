@@ -1,6 +1,6 @@
 import { moduleForModel, test } from 'ember-qunit';
 
-moduleForModel('user-tag', 'Unit | Model | user tag', {
+moduleForModel('attraction-category', 'Unit | Model | attraction category', {
   // Specify the other units that are required for this test.
   needs: []
 });

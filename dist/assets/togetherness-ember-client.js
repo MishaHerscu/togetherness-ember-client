@@ -477,6 +477,142 @@ define("togetherness-ember-client/attendances/template", ["exports"], function (
     };
   })());
 });
+define('togetherness-ember-client/attraction-categories/route', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Route.extend({
+    model: function model() {
+      return this.get('store').findAll('attraction-categories');
+    }
+  });
+});
+define("togetherness-ember-client/attraction-categories/template", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.5.1",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 6,
+              "column": 2
+            },
+            "end": {
+              "line": 13,
+              "column": 2
+            }
+          },
+          "moduleName": "togetherness-ember-client/attraction-categories/template.hbs"
+        },
+        isEmpty: false,
+        arity: 1,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("    ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("li");
+          var el2 = dom.createTextNode("\n      ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("strong");
+          var el3 = dom.createComment("");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n      is in the\n      ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("strong");
+          var el3 = dom.createComment("");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n      category.\n    ");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var element0 = dom.childAt(fragment, [1]);
+          var morphs = new Array(2);
+          morphs[0] = dom.createMorphAt(dom.childAt(element0, [1]), 0, 0);
+          morphs[1] = dom.createMorphAt(dom.childAt(element0, [3]), 0, 0);
+          return morphs;
+        },
+        statements: [["content", "attractionCategory.attraction", ["loc", [null, [8, 14], [8, 47]]]], ["content", "attractionCategory.category.title", ["loc", [null, [10, 14], [10, 51]]]]],
+        locals: ["attractionCategory"],
+        templates: []
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["multiple-nodes"]
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 15,
+            "column": 0
+          }
+        },
+        "moduleName": "togetherness-ember-client/attraction-categories/template.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("h2");
+        var el2 = dom.createTextNode("Attraction Categories");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("br");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("br");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("ul");
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(dom.childAt(fragment, [6]), 1, 1);
+        return morphs;
+      },
+      statements: [["block", "each", [["get", "model", ["loc", [null, [6, 10], [6, 15]]]]], [], 0, null, ["loc", [null, [6, 2], [13, 11]]]]],
+      locals: [],
+      templates: [child0]
+    };
+  })());
+});
+define('togetherness-ember-client/attraction-category/model', ['exports', 'ember-data', 'ember-data/relationships'], function (exports, _emberData, _emberDataRelationships) {
+  // import { hasMany } from 'ember-data/relationships';
+
+  exports['default'] = _emberData['default'].Model.extend({
+    attraction: (0, _emberDataRelationships.belongsTo)('attraction'),
+    category: (0, _emberDataRelationships.belongsTo)('category')
+  });
+});
 define('togetherness-ember-client/attraction-suggestion/model', ['exports', 'ember-data', 'ember-data/relationships'], function (exports, _emberData, _emberDataRelationships) {
   // import { hasMany } from 'ember-data/relationships';
 
@@ -841,14 +977,6 @@ define("togetherness-ember-client/attraction-suggestions/template", ["exports"],
     };
   })());
 });
-define('togetherness-ember-client/attraction-tag/model', ['exports', 'ember-data', 'ember-data/relationships'], function (exports, _emberData, _emberDataRelationships) {
-  // import { hasMany } from 'ember-data/relationships';
-
-  exports['default'] = _emberData['default'].Model.extend({
-    attraction: (0, _emberDataRelationships.belongsTo)('attraction'),
-    tag: (0, _emberDataRelationships.belongsTo)('tag')
-  });
-});
 define('togetherness-ember-client/attraction/model', ['exports', 'ember-data', 'ember-data/relationships'], function (exports, _emberData, _emberDataRelationships) {
   exports['default'] = _emberData['default'].Model.extend({
     eventful_id: _emberData['default'].attr('string'),
@@ -877,10 +1005,10 @@ define('togetherness-ember-client/attraction/model', ['exports', 'ember-data', '
 
     city: (0, _emberDataRelationships.belongsTo)('city'),
 
-    attraction_tags: (0, _emberDataRelationships.hasMany)('attraction_tag', {
+    attraction_suggestions: (0, _emberDataRelationships.hasMany)('attraction_suggestion', {
       inverse: 'attraction'
     }),
-    attraction_suggestions: (0, _emberDataRelationships.hasMany)('attraction_suggestion', {
+    attraction_categories: (0, _emberDataRelationships.hasMany)('attraction_category', {
       inverse: 'attraction'
     })
   });
@@ -1196,6 +1324,197 @@ define('togetherness-ember-client/auth/service', ['exports', 'ember', 'ember-loc
 define('togetherness-ember-client/auth/storage', ['exports', 'ember-local-storage/local/object'], function (exports, _emberLocalStorageLocalObject) {
   exports['default'] = _emberLocalStorageLocalObject['default'].extend({});
 });
+define('togetherness-ember-client/categories/route', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Route.extend({
+    model: function model() {
+      return this.get('store').findAll('category');
+    }
+  });
+});
+define("togetherness-ember-client/categories/template", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.5.1",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 12,
+                "column": 6
+              },
+              "end": {
+                "line": 14,
+                "column": 6
+              }
+            },
+            "moduleName": "togetherness-ember-client/categories/template.hbs"
+          },
+          isEmpty: false,
+          arity: 1,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("        ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createComment("");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(1);
+            morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+            return morphs;
+          },
+          statements: [["content", "attraction.title", ["loc", [null, [13, 8], [13, 28]]]]],
+          locals: ["attraction"],
+          templates: []
+        };
+      })();
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.5.1",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 6,
+              "column": 0
+            },
+            "end": {
+              "line": 17,
+              "column": 0
+            }
+          },
+          "moduleName": "togetherness-ember-client/categories/template.hbs"
+        },
+        isEmpty: false,
+        arity: 1,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("  ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "col-xs-12");
+          var el2 = dom.createTextNode("\n    Name: ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode(" ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("br");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n    ID: ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("br");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n    Attractions:\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("ul");
+          var el3 = dom.createTextNode("\n");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createComment("");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("    ");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n  ");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var element0 = dom.childAt(fragment, [1]);
+          var morphs = new Array(3);
+          morphs[0] = dom.createMorphAt(element0, 1, 1);
+          morphs[1] = dom.createMorphAt(element0, 5, 5);
+          morphs[2] = dom.createMorphAt(dom.childAt(element0, [8]), 1, 1);
+          return morphs;
+        },
+        statements: [["content", "category.label", ["loc", [null, [8, 10], [8, 28]]]], ["content", "category.title", ["loc", [null, [9, 8], [9, 26]]]], ["block", "each", [["get", "category.attractions", ["loc", [null, [12, 14], [12, 34]]]]], [], 0, null, ["loc", [null, [12, 6], [14, 15]]]]],
+        locals: ["category"],
+        templates: [child0]
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["multiple-nodes", "wrong-type"]
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 18,
+            "column": 0
+          }
+        },
+        "moduleName": "togetherness-ember-client/categories/template.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("h2");
+        var el2 = dom.createTextNode("Categories");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("br");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("br");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 6, 6, contextualElement);
+        dom.insertBoundary(fragment, null);
+        return morphs;
+      },
+      statements: [["block", "each", [["get", "model", ["loc", [null, [6, 8], [6, 13]]]]], [], 0, null, ["loc", [null, [6, 0], [17, 9]]]]],
+      locals: [],
+      templates: [child0]
+    };
+  })());
+});
+define('togetherness-ember-client/category/model', ['exports', 'ember-data', 'ember-data/relationships'], function (exports, _emberData, _emberDataRelationships) {
+  exports['default'] = _emberData['default'].Model.extend({
+    title: _emberData['default'].attr('string'),
+    label: _emberData['default'].attr('string'),
+
+    attraction_categories: (0, _emberDataRelationships.hasMany)('attraction_category', {
+      inverse: 'attraction'
+    })
+  });
+});
+
+// import { belongsTo } from 'ember-data/relationships';
 define('togetherness-ember-client/change-password/route', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({
     auth: _ember['default'].inject.service(),
@@ -9363,6 +9682,8 @@ define('togetherness-ember-client/router', ['exports', 'ember', 'togetherness-em
     this.route('contact');
     this.route('all-events');
     this.route('view-keywords');
+    this.route('categories');
+    this.route('attraction-categories');
   });
 
   exports['default'] = Router;
@@ -9533,18 +9854,6 @@ define("togetherness-ember-client/sign-up/template", ["exports"], function (expo
     };
   })());
 });
-define('togetherness-ember-client/tag/model', ['exports', 'ember-data', 'ember-data/relationships'], function (exports, _emberData, _emberDataRelationships) {
-  exports['default'] = _emberData['default'].Model.extend({
-    tag: _emberData['default'].attr('string'),
-    usages: _emberData['default'].attr('string'),
-    relative_usage: _emberData['default'].attr('string'),
-
-    attraction_tags: (0, _emberDataRelationships.hasMany)('attraction-tag'),
-    user_tags: (0, _emberDataRelationships.hasMany)('user-tag')
-  });
-});
-
-// import { belongsTo } from 'ember-data/relationships';
 define('togetherness-ember-client/team/route', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({
     model: function model() {}
@@ -10422,14 +10731,6 @@ define('togetherness-ember-client/user-attraction/model', ['exports', 'ember-dat
     like: _emberData['default'].attr('boolean')
   });
 });
-define('togetherness-ember-client/user-tag/model', ['exports', 'ember-data', 'ember-data/relationships'], function (exports, _emberData, _emberDataRelationships) {
-  // import { hasMany } from 'ember-data/relationships';
-
-  exports['default'] = _emberData['default'].Model.extend({
-    tag: (0, _emberDataRelationships.belongsTo)('tag'),
-    user: (0, _emberDataRelationships.belongsTo)('user')
-  });
-});
 define('togetherness-ember-client/user/model', ['exports', 'ember', 'ember-data', 'ember-data/relationships'], function (exports, _ember, _emberData, _emberDataRelationships) {
   exports['default'] = _emberData['default'].Model.extend({
     email: _emberData['default'].attr('string'),
@@ -10439,7 +10740,6 @@ define('togetherness-ember-client/user/model', ['exports', 'ember', 'ember-data'
 
     attendances: (0, _emberDataRelationships.hasMany)('attendance'),
     trips: (0, _emberDataRelationships.hasMany)('trip'),
-    user_tags: (0, _emberDataRelationships.hasMany)('user_tag'),
     friend_requests: (0, _emberDataRelationships.hasMany)('friend_request', {
       inverse: 'user'
     }),
@@ -10752,7 +11052,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+31d82e4a"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+abc69851"});
 }
 
 /* jshint ignore:end */

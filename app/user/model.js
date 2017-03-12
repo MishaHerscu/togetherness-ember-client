@@ -11,7 +11,6 @@ export default DS.Model.extend({
 
   attendances: hasMany('attendance'),
   trips: hasMany('trip'),
-  user_tags: hasMany('user_tag'),
   friend_requests: hasMany('friend_request', {
     inverse: 'user'
   }),

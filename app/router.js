@@ -26,6 +26,8 @@ Router.map(function () {
   this.route('contact');
   this.route('all-events');
   this.route('view-keywords');
+  this.route('categories');
+  this.route('attraction-categories');
 });
 
 export default Router;
