@@ -1,17 +1,13 @@
-<h2>Categories</h2>
+<h2>Included Categories</h2>
 
 <br />
 <br />
 
 {{#each model as |category|}}
-  <div class="col-xs-12">
-    Name: {{category.label}} <br />
-    ID: {{category.title}}<br />
-    Attractions:
-    <ul>
-      {{#each category.attractions as |attraction|}}
-        {{attraction.title}}
-      {{/each}}
-    </ul>
-  </div>
+  Name: <strong>{{category.label}}</strong><br />
+  ID: <strong>{{category.title}}</strong>
+
+  <br />
+    <hr>
+  <br />
 {{/each}}

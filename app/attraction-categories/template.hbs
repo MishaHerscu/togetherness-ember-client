@@ -1,13 +1,13 @@
-<h2>Attraction Categories</h2>
+<h2>Example Attraction Categories:</h2>
 
 <br />
 <br />
 <ul>
   {{#each model as |attractionCategory|}}
     <li>
-      <strong>{{attractionCategory.attraction}}</strong>
+      <strong>{{attractionCategory.attraction.title}}</strong>
       is in the
-      <strong>{{attractionCategory.category.title}}</strong>
+      <strong>{{attractionCategory.category.label}}</strong>
       category.
     </li>
   {{/each}}
