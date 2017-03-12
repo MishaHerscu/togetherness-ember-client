@@ -498,7 +498,7 @@ define("togetherness-ember-client/attraction-categories/template", ["exports"], 
               "column": 2
             },
             "end": {
-              "line": 13,
+              "line": 15,
               "column": 2
             }
           },
@@ -519,6 +519,12 @@ define("togetherness-ember-client/attraction-categories/template", ["exports"], 
           var el3 = dom.createComment("");
           dom.appendChild(el2, el3);
           dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n      in\n      ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("strong");
+          var el3 = dom.createComment("");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
           var el2 = dom.createTextNode("\n      is in the\n      ");
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("strong");
@@ -534,12 +540,13 @@ define("togetherness-ember-client/attraction-categories/template", ["exports"], 
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
           var element0 = dom.childAt(fragment, [1]);
-          var morphs = new Array(2);
+          var morphs = new Array(3);
           morphs[0] = dom.createMorphAt(dom.childAt(element0, [1]), 0, 0);
           morphs[1] = dom.createMorphAt(dom.childAt(element0, [3]), 0, 0);
+          morphs[2] = dom.createMorphAt(dom.childAt(element0, [5]), 0, 0);
           return morphs;
         },
-        statements: [["content", "attractionCategory.attraction.title", ["loc", [null, [8, 14], [8, 53]]]], ["content", "attractionCategory.category.label", ["loc", [null, [10, 14], [10, 51]]]]],
+        statements: [["content", "attractionCategory.attraction.title", ["loc", [null, [8, 14], [8, 53]]]], ["content", "attractionCategory.attraction.city_name", ["loc", [null, [10, 14], [10, 57]]]], ["content", "attractionCategory.category.label", ["loc", [null, [12, 14], [12, 51]]]]],
         locals: ["attractionCategory"],
         templates: []
       };
@@ -558,7 +565,7 @@ define("togetherness-ember-client/attraction-categories/template", ["exports"], 
             "column": 0
           },
           "end": {
-            "line": 15,
+            "line": 17,
             "column": 0
           }
         },
@@ -599,7 +606,7 @@ define("togetherness-ember-client/attraction-categories/template", ["exports"], 
         morphs[0] = dom.createMorphAt(dom.childAt(fragment, [6]), 1, 1);
         return morphs;
       },
-      statements: [["block", "each", [["get", "model", ["loc", [null, [6, 10], [6, 15]]]]], [], 0, null, ["loc", [null, [6, 2], [13, 11]]]]],
+      statements: [["block", "each", [["get", "model", ["loc", [null, [6, 10], [6, 15]]]]], [], 0, null, ["loc", [null, [6, 2], [15, 11]]]]],
       locals: [],
       templates: [child0]
     };
@@ -1341,60 +1348,60 @@ define("togetherness-ember-client/categories/template", ["exports"], function (e
           "loc": {
             "source": null,
             "start": {
-              "line": 6,
-              "column": 0
+              "line": 14,
+              "column": 6
             },
             "end": {
-              "line": 13,
-              "column": 0
+              "line": 20,
+              "column": 6
             }
           },
           "moduleName": "togetherness-ember-client/categories/template.hbs"
         },
         isEmpty: false,
-        arity: 1,
+        arity: 2,
         cachedFragment: null,
         hasRendered: false,
         buildFragment: function buildFragment(dom) {
           var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("  Name: ");
+          var el1 = dom.createTextNode("        ");
           dom.appendChild(el0, el1);
-          var el1 = dom.createElement("strong");
-          var el2 = dom.createComment("");
+          var el1 = dom.createElement("tr");
+          var el2 = dom.createTextNode("\n          ");
           dom.appendChild(el1, el2);
-          dom.appendChild(el0, el1);
-          var el1 = dom.createElement("br");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n  ID: ");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createElement("strong");
-          var el2 = dom.createComment("");
+          var el2 = dom.createElement("td");
+          var el3 = dom.createComment("");
+          dom.appendChild(el2, el3);
           dom.appendChild(el1, el2);
-          dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n\n  ");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createElement("br");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n    ");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createElement("hr");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n  ");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createElement("br");
+          var el2 = dom.createTextNode("\n          ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("td");
+          var el3 = dom.createComment("");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n          ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("td");
+          var el3 = dom.createComment("");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n        ");
+          dom.appendChild(el1, el2);
           dom.appendChild(el0, el1);
           var el1 = dom.createTextNode("\n");
           dom.appendChild(el0, el1);
           return el0;
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var morphs = new Array(2);
-          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
-          morphs[1] = dom.createMorphAt(dom.childAt(fragment, [4]), 0, 0);
+          var element0 = dom.childAt(fragment, [1]);
+          var morphs = new Array(3);
+          morphs[0] = dom.createMorphAt(dom.childAt(element0, [1]), 0, 0);
+          morphs[1] = dom.createMorphAt(dom.childAt(element0, [3]), 0, 0);
+          morphs[2] = dom.createMorphAt(dom.childAt(element0, [5]), 0, 0);
           return morphs;
         },
-        statements: [["content", "category.label", ["loc", [null, [7, 16], [7, 34]]]], ["content", "category.title", ["loc", [null, [8, 14], [8, 32]]]]],
-        locals: ["category"],
+        statements: [["content", "index", ["loc", [null, [16, 14], [16, 23]]]], ["content", "category.label", ["loc", [null, [17, 14], [17, 32]]]], ["content", "category.title", ["loc", [null, [18, 14], [18, 32]]]]],
+        locals: ["category", "index"],
         templates: []
       };
     })();
@@ -1402,7 +1409,7 @@ define("togetherness-ember-client/categories/template", ["exports"], function (e
       meta: {
         "fragmentReason": {
           "name": "missing-wrapper",
-          "problems": ["multiple-nodes", "wrong-type"]
+          "problems": ["multiple-nodes"]
         },
         "revision": "Ember@2.5.1",
         "loc": {
@@ -1412,7 +1419,7 @@ define("togetherness-ember-client/categories/template", ["exports"], function (e
             "column": 0
           },
           "end": {
-            "line": 14,
+            "line": 24,
             "column": 0
           }
         },
@@ -1438,17 +1445,62 @@ define("togetherness-ember-client/categories/template", ["exports"], function (e
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
         dom.appendChild(el0, el1);
-        var el1 = dom.createComment("");
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "col-xs-6");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("table");
+        dom.setAttribute(el2, "class", "table table-striped table-condensed table-bordered table-hover");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("tbody");
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("tr");
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("th");
+        var el6 = dom.createTextNode("Index");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("th");
+        var el6 = dom.createTextNode("Name");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("th");
+        var el6 = dom.createTextNode("ID");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n      ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createComment("");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var morphs = new Array(1);
-        morphs[0] = dom.createMorphAt(fragment, 6, 6, contextualElement);
-        dom.insertBoundary(fragment, null);
+        morphs[0] = dom.createMorphAt(dom.childAt(fragment, [6, 1, 1]), 3, 3);
         return morphs;
       },
-      statements: [["block", "each", [["get", "model", ["loc", [null, [6, 8], [6, 13]]]]], [], 0, null, ["loc", [null, [6, 0], [13, 9]]]]],
+      statements: [["block", "each", [["get", "model", ["loc", [null, [14, 14], [14, 19]]]]], [], 0, null, ["loc", [null, [14, 6], [20, 15]]]]],
       locals: [],
       templates: [child0]
     };
@@ -4698,11 +4750,11 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
             "loc": {
               "source": null,
               "start": {
-                "line": 12,
+                "line": 15,
                 "column": 8
               },
               "end": {
-                "line": 17,
+                "line": 20,
                 "column": 8
               }
             },
@@ -4719,7 +4771,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
             var el1 = dom.createElement("button");
             dom.setAttribute(el1, "class", "col-xs-12");
             dom.setAttribute(el1, "style", "height:100%");
-            var el2 = dom.createTextNode("\n            Your Trips\n          ");
+            var el2 = dom.createTextNode("\n            Trip Planning\n          ");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
             var el1 = dom.createTextNode("\n");
@@ -4742,11 +4794,11 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
             "loc": {
               "source": null,
               "start": {
-                "line": 20,
+                "line": 23,
                 "column": 8
               },
               "end": {
-                "line": 25,
+                "line": 28,
                 "column": 8
               }
             },
@@ -4763,7 +4815,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
             var el1 = dom.createElement("button");
             dom.setAttribute(el1, "class", "col-xs-12");
             dom.setAttribute(el1, "style", "height:100%");
-            var el2 = dom.createTextNode("\n            All Your Attendances\n          ");
+            var el2 = dom.createTextNode("\n            All Your Trips\n          ");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
             var el1 = dom.createTextNode("\n");
@@ -4786,11 +4838,11 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
             "loc": {
               "source": null,
               "start": {
-                "line": 28,
+                "line": 31,
                 "column": 8
               },
               "end": {
-                "line": 33,
+                "line": 36,
                 "column": 8
               }
             },
@@ -4830,11 +4882,11 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
             "loc": {
               "source": null,
               "start": {
-                "line": 36,
+                "line": 39,
                 "column": 8
               },
               "end": {
-                "line": 41,
+                "line": 44,
                 "column": 8
               }
             },
@@ -4851,7 +4903,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
             var el1 = dom.createElement("button");
             dom.setAttribute(el1, "class", "col-xs-12");
             dom.setAttribute(el1, "style", "height:100%");
-            var el2 = dom.createTextNode("\n            Train Model\n          ");
+            var el2 = dom.createTextNode("\n            Set Interests\n          ");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
             var el1 = dom.createTextNode("\n");
@@ -4874,11 +4926,11 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
             "loc": {
               "source": null,
               "start": {
-                "line": 44,
+                "line": 47,
                 "column": 8
               },
               "end": {
-                "line": 49,
+                "line": 52,
                 "column": 8
               }
             },
@@ -4895,7 +4947,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
             var el1 = dom.createElement("button");
             dom.setAttribute(el1, "class", "col-xs-12");
             dom.setAttribute(el1, "style", "height:100%");
-            var el2 = dom.createTextNode("\n            Event Suggestions\n          ");
+            var el2 = dom.createTextNode("\n            Suggestions\n          ");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
             var el1 = dom.createTextNode("\n");
@@ -4918,11 +4970,11 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
             "loc": {
               "source": null,
               "start": {
-                "line": 52,
+                "line": 55,
                 "column": 8
               },
               "end": {
-                "line": 57,
+                "line": 60,
                 "column": 8
               }
             },
@@ -4962,11 +5014,55 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
             "loc": {
               "source": null,
               "start": {
-                "line": 60,
+                "line": 63,
                 "column": 8
               },
               "end": {
-                "line": 65,
+                "line": 68,
+                "column": 8
+              }
+            },
+            "moduleName": "togetherness-ember-client/components/my-index/template.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("          ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("button");
+            dom.setAttribute(el1, "class", "col-xs-12");
+            dom.setAttribute(el1, "style", "height:100%");
+            var el2 = dom.createTextNode("\n            Event Categories\n          ");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes() {
+            return [];
+          },
+          statements: [],
+          locals: [],
+          templates: []
+        };
+      })();
+      var child7 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.5.1",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 71,
+                "column": 8
+              },
+              "end": {
+                "line": 76,
                 "column": 8
               }
             },
@@ -4998,7 +5094,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
           templates: []
         };
       })();
-      var child7 = (function () {
+      var child8 = (function () {
         return {
           meta: {
             "fragmentReason": false,
@@ -5006,11 +5102,11 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
             "loc": {
               "source": null,
               "start": {
-                "line": 68,
+                "line": 79,
                 "column": 8
               },
               "end": {
-                "line": 73,
+                "line": 84,
                 "column": 8
               }
             },
@@ -5042,7 +5138,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
           templates: []
         };
       })();
-      var child8 = (function () {
+      var child9 = (function () {
         return {
           meta: {
             "fragmentReason": false,
@@ -5050,11 +5146,11 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
             "loc": {
               "source": null,
               "start": {
-                "line": 76,
+                "line": 87,
                 "column": 8
               },
               "end": {
-                "line": 81,
+                "line": 92,
                 "column": 8
               }
             },
@@ -5097,7 +5193,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
               "column": 2
             },
             "end": {
-              "line": 86,
+              "line": 97,
               "column": 2
             }
           },
@@ -5133,6 +5229,14 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
           var el2 = dom.createTextNode("\n    ");
           dom.appendChild(el1, el2);
           dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n\n    ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("br");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n      ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("hr");
+          dom.appendChild(el0, el1);
           var el1 = dom.createTextNode("\n    ");
           dom.appendChild(el0, el1);
           var el1 = dom.createElement("br");
@@ -5144,7 +5248,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
           var el2 = dom.createTextNode("\n      ");
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("div");
-          dom.setAttribute(el2, "class", "col-xs-3 small-home-button");
+          dom.setAttribute(el2, "class", "col-xs-2 small-home-button");
           var el3 = dom.createTextNode("\n");
           dom.appendChild(el2, el3);
           var el3 = dom.createComment("");
@@ -5155,7 +5259,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
           var el2 = dom.createTextNode("\n      ");
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("div");
-          dom.setAttribute(el2, "class", "col-xs-3 small-home-button");
+          dom.setAttribute(el2, "class", "col-xs-2 small-home-button");
           var el3 = dom.createTextNode("\n");
           dom.appendChild(el2, el3);
           var el3 = dom.createComment("");
@@ -5166,7 +5270,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
           var el2 = dom.createTextNode("\n      ");
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("div");
-          dom.setAttribute(el2, "class", "col-xs-3 small-home-button");
+          dom.setAttribute(el2, "class", "col-xs-2 small-home-button");
           var el3 = dom.createTextNode("\n");
           dom.appendChild(el2, el3);
           var el3 = dom.createComment("");
@@ -5177,7 +5281,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
           var el2 = dom.createTextNode("\n      ");
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("div");
-          dom.setAttribute(el2, "class", "col-xs-3 small-home-button");
+          dom.setAttribute(el2, "class", "col-xs-2 small-home-button");
           var el3 = dom.createTextNode("\n");
           dom.appendChild(el2, el3);
           var el3 = dom.createComment("");
@@ -5188,7 +5292,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
           var el2 = dom.createTextNode("\n      ");
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("div");
-          dom.setAttribute(el2, "class", "col-xs-3 small-home-button");
+          dom.setAttribute(el2, "class", "col-xs-2 small-home-button");
           var el3 = dom.createTextNode("\n");
           dom.appendChild(el2, el3);
           var el3 = dom.createComment("");
@@ -5199,7 +5303,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
           var el2 = dom.createTextNode("\n      ");
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("div");
-          dom.setAttribute(el2, "class", "col-xs-3 small-home-button");
+          dom.setAttribute(el2, "class", "col-xs-2 small-home-button");
           var el3 = dom.createTextNode("\n");
           dom.appendChild(el2, el3);
           var el3 = dom.createComment("");
@@ -5210,7 +5314,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
           var el2 = dom.createTextNode("\n      ");
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("div");
-          dom.setAttribute(el2, "class", "col-xs-3 small-home-button");
+          dom.setAttribute(el2, "class", "col-xs-2 small-home-button");
           var el3 = dom.createTextNode("\n");
           dom.appendChild(el2, el3);
           var el3 = dom.createComment("");
@@ -5221,7 +5325,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
           var el2 = dom.createTextNode("\n      ");
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("div");
-          dom.setAttribute(el2, "class", "col-xs-3 small-home-button");
+          dom.setAttribute(el2, "class", "col-xs-2 small-home-button");
           var el3 = dom.createTextNode("\n");
           dom.appendChild(el2, el3);
           var el3 = dom.createComment("");
@@ -5232,7 +5336,18 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
           var el2 = dom.createTextNode("\n      ");
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("div");
-          dom.setAttribute(el2, "class", "col-xs-3 small-home-button");
+          dom.setAttribute(el2, "class", "col-xs-2 small-home-button");
+          var el3 = dom.createTextNode("\n");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createComment("");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("      ");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n      ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("div");
+          dom.setAttribute(el2, "class", "col-xs-2 small-home-button");
           var el3 = dom.createTextNode("\n");
           dom.appendChild(el2, el3);
           var el3 = dom.createComment("");
@@ -5248,8 +5363,8 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
           return el0;
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var element0 = dom.childAt(fragment, [5]);
-          var morphs = new Array(10);
+          var element0 = dom.childAt(fragment, [9]);
+          var morphs = new Array(11);
           morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1, 1, 1]), 1, 1);
           morphs[1] = dom.createMorphAt(dom.childAt(element0, [1]), 1, 1);
           morphs[2] = dom.createMorphAt(dom.childAt(element0, [3]), 1, 1);
@@ -5260,11 +5375,12 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
           morphs[7] = dom.createMorphAt(dom.childAt(element0, [13]), 1, 1);
           morphs[8] = dom.createMorphAt(dom.childAt(element0, [15]), 1, 1);
           morphs[9] = dom.createMorphAt(dom.childAt(element0, [17]), 1, 1);
+          morphs[10] = dom.createMorphAt(dom.childAt(element0, [19]), 1, 1);
           return morphs;
         },
-        statements: [["content", "credentials.givenname", ["loc", [null, [5, 15], [5, 40]]]], ["block", "link-to", ["trips"], [], 0, null, ["loc", [null, [12, 8], [17, 20]]]], ["block", "link-to", ["attendances"], [], 1, null, ["loc", [null, [20, 8], [25, 20]]]], ["block", "link-to", ["profile"], [], 2, null, ["loc", [null, [28, 8], [33, 20]]]], ["block", "link-to", ["attractions"], [], 3, null, ["loc", [null, [36, 8], [41, 20]]]], ["block", "link-to", ["attraction-suggestions"], [], 4, null, ["loc", [null, [44, 8], [49, 20]]]], ["block", "link-to", ["all-events"], [], 5, null, ["loc", [null, [52, 8], [57, 20]]]], ["block", "link-to", ["cities"], [], 6, null, ["loc", [null, [60, 8], [65, 20]]]], ["block", "link-to", ["people"], [], 7, null, ["loc", [null, [68, 8], [73, 20]]]], ["block", "link-to", ["change-password"], [], 8, null, ["loc", [null, [76, 8], [81, 20]]]]],
+        statements: [["content", "credentials.givenname", ["loc", [null, [5, 15], [5, 40]]]], ["block", "link-to", ["trips"], [], 0, null, ["loc", [null, [15, 8], [20, 20]]]], ["block", "link-to", ["attendances"], [], 1, null, ["loc", [null, [23, 8], [28, 20]]]], ["block", "link-to", ["profile"], [], 2, null, ["loc", [null, [31, 8], [36, 20]]]], ["block", "link-to", ["attractions"], [], 3, null, ["loc", [null, [39, 8], [44, 20]]]], ["block", "link-to", ["attraction-suggestions"], [], 4, null, ["loc", [null, [47, 8], [52, 20]]]], ["block", "link-to", ["all-events"], [], 5, null, ["loc", [null, [55, 8], [60, 20]]]], ["block", "link-to", ["categories"], [], 6, null, ["loc", [null, [63, 8], [68, 20]]]], ["block", "link-to", ["cities"], [], 7, null, ["loc", [null, [71, 8], [76, 20]]]], ["block", "link-to", ["people"], [], 8, null, ["loc", [null, [79, 8], [84, 20]]]], ["block", "link-to", ["change-password"], [], 9, null, ["loc", [null, [87, 8], [92, 20]]]]],
         locals: [],
-        templates: [child0, child1, child2, child3, child4, child5, child6, child7, child8]
+        templates: [child0, child1, child2, child3, child4, child5, child6, child7, child8, child9]
       };
     })();
     var child1 = (function () {
@@ -5276,11 +5392,11 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
             "loc": {
               "source": null,
               "start": {
-                "line": 95,
+                "line": 106,
                 "column": 8
               },
               "end": {
-                "line": 95,
+                "line": 106,
                 "column": 37
               }
             },
@@ -5312,11 +5428,11 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
             "loc": {
               "source": null,
               "start": {
-                "line": 101,
+                "line": 112,
                 "column": 8
               },
               "end": {
-                "line": 101,
+                "line": 112,
                 "column": 37
               }
             },
@@ -5347,11 +5463,11 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
           "loc": {
             "source": null,
             "start": {
-              "line": 86,
+              "line": 97,
               "column": 2
             },
             "end": {
-              "line": 104,
+              "line": 115,
               "column": 2
             }
           },
@@ -5421,7 +5537,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
           morphs[1] = dom.createMorphAt(dom.childAt(fragment, [15]), 1, 1);
           return morphs;
         },
-        statements: [["block", "link-to", ["sign-up"], [], 0, null, ["loc", [null, [95, 8], [95, 49]]]], ["block", "link-to", ["sign-in"], [], 1, null, ["loc", [null, [101, 8], [101, 49]]]]],
+        statements: [["block", "link-to", ["sign-up"], [], 0, null, ["loc", [null, [106, 8], [106, 49]]]], ["block", "link-to", ["sign-in"], [], 1, null, ["loc", [null, [112, 8], [112, 49]]]]],
         locals: [],
         templates: [child0, child1]
       };
@@ -5439,7 +5555,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
             "column": 0
           },
           "end": {
-            "line": 106,
+            "line": 117,
             "column": 0
           }
         },
@@ -5452,7 +5568,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createElement("div");
-        dom.setAttribute(el1, "class", "col-xs-10 col-xs-offset-1");
+        dom.setAttribute(el1, "class", "col-xs-12");
         var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
         var el2 = dom.createComment("");
@@ -5467,7 +5583,7 @@ define("togetherness-ember-client/components/my-index/template", ["exports"], fu
         morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0]), 1, 1);
         return morphs;
       },
-      statements: [["block", "if", [["get", "isAuthenticated", ["loc", [null, [2, 8], [2, 23]]]]], [], 0, 1, ["loc", [null, [2, 2], [104, 9]]]]],
+      statements: [["block", "if", [["get", "isAuthenticated", ["loc", [null, [2, 8], [2, 23]]]]], [], 0, 1, ["loc", [null, [2, 2], [115, 9]]]]],
       locals: [],
       templates: [child0, child1]
     };
@@ -11003,7 +11119,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+abc69851"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+d950e75a"});
 }
 
 /* jshint ignore:end */
