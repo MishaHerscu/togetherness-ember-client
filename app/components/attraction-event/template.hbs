@@ -4,12 +4,26 @@
             class="close tile-close-button"
             {{action "closeAttraction"}}>&times;
     </button>
-    <h4 class="col-xs-8">{{attraction.title}}</h4>
+  </div>
+  <div class="col-xs-12">
+    <div class="col-xs-8">
+      <h4>{{attraction.title}}</h4>
+    </div>
     <img class="col-xs-4" src={{attraction.medium_image_url}}>
   </div>
   <h6>Details</h6>
   <table class="table table-bordered">
     <tbody>
+      <tr>
+        <td>Categories</td>
+        <td>
+          <ul>
+            {{#each attraction.attraction_categories as |attraction_category|}}
+              <li><h5>{{attraction_category.category.label}}</h5></li>
+            {{/each}}
+          </ul>
+        </td>
+      </tr>
       <tr>
         <td width="25%">City</td>
         <td>{{attraction.city_name}}</td>

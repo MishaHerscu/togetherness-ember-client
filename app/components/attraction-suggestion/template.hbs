@@ -11,6 +11,16 @@
   <table class="table table-bordered">
     <tbody>
       <tr>
+        <td>Categories</td>
+        <td>
+          <ul>
+            {{#each attraction.attraction_categories as |attraction_category|}}
+              <li><h5>{{attraction_category.category.label}}</h5></li>
+            {{/each}}
+          </ul>
+        </td>
+      </tr>
+      <tr>
         <td width="25%">City</td>
         <td width="75%">{{attraction.city_name}}</td>
       </tr>

@@ -7,6 +7,6 @@ export default DS.Model.extend({
   label: DS.attr('string'),
 
   attraction_categories: hasMany('attraction_category', {
-    inverse: 'attraction'
+    inverse: 'category'
   }),
 });

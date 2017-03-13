@@ -3,6 +3,7 @@ import { belongsTo } from 'ember-data/relationships';
 import { hasMany } from 'ember-data/relationships';
 
 export default DS.Model.extend({
+  categories_string: DS.attr('string'),
   eventful_id: DS.attr('string'),
   city_name: DS.attr('string'),
   country_name: DS.attr('string'),
