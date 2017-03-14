@@ -7,7 +7,7 @@ export default Ember.Component.extend({
 
   actions: {
     removeKeyword () {
-      this.sendAction('removeKeyword', this.get('keyword'));
+      this.sendAction('removeKeyword', this.get('keyword.word'));
     },
     selectKeyword () {
       this.sendAction('selectKeyword', this.get('keyword'));

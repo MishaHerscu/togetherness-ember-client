@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   isAuthenticated: Ember.computed.alias('auth.isAuthenticated'),
 
   newKeyWord: '',
+  newCategory: 1,
   selectedKeywords: '',
 
   actions: {
@@ -13,7 +14,7 @@ export default Ember.Component.extend({
       this.sendAction('viewProfile');
     },
     addKeyword () {
-      this.sendAction('addKeyword', this.get('newKeyWord'));
+      this.sendAction('addKeyword', this.get('newKeyWord'), this.get('newCategory'));
     },
     removeKeyword (keyword) {
       this.sendAction('removeKeyword', keyword);

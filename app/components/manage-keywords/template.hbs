@@ -1,57 +1,79 @@
 {{#if isAuthenticated}}
   <div class="white-background-div col-xs-12">
 
-    <h3>Add New Keywords</h3>
-    <h4>You can add more than one keyword at a time seperated by commas or spaces</h4>
-    {{keyword-input
-      keyword=newKeyWord}}
-    <button type="submit" class="btn btn-success btn-sm" {{action "addKeyword"}}>
-      Add
-    </button>
-
-      <hr />
-
-    <h3>Current Keywords</h3>
-
-    <h4>Filter</h4>
-    <div class="form-group col-xs-12">
-      {{keyword-search
-        keywordsearch=keywordsearch
-        updateKeywordSearch="updateKeywordSearch"}}
-    </div>
-
-    <br />
-    <div class="col-xs-12"
-         syle="margin-top: 15px; margin-bottom: 15px;">
-      {{#if keywordsBool}}
-        {{#each keywords as |keyword|}}
-          {{keyword-tile
-            keyword=keyword
-            removeKeyword="removeKeyword"
-            selectKeyword="selectKeyword"
-            unSelectKeyword="unSelectKeyword"}}
-        {{/each}}
-      {{else}}
-        <h4>You have no preference keywords. {{#link-to "attractions"}}Select{{/link-to}} interesting attractions or simply enter keywords above to get started.</h4>
-      {{/if}}
-    </div>
-
-    <br />
-      <hr />
-    <br />
-
-    <div class="col-xs-12" style="margin-top: 10px; margin-bottom: 10px;">
-      <button type="submit" class="btn btn-warning btn-md" {{action "removeSelectedKeywords"}}>
-        Remove Selected Keywords
-      </button>
-      <button type="submit" class="btn btn-danger btn-md" {{action "removeAllKeywords"}}>
-        Remove All Keywords
-      </button>
-    </div>
     <div class="col-xs-12">
-      <button type="submit" class="btn btn-primary btn-lg" {{action "viewProfile"}}>
-        Return to Profile
-      </button>
+      <h3>Add New Keywords</h3>
+      <h4>You can add more than one keyword at a time seperated by commas or spaces</h4>
+      <div class="col-xs-12">
+        {{keyword-input
+          newKeyWord=newKeyWord}}
+        {{category-selector
+          categories=categories
+          newCategory=newCategory}}
+      </div>
+      <div class="col-xs-12">
+        <button type="submit" class="btn btn-success btn-sm" {{action "addKeyword"}}>
+          Add
+        </button>
+      </div>
+    </div>
+
+    <br />
+      <hr>
+    <br />
+
+    <div class="col-xs-12">
+      <h3 style="margin-top:10px;">Current Keywords (by Category)</h3>
+
+      <h4>Filter</h4>
+      <div class="form-group col-xs-12">
+        {{keyword-search
+          keywordsearch=keywordsearch
+          updateKeywordSearch="updateKeywordSearch"}}
+      </div>
+
+      <br />
+      <div class="col-xs-12"
+           syle="margin-top: 15px; margin-bottom: 15px;">
+        {{#if keywordsBool}}
+          {{#each categories as |category|}}
+            {{#if category.categoryBool}}
+              <div class="col-xs-12">
+                <h3><strong>{{category.label}}</strong></h3>
+                {{#each category.keywordHashArray as |keyword|}}
+                  {{keyword-tile
+                    keyword=keyword
+                    removeKeyword="removeKeyword"
+                    selectKeyword="selectKeyword"
+                    unSelectKeyword="unSelectKeyword"}}
+                {{/each}}
+              </div>
+            {{/if}}
+          {{/each}}
+        {{else}}
+          <h4>You have no preference keywords. {{#link-to "attractions"}}Select{{/link-to}} interesting attractions or simply enter keywords above to get started.</h4>
+        {{/if}}
+      </div>
+    </div>
+
+    <br />
+      <hr>
+    <br />
+
+    <div class="col-xs-12">
+      <div class="col-xs-12" style="margin-top: 10px; margin-bottom: 10px;">
+        <button type="submit" class="btn btn-warning btn-md" {{action "removeSelectedKeywords"}}>
+          Remove Selected Keywords
+        </button>
+        <button type="submit" class="btn btn-danger btn-md" {{action "removeAllKeywords"}}>
+          Remove All Keywords
+        </button>
+      </div>
+      <div class="col-xs-12">
+        <button type="submit" class="btn btn-primary btn-lg" {{action "viewProfile"}}>
+          Return to Profile
+        </button>
+      </div>
     </div>
   </div>
 {{/if}}

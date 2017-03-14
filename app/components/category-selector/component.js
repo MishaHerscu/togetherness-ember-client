@@ -2,5 +2,5 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   tagName: 'div',
-  classNames: ['form-group', 'col-xs-9'],
+  classNames: ['form-group', 'col-xs-3'],
 });
