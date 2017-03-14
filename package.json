@@ -46,6 +46,7 @@
     "ember-inline-edit": "0.1.7",
     "ember-load-initializers": "^0.5.1",
     "ember-local-storage": "1.1.0",
+    "ember-multiselect-checkboxes": "0.10.2",
     "ember-pikaday": "2.1.0",
     "ember-resolver": "^2.0.3",
     "grunt": "^0.4.5",

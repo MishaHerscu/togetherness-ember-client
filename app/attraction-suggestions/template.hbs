@@ -1,8 +1,89 @@
 <h2>Recommended Events</h2>
 
 <br />
-<br />
 {{#if model.recBool}}
+<br />
+
+  <h3>
+    {{#if model.showFilters}}
+      <button class="btn btn-primary btn-lg" {{action "toggleShowFilters"}}>
+        Hide Filters
+      </button>
+    {{else}}
+      <button class="btn btn-info btn-lg" {{action "toggleShowFilters"}}>
+        Show Filters
+      </button>
+    {{/if}}
+  </h3>
+
+  {{#if model.showFilters}}
+    <div class="col-xs-12 filters-block">
+      <div class="col-xs-5 white-background-div" style="margin-top: 15px;">
+        <label>Cities</label><br />
+        {{#multiselect-checkboxes
+          options=model.cities
+          labelProperty='city_name'
+          valueProperty='id'
+          selection=model.selectedCities
+          as |city isSelected|}}
+            <label>
+              {{input
+                type="checkbox"
+                checked=isSelected}}
+              <span class="city-name">
+                {{city.name}}
+              </span>
+            </label>
+            <br />
+        {{/multiselect-checkboxes}}
+        {{#if model.filterByCity}}
+          <button class="btn btn-primary btn-sm" {{action "toggleCityFilter"}}>
+            No Filter by City
+          </button>
+        {{else}}
+          <button class="btn btn-info btn-sm" {{action "toggleCityFilter"}}>
+            Filter by City
+          </button>
+        {{/if}}
+      </div>
+
+      <div class="col-xs-5 white-background-div" style="margin-top: 15px; margin-bottom: 15px;">
+        <label>Categories</label><br />
+        {{#multiselect-checkboxes
+          options=model.categories
+          labelProperty='label'
+          valueProperty='id'
+          selection=model.selectedCategories
+          as |category isSelected|}}
+            <label>
+              {{input
+                type="checkbox"
+                checked=isSelected}}
+              <span class="category-label">
+                {{category.label}}
+              </span>
+            </label>
+            <br />
+        {{/multiselect-checkboxes}}
+        {{#if model.filterByCategory}}
+          <button class="btn btn-primary btn-sm" {{action "toggleCategoryFilter"}}>
+            No Filter by Category
+          </button>
+        {{else}}
+          <button class="btn btn-info btn-sm" {{action "toggleCategoryFilter"}}>
+            Filter by Category
+          </button>
+        {{/if}}
+      </div>
+    </div>
+  {{/if}}
+
+  <br />
+
+  <h2>Suggestions</h2>
+
+  <br />
+
   {{#each model.attractions as |attraction|}}
     {{#if attraction.description}}
       {{#if attraction.medium_image_url}}

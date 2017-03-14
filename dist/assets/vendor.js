@@ -72528,6 +72528,82 @@ define('ember/load-initializers', ['exports', 'ember-load-initializers', 'ember'
   exports['default'] = loadInitializers['default'];
 });
 
+;(function() {
+  function objectAt(content, idx) {
+    if (content.objectAt) {
+      return content.objectAt(idx);
+    }
+
+    return content[idx];
+  }
+
+  function arrayIncludes(obj, startAt) {
+    var len = Ember.get(this, 'length');
+    var idx, currentObj;
+
+    if (startAt === undefined) {
+      startAt = 0;
+    }
+
+    if (startAt < 0) {
+      startAt += len;
+    }
+
+    for (idx = startAt; idx < len; idx++) {
+      currentObj = objectAt(this, idx);
+
+      // SameValueZero comparison (NaN !== NaN)
+      if (obj === currentObj || (obj !== obj && currentObj !== currentObj)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  Ember.Array.reopen({
+    // inlined from https://git.io/v6F5T
+    includes: arrayIncludes
+  });
+
+  Ember.MutableArray.reopen({
+    addObject: function(obj) {
+      if (!this.includes(obj)) {
+        this.pushObject(obj);
+      }
+
+      return this;
+    }
+  });
+
+  Ember.Enumerable.reopen({
+    includes: function(obj) {
+      Ember.assert('Enumerable#includes cannot accept a second argument "startAt" as enumerable items are unordered.', arguments.length === 1);
+
+      var len = Ember.get(this, 'length');
+      var idx, next;
+      var last = null;
+      var found = false;
+
+      for (idx = 0; idx < len && !found; idx++) {
+        next = this.nextObject(idx, last);
+
+        found = obj === next || (obj !== obj && next !== next);
+
+        last = next;
+      }
+
+      next = last = null;
+
+      return found;
+    }
+  });
+
+  if ((Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.Array) && !Array.prototype.includes) {
+    Array.prototype.includes = arrayIncludes;
+  }
+})();
+
 ;/* globals define */
 
 function createDeprecatedModule(moduleId) {
@@ -96530,6 +96606,120 @@ define('ember-local-storage/session/object', ['exports', 'ember', 'ember-local-s
 
   exports['default'] = _ember['default'].ObjectProxy.extend(_emberLocalStorageMixinsObject['default'], {
     _storageType: 'session'
+  });
+});
+define('ember-multiselect-checkboxes/components/multiselect-checkboxes', ['exports', 'ember'], function (exports, _ember) {
+  'use strict';
+
+  var Checkbox = _ember['default'].Object.extend({
+    isSelected: _ember['default'].computed('value', 'selection.[]', {
+      get: function get() {
+        return this.get('selection').includes(this.get('value'));
+      },
+
+      set: function set(_, checked) {
+        var selection = this.get('selection');
+        var selected = selection.includes(this.get('value'));
+        var onchange = this.get('onchange');
+        var updateSelectionValue = this.get('updateSelectionValue');
+        var isMutable = typeof selection.addObject === 'function' && typeof selection.removeObject === 'function';
+
+        // Dispatch onchange event to handler with updated selection if handler is specified
+        if (onchange) {
+          var updated = _ember['default'].A(selection.slice());
+          var operation = undefined;
+
+          if (checked && !selected) {
+            operation = 'added';
+            updated.addObject(this.get('value'));
+          } else if (!checked && selected) {
+            operation = 'removed';
+            updated.removeObject(this.get('value'));
+          }
+
+          onchange(updated, this.get('value'), operation);
+        }
+
+        // Mutate selection if updateSelectionValue is true and selection is mutable
+        if (updateSelectionValue !== false && isMutable) {
+          if (checked && !selected) {
+            selection.addObject(this.get('value'));
+          } else if (!checked && selected) {
+            selection.removeObject(this.get('value'));
+          }
+
+          return checked;
+        } else {
+
+          // Only change the checked status of the checkbox when selection is mutated, because if
+          // it is not mutated and the onchange handler does not update the bound selection value the
+          // displayed checkboxes would be out of sync with bound selection value.
+          return !checked;
+        }
+      }
+    })
+  });
+
+  exports['default'] = _ember['default'].Component.extend({
+    classNames: ['multiselect-checkboxes'],
+
+    tagName: 'ul',
+
+    i18n: _ember['default'].computed(function () {
+      return _ember['default'].getOwner(this).lookup('service:i18n');
+    }),
+
+    checkboxes: _ember['default'].computed('options.[]', 'labelProperty', 'valueProperty', 'selection', 'translate', function () {
+      var _this = this;
+
+      var labelProperty = this.get('labelProperty');
+      var valueProperty = this.get('valueProperty');
+      var selection = _ember['default'].A(this.get('selection'));
+      var onchange = this.get('onchange');
+      var updateSelectionValue = this.get('updateSelectionValue') !== undefined ? this.get('updateSelectionValue') : true;
+      var options = _ember['default'].A(this.get('options'));
+      var translate = this.get('translate');
+
+      var checkboxes = options.map(function (option) {
+        var label = undefined,
+            value = undefined;
+
+        if (labelProperty) {
+          if (typeof option.get === 'function') {
+            label = option.get(labelProperty);
+          } else {
+            label = option[labelProperty];
+          }
+        } else {
+          label = String(option);
+        }
+
+        if (translate && label && _this.get('i18n')) {
+          label = _this.get('i18n').t(label);
+        }
+
+        if (valueProperty) {
+          if (typeof option.get === 'function') {
+            value = option.get(valueProperty);
+          } else {
+            value = option[valueProperty];
+          }
+        } else {
+          value = option;
+        }
+
+        return Checkbox.create({
+          option: option,
+          label: label,
+          value: value,
+          selection: selection,
+          onchange: onchange,
+          updateSelectionValue: updateSelectionValue
+        });
+      });
+
+      return _ember['default'].A(checkboxes);
+    })
   });
 });
 define('ember-new-computed/index', ['exports', 'ember', 'ember-new-computed/utils/can-use-new-syntax'], function (exports, _ember, _emberNewComputedUtilsCanUseNewSyntax) {
