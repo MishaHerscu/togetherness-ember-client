@@ -13,5 +13,8 @@ export default Ember.Component.extend({
     reset () {
       this.sendAction('reset');
     },
+    signIn () {
+      this.sendAction('signIn');
+    },
   },
 });

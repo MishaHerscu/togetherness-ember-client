@@ -1,4 +1,5 @@
 <div class="col-xs-6">
+
   {{email-input email=credentials.email}}
   {{password-input password=credentials.password}}
 
@@ -6,7 +7,12 @@
     Sign In
   </button>
 
+  <button type="submit" class="btn btn-info" {{action "signUp"}}>
+    New Account
+  </button>
+
   <button class="btn btn-default" {{action "reset"}}>
     Cancel
   </button>
+  
 </div>

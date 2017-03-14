@@ -16,6 +16,9 @@ export default Ember.Route.extend({
     },
     reset () {
       this.transitionTo('index');
-    }
+    },
+    signUp () {
+      this.transitionTo('sign-up');
+    },
   },
 });

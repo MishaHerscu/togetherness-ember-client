@@ -1,4 +1,5 @@
 <div class="col-xs-6">
+
   {{givenname-input givenname=credentials.givenname}}
   {{surname-input surname=credentials.surname}}
   {{email-input email=credentials.email}}
@@ -9,7 +10,12 @@
     Sign Up
   </button>
 
+  <button type="submit" class="btn btn-info" {{action "signIn"}}>
+    Sign In
+  </button>
+
   <button class="btn btn-default" {{action "reset"}}>
     Cancel
   </button>
+
 </div>

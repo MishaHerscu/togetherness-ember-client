@@ -20,6 +20,9 @@ export default Ember.Route.extend({
     },
     reset () {
       this.transitionTo('index');
-    }
+    },
+    signIn () {
+      this.transitionTo('sign-in');
+    },
   },
 });
