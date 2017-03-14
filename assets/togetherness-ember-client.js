@@ -2498,6 +2498,66 @@ define("togetherness-ember-client/components/attraction-suggestion/template", ["
     };
   })());
 });
+define('togetherness-ember-client/components/category-selector/component', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Component.extend({
+    tagName: 'div',
+    classNames: ['form-group', 'col-xs-3']
+  });
+});
+define("togetherness-ember-client/components/category-selector/template", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["multiple-nodes", "wrong-type"]
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 8,
+            "column": 0
+          }
+        },
+        "moduleName": "togetherness-ember-client/components/category-selector/template.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("label");
+        dom.setAttribute(el1, "for", "category-selector");
+        var el2 = dom.createTextNode("Select Category");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("br");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 3, 3, contextualElement);
+        return morphs;
+      },
+      statements: [["inline", "drop-down", [], ["content", ["subexpr", "@mut", [["get", "categories", ["loc", [null, [3, 10], [3, 20]]]]], [], []], "value", ["subexpr", "@mut", [["get", "newCategory", ["loc", [null, [4, 8], [4, 19]]]]], [], []], "selectClass", "dropdown-class form-control", "optionValuePath", "id", "optionLabelPath", "label"], ["loc", [null, [2, 0], [7, 27]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
 define('togetherness-ember-client/components/change-password-form/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
     tagName: 'form',
@@ -2840,6 +2900,30 @@ define('togetherness-ember-client/components/disqus-comments', ['exports', 'embe
     enumerable: true,
     get: function get() {
       return _emberDisqusComponentsDisqusComments['default'];
+    }
+  });
+});
+define('togetherness-ember-client/components/drop-down', ['exports'], function (exports) {
+  exports['default'] = Em.Component.extend({
+    selectClass: '',
+    content: null,
+    value: '',
+    optionValuePath: '',
+    optionLabelPath: '',
+    didInsertElement: function didInsertElement() {
+      this.$().find('option[value=\'' + this.value + '\']').prop('selected', true);
+      var _scope = this;
+      this.$().on('change', function () {
+        var optionValue = false;
+        if ($("option:selected", this).val() === 'true') {
+          optionValue = $("option:selected", this).val() === 'true';
+        } else if ($("option:selected", this).val() === 'false') {
+          optionValue = $("option:selected", this).val() === 'true';
+        } else {
+          optionValue = $("option:selected", this).val();
+        }
+        _scope.set('value', optionValue);
+      });
     }
   });
 });
@@ -3246,7 +3330,7 @@ define("togetherness-ember-client/components/hamburger-menu/template", ["exports
 define('togetherness-ember-client/components/keyword-input/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
     tagName: 'div',
-    classNames: ['form-group']
+    classNames: ['form-group', 'col-xs-9']
   });
 });
 define("togetherness-ember-client/components/keyword-input/template", ["exports"], function (exports) {
@@ -3265,7 +3349,7 @@ define("togetherness-ember-client/components/keyword-input/template", ["exports"
             "column": 0
           },
           "end": {
-            "line": 6,
+            "line": 7,
             "column": 0
           }
         },
@@ -3278,9 +3362,11 @@ define("togetherness-ember-client/components/keyword-input/template", ["exports"
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createElement("label");
-        dom.setAttribute(el1, "for", "email");
+        dom.setAttribute(el1, "for", "keyword");
         var el2 = dom.createTextNode("New Keyword");
         dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("br");
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
@@ -3292,10 +3378,10 @@ define("togetherness-ember-client/components/keyword-input/template", ["exports"
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var morphs = new Array(1);
-        morphs[0] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+        morphs[0] = dom.createMorphAt(fragment, 3, 3, contextualElement);
         return morphs;
       },
-      statements: [["inline", "input", [], ["type", "text", "id", "keyword", "placeholder", "Keyword of Interest", "value", ["subexpr", "@mut", [["get", "keyword", ["loc", [null, [5, 14], [5, 21]]]]], [], []]], ["loc", [null, [2, 0], [5, 23]]]]],
+      statements: [["inline", "input", [], ["type", "text", "id", "keyword", "placeholder", "Keyword of Interest", "value", ["subexpr", "@mut", [["get", "newKeyWord", ["loc", [null, [6, 8], [6, 18]]]]], [], []]], ["loc", [null, [2, 0], [6, 20]]]]],
       locals: [],
       templates: []
     };
@@ -3365,7 +3451,7 @@ define('togetherness-ember-client/components/keyword-tile/component', ['exports'
 
     actions: {
       removeKeyword: function removeKeyword() {
-        this.sendAction('removeKeyword', this.get('keyword'));
+        this.sendAction('removeKeyword', this.get('keyword.word'));
       },
       selectKeyword: function selectKeyword() {
         this.sendAction('selectKeyword', this.get('keyword'));
@@ -3386,11 +3472,11 @@ define("togetherness-ember-client/components/keyword-tile/template", ["exports"]
           "loc": {
             "source": null,
             "start": {
-              "line": 7,
+              "line": 10,
               "column": 4
             },
             "end": {
-              "line": 11,
+              "line": 17,
               "column": 4
             }
           },
@@ -3407,6 +3493,7 @@ define("togetherness-ember-client/components/keyword-tile/template", ["exports"]
           var el1 = dom.createElement("button");
           dom.setAttribute(el1, "type", "submit");
           dom.setAttribute(el1, "class", "btn btn-primary btn-sm");
+          dom.setAttribute(el1, "style", "margin-top: 5px;");
           var el2 = dom.createTextNode("\n        Unselect\n      ");
           dom.appendChild(el1, el2);
           dom.appendChild(el0, el1);
@@ -3420,7 +3507,7 @@ define("togetherness-ember-client/components/keyword-tile/template", ["exports"]
           morphs[0] = dom.createElementMorph(element1);
           return morphs;
         },
-        statements: [["element", "action", ["unSelectKeyword"], [], ["loc", [null, [8, 59], [8, 87]]]]],
+        statements: [["element", "action", ["unSelectKeyword"], [], ["loc", [null, [14, 14], [14, 42]]]]],
         locals: [],
         templates: []
       };
@@ -3433,11 +3520,11 @@ define("togetherness-ember-client/components/keyword-tile/template", ["exports"]
           "loc": {
             "source": null,
             "start": {
-              "line": 11,
+              "line": 17,
               "column": 4
             },
             "end": {
-              "line": 15,
+              "line": 24,
               "column": 4
             }
           },
@@ -3454,6 +3541,7 @@ define("togetherness-ember-client/components/keyword-tile/template", ["exports"]
           var el1 = dom.createElement("button");
           dom.setAttribute(el1, "type", "submit");
           dom.setAttribute(el1, "class", "btn btn-info btn-sm");
+          dom.setAttribute(el1, "style", "margin-top: 5px;");
           var el2 = dom.createTextNode("\n        Select\n      ");
           dom.appendChild(el1, el2);
           dom.appendChild(el0, el1);
@@ -3467,7 +3555,7 @@ define("togetherness-ember-client/components/keyword-tile/template", ["exports"]
           morphs[0] = dom.createElementMorph(element0);
           return morphs;
         },
-        statements: [["element", "action", ["selectKeyword"], [], ["loc", [null, [12, 56], [12, 82]]]]],
+        statements: [["element", "action", ["selectKeyword"], [], ["loc", [null, [21, 14], [21, 40]]]]],
         locals: [],
         templates: []
       };
@@ -3485,7 +3573,7 @@ define("togetherness-ember-client/components/keyword-tile/template", ["exports"]
             "column": 0
           },
           "end": {
-            "line": 18,
+            "line": 27,
             "column": 0
           }
         },
@@ -3501,7 +3589,7 @@ define("togetherness-ember-client/components/keyword-tile/template", ["exports"]
         dom.setAttribute(el1, "class", "col-xs-3 keyword-tile");
         var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("h3");
+        var el2 = dom.createElement("h4");
         var el3 = dom.createTextNode("\n    ");
         dom.appendChild(el2, el3);
         var el3 = dom.createComment("");
@@ -3515,6 +3603,7 @@ define("togetherness-ember-client/components/keyword-tile/template", ["exports"]
         var el3 = dom.createElement("button");
         dom.setAttribute(el3, "type", "submit");
         dom.setAttribute(el3, "class", "btn btn-danger btn-sm");
+        dom.setAttribute(el3, "style", "margin-top: 5px;");
         var el4 = dom.createTextNode("\n      Remove\n    ");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
@@ -3541,7 +3630,7 @@ define("togetherness-ember-client/components/keyword-tile/template", ["exports"]
         morphs[2] = dom.createMorphAt(element2, 7, 7);
         return morphs;
       },
-      statements: [["content", "keyword.word", ["loc", [null, [3, 4], [3, 20]]]], ["element", "action", ["removeKeyword"], [], ["loc", [null, [4, 56], [4, 82]]]], ["block", "if", [["get", "keyword.selected", ["loc", [null, [7, 10], [7, 26]]]]], [], 0, 1, ["loc", [null, [7, 4], [15, 11]]]]],
+      statements: [["content", "keyword.word", ["loc", [null, [3, 4], [3, 20]]]], ["element", "action", ["removeKeyword"], [], ["loc", [null, [7, 12], [7, 38]]]], ["block", "if", [["get", "keyword.selected", ["loc", [null, [10, 10], [10, 26]]]]], [], 0, 1, ["loc", [null, [10, 4], [24, 11]]]]],
       locals: [],
       templates: [child0, child1]
     };
@@ -3554,6 +3643,7 @@ define('togetherness-ember-client/components/manage-keywords/component', ['expor
     isAuthenticated: _ember['default'].computed.alias('auth.isAuthenticated'),
 
     newKeyWord: '',
+    newCategory: 1,
     selectedKeywords: '',
 
     actions: {
@@ -3561,7 +3651,7 @@ define('togetherness-ember-client/components/manage-keywords/component', ['expor
         this.sendAction('viewProfile');
       },
       addKeyword: function addKeyword() {
-        this.sendAction('addKeyword', this.get('newKeyWord'));
+        this.sendAction('addKeyword', this.get('newKeyWord'), this.get('newCategory'));
       },
       removeKeyword: function removeKeyword(keyword) {
         this.sendAction('removeKeyword', keyword);
@@ -3589,6 +3679,107 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
     var child0 = (function () {
       var child0 = (function () {
         var child0 = (function () {
+          var child0 = (function () {
+            var child0 = (function () {
+              return {
+                meta: {
+                  "fragmentReason": false,
+                  "revision": "Ember@2.5.1",
+                  "loc": {
+                    "source": null,
+                    "start": {
+                      "line": 43,
+                      "column": 16
+                    },
+                    "end": {
+                      "line": 49,
+                      "column": 16
+                    }
+                  },
+                  "moduleName": "togetherness-ember-client/components/manage-keywords/template.hbs"
+                },
+                isEmpty: false,
+                arity: 1,
+                cachedFragment: null,
+                hasRendered: false,
+                buildFragment: function buildFragment(dom) {
+                  var el0 = dom.createDocumentFragment();
+                  var el1 = dom.createTextNode("                  ");
+                  dom.appendChild(el0, el1);
+                  var el1 = dom.createComment("");
+                  dom.appendChild(el0, el1);
+                  var el1 = dom.createTextNode("\n");
+                  dom.appendChild(el0, el1);
+                  return el0;
+                },
+                buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+                  var morphs = new Array(1);
+                  morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+                  return morphs;
+                },
+                statements: [["inline", "keyword-tile", [], ["keyword", ["subexpr", "@mut", [["get", "keyword", ["loc", [null, [45, 28], [45, 35]]]]], [], []], "removeKeyword", "removeKeyword", "selectKeyword", "selectKeyword", "unSelectKeyword", "unSelectKeyword"], ["loc", [null, [44, 18], [48, 55]]]]],
+                locals: ["keyword"],
+                templates: []
+              };
+            })();
+            return {
+              meta: {
+                "fragmentReason": false,
+                "revision": "Ember@2.5.1",
+                "loc": {
+                  "source": null,
+                  "start": {
+                    "line": 40,
+                    "column": 12
+                  },
+                  "end": {
+                    "line": 51,
+                    "column": 12
+                  }
+                },
+                "moduleName": "togetherness-ember-client/components/manage-keywords/template.hbs"
+              },
+              isEmpty: false,
+              arity: 0,
+              cachedFragment: null,
+              hasRendered: false,
+              buildFragment: function buildFragment(dom) {
+                var el0 = dom.createDocumentFragment();
+                var el1 = dom.createTextNode("              ");
+                dom.appendChild(el0, el1);
+                var el1 = dom.createElement("div");
+                dom.setAttribute(el1, "class", "col-xs-12");
+                var el2 = dom.createTextNode("\n                ");
+                dom.appendChild(el1, el2);
+                var el2 = dom.createElement("h3");
+                var el3 = dom.createElement("strong");
+                var el4 = dom.createComment("");
+                dom.appendChild(el3, el4);
+                dom.appendChild(el2, el3);
+                dom.appendChild(el1, el2);
+                var el2 = dom.createTextNode("\n");
+                dom.appendChild(el1, el2);
+                var el2 = dom.createComment("");
+                dom.appendChild(el1, el2);
+                var el2 = dom.createTextNode("              ");
+                dom.appendChild(el1, el2);
+                dom.appendChild(el0, el1);
+                var el1 = dom.createTextNode("\n");
+                dom.appendChild(el0, el1);
+                return el0;
+              },
+              buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+                var element0 = dom.childAt(fragment, [1]);
+                var morphs = new Array(2);
+                morphs[0] = dom.createMorphAt(dom.childAt(element0, [1, 0]), 0, 0);
+                morphs[1] = dom.createMorphAt(element0, 3, 3);
+                return morphs;
+              },
+              statements: [["content", "category.label", ["loc", [null, [42, 28], [42, 46]]]], ["block", "each", [["get", "category.keywordHashArray", ["loc", [null, [43, 24], [43, 49]]]]], [], 0, null, ["loc", [null, [43, 16], [49, 25]]]]],
+              locals: [],
+              templates: [child0]
+            };
+          })();
           return {
             meta: {
               "fragmentReason": false,
@@ -3596,12 +3787,12 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
               "loc": {
                 "source": null,
                 "start": {
-                  "line": 27,
-                  "column": 8
+                  "line": 39,
+                  "column": 10
                 },
                 "end": {
-                  "line": 33,
-                  "column": 8
+                  "line": 52,
+                  "column": 10
                 }
               },
               "moduleName": "togetherness-ember-client/components/manage-keywords/template.hbs"
@@ -3612,22 +3803,20 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
             hasRendered: false,
             buildFragment: function buildFragment(dom) {
               var el0 = dom.createDocumentFragment();
-              var el1 = dom.createTextNode("          ");
-              dom.appendChild(el0, el1);
               var el1 = dom.createComment("");
-              dom.appendChild(el0, el1);
-              var el1 = dom.createTextNode("\n");
               dom.appendChild(el0, el1);
               return el0;
             },
             buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
               var morphs = new Array(1);
-              morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+              morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+              dom.insertBoundary(fragment, 0);
+              dom.insertBoundary(fragment, null);
               return morphs;
             },
-            statements: [["inline", "keyword-tile", [], ["keyword", ["subexpr", "@mut", [["get", "keyword", ["loc", [null, [29, 20], [29, 27]]]]], [], []], "removeKeyword", "removeKeyword", "selectKeyword", "selectKeyword", "unSelectKeyword", "unSelectKeyword"], ["loc", [null, [28, 10], [32, 47]]]]],
-            locals: ["keyword"],
-            templates: []
+            statements: [["block", "if", [["get", "category.categoryBool", ["loc", [null, [40, 18], [40, 39]]]]], [], 0, null, ["loc", [null, [40, 12], [51, 19]]]]],
+            locals: ["category"],
+            templates: [child0]
           };
         })();
         return {
@@ -3637,12 +3826,12 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
             "loc": {
               "source": null,
               "start": {
-                "line": 26,
-                "column": 6
+                "line": 38,
+                "column": 8
               },
               "end": {
-                "line": 34,
-                "column": 6
+                "line": 53,
+                "column": 8
               }
             },
             "moduleName": "togetherness-ember-client/components/manage-keywords/template.hbs"
@@ -3664,7 +3853,7 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
             dom.insertBoundary(fragment, null);
             return morphs;
           },
-          statements: [["block", "each", [["get", "keywords", ["loc", [null, [27, 16], [27, 24]]]]], [], 0, null, ["loc", [null, [27, 8], [33, 17]]]]],
+          statements: [["block", "each", [["get", "categories", ["loc", [null, [39, 18], [39, 28]]]]], [], 0, null, ["loc", [null, [39, 10], [52, 19]]]]],
           locals: [],
           templates: [child0]
         };
@@ -3678,12 +3867,12 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
               "loc": {
                 "source": null,
                 "start": {
-                  "line": 35,
-                  "column": 45
+                  "line": 54,
+                  "column": 47
                 },
                 "end": {
-                  "line": 35,
-                  "column": 77
+                  "line": 54,
+                  "column": 79
                 }
               },
               "moduleName": "togetherness-ember-client/components/manage-keywords/template.hbs"
@@ -3713,12 +3902,12 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
             "loc": {
               "source": null,
               "start": {
-                "line": 34,
-                "column": 6
+                "line": 53,
+                "column": 8
               },
               "end": {
-                "line": 36,
-                "column": 6
+                "line": 55,
+                "column": 8
               }
             },
             "moduleName": "togetherness-ember-client/components/manage-keywords/template.hbs"
@@ -3729,7 +3918,7 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
           hasRendered: false,
           buildFragment: function buildFragment(dom) {
             var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("        ");
+            var el1 = dom.createTextNode("          ");
             dom.appendChild(el0, el1);
             var el1 = dom.createElement("h4");
             var el2 = dom.createTextNode("You have no preference keywords. ");
@@ -3748,7 +3937,7 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
             morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 1, 1);
             return morphs;
           },
-          statements: [["block", "link-to", ["attractions"], [], 0, null, ["loc", [null, [35, 45], [35, 89]]]]],
+          statements: [["block", "link-to", ["attractions"], [], 0, null, ["loc", [null, [54, 47], [54, 91]]]]],
           locals: [],
           templates: [child0]
         };
@@ -3766,7 +3955,7 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
               "column": 0
             },
             "end": {
-              "line": 57,
+              "line": 79,
               "column": 0
             }
           },
@@ -3784,69 +3973,51 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
           dom.setAttribute(el1, "class", "white-background-div col-xs-12");
           var el2 = dom.createTextNode("\n\n    ");
           dom.appendChild(el1, el2);
-          var el2 = dom.createElement("h3");
-          var el3 = dom.createTextNode("Add New Keywords");
-          dom.appendChild(el2, el3);
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n    ");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createElement("h4");
-          var el3 = dom.createTextNode("You can add more than one keyword at a time seperated by commas or spaces");
-          dom.appendChild(el2, el3);
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n    ");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createComment("");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n    ");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createElement("button");
-          dom.setAttribute(el2, "type", "submit");
-          dom.setAttribute(el2, "class", "btn btn-success btn-sm");
-          var el3 = dom.createTextNode("\n      Add\n    ");
-          dom.appendChild(el2, el3);
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n\n      ");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createElement("hr");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n\n    ");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createElement("h3");
-          var el3 = dom.createTextNode("Current Keywords");
-          dom.appendChild(el2, el3);
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n\n    ");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createElement("h4");
-          var el3 = dom.createTextNode("Filter");
-          dom.appendChild(el2, el3);
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n    ");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createElement("div");
-          dom.setAttribute(el2, "class", "form-group col-xs-12");
-          var el3 = dom.createTextNode("\n      ");
-          dom.appendChild(el2, el3);
-          var el3 = dom.createComment("");
-          dom.appendChild(el2, el3);
-          var el3 = dom.createTextNode("\n    ");
-          dom.appendChild(el2, el3);
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n\n    ");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createElement("br");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n    ");
-          dom.appendChild(el1, el2);
           var el2 = dom.createElement("div");
           dom.setAttribute(el2, "class", "col-xs-12");
-          dom.setAttribute(el2, "syle", "margin-top: 15px; margin-bottom: 15px;");
-          var el3 = dom.createTextNode("\n");
+          var el3 = dom.createTextNode("\n      ");
           dom.appendChild(el2, el3);
-          var el3 = dom.createComment("");
+          var el3 = dom.createElement("h3");
+          var el4 = dom.createTextNode("Add New Keywords");
+          dom.appendChild(el3, el4);
           dom.appendChild(el2, el3);
-          var el3 = dom.createTextNode("    ");
+          var el3 = dom.createTextNode("\n      ");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createElement("h4");
+          var el4 = dom.createTextNode("You can add more than one keyword at a time seperated by commas or spaces");
+          dom.appendChild(el3, el4);
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("\n      ");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createElement("div");
+          dom.setAttribute(el3, "class", "col-xs-12");
+          var el4 = dom.createTextNode("\n        ");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createComment("");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createTextNode("\n        ");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createComment("");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createTextNode("\n      ");
+          dom.appendChild(el3, el4);
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("\n      ");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createElement("div");
+          dom.setAttribute(el3, "class", "col-xs-12");
+          var el4 = dom.createTextNode("\n        ");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createElement("button");
+          dom.setAttribute(el4, "type", "submit");
+          dom.setAttribute(el4, "class", "btn btn-success btn-sm");
+          var el5 = dom.createTextNode("\n          Add\n        ");
+          dom.appendChild(el4, el5);
+          dom.appendChild(el3, el4);
+          var el4 = dom.createTextNode("\n      ");
+          dom.appendChild(el3, el4);
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("\n    ");
           dom.appendChild(el2, el3);
           dom.appendChild(el1, el2);
           var el2 = dom.createTextNode("\n\n    ");
@@ -3865,36 +4036,102 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("div");
           dom.setAttribute(el2, "class", "col-xs-12");
-          dom.setAttribute(el2, "style", "margin-top: 10px; margin-bottom: 10px;");
           var el3 = dom.createTextNode("\n      ");
           dom.appendChild(el2, el3);
-          var el3 = dom.createElement("button");
-          dom.setAttribute(el3, "type", "submit");
-          dom.setAttribute(el3, "class", "btn btn-warning btn-md");
-          var el4 = dom.createTextNode("\n        Remove Selected Keywords\n      ");
+          var el3 = dom.createElement("h3");
+          dom.setAttribute(el3, "style", "margin-top:10px;");
+          var el4 = dom.createTextNode("Current Keywords (by Category)");
+          dom.appendChild(el3, el4);
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("\n\n      ");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createElement("h4");
+          var el4 = dom.createTextNode("Filter");
           dom.appendChild(el3, el4);
           dom.appendChild(el2, el3);
           var el3 = dom.createTextNode("\n      ");
           dom.appendChild(el2, el3);
-          var el3 = dom.createElement("button");
-          dom.setAttribute(el3, "type", "submit");
-          dom.setAttribute(el3, "class", "btn btn-danger btn-md");
-          var el4 = dom.createTextNode("\n        Remove All Keywords\n      ");
+          var el3 = dom.createElement("div");
+          dom.setAttribute(el3, "class", "form-group col-xs-12");
+          var el4 = dom.createTextNode("\n        ");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createComment("");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createTextNode("\n      ");
+          dom.appendChild(el3, el4);
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("\n\n      ");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createElement("br");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("\n      ");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createElement("div");
+          dom.setAttribute(el3, "class", "col-xs-12");
+          dom.setAttribute(el3, "syle", "margin-top: 15px; margin-bottom: 15px;");
+          var el4 = dom.createTextNode("\n");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createComment("");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createTextNode("      ");
           dom.appendChild(el3, el4);
           dom.appendChild(el2, el3);
           var el3 = dom.createTextNode("\n    ");
           dom.appendChild(el2, el3);
           dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("br");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n      ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("hr");
+          dom.appendChild(el1, el2);
           var el2 = dom.createTextNode("\n    ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("br");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n\n    ");
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("div");
           dom.setAttribute(el2, "class", "col-xs-12");
           var el3 = dom.createTextNode("\n      ");
           dom.appendChild(el2, el3);
-          var el3 = dom.createElement("button");
-          dom.setAttribute(el3, "type", "submit");
-          dom.setAttribute(el3, "class", "btn btn-primary btn-lg");
-          var el4 = dom.createTextNode("\n        Return to Profile\n      ");
+          var el3 = dom.createElement("div");
+          dom.setAttribute(el3, "class", "col-xs-12");
+          dom.setAttribute(el3, "style", "margin-top: 10px; margin-bottom: 10px;");
+          var el4 = dom.createTextNode("\n        ");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createElement("button");
+          dom.setAttribute(el4, "type", "submit");
+          dom.setAttribute(el4, "class", "btn btn-warning btn-md");
+          var el5 = dom.createTextNode("\n          Remove Selected Keywords\n        ");
+          dom.appendChild(el4, el5);
+          dom.appendChild(el3, el4);
+          var el4 = dom.createTextNode("\n        ");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createElement("button");
+          dom.setAttribute(el4, "type", "submit");
+          dom.setAttribute(el4, "class", "btn btn-danger btn-md");
+          var el5 = dom.createTextNode("\n          Remove All Keywords\n        ");
+          dom.appendChild(el4, el5);
+          dom.appendChild(el3, el4);
+          var el4 = dom.createTextNode("\n      ");
+          dom.appendChild(el3, el4);
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("\n      ");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createElement("div");
+          dom.setAttribute(el3, "class", "col-xs-12");
+          var el4 = dom.createTextNode("\n        ");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createElement("button");
+          dom.setAttribute(el4, "type", "submit");
+          dom.setAttribute(el4, "class", "btn btn-primary btn-lg");
+          var el5 = dom.createTextNode("\n          Return to Profile\n        ");
+          dom.appendChild(el4, el5);
+          dom.appendChild(el3, el4);
+          var el4 = dom.createTextNode("\n      ");
           dom.appendChild(el3, el4);
           dom.appendChild(el2, el3);
           var el3 = dom.createTextNode("\n    ");
@@ -3908,23 +4145,28 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
           return el0;
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var element0 = dom.childAt(fragment, [1]);
-          var element1 = dom.childAt(element0, [7]);
-          var element2 = dom.childAt(element0, [27]);
-          var element3 = dom.childAt(element2, [1]);
-          var element4 = dom.childAt(element2, [3]);
-          var element5 = dom.childAt(element0, [29, 1]);
-          var morphs = new Array(7);
-          morphs[0] = dom.createMorphAt(element0, 5, 5);
-          morphs[1] = dom.createElementMorph(element1);
-          morphs[2] = dom.createMorphAt(dom.childAt(element0, [15]), 1, 1);
-          morphs[3] = dom.createMorphAt(dom.childAt(element0, [19]), 1, 1);
-          morphs[4] = dom.createElementMorph(element3);
-          morphs[5] = dom.createElementMorph(element4);
-          morphs[6] = dom.createElementMorph(element5);
+          var element1 = dom.childAt(fragment, [1]);
+          var element2 = dom.childAt(element1, [1]);
+          var element3 = dom.childAt(element2, [5]);
+          var element4 = dom.childAt(element2, [7, 1]);
+          var element5 = dom.childAt(element1, [9]);
+          var element6 = dom.childAt(element1, [17]);
+          var element7 = dom.childAt(element6, [1]);
+          var element8 = dom.childAt(element7, [1]);
+          var element9 = dom.childAt(element7, [3]);
+          var element10 = dom.childAt(element6, [3, 1]);
+          var morphs = new Array(8);
+          morphs[0] = dom.createMorphAt(element3, 1, 1);
+          morphs[1] = dom.createMorphAt(element3, 3, 3);
+          morphs[2] = dom.createElementMorph(element4);
+          morphs[3] = dom.createMorphAt(dom.childAt(element5, [5]), 1, 1);
+          morphs[4] = dom.createMorphAt(dom.childAt(element5, [9]), 1, 1);
+          morphs[5] = dom.createElementMorph(element8);
+          morphs[6] = dom.createElementMorph(element9);
+          morphs[7] = dom.createElementMorph(element10);
           return morphs;
         },
-        statements: [["inline", "keyword-input", [], ["keyword", ["subexpr", "@mut", [["get", "newKeyWord", ["loc", [null, [7, 14], [7, 24]]]]], [], []]], ["loc", [null, [6, 4], [7, 26]]]], ["element", "action", ["addKeyword"], [], ["loc", [null, [8, 57], [8, 80]]]], ["inline", "keyword-search", [], ["keywordsearch", ["subexpr", "@mut", [["get", "keywordsearch", ["loc", [null, [19, 22], [19, 35]]]]], [], []], "updateKeywordSearch", "updateKeywordSearch"], ["loc", [null, [18, 6], [20, 51]]]], ["block", "if", [["get", "keywordsBool", ["loc", [null, [26, 12], [26, 24]]]]], [], 0, 1, ["loc", [null, [26, 6], [36, 13]]]], ["element", "action", ["removeSelectedKeywords"], [], ["loc", [null, [44, 59], [44, 94]]]], ["element", "action", ["removeAllKeywords"], [], ["loc", [null, [47, 58], [47, 88]]]], ["element", "action", ["viewProfile"], [], ["loc", [null, [52, 59], [52, 83]]]]],
+        statements: [["inline", "keyword-input", [], ["newKeyWord", ["subexpr", "@mut", [["get", "newKeyWord", ["loc", [null, [9, 21], [9, 31]]]]], [], []]], ["loc", [null, [8, 8], [9, 33]]]], ["inline", "category-selector", [], ["categories", ["subexpr", "@mut", [["get", "categories", ["loc", [null, [11, 21], [11, 31]]]]], [], []], "newCategory", ["subexpr", "@mut", [["get", "newCategory", ["loc", [null, [12, 22], [12, 33]]]]], [], []]], ["loc", [null, [10, 8], [12, 35]]]], ["element", "action", ["addKeyword"], [], ["loc", [null, [15, 61], [15, 84]]]], ["inline", "keyword-search", [], ["keywordsearch", ["subexpr", "@mut", [["get", "keywordsearch", ["loc", [null, [31, 24], [31, 37]]]]], [], []], "updateKeywordSearch", "updateKeywordSearch"], ["loc", [null, [30, 8], [32, 53]]]], ["block", "if", [["get", "keywordsBool", ["loc", [null, [38, 14], [38, 26]]]]], [], 0, 1, ["loc", [null, [38, 8], [55, 15]]]], ["element", "action", ["removeSelectedKeywords"], [], ["loc", [null, [65, 61], [65, 96]]]], ["element", "action", ["removeAllKeywords"], [], ["loc", [null, [68, 60], [68, 90]]]], ["element", "action", ["viewProfile"], [], ["loc", [null, [73, 61], [73, 85]]]]],
         locals: [],
         templates: [child0, child1]
       };
@@ -3943,7 +4185,7 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
             "column": 0
           },
           "end": {
-            "line": 58,
+            "line": 80,
             "column": 0
           }
         },
@@ -3966,7 +4208,7 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
         dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["block", "if", [["get", "isAuthenticated", ["loc", [null, [1, 6], [1, 21]]]]], [], 0, null, ["loc", [null, [1, 0], [57, 7]]]]],
+      statements: [["block", "if", [["get", "isAuthenticated", ["loc", [null, [1, 6], [1, 21]]]]], [], 0, null, ["loc", [null, [1, 0], [79, 7]]]]],
       locals: [],
       templates: [child0]
     };
@@ -8731,6 +8973,29 @@ define('togetherness-ember-client/friendship/model', ['exports', 'ember-data', '
     requestedUser: (0, _emberDataRelationships.belongsTo)('user')
   });
 });
+define('togetherness-ember-client/helpers/dropdown-option', ['exports'], function (exports) {
+  // export default Ember.Handlebars.makeBoundHelper(function(data, valueProp, displayProp) {
+  exports['default'] = Ember.Helper.helper(function (params, hash) {
+    var data = params[0];
+    var valueProp = params[1];
+    var displayProp = params[2];
+    var value = '';
+    var display = '';
+    if (typeof data.get === 'function') {
+      value = data.get(valueProp);
+      display = data.get(displayProp);
+    } else {
+      value = data[valueProp];
+      display = data[displayProp];
+    }
+
+    if (Em.isBlank(valueProp)) {
+      value = data;
+      display = data;
+    }
+    return new Em.String.htmlSafe('<option value="' + value + '">' + display + '</option>');
+  });
+});
 define('togetherness-ember-client/helpers/in-arr', ['exports', 'ember-inline-edit/helpers/in-arr'], function (exports, _emberInlineEditHelpersInArr) {
   Object.defineProperty(exports, 'default', {
     enumerable: true,
@@ -10128,6 +10393,98 @@ define("togetherness-ember-client/team/template", ["exports"], function (exports
     };
   })());
 });
+define("togetherness-ember-client/templates/components/drop-down", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.5.1",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 2,
+              "column": 2
+            },
+            "end": {
+              "line": 4,
+              "column": 2
+            }
+          },
+          "moduleName": "togetherness-ember-client/templates/components/drop-down.hbs"
+        },
+        isEmpty: false,
+        arity: 1,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("  ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [["inline", "dropdown-option", [["get", "data", ["loc", [null, [3, 20], [3, 24]]]], ["get", "optionValuePath", ["loc", [null, [3, 25], [3, 40]]]], ["get", "optionLabelPath", ["loc", [null, [3, 41], [3, 56]]]]], [], ["loc", [null, [3, 2], [3, 58]]]]],
+        locals: ["data"],
+        templates: []
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "triple-curlies"
+        },
+        "revision": "Ember@2.5.1",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 6,
+            "column": 0
+          }
+        },
+        "moduleName": "togetherness-ember-client/templates/components/drop-down.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("select");
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var element0 = dom.childAt(fragment, [0]);
+        var morphs = new Array(2);
+        morphs[0] = dom.createAttrMorph(element0, 'class');
+        morphs[1] = dom.createMorphAt(element0, 1, 1);
+        return morphs;
+      },
+      statements: [["attribute", "class", ["concat", [["get", "selectClass", ["loc", [null, [1, 17], [1, 28]]]]]]], ["block", "each", [["get", "content", ["loc", [null, [2, 10], [2, 17]]]]], [], 0, null, ["loc", [null, [2, 2], [4, 11]]]]],
+      locals: [],
+      templates: [child0]
+    };
+  })());
+});
 define("togetherness-ember-client/templates/components/ember-inline-edit", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
@@ -10943,54 +11300,63 @@ define('togetherness-ember-client/view-keywords/route', ['exports', 'ember'], fu
       var _this = this;
 
       return _ember['default'].RSVP.hash({
-        keywords: this.get('store').findRecord('user', this.get('credentials.id')).then(function (user) {
-          return user.get('keywords_string').split(' ').toArray().filter(function (word) {
-            return _this.get('keywordSearch').toLowerCase() === word.substr(0, _this.get('keywordSearch').length).toLowerCase();
-          });
-        }).then(function (keywordArray) {
-          return keywordArray.toArray().sort(function (a, b) {
-            return a > b;
-          });
-        }).then(function (keywordArray) {
-          return keywordArray.filter(function (word) {
-            return word.length > 0 && word !== ' ';
-          });
-        }).then(function (keywordArray) {
-          var keywordHashArray = [];
-          keywordArray.forEach(function (word) {
-            var keywordHash = {
-              word: word,
-              selected: false
-            };
-            var selectedKeywordHashes = _this.get('selectedKeywords');
-            var selectedKeywords = [];
-            selectedKeywordHashes.forEach(function (wordHash) {
-              selectedKeywords.push(wordHash.word);
+        categories: this.get('store').findAll('category').then(function (categories) {
+          try {
+            _this.get('store').findRecord('user', _this.get('credentials.id')).then(function (user) {
+              var userWordsObject = JSON.parse(user.get('keywords_string'));
+              return categories.forEach(function (category) {
+                var userWordString = userWordsObject[category.id];
+                if (!userWordString) {
+                  category.set('categoryBool', false);
+                  category.set('keywordHashArray', []);
+                } else {
+                  (function () {
+                    category.set('categoryBool', true);
+                    var userWordArray = userWordString.split(' ').toArray().filter(function (word) {
+                      return _this.get('keywordSearch').toLowerCase() === word.substr(0, _this.get('keywordSearch').length).toLowerCase();
+                    });
+                    userWordArray = userWordArray.toArray().sort(function (a, b) {
+                      return a > b;
+                    });
+                    userWordArray = userWordArray.filter(function (word) {
+                      return word.length > 0 && word !== ' ';
+                    });
+                    var keywordHashArray = [];
+                    userWordArray.forEach(function (word) {
+                      var keywordHash = {
+                        word: word,
+                        selected: false
+                      };
+                      var selectedKeywordHashes = _this.get('selectedKeywords');
+                      var selectedKeywords = [];
+                      selectedKeywordHashes.forEach(function (wordHash) {
+                        selectedKeywords.push(wordHash.word);
+                      });
+                      if (selectedKeywords.includes(word)) {
+                        keywordHash.selected = true;
+                      }
+                      keywordHashArray.push(keywordHash);
+                    });
+                    category.set('keywordHashArray', keywordHashArray);
+                  })();
+                }
+              });
             });
-            if (selectedKeywords.includes(word)) {
-              keywordHash.selected = true;
-            }
-            keywordHashArray.push(keywordHash);
-          });
-          return keywordHashArray;
+            return categories;
+          } catch (error) {
+            console.error(error);
+          }
         }),
         keywordsBool: this.get('store').findRecord('user', this.get('credentials.id')).then(function (user) {
-          return user.get('keywords_string').split(' ').toArray().filter(function (word) {
-            return _this.get('keywordSearch').toLowerCase() === word.substr(0, _this.get('keywordSearch').length).toLowerCase();
-          });
-        }).then(function (keywordArray) {
-          return keywordArray.toArray().sort(function (a, b) {
-            return a > b;
-          });
-        }).then(function (keywordArray) {
-          return keywordArray.filter(function (word) {
-            return word.length > 0 && word !== ' ';
-          });
-        }).then(function (sortedKeywordArray) {
-          if (sortedKeywordArray.length === 0 || sortedKeywordArray.length === 1 && sortedKeywordArray[0] === '') {
-            return false;
-          } else {
-            return true;
+          try {
+            var userWordsObject = JSON.parse(user.get('keywords_string'));
+            if (Object.values(userWordsObject)[0]) {
+              return true;
+            } else {
+              return false;
+            }
+          } catch (error) {
+            console.error(error);
           }
         })
       });
@@ -11000,65 +11366,94 @@ define('togetherness-ember-client/view-keywords/route', ['exports', 'ember'], fu
       viewProfile: function viewProfile() {
         this.transitionTo('profile');
       },
-      addKeyword: function addKeyword(keyword) {
+      updateStrings: function updateStrings(currentUser, keyword, category, keywordsObject) {
         var _this2 = this;
 
-        this.get('store').findRecord('user', this.get('credentials.id')).then(function (currentUser) {
-          var keywordsArray = currentUser.get('keywords_string').split(' ');
-          if (keywordsArray.includes(keyword)) {
-            _this2.get('flashMessages').warning('You already have that keyword!');
-          } else {
-            var keywordsString = currentUser.get('keywords_string') + ' ' + keyword;
-            _this2.get('auth').updateKeywords(_this2.get('credentials'), keywordsString.trim()).then(function () {
-              _this2.get('flashMessages').success('You successfully added: ' + keyword);
-              _this2.get('store').unloadAll();
-              _this2.refresh();
-            });
-          }
-        });
+        if (keywordsObject[category]) {
+          var keywordsString = keywordsObject[category] + ' ' + keyword;
+          var updatedKeywordObject = keywordsObject;
+          updatedKeywordObject[category] = keywordsString.trim();
+          var updatedKeywordString = JSON.stringify(updatedKeywordObject);
+          this.get('auth').updateKeywords(this.get('credentials'), updatedKeywordString).then(function () {
+            _this2.get('flashMessages').success('You successfully added: ' + keyword);
+            _this2.refresh();
+          });
+        } else {
+          keywordsObject[category] = keyword.trim();
+          var updatedKeywordObject = keywordsObject;
+          var updatedKeywordString = JSON.stringify(updatedKeywordObject);
+          this.get('auth').updateKeywords(this.get('credentials'), updatedKeywordString).then(function () {
+            _this2.get('flashMessages').success('You successfully added: ' + keyword);
+            _this2.get('store').unloadAll();
+            _this2.refresh();
+          });
+        }
       },
-      removeKeyword: function removeKeyword(keyword) {
+      addKeyword: function addKeyword(keyword, category) {
         var _this3 = this;
 
-        this.get('store').findRecord('user', this.get('credentials.id')).then(function (currentUser) {
-          var keywordsString = currentUser.get('keywords_string');
-          keywordsString = keywordsString.replace(keyword, '');
-          keywordsString = keywordsString.replace('  ', ' ');
-          _this3.get('auth').updateKeywords(_this3.get('credentials'), keywordsString.trim()).then(function () {
-            _this3.get('flashMessages').success('You successfully removed: ' + keyword.word);
-            _this3.get('store').unloadAll();
-            _this3.refresh();
-          });
-        });
+        try {
+          (function () {
+            var keywords = keyword.split(' ');
+            _this3.get('store').findRecord('user', _this3.get('credentials.id')).then(function (currentUser) {
+              var keywordsObject = JSON.parse(currentUser.get('keywords_string'));
+              keywords.forEach(function (word) {
+                if (keywordsObject[category]) {
+                  if (keywordsObject[category].includes(word)) {
+                    _this3.get('flashMessages').warning('You already have that keyword!');
+                  } else {
+                    _this3.send('updateStrings', currentUser, word, category, keywordsObject);
+                  }
+                } else {
+                  _this3.send('updateStrings', currentUser, word, category, keywordsObject);
+                }
+              });
+            });
+          })();
+        } catch (error) {
+          this.get('flashMessages').danger('Failed to save: ' + keyword + ', because of error: ' + error);
+        }
       },
-      removeSelectedKeywords: function removeSelectedKeywords() {
+      removeKeyword: function removeKeyword(keyword) {
         var _this4 = this;
 
-        var selectedKeywordHashes = this.get('selectedKeywords');
-        var selectedKeywords = [];
-        selectedKeywordHashes.forEach(function (wordHash) {
-          selectedKeywords.push(wordHash.word);
-        });
-        this.get('store').findRecord('user', this.get('credentials.id')).then(function (currentUser) {
-          var keywordsString = currentUser.get('keywords_string');
-          selectedKeywords.forEach(function (keyword) {
+        try {
+          this.get('store').findRecord('user', this.get('credentials.id')).then(function (currentUser) {
+            var keywordsString = currentUser.get('keywords_string');
             keywordsString = keywordsString.replace(keyword, '');
             keywordsString = keywordsString.replace('  ', ' ');
             _this4.get('auth').updateKeywords(_this4.get('credentials'), keywordsString.trim()).then(function () {
-              _this4.get('flashMessages').success('You successfully removed selected keywords!');
+              _this4.get('flashMessages').success('You successfully removed: ' + keyword);
               _this4.get('store').unloadAll();
               _this4.refresh();
             });
           });
-        });
+        } catch (error) {
+          this.get('flashMessages').danger('Failed to remove keyword: ' + keyword + ', because of error: ' + error);
+        }
       },
-      removeAllKeywords: function removeAllKeywords() {
+      removeSelectedKeywords: function removeSelectedKeywords() {
         var _this5 = this;
 
-        this.get('auth').updateKeywords(this.get('credentials'), '').then(function () {
-          _this5.get('flashMessages').success('You successfully removed all of your keywords!');
-          _this5.get('store').unloadAll();
-          _this5.refresh();
+        try {
+          var selectedKeywordHashes = this.get('selectedKeywords');
+          selectedKeywordHashes.forEach(function (wordHash) {
+            _this5.send('removeKeyword', wordHash.word);
+            _this5.set('selectedKeywords', []);
+            _this5.get('store').unloadAll();
+            _this5.refresh();
+          });
+        } catch (error) {
+          this.get('flashMessages').danger('Failed to remove selected keywords because of error: ' + error);
+        }
+      },
+      removeAllKeywords: function removeAllKeywords() {
+        var _this6 = this;
+
+        this.get('auth').updateKeywords(this.get('credentials'), '{}').then(function () {
+          _this6.get('flashMessages').success('You successfully removed all of your keywords!');
+          _this6.get('store').unloadAll();
+          _this6.refresh();
         });
       },
       updateKeywordSearch: function updateKeywordSearch(keywordSearch) {
@@ -11172,7 +11567,7 @@ define("togetherness-ember-client/view-keywords/template", ["exports"], function
         morphs[1] = dom.createMorphAt(fragment, 6, 6, contextualElement);
         return morphs;
       },
-      statements: [["block", "link-to", ["profile"], [], 0, null, ["loc", [null, [2, 4], [2, 55]]]], ["inline", "manage-keywords", [], ["keywords", ["subexpr", "@mut", [["get", "model.keywords", ["loc", [null, [5, 11], [5, 25]]]]], [], []], "keywordsBool", ["subexpr", "@mut", [["get", "model.keywordsBool", ["loc", [null, [6, 15], [6, 33]]]]], [], []], "viewProfile", "viewProfile", "addKeyword", "addKeyword", "removeKeyword", "removeKeyword", "updateKeywordSearch", "updateKeywordSearch", "removeSelectedKeywords", "removeSelectedKeywords", "removeAllKeywords", "removeAllKeywords", "selectKeyword", "selectKeyword", "unSelectKeyword", "unSelectKeyword"], ["loc", [null, [4, 0], [14, 37]]]]],
+      statements: [["block", "link-to", ["profile"], [], 0, null, ["loc", [null, [2, 4], [2, 55]]]], ["inline", "manage-keywords", [], ["categories", ["subexpr", "@mut", [["get", "model.categories", ["loc", [null, [5, 13], [5, 29]]]]], [], []], "keywordsBool", ["subexpr", "@mut", [["get", "model.keywordsBool", ["loc", [null, [6, 15], [6, 33]]]]], [], []], "viewProfile", "viewProfile", "addKeyword", "addKeyword", "removeKeyword", "removeKeyword", "updateKeywordSearch", "updateKeywordSearch", "removeSelectedKeywords", "removeSelectedKeywords", "removeAllKeywords", "removeAllKeywords", "selectKeyword", "selectKeyword", "unSelectKeyword", "unSelectKeyword"], ["loc", [null, [4, 0], [14, 37]]]]],
       locals: [],
       templates: [child0]
     };
@@ -11210,7 +11605,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+d950e75a"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+446165b8"});
 }
 
 /* jshint ignore:end */
