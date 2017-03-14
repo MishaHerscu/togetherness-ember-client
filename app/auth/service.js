@@ -3,6 +3,7 @@ import { storageFor } from 'ember-local-storage';
 
 export default Ember.Service.extend({
   ajax: Ember.inject.service(),
+  flashMessages: Ember.inject.service(),
   credentials: storageFor('auth'),
   isAuthenticated: Ember.computed.bool('credentials.token'),
 
@@ -84,4 +85,16 @@ export default Ember.Service.extend({
     .finally(() => this.get('credentials').reset());
   },
 
+  updateRecommendations (credentials) {
+    return this.get('ajax').post(`/update-recommendations/${this.get('credentials.id')}`, {
+      data: {
+        credentials: {
+          email: credentials.get('email'),
+        },
+      },
+    })
+    .then(() => {
+      this.get('flashMessages').success('Successfully updated your recommendations!');
+    });
+  },
 });

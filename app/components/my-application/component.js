@@ -11,5 +11,8 @@ export default Ember.Component.extend({
     signOut () {
       this.sendAction('signOut');
     },
+    updateRecommendations () {
+      this.get('auth').updateRecommendations(this.get('credentials'));
+    }
   },
 });

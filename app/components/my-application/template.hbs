@@ -39,6 +39,15 @@
 </div>
 
 <div class="col-md-12">
+  {{#if isAuthenticated}}
+    <div class="col-md-12" style="text-align:right;">
+      {{#link-to "attraction-suggestions"}}
+        <button class="btn btn-success btn-sm" {{action "updateRecommendations"}}>
+          Refresh Recommendations
+        </button>
+      {{/link-to}}
+    </div>
+  {{/if}}
   <div class="col-md-10 col-md-offset-1" style="padding-bottom: 36px;">
     {{outlet}}
   </div>
