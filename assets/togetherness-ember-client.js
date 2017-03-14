@@ -8565,6 +8565,9 @@ define('togetherness-ember-client/components/sign-in-form/component', ['exports'
       },
       reset: function reset() {
         this.sendAction('reset');
+      },
+      signUp: function signUp() {
+        this.sendAction('signUp');
       }
     }
   });
@@ -8584,7 +8587,7 @@ define("togetherness-ember-client/components/sign-in-form/template", ["exports"]
             "column": 0
           },
           "end": {
-            "line": 13,
+            "line": 19,
             "column": 0
           }
         },
@@ -8598,7 +8601,7 @@ define("togetherness-ember-client/components/sign-in-form/template", ["exports"]
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createElement("div");
         dom.setAttribute(el1, "class", "col-xs-6");
-        var el2 = dom.createTextNode("\n  ");
+        var el2 = dom.createTextNode("\n\n  ");
         dom.appendChild(el1, el2);
         var el2 = dom.createComment("");
         dom.appendChild(el1, el2);
@@ -8617,11 +8620,19 @@ define("togetherness-ember-client/components/sign-in-form/template", ["exports"]
         var el2 = dom.createTextNode("\n\n  ");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("button");
+        dom.setAttribute(el2, "type", "submit");
+        dom.setAttribute(el2, "class", "btn btn-info");
+        var el3 = dom.createTextNode("\n    New Account\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("button");
         dom.setAttribute(el2, "class", "btn btn-default");
         var el3 = dom.createTextNode("\n    Cancel\n  ");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n");
+        var el2 = dom.createTextNode("\n  \n");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
@@ -8632,14 +8643,16 @@ define("togetherness-ember-client/components/sign-in-form/template", ["exports"]
         var element0 = dom.childAt(fragment, [0]);
         var element1 = dom.childAt(element0, [5]);
         var element2 = dom.childAt(element0, [7]);
-        var morphs = new Array(4);
+        var element3 = dom.childAt(element0, [9]);
+        var morphs = new Array(5);
         morphs[0] = dom.createMorphAt(element0, 1, 1);
         morphs[1] = dom.createMorphAt(element0, 3, 3);
         morphs[2] = dom.createElementMorph(element1);
         morphs[3] = dom.createElementMorph(element2);
+        morphs[4] = dom.createElementMorph(element3);
         return morphs;
       },
-      statements: [["inline", "email-input", [], ["email", ["subexpr", "@mut", [["get", "credentials.email", ["loc", [null, [2, 22], [2, 39]]]]], [], []]], ["loc", [null, [2, 2], [2, 41]]]], ["inline", "password-input", [], ["password", ["subexpr", "@mut", [["get", "credentials.password", ["loc", [null, [3, 28], [3, 48]]]]], [], []]], ["loc", [null, [3, 2], [3, 50]]]], ["element", "action", ["submit"], [], ["loc", [null, [5, 48], [5, 67]]]], ["element", "action", ["reset"], [], ["loc", [null, [9, 34], [9, 52]]]]],
+      statements: [["inline", "email-input", [], ["email", ["subexpr", "@mut", [["get", "credentials.email", ["loc", [null, [3, 22], [3, 39]]]]], [], []]], ["loc", [null, [3, 2], [3, 41]]]], ["inline", "password-input", [], ["password", ["subexpr", "@mut", [["get", "credentials.password", ["loc", [null, [4, 28], [4, 48]]]]], [], []]], ["loc", [null, [4, 2], [4, 50]]]], ["element", "action", ["submit"], [], ["loc", [null, [6, 48], [6, 67]]]], ["element", "action", ["signUp"], [], ["loc", [null, [10, 45], [10, 64]]]], ["element", "action", ["reset"], [], ["loc", [null, [14, 34], [14, 52]]]]],
       locals: [],
       templates: []
     };
@@ -8658,6 +8671,9 @@ define('togetherness-ember-client/components/sign-up-form/component', ['exports'
       },
       reset: function reset() {
         this.sendAction('reset');
+      },
+      signIn: function signIn() {
+        this.sendAction('signIn');
       }
     }
   });
@@ -8677,7 +8693,7 @@ define("togetherness-ember-client/components/sign-up-form/template", ["exports"]
             "column": 0
           },
           "end": {
-            "line": 16,
+            "line": 22,
             "column": 0
           }
         },
@@ -8691,7 +8707,7 @@ define("togetherness-ember-client/components/sign-up-form/template", ["exports"]
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createElement("div");
         dom.setAttribute(el1, "class", "col-xs-6");
-        var el2 = dom.createTextNode("\n  ");
+        var el2 = dom.createTextNode("\n\n  ");
         dom.appendChild(el1, el2);
         var el2 = dom.createComment("");
         dom.appendChild(el1, el2);
@@ -8722,11 +8738,19 @@ define("togetherness-ember-client/components/sign-up-form/template", ["exports"]
         var el2 = dom.createTextNode("\n\n  ");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("button");
+        dom.setAttribute(el2, "type", "submit");
+        dom.setAttribute(el2, "class", "btn btn-info");
+        var el3 = dom.createTextNode("\n    Sign In\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("button");
         dom.setAttribute(el2, "class", "btn btn-default");
         var el3 = dom.createTextNode("\n    Cancel\n  ");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n");
+        var el2 = dom.createTextNode("\n\n");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
@@ -8737,7 +8761,8 @@ define("togetherness-ember-client/components/sign-up-form/template", ["exports"]
         var element0 = dom.childAt(fragment, [0]);
         var element1 = dom.childAt(element0, [11]);
         var element2 = dom.childAt(element0, [13]);
-        var morphs = new Array(7);
+        var element3 = dom.childAt(element0, [15]);
+        var morphs = new Array(8);
         morphs[0] = dom.createMorphAt(element0, 1, 1);
         morphs[1] = dom.createMorphAt(element0, 3, 3);
         morphs[2] = dom.createMorphAt(element0, 5, 5);
@@ -8745,9 +8770,10 @@ define("togetherness-ember-client/components/sign-up-form/template", ["exports"]
         morphs[4] = dom.createMorphAt(element0, 9, 9);
         morphs[5] = dom.createElementMorph(element1);
         morphs[6] = dom.createElementMorph(element2);
+        morphs[7] = dom.createElementMorph(element3);
         return morphs;
       },
-      statements: [["inline", "givenname-input", [], ["givenname", ["subexpr", "@mut", [["get", "credentials.givenname", ["loc", [null, [2, 30], [2, 51]]]]], [], []]], ["loc", [null, [2, 2], [2, 53]]]], ["inline", "surname-input", [], ["surname", ["subexpr", "@mut", [["get", "credentials.surname", ["loc", [null, [3, 26], [3, 45]]]]], [], []]], ["loc", [null, [3, 2], [3, 47]]]], ["inline", "email-input", [], ["email", ["subexpr", "@mut", [["get", "credentials.email", ["loc", [null, [4, 22], [4, 39]]]]], [], []]], ["loc", [null, [4, 2], [4, 41]]]], ["inline", "password-input", [], ["password", ["subexpr", "@mut", [["get", "credentials.password", ["loc", [null, [5, 28], [5, 48]]]]], [], []]], ["loc", [null, [5, 2], [5, 50]]]], ["inline", "password-confirmation-input", [], ["password", ["subexpr", "@mut", [["get", "credentials.passwordConfirmation", ["loc", [null, [6, 41], [6, 73]]]]], [], []]], ["loc", [null, [6, 2], [6, 75]]]], ["element", "action", ["submit"], [], ["loc", [null, [8, 48], [8, 67]]]], ["element", "action", ["reset"], [], ["loc", [null, [12, 34], [12, 52]]]]],
+      statements: [["inline", "givenname-input", [], ["givenname", ["subexpr", "@mut", [["get", "credentials.givenname", ["loc", [null, [3, 30], [3, 51]]]]], [], []]], ["loc", [null, [3, 2], [3, 53]]]], ["inline", "surname-input", [], ["surname", ["subexpr", "@mut", [["get", "credentials.surname", ["loc", [null, [4, 26], [4, 45]]]]], [], []]], ["loc", [null, [4, 2], [4, 47]]]], ["inline", "email-input", [], ["email", ["subexpr", "@mut", [["get", "credentials.email", ["loc", [null, [5, 22], [5, 39]]]]], [], []]], ["loc", [null, [5, 2], [5, 41]]]], ["inline", "password-input", [], ["password", ["subexpr", "@mut", [["get", "credentials.password", ["loc", [null, [6, 28], [6, 48]]]]], [], []]], ["loc", [null, [6, 2], [6, 50]]]], ["inline", "password-confirmation-input", [], ["password", ["subexpr", "@mut", [["get", "credentials.passwordConfirmation", ["loc", [null, [7, 41], [7, 73]]]]], [], []]], ["loc", [null, [7, 2], [7, 75]]]], ["element", "action", ["submit"], [], ["loc", [null, [9, 48], [9, 67]]]], ["element", "action", ["signIn"], [], ["loc", [null, [13, 45], [13, 64]]]], ["element", "action", ["reset"], [], ["loc", [null, [17, 34], [17, 52]]]]],
       locals: [],
       templates: []
     };
@@ -11494,6 +11520,9 @@ define('togetherness-ember-client/sign-in/route', ['exports', 'ember'], function
       },
       reset: function reset() {
         this.transitionTo('index');
+      },
+      signUp: function signUp() {
+        this.transitionTo('sign-up');
       }
     }
   });
@@ -11514,7 +11543,7 @@ define("togetherness-ember-client/sign-in/template", ["exports"], function (expo
             "column": 0
           },
           "end": {
-            "line": 6,
+            "line": 7,
             "column": 0
           }
         },
@@ -11543,7 +11572,7 @@ define("togetherness-ember-client/sign-in/template", ["exports"], function (expo
         morphs[0] = dom.createMorphAt(fragment, 2, 2, contextualElement);
         return morphs;
       },
-      statements: [["inline", "sign-in-form", [], ["submit", "signIn", "reset", "reset"], ["loc", [null, [3, 0], [5, 17]]]]],
+      statements: [["inline", "sign-in-form", [], ["submit", "signIn", "reset", "reset", "signUp", "signUp"], ["loc", [null, [3, 0], [6, 19]]]]],
       locals: [],
       templates: []
     };
@@ -11570,6 +11599,9 @@ define('togetherness-ember-client/sign-up/route', ['exports', 'ember'], function
       },
       reset: function reset() {
         this.transitionTo('index');
+      },
+      signIn: function signIn() {
+        this.transitionTo('sign-in');
       }
     }
   });
@@ -11590,7 +11622,7 @@ define("togetherness-ember-client/sign-up/template", ["exports"], function (expo
             "column": 0
           },
           "end": {
-            "line": 6,
+            "line": 7,
             "column": 0
           }
         },
@@ -11619,7 +11651,7 @@ define("togetherness-ember-client/sign-up/template", ["exports"], function (expo
         morphs[0] = dom.createMorphAt(fragment, 2, 2, contextualElement);
         return morphs;
       },
-      statements: [["inline", "sign-up-form", [], ["submit", "signUp", "reset", "reset"], ["loc", [null, [3, 0], [5, 17]]]]],
+      statements: [["inline", "sign-up-form", [], ["submit", "signUp", "reset", "reset", "signIn", "signIn"], ["loc", [null, [3, 0], [6, 19]]]]],
       locals: [],
       templates: []
     };
@@ -13143,7 +13175,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+aca84775"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+0c5b068a"});
 }
 
 /* jshint ignore:end */
