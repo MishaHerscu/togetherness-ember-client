@@ -4098,28 +4098,32 @@ define('togetherness-ember-client/components/disqus-comments', ['exports', 'embe
     }
   });
 });
-define('togetherness-ember-client/components/drop-down', ['exports'], function (exports) {
-  exports['default'] = Em.Component.extend({
-    selectClass: '',
+define('togetherness-ember-client/components/drop-down', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Component.extend({
+    tagName: 'select',
     content: null,
     value: '',
     optionValuePath: '',
     optionLabelPath: '',
-    didInsertElement: function didInsertElement() {
+    checkValueChange: _ember['default'].observer('value', function () {
       this.$().find('option[value=\'' + this.value + '\']').prop('selected', true);
-      var _scope = this;
+    }),
+    initSelect: _ember['default'].on('didInsertElement', function () {
+      var _this = this;
+
+      this.$().find('option[value=\'' + this.value + '\']').prop('selected', true);
       this.$().on('change', function () {
         var optionValue = false;
-        if ($("option:selected", this).val() === 'true') {
-          optionValue = $("option:selected", this).val() === 'true';
-        } else if ($("option:selected", this).val() === 'false') {
-          optionValue = $("option:selected", this).val() === 'true';
+        if ($("option:selected", _this.$()).val() === 'true') {
+          optionValue = $("option:selected", _this.$()).val() === 'true';
+        } else if ($("option:selected", _this.$()).val() === 'false') {
+          optionValue = $("option:selected", _this.$()).val() === 'true';
         } else {
-          optionValue = $("option:selected", this).val();
+          optionValue = $("option:selected", _this.$()).val();
         }
-        _scope.set('value', optionValue);
+        _this.set('value', optionValue);
       });
-    }
+    })
   });
 });
 define('togetherness-ember-client/components/edit-profile/component', ['exports', 'ember'], function (exports, _ember) {
@@ -5455,7 +5459,12 @@ define("togetherness-ember-client/components/manage-keywords/template", ["export
   })());
 });
 define('togetherness-ember-client/components/multiselect-checkboxes', ['exports', 'ember-multiselect-checkboxes/components/multiselect-checkboxes'], function (exports, _emberMultiselectCheckboxesComponentsMultiselectCheckboxes) {
-  exports['default'] = _emberMultiselectCheckboxesComponentsMultiselectCheckboxes['default'];
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberMultiselectCheckboxesComponentsMultiselectCheckboxes['default'];
+    }
+  });
 });
 define('togetherness-ember-client/components/my-application/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
@@ -8302,7 +8311,7 @@ define("togetherness-ember-client/components/person-profile/template", ["exports
     };
   })());
 });
-define('togetherness-ember-client/components/pikaday-input', ['exports', 'ember', 'ember-pikaday/components/pikaday-input'], function (exports, _ember, _emberPikadayComponentsPikadayInput) {
+define('togetherness-ember-client/components/pikaday-input', ['exports', 'ember-pikaday/components/pikaday-input'], function (exports, _emberPikadayComponentsPikadayInput) {
   exports['default'] = _emberPikadayComponentsPikadayInput['default'];
 });
 define('togetherness-ember-client/components/pikaday-inputless', ['exports', 'ember-pikaday/components/pikaday-inputless'], function (exports, _emberPikadayComponentsPikadayInputless) {
@@ -10290,11 +10299,11 @@ define("togetherness-ember-client/contact/template", ["exports"], function (expo
     };
   })());
 });
-define('togetherness-ember-client/controllers/array', ['exports', 'ember'], function (exports, _ember) {
-  exports['default'] = _ember['default'].Controller;
+define('togetherness-ember-client/controllers/array', ['exports', '@ember/controller'], function (exports, _emberController) {
+  exports['default'] = _emberController['default'];
 });
-define('togetherness-ember-client/controllers/object', ['exports', 'ember'], function (exports, _ember) {
-  exports['default'] = _ember['default'].Controller;
+define('togetherness-ember-client/controllers/object', ['exports', '@ember/controller'], function (exports, _emberController) {
+  exports['default'] = _emberController['default'];
 });
 define('togetherness-ember-client/events-api/service', ['exports', 'ember', 'ember-local-storage'], function (exports, _ember, _emberLocalStorage) {
   exports['default'] = _ember['default'].Service.extend({
@@ -10367,7 +10376,7 @@ define('togetherness-ember-client/helpers/dropdown-option', ['exports'], functio
       value = data;
       display = data;
     }
-    return new Em.String.htmlSafe('<option value="' + value + '">' + display + '</option>');
+    return Ember.String.htmlSafe('<option value="' + value + '">' + display + '</option>');
   });
 });
 define('togetherness-ember-client/helpers/in-arr', ['exports', 'ember-inline-edit/helpers/in-arr'], function (exports, _emberInlineEditHelpersInArr) {
@@ -10469,8 +10478,7 @@ define('togetherness-ember-client/initializers/container-debug-adapter', ['expor
     }
   };
 });
-define('togetherness-ember-client/initializers/data-adapter', ['exports', 'ember'], function (exports, _ember) {
-
+define('togetherness-ember-client/initializers/data-adapter', ['exports'], function (exports) {
   /*
     This initializer is here to keep backwards compatibility with code depending
     on the `data-adapter` initializer (before Ember Data was an addon).
@@ -10481,10 +10489,10 @@ define('togetherness-ember-client/initializers/data-adapter', ['exports', 'ember
   exports['default'] = {
     name: 'data-adapter',
     before: 'store',
-    initialize: _ember['default'].K
+    initialize: function initialize() {}
   };
 });
-define('togetherness-ember-client/initializers/ember-data', ['exports', 'ember-data/setup-container', 'ember-data/-private/core'], function (exports, _emberDataSetupContainer, _emberDataPrivateCore) {
+define('togetherness-ember-client/initializers/ember-data', ['exports', 'ember-data/setup-container', 'ember-data'], function (exports, _emberDataSetupContainer, _emberData) {
 
   /*
   
@@ -10500,16 +10508,23 @@ define('togetherness-ember-client/initializers/ember-data', ['exports', 'ember-d
   
     For example, imagine an Ember.js application with the following classes:
   
-    App.StoreService = DS.Store.extend({
+    ```app/services/store.js
+    import DS from 'ember-data';
+  
+    export default DS.Store.extend({
       adapter: 'custom'
     });
+    ```
   
-    App.PostsController = Ember.ArrayController.extend({
+    ```app/controllers/posts.js
+    import { Controller } from '@ember/controller';
+  
+    export default Controller.extend({
       // ...
     });
   
-    When the application is initialized, `App.ApplicationStore` will automatically be
-    instantiated, and the instance of `App.PostsController` will have its `store`
+    When the application is initialized, `ApplicationStore` will automatically be
+    instantiated, and the instance of `PostsController` will have its `store`
     property set to that instance.
   
     Note that this code will only be run if the `ember-application` package is
@@ -10529,6 +10544,18 @@ define('togetherness-ember-client/initializers/export-application-global', ['exp
   function initialize() {
     var application = arguments[1] || arguments[0];
     if (_togethernessEmberClientConfigEnvironment['default'].exportApplicationGlobal !== false) {
+      var theGlobal;
+      if (typeof window !== 'undefined') {
+        theGlobal = window;
+      } else if (typeof global !== 'undefined') {
+        theGlobal = global;
+      } else if (typeof self !== 'undefined') {
+        theGlobal = self;
+      } else {
+        // no reasonable global, just bail
+        return;
+      }
+
       var value = _togethernessEmberClientConfigEnvironment['default'].exportApplicationGlobal;
       var globalName;
 
@@ -10538,13 +10565,13 @@ define('togetherness-ember-client/initializers/export-application-global', ['exp
         globalName = _ember['default'].String.classify(_togethernessEmberClientConfigEnvironment['default'].modulePrefix);
       }
 
-      if (!window[globalName]) {
-        window[globalName] = application;
+      if (!theGlobal[globalName]) {
+        theGlobal[globalName] = application;
 
         application.reopen({
           willDestroy: function willDestroy() {
             this._super.apply(this, arguments);
-            delete window[globalName];
+            delete theGlobal[globalName];
           }
         });
       }
@@ -10559,9 +10586,11 @@ define('togetherness-ember-client/initializers/export-application-global', ['exp
 });
 define('togetherness-ember-client/initializers/flash-messages', ['exports', 'ember', 'togetherness-ember-client/config/environment'], function (exports, _ember, _togethernessEmberClientConfigEnvironment) {
   exports.initialize = initialize;
-  var merge = _ember['default'].merge;
+
+  /* eslint-disable ember/new-module-imports */
   var deprecate = _ember['default'].deprecate;
 
+  var merge = _ember['default'].assign || _ember['default'].merge;
   var INJECTION_FACTORIES_DEPRECATION_MESSAGE = '[ember-cli-flash] Future versions of ember-cli-flash will no longer inject the service automatically. Instead, you should explicitly inject it into your Route, Controller or Component with `Ember.inject.service`.';
   var addonDefaults = {
     timeout: 3000,
@@ -10607,8 +10636,7 @@ define('togetherness-ember-client/initializers/flash-messages', ['exports', 'emb
     initialize: initialize
   };
 });
-define('togetherness-ember-client/initializers/injectStore', ['exports', 'ember'], function (exports, _ember) {
-
+define('togetherness-ember-client/initializers/injectStore', ['exports'], function (exports) {
   /*
     This initializer is here to keep backwards compatibility with code depending
     on the `injectStore` initializer (before Ember Data was an addon).
@@ -10619,7 +10647,7 @@ define('togetherness-ember-client/initializers/injectStore', ['exports', 'ember'
   exports['default'] = {
     name: 'injectStore',
     before: 'store',
-    initialize: _ember['default'].K
+    initialize: function initialize() {}
   };
 });
 define('togetherness-ember-client/initializers/local-storage-adapter', ['exports', 'ember-local-storage/initializers/local-storage-adapter'], function (exports, _emberLocalStorageInitializersLocalStorageAdapter) {
@@ -10636,8 +10664,7 @@ define('togetherness-ember-client/initializers/local-storage-adapter', ['exports
     }
   });
 });
-define('togetherness-ember-client/initializers/store', ['exports', 'ember'], function (exports, _ember) {
-
+define('togetherness-ember-client/initializers/store', ['exports'], function (exports) {
   /*
     This initializer is here to keep backwards compatibility with code depending
     on the `store` initializer (before Ember Data was an addon).
@@ -10648,7 +10675,7 @@ define('togetherness-ember-client/initializers/store', ['exports', 'ember'], fun
   exports['default'] = {
     name: 'store',
     after: 'ember-data',
-    initialize: _ember['default'].K
+    initialize: function initialize() {}
   };
 });
 define('togetherness-ember-client/initializers/text-field', ['exports', 'ember'], function (exports, _ember) {
@@ -10665,8 +10692,7 @@ define('togetherness-ember-client/initializers/text-field', ['exports', 'ember']
     initialize: initialize
   };
 });
-define('togetherness-ember-client/initializers/transforms', ['exports', 'ember'], function (exports, _ember) {
-
+define('togetherness-ember-client/initializers/transforms', ['exports'], function (exports) {
   /*
     This initializer is here to keep backwards compatibility with code depending
     on the `transforms` initializer (before Ember Data was an addon).
@@ -10677,13 +10703,13 @@ define('togetherness-ember-client/initializers/transforms', ['exports', 'ember']
   exports['default'] = {
     name: 'transforms',
     before: 'store',
-    initialize: _ember['default'].K
+    initialize: function initialize() {}
   };
 });
-define("togetherness-ember-client/instance-initializers/ember-data", ["exports", "ember-data/-private/instance-initializers/initialize-store-service"], function (exports, _emberDataPrivateInstanceInitializersInitializeStoreService) {
+define("togetherness-ember-client/instance-initializers/ember-data", ["exports", "ember-data/initialize-store-service"], function (exports, _emberDataInitializeStoreService) {
   exports["default"] = {
     name: "ember-data",
-    initialize: _emberDataPrivateInstanceInitializersInitializeStoreService["default"]
+    initialize: _emberDataInitializeStoreService["default"]
   };
 });
 define("togetherness-ember-client/interests/template", ["exports"], function (exports) {
@@ -11778,17 +11804,20 @@ define("togetherness-ember-client/templates/components/drop-down", ["exports"], 
     var child0 = (function () {
       return {
         meta: {
-          "fragmentReason": false,
+          "fragmentReason": {
+            "name": "missing-wrapper",
+            "problems": ["wrong-type"]
+          },
           "revision": "Ember@2.5.1",
           "loc": {
             "source": null,
             "start": {
-              "line": 2,
-              "column": 2
+              "line": 1,
+              "column": 0
             },
             "end": {
-              "line": 4,
-              "column": 2
+              "line": 3,
+              "column": 0
             }
           },
           "moduleName": "togetherness-ember-client/templates/components/drop-down.hbs"
@@ -11799,8 +11828,6 @@ define("togetherness-ember-client/templates/components/drop-down", ["exports"], 
         hasRendered: false,
         buildFragment: function buildFragment(dom) {
           var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("  ");
-          dom.appendChild(el0, el1);
           var el1 = dom.createComment("");
           dom.appendChild(el0, el1);
           var el1 = dom.createTextNode("\n");
@@ -11809,10 +11836,11 @@ define("togetherness-ember-client/templates/components/drop-down", ["exports"], 
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
           var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+          dom.insertBoundary(fragment, 0);
           return morphs;
         },
-        statements: [["inline", "dropdown-option", [["get", "data", ["loc", [null, [3, 20], [3, 24]]]], ["get", "optionValuePath", ["loc", [null, [3, 25], [3, 40]]]], ["get", "optionLabelPath", ["loc", [null, [3, 41], [3, 56]]]]], [], ["loc", [null, [3, 2], [3, 58]]]]],
+        statements: [["inline", "dropdown-option", [["get", "data", ["loc", [null, [2, 18], [2, 22]]]], ["get", "optionValuePath", ["loc", [null, [2, 23], [2, 38]]]], ["get", "optionLabelPath", ["loc", [null, [2, 39], [2, 54]]]]], [], ["loc", [null, [2, 0], [2, 56]]]]],
         locals: ["data"],
         templates: []
       };
@@ -11820,7 +11848,8 @@ define("togetherness-ember-client/templates/components/drop-down", ["exports"], 
     return {
       meta: {
         "fragmentReason": {
-          "name": "triple-curlies"
+          "name": "missing-wrapper",
+          "problems": ["wrong-type"]
         },
         "revision": "Ember@2.5.1",
         "loc": {
@@ -11830,7 +11859,7 @@ define("togetherness-ember-client/templates/components/drop-down", ["exports"], 
             "column": 0
           },
           "end": {
-            "line": 6,
+            "line": 4,
             "column": 0
           }
         },
@@ -11842,24 +11871,18 @@ define("togetherness-ember-client/templates/components/drop-down", ["exports"], 
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createElement("select");
-        var el2 = dom.createTextNode("\n");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createComment("");
-        dom.appendChild(el1, el2);
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
+        var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [0]);
-        var morphs = new Array(2);
-        morphs[0] = dom.createAttrMorph(element0, 'class');
-        morphs[1] = dom.createMorphAt(element0, 1, 1);
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["attribute", "class", ["concat", [["get", "selectClass", ["loc", [null, [1, 17], [1, 28]]]]]]], ["block", "each", [["get", "content", ["loc", [null, [2, 10], [2, 17]]]]], [], 0, null, ["loc", [null, [2, 2], [4, 11]]]]],
+      statements: [["block", "each", [["get", "content", ["loc", [null, [1, 8], [1, 15]]]]], [], 0, null, ["loc", [null, [1, 0], [3, 9]]]]],
       locals: [],
       templates: [child0]
     };
@@ -12349,196 +12372,6 @@ define("togetherness-ember-client/templates/components/ember-inline-edit", ["exp
       statements: [["block", "if", [["get", "isEditing", ["loc", [null, [1, 6], [1, 15]]]]], [], 0, 1, ["loc", [null, [1, 0], [40, 7]]]]],
       locals: [],
       templates: [child0, child1]
-    };
-  })());
-});
-define("togetherness-ember-client/templates/components/multiselect-checkboxes", ["exports"], function (exports) {
-  exports["default"] = Ember.HTMLBars.template((function () {
-    var child0 = (function () {
-      var child0 = (function () {
-        return {
-          meta: {
-            "fragmentReason": false,
-            "revision": "Ember@2.5.1",
-            "loc": {
-              "source": null,
-              "start": {
-                "line": 2,
-                "column": 2
-              },
-              "end": {
-                "line": 4,
-                "column": 2
-              }
-            },
-            "moduleName": "togetherness-ember-client/templates/components/multiselect-checkboxes.hbs"
-          },
-          isEmpty: false,
-          arity: 0,
-          cachedFragment: null,
-          hasRendered: false,
-          buildFragment: function buildFragment(dom) {
-            var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("    ");
-            dom.appendChild(el0, el1);
-            var el1 = dom.createComment("");
-            dom.appendChild(el0, el1);
-            var el1 = dom.createTextNode("\n");
-            dom.appendChild(el0, el1);
-            return el0;
-          },
-          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var morphs = new Array(1);
-            morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
-            return morphs;
-          },
-          statements: [["inline", "yield", [["get", "checkbox.option", ["loc", [null, [3, 12], [3, 27]]]], ["get", "checkbox.isSelected", ["loc", [null, [3, 28], [3, 47]]]], ["get", "index", ["loc", [null, [3, 48], [3, 53]]]]], [], ["loc", [null, [3, 4], [3, 55]]]]],
-          locals: [],
-          templates: []
-        };
-      })();
-      var child1 = (function () {
-        return {
-          meta: {
-            "fragmentReason": false,
-            "revision": "Ember@2.5.1",
-            "loc": {
-              "source": null,
-              "start": {
-                "line": 4,
-                "column": 2
-              },
-              "end": {
-                "line": 11,
-                "column": 2
-              }
-            },
-            "moduleName": "togetherness-ember-client/templates/components/multiselect-checkboxes.hbs"
-          },
-          isEmpty: false,
-          arity: 0,
-          cachedFragment: null,
-          hasRendered: false,
-          buildFragment: function buildFragment(dom) {
-            var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("    ");
-            dom.appendChild(el0, el1);
-            var el1 = dom.createElement("li");
-            var el2 = dom.createTextNode("\n      ");
-            dom.appendChild(el1, el2);
-            var el2 = dom.createElement("label");
-            var el3 = dom.createTextNode("\n        ");
-            dom.appendChild(el2, el3);
-            var el3 = dom.createComment("");
-            dom.appendChild(el2, el3);
-            var el3 = dom.createTextNode("\n        ");
-            dom.appendChild(el2, el3);
-            var el3 = dom.createComment("");
-            dom.appendChild(el2, el3);
-            var el3 = dom.createTextNode("\n      ");
-            dom.appendChild(el2, el3);
-            dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n    ");
-            dom.appendChild(el1, el2);
-            dom.appendChild(el0, el1);
-            var el1 = dom.createTextNode("\n");
-            dom.appendChild(el0, el1);
-            return el0;
-          },
-          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var element0 = dom.childAt(fragment, [1, 1]);
-            var morphs = new Array(2);
-            morphs[0] = dom.createMorphAt(element0, 1, 1);
-            morphs[1] = dom.createMorphAt(element0, 3, 3);
-            return morphs;
-          },
-          statements: [["inline", "input", [], ["type", "checkbox", "checked", ["subexpr", "@mut", [["get", "checkbox.isSelected", ["loc", [null, [7, 40], [7, 59]]]]], [], []], "disabled", ["subexpr", "@mut", [["get", "disabled", ["loc", [null, [7, 69], [7, 77]]]]], [], []]], ["loc", [null, [7, 8], [7, 79]]]], ["content", "checkbox.label", ["loc", [null, [8, 8], [8, 26]]]]],
-          locals: [],
-          templates: []
-        };
-      })();
-      return {
-        meta: {
-          "fragmentReason": {
-            "name": "missing-wrapper",
-            "problems": ["wrong-type"]
-          },
-          "revision": "Ember@2.5.1",
-          "loc": {
-            "source": null,
-            "start": {
-              "line": 1,
-              "column": 0
-            },
-            "end": {
-              "line": 12,
-              "column": 0
-            }
-          },
-          "moduleName": "togetherness-ember-client/templates/components/multiselect-checkboxes.hbs"
-        },
-        isEmpty: false,
-        arity: 2,
-        cachedFragment: null,
-        hasRendered: false,
-        buildFragment: function buildFragment(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createComment("");
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
-          dom.insertBoundary(fragment, 0);
-          dom.insertBoundary(fragment, null);
-          return morphs;
-        },
-        statements: [["block", "if", [["get", "hasBlock", ["loc", [null, [2, 8], [2, 16]]]]], [], 0, 1, ["loc", [null, [2, 2], [11, 9]]]]],
-        locals: ["checkbox", "index"],
-        templates: [child0, child1]
-      };
-    })();
-    return {
-      meta: {
-        "fragmentReason": {
-          "name": "missing-wrapper",
-          "problems": ["wrong-type"]
-        },
-        "revision": "Ember@2.5.1",
-        "loc": {
-          "source": null,
-          "start": {
-            "line": 1,
-            "column": 0
-          },
-          "end": {
-            "line": 13,
-            "column": 0
-          }
-        },
-        "moduleName": "togetherness-ember-client/templates/components/multiselect-checkboxes.hbs"
-      },
-      isEmpty: false,
-      arity: 0,
-      cachedFragment: null,
-      hasRendered: false,
-      buildFragment: function buildFragment(dom) {
-        var el0 = dom.createDocumentFragment();
-        var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        return el0;
-      },
-      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(1);
-        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
-        dom.insertBoundary(fragment, 0);
-        dom.insertBoundary(fragment, null);
-        return morphs;
-      },
-      statements: [["block", "each", [["get", "checkboxes", ["loc", [null, [1, 8], [1, 18]]]]], [], 0, null, ["loc", [null, [1, 0], [12, 9]]]]],
-      locals: [],
-      templates: [child0]
     };
   })());
 });
@@ -13175,7 +13008,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+0c5b068a"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+69206f4f"});
 }
 
 /* jshint ignore:end */
