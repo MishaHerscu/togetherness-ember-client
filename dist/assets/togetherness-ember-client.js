@@ -13008,7 +13008,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+7b1bb3d1"});
+  require("togetherness-ember-client/app")["default"].create({"name":"togetherness-ember-client","version":"0.0.0+27796337"});
 }
 
 /* jshint ignore:end */
